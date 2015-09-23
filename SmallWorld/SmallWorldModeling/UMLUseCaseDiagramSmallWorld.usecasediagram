@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="ecbc3998-f2c6-4532-93be-9317bccaeaa6" name="UMLUseCaseDiagramSmallWorld" linkedPackageId="73bac5c0-8db9-4af5-873b-4daa1c4e60d4" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="874d17ed-8c17-4edd-8bc5-e38e40543ba8">
+      <profileInstance Id="2368df73-7ce2-429e-a095-7f702b43569a" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="1850d3f2-1a1f-4018-9433-42e9e65589c7">
+      <profileInstance Id="31638ad4-4c23-41c5-b4cf-e322da22ca82" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="3ac26978-44dc-4223-b7cb-c5e62d5ea6cc" name="Player" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="42e22ce5-cf15-425a-b8d7-93d1e985af19" />
+        <targetEnds>
+          <association Id="23e6973b-ecbb-4fa4-8fbd-df04f49738e2" isDerived="false" sourceEndRoleName="Player" targetEndRoleName="Chose race" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="77b916d7-2975-4068-a38e-6c49cf7af2d0" LastKnownName="Chose race" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="354759ea-ea71-4e23-9e92-77eebccee14d" name="Player" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5394bb47-6985-40f4-9834-7f1d6d278157" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="349fc48f-8008-4978-96ab-64e9ca4d5df1" name="Chose race" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="504c7cdf-2940-42c7-ad18-cd246115e672" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="8660efc1-637f-4acd-aadd-5f3cea5158f9" />
+          </association>
+          <association Id="d132e3a7-0f43-4610-bbe7-235bb5168842" isDerived="false" sourceEndRoleName="Player" targetEndRoleName="Chose map" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="556355ec-9b5c-4849-adb5-04dded257cae" LastKnownName="Chose map" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d298691e-9844-42d7-bef0-33d21df2a998" name="Player" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="3b6a1a05-604b-4412-be30-ac2264c3eefd" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="76ea7a73-aca9-4af5-88c9-e41bcd38cfdc" name="Chose map" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="86f282d9-2f11-4617-810d-ecdb16bbf9d1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a9d5ecf9-86a7-4e59-8827-c2f2ae161205" />
+          </association>
+          <association Id="842fa0ab-03f1-4f1e-923b-c9b2d593a4bd" isDerived="false" sourceEndRoleName="Player" targetEndRoleName="Chose name" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="64db5605-0c24-4ebf-8758-5942d3806320" LastKnownName="Chose name" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0d934f06-2039-4303-963b-76977d32802d" name="Player" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="4446553d-093a-4aad-aed9-b6f9fd1df23f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="874b81c1-7f1f-4832-9ac5-8ddbaee6345e" name="Chose name" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="47babe65-c9ed-4f30-afc1-d23585f9c5ce" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="083ba259-7259-495b-ad7b-24cb49e419e6" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="77b916d7-2975-4068-a38e-6c49cf7af2d0" name="Chose race" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4dd16994-45d0-4958-8553-5343f06b0e0a" />
+        <subjects>
+          <subsystemMoniker Id="5e90f5b3-5798-4ba1-90d4-7bbf75211a42" LastKnownName="GameSettings" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="556355ec-9b5c-4849-adb5-04dded257cae" name="Chose map" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="396fa55a-7df9-480d-b082-4bdfec3c7657" />
+        <subjects>
+          <subsystemMoniker Id="5e90f5b3-5798-4ba1-90d4-7bbf75211a42" LastKnownName="GameSettings" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="64db5605-0c24-4ebf-8758-5942d3806320" name="Chose name" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="409e30f7-97bf-4823-ad2b-c7ec5bca526a" />
+        <subjects>
+          <subsystemMoniker Id="5e90f5b3-5798-4ba1-90d4-7bbf75211a42" LastKnownName="GameSettings" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="5e90f5b3-5798-4ba1-90d4-7bbf75211a42" name="GameSettings" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <ownedCommentsInternal>
+          <comment Id="40c54ec7-3759-47d2-a472-3c90d3eb969e">
+            <elementDefinition Id="cdbee088-b640-4191-883a-ed23e6e4e463" />
+            <body>Game initialisation</body>
+            <annotatedElements>
+              <subsystemMoniker Id="5e90f5b3-5798-4ba1-90d4-7bbf75211a42" LastKnownName="GameSettings" />
+            </annotatedElements>
+          </comment>
+        </ownedCommentsInternal>
+        <elementDefinition Id="59658411-a9a3-42d6-a010-984a5bd04f9a" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="087687b3-4dac-4abf-b67f-2487236c6525" name="GameTurn" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="df032b0a-ac9c-4be1-b13d-50eaa5dd4796" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="d862dd79-f612-4165-9ba7-39cc628dd38e" name="Begin Turn" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b2b30df2-cd7b-4f49-ae51-1b5c7c820860" />
+        <subjects>
+          <subsystemMoniker Id="087687b3-4dac-4abf-b67f-2487236c6525" LastKnownName="GameTurn" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="73bac5c0-8db9-4af5-873b-4daa1c4e60d4" name="SmallWorldModeling">
+    <elementDefinition Id="7d9ff38b-01f1-4f39-a73e-0df1aa40d855" />
+  </package>
+</useCaseModelRoot>

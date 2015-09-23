@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="7d9ff38b-01f1-4f39-a73e-0df1aa40d855"
+  name="SmallWorldModeling" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="cdbee088-b640-4191-883a-ed23e6e4e463">
+      <body>Game initialisation</body>
+      <annotatedElements>
+        <subsystemMoniker
+          Id="59658411-a9a3-42d6-a010-984a5bd04f9a"
+          LastKnownName="GameSettings"
+          LastKnownLocation="SmallWorldModeling.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="4ac2bfeb-00b6-4f6c-9d4c-56f35c514d15">
+      <body>Is name already used?</body>
+      <annotatedElements>
+        <decisionNodeMoniker
+          Id="50d210d9-44e4-49c6-b2eb-47d6c234cbfb"
+          LastKnownName="Decision1"
+          LastKnownLocation="SmallWorldModeling.uml" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <actor
+        Id="42e22ce5-cf15-425a-b8d7-93d1e985af19"
+        name="Player"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="8660efc1-637f-4acd-aadd-5f3cea5158f9"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Chose race"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="4dd16994-45d0-4958-8553-5343f06b0e0a"
+              LastKnownName="Chose race"
+              LastKnownLocation="SmallWorldModeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5394bb47-6985-40f4-9834-7f1d6d278157"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="504c7cdf-2940-42c7-ad18-cd246115e672"
+                  name="Chose race"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="a9d5ecf9-86a7-4e59-8827-c2f2ae161205"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Chose map"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="396fa55a-7df9-480d-b082-4bdfec3c7657"
+              LastKnownName="Chose map"
+              LastKnownLocation="SmallWorldModeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3b6a1a05-604b-4412-be30-ac2264c3eefd"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="86f282d9-2f11-4617-810d-ecdb16bbf9d1"
+                  name="Chose map"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="083ba259-7259-495b-ad7b-24cb49e419e6"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Chose name"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="409e30f7-97bf-4823-ad2b-c7ec5bca526a"
+              LastKnownName="Chose name"
+              LastKnownLocation="SmallWorldModeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4446553d-093a-4aad-aed9-b6f9fd1df23f"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="47babe65-c9ed-4f30-afc1-d23585f9c5ce"
+                  name="Chose name"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4dd16994-45d0-4958-8553-5343f06b0e0a"
+        name="Chose race"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="59658411-a9a3-42d6-a010-984a5bd04f9a"
+            LastKnownName="GameSettings"
+            LastKnownLocation="SmallWorldModeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="396fa55a-7df9-480d-b082-4bdfec3c7657"
+        name="Chose map"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="59658411-a9a3-42d6-a010-984a5bd04f9a"
+            LastKnownName="GameSettings"
+            LastKnownLocation="SmallWorldModeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="409e30f7-97bf-4823-ad2b-c7ec5bca526a"
+        name="Chose name"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="59658411-a9a3-42d6-a010-984a5bd04f9a"
+            LastKnownName="GameSettings"
+            LastKnownLocation="SmallWorldModeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="59658411-a9a3-42d6-a010-984a5bd04f9a"
+        name="GameSettings"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="df032b0a-ac9c-4be1-b13d-50eaa5dd4796"
+        name="GameTurn"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b2b30df2-cd7b-4f49-ae51-1b5c7c820860"
+        name="Begin Turn"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="df032b0a-ac9c-4be1-b13d-50eaa5dd4796"
+            LastKnownName="GameTurn"
+            LastKnownLocation="SmallWorldModeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="7376ee8e-85d8-4c6c-88f1-c30eb8f69ccd"
+        name="UseCase1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="5211c968-7108-4e0b-84a7-c857902651f1"
+        name="ActivityGameSettings"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="9eb1846f-4552-4f83-9a86-cb16012b9c85"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="d6bb1550-d000-4067-b294-fdd20ef7ccf9"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="577f48ce-23a1-432f-adf2-9f25fea195a6"
+                  LastKnownName="Chose name"
+                  LastKnownLocation="SmallWorldModeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <activityFinalNode
+            Id="ebd1733b-e470-49ee-a812-46ac8695d9c8"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <opaqueAction
+            Id="577f48ce-23a1-432f-adf2-9f25fea195a6"
+            name="Chose name"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="e868a89e-1250-4275-82ee-08564c0e20a8"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="50d210d9-44e4-49c6-b2eb-47d6c234cbfb"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="SmallWorldModeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="50d210d9-44e4-49c6-b2eb-47d6c234cbfb"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="a7b58478-e330-4cc1-acc9-ea387f8e4a2e"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="9ae0eae2-851d-4936-a6d1-0364ef2917f3"
+                  LastKnownName="Action1"
+                  LastKnownLocation="SmallWorldModeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="d5f8230c-dc7e-4101-a6c7-817616c048b3"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="5ad60ecd-1972-41bc-8266-1d7f13b0e46d"
+                  LastKnownName="Action2"
+                  LastKnownLocation="SmallWorldModeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="9ae0eae2-851d-4936-a6d1-0364ef2917f3"
+            name="Action1"
+            isLeaf="false" />
+          <opaqueAction
+            Id="5ad60ecd-1972-41bc-8266-1d7f13b0e46d"
+            name="Action2"
+            isLeaf="false" />
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="23865d26-03f6-414d-83ff-e01d56bb3e55"
+        name="Player"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="29e75883-5537-420f-8511-9b84b946a2fc"
+        name="Map"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="bda688d9-6816-430b-917d-33371aca15c2"
+        name="Tile"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="dbe99859-abac-4ef4-9664-a4fca416b54f"
+        name="SmallWorld"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="8b46e803-9fcc-4f82-b159-48a75a4ed234"
+        name="Game"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="ab393495-6b5f-42f5-b9a5-a559e08f29c1"
+        name="Unit"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="b453b4df-8bf3-462a-98b9-e11417ab5a60">
+            <classMoniker
+              Id="c869e493-9871-4f3d-b2e0-d4d3e25deec8"
+              LastKnownName="Race"
+              LastKnownLocation="SmallWorldModeling.uml" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="c869e493-9871-4f3d-b2e0-d4d3e25deec8"
+        name="Race"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="d2f4d4bd-b2e5-477a-8f8c-45d270d766ed"
+        name="Human"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="879d27dd-3f6a-4173-b6e9-971f9e27b966"
+            isSubstitutable="false">
+            <classMoniker
+              Id="c869e493-9871-4f3d-b2e0-d4d3e25deec8"
+              LastKnownName="Race"
+              LastKnownLocation="SmallWorldModeling.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="062491e8-b819-47ad-aa80-30ebd9feefa0"
+        name="Elf"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="a870d715-ecc0-4521-8405-10463cdb77db"
+            isSubstitutable="false">
+            <classMoniker
+              Id="c869e493-9871-4f3d-b2e0-d4d3e25deec8"
+              LastKnownName="Race"
+              LastKnownLocation="SmallWorldModeling.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="e810f1ac-4262-4aed-b1cc-950933d8dd37"
+        name="Orc"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="c967547c-fa1f-4b11-9f93-3783162674ef"
+            isSubstitutable="false">
+            <classMoniker
+              Id="c869e493-9871-4f3d-b2e0-d4d3e25deec8"
+              LastKnownName="Race"
+              LastKnownLocation="SmallWorldModeling.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>
