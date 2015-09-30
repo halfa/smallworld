@@ -5,10 +5,8 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public interface Map
+    public class TileFactory
     {
-        private int size;
-    
         public List<SmallWorld.Core.Tile> Tile
         {
             get
@@ -18,6 +16,11 @@ namespace SmallWorld.Core
             set
             {
             }
+        }
+
+        public Tile getTile(TileType type)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

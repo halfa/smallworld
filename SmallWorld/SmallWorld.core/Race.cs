@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public abstract class Race
+    public interface Race
     {
     }
 }

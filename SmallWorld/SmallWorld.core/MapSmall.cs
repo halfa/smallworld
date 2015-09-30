@@ -5,18 +5,18 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public interface Map
+    public class MapSmall : Map
     {
-        private int size;
-    
-        public List<SmallWorld.Core.Tile> Tile
+
+        public List<Tile> Tile
         {
             get
             {
-                throw new System.NotImplementedException();
+                throw new NotImplementedException();
             }
             set
             {
+                throw new NotImplementedException();
             }
         }
     }

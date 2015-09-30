@@ -5,7 +5,11 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public interface Tile
+    public enum TileType
     {
+        Plain,
+        Water,
+        Forest,
+        Mountain,
     }
 }
