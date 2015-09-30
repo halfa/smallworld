@@ -7,9 +7,8 @@ namespace SmallWorld.Core
 {
     public interface Map
     {
-        private int size;
     
-        public List<SmallWorld.Core.Tile> Tile
+        public List<SmallWorld.Core.Tile> tiles
         {
             get
             {

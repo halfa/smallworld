@@ -9,6 +9,12 @@ namespace SmallWorld.Core
     {
         private string name;
         private int score;
+        private Undo undo;
+
+        public Player(String name)
+        {
+            throw new System.NotImplementedException();
+        }
     
         public Race Race
         {
@@ -22,6 +28,17 @@ namespace SmallWorld.Core
         }
 
         public List<SmallWorld.Core.Unit> Unit
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
+        public Undo Undo
         {
             get
             {

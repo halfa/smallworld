@@ -60,6 +60,7 @@
     <Compile Include="Tile.cs" />
     <Compile Include="TileFactory.cs" />
     <Compile Include="TileType.cs" />
+    <Compile Include="Undo.cs" />
     <Compile Include="Unit.cs" />
     <Compile Include="Water.cs" />
   </ItemGroup>

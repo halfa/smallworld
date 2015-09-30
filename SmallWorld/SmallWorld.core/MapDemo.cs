@@ -8,7 +8,7 @@ namespace SmallWorld.Core
     public class MapDemo : Map
     {
 
-        public List<Tile> Tile
+        public List<Tile> tiles
         {
             get
             {

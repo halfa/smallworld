@@ -36,6 +36,20 @@
       <SubType>Content</SubType>
       <DependentUpon>UMLClassDiagramSmallWorld.classdiagram</DependentUpon>
     </Content>
+    <Content Include="UMLSequenceDiagramGameStart.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UMLSequenceDiagramGameStart.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>UMLSequenceDiagramGameStart.sequencediagram</DependentUpon>
+    </Content>
+    <Content Include="UMLSequenceDiagramGameTurn.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UMLSequenceDiagramGameTurn.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>UMLSequenceDiagramGameTurn.sequencediagram</DependentUpon>
+    </Content>
     <Content Include="UMLUseCaseDiagramSmallWorld.usecasediagram">
       <SubType>Content</SubType>
     </Content>

@@ -8,21 +8,10 @@ namespace SmallWorld.Core
     public abstract class Unit
     {
         private float actionPool;
-        private int life;
-        private int attack;
-        private int defence;
+        private int healthPt;
+        private int attackPt;
+        private int defencePt;
         private int range;
-    
-        public Tile Tile
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
 
         public Player Player
         {
@@ -33,6 +22,16 @@ namespace SmallWorld.Core
             set
             {
             }
+        }
+
+        public void move()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void attack()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
