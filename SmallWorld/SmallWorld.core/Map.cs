@@ -7,16 +7,6 @@ namespace SmallWorld.Core
 {
     public interface Map
     {
-    
-        public List<SmallWorld.Core.Tile> tiles
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        List<SmallWorld.Core.Tile> tiles { get; set; }
     }
 }

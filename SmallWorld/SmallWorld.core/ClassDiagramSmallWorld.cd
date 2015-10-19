@@ -185,7 +185,7 @@
   <Class Name="SmallWorld.Core.Undo">
     <Position X="7.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Undo.cs</FileName>
     </TypeIdentifier>
   </Class>

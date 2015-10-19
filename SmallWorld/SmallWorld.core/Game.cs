@@ -46,7 +46,7 @@ namespace SmallWorld.Core
             }
         }
 
-        public Array<Player> getTurnOrder()
+        public Player[] getTurnOrder()
         {
             throw new System.NotImplementedException();
         }
