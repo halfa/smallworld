@@ -7,6 +7,16 @@ namespace SmallWorld.Core
 {
     public class MapFactory
     {
+        public MapFactory()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        ~MapFactory()
+        {
+            throw new System.NotImplementedException();
+        }
+
         /// <summary>
         /// Creates a demo map
         /// </summary>

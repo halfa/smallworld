@@ -10,6 +10,16 @@ namespace SmallWorld.Core
         private Unit _attacker;
         private Unit _defender;
 
+        public Battle(Unit attacker, Unit defender)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        ~Battle()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public Unit defender
         {
             get

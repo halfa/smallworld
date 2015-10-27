@@ -17,7 +17,12 @@ namespace SmallWorld.Core
         {
             throw new System.NotImplementedException();
         }
-    
+
+        ~Player()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public Race race
         {
             get

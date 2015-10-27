@@ -7,5 +7,7 @@ namespace SmallWorld.Core
 {
     public interface Tile
     {
+        bool isWalkable(Unit unit);
+        int countPoints(Unit unit);
     }
 }

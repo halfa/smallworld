@@ -7,5 +7,14 @@ namespace SmallWorld.Core
 {
     public class Water : Tile
     {
+        public bool isWalkable(Unit unit)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public int countPoints(Unit unit)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
