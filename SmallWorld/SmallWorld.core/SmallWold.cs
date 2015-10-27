@@ -7,7 +7,7 @@ namespace SmallWorld.Core
 {
     public class SmallWold
     {
-        public Game Game
+        public Game game
         {
             get
             {

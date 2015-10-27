@@ -7,7 +7,10 @@ namespace SmallWorld.Core
 {
     public class Battle
     {
-        public Unit Defender
+        private Unit _attacker;
+        private Unit _defender;
+
+        public Unit defender
         {
             get
             {
@@ -18,7 +21,7 @@ namespace SmallWorld.Core
             }
         }
 
-        public Unit Attacker
+        public Unit attacker
         {
             get
             {

@@ -24,7 +24,7 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
     
-        public List<SmallWorld.Core.Player> Players
+        public List<SmallWorld.Core.Player> players
         {
             get
             {
@@ -35,7 +35,7 @@ namespace SmallWorld.Core
             }
         }
 
-        public Map Map
+        public Map map
         {
             get
             {

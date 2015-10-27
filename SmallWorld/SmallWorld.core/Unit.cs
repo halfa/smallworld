@@ -12,8 +12,9 @@ namespace SmallWorld.Core
         private int _attackPt;
         private int _defencePt;
         private int _range;
+        private Player _player;
 
-        public Player Player
+        public Player player
         {
             get
             {
