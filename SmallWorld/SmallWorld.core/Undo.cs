@@ -7,7 +7,7 @@ namespace SmallWorld.Core
 {
     public class Undo
     {
-        private int lastMoves;
+        private int _lastMoves;
 
         public void undo()
         {

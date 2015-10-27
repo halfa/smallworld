@@ -7,6 +7,19 @@ namespace SmallWorld.Core
 {
     public class MapDemo : Map
     {
+        private int _height;
+        private List<Tile> _tiles;
+        private int _width;
+
+        public MapDemo()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        ~MapDemo()
+        {
+            throw new System.NotImplementedException();
+        }
 
         public List<Tile> tiles
         {
@@ -17,6 +30,30 @@ namespace SmallWorld.Core
             set
             {
                 throw new NotImplementedException();
+            }
+        }
+
+        public int height
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public int width
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
             }
         }
     }

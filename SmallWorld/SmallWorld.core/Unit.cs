@@ -7,11 +7,11 @@ namespace SmallWorld.Core
 {
     public abstract class Unit
     {
-        private float actionPool;
-        private int healthPt;
-        private int attackPt;
-        private int defencePt;
-        private int range;
+        private float _actionPool;
+        private int _healthPt;
+        private int _attackPt;
+        private int _defencePt;
+        private int _range;
 
         public Player Player
         {

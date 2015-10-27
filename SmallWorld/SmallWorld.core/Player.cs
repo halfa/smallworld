@@ -7,9 +7,9 @@ namespace SmallWorld.Core
 {
     public class Player
     {
-        private string name;
-        private int score;
-        private Undo undo;
+        private string _name;
+        private int _score;
+        private Undo _undo;
 
         public Player(String name)
         {

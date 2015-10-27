@@ -22,7 +22,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>QAAAAAAEAAAABAAAIAAIAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>QAAAIAAAAAAABgAAIAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -52,7 +52,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAACEAAEABAAAAAEAIAAAAAAAQAgAAAAIAAAAIAAgAA=</HashCode>
+      <HashCode>BAACAAAEABAAgAAAEAAAAAAAARAgAAAAIEAAAIAAgAA=</HashCode>
       <FileName>Game.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -116,7 +116,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAKAAAAgACAAAACAAAAAAAAAACAAAAAAQAgAAA=</HashCode>
+      <HashCode>EAAAAAAAAQAAAACAEAEAAAAAAAAAAACAAAAEAQAAAAA=</HashCode>
       <FileName>Unit.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -147,26 +147,26 @@
       <FileName>MapFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SmallWorld.Core.MapDemo">
+  <Class Name="SmallWorld.Core.MapDemo" Collapsed="true">
     <Position X="2.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAADAAAQAQAAAAAAAAhAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MapDemo.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="SmallWorld.Core.MapSmall">
+  <Class Name="SmallWorld.Core.MapSmall" Collapsed="true">
     <Position X="2.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAADAAAQAQAAAAAAAAhAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MapSmall.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="SmallWorld.Core.MapStandard">
+  <Class Name="SmallWorld.Core.MapStandard" Collapsed="true">
     <Position X="3" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAADAAAQAQAAAAAAAAhAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MapStandard.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -184,8 +184,11 @@
   </Class>
   <Class Name="SmallWorld.Core.Undo">
     <Position X="7.25" Y="2.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>Undo.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -199,7 +202,7 @@
   <Interface Name="SmallWorld.Core.Map">
     <Position X="5" Y="4" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAQAQAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Map.cs</FileName>
     </TypeIdentifier>
   </Interface>

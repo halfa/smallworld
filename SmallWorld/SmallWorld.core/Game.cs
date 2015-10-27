@@ -7,12 +7,12 @@ namespace SmallWorld.Core
 {
     public class Game
     {
-        private readonly int turnLimit;
-        private readonly int unitLimit;
-        private Array board;
-        private List<Player> players;
-        private int turnCounter;
-        private Map map;
+        private readonly int _turnLimit;
+        private readonly int _unitLimit;
+        private Array _board;
+        private List<Player> _players;
+        private int _turnCounter;
+        private Map _map;
 
         public Game(int nbPlayers, int nbTurns, int nbUnits)
         {

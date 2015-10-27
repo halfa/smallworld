@@ -8,5 +8,7 @@ namespace SmallWorld.Core
     public interface Map
     {
         List<SmallWorld.Core.Tile> tiles { get; set; }
+        int width { get; set; }
+        int height { get; set; }
     }
 }
