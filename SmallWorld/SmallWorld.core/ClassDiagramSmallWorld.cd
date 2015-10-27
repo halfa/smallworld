@@ -38,7 +38,7 @@
     <Position X="14.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Orc.cs</FileName>
+      <FileName>Race\Orc.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -68,7 +68,7 @@
     <Position X="11" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Human.cs</FileName>
+      <FileName>Race\Human.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -76,7 +76,7 @@
     <Position X="12.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Elf.cs</FileName>
+      <FileName>Race\Elf.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -84,7 +84,7 @@
     <Position X="1.25" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
-      <FileName>Plain.cs</FileName>
+      <FileName>Tile\Plain.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.233" />
   </Class>
@@ -92,7 +92,7 @@
     <Position X="2.75" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
-      <FileName>Water.cs</FileName>
+      <FileName>Tile\Water.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -100,7 +100,7 @@
     <Position X="4.25" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
-      <FileName>Forest.cs</FileName>
+      <FileName>Tile\Forest.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -108,7 +108,7 @@
     <Position X="5.75" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
-      <FileName>Mountain.cs</FileName>
+      <FileName>Tile\Mountain.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -136,21 +136,21 @@
     <Position X="0.5" Y="5.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAEAAAA=</HashCode>
-      <FileName>TileFactory.cs</FileName>
+      <FileName>Tile\TileFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.MapFactory" Collapsed="true">
     <Position X="0.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAQAAAAEAAAAAA=</HashCode>
-      <FileName>MapFactory.cs</FileName>
+      <FileName>Map\MapFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.MapDemo" Collapsed="true">
     <Position X="2.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAADAAAQAQAAAAAAAAhAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MapDemo.cs</FileName>
+      <FileName>Map\MapDemo.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -158,7 +158,7 @@
     <Position X="2.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAADAAAQAQAAAAAAAAhAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MapSmall.cs</FileName>
+      <FileName>Map\MapSmall.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -166,7 +166,7 @@
     <Position X="3" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAADAAAQAQAAAAAAAAhAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MapStandard.cs</FileName>
+      <FileName>Map\MapStandard.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -199,28 +199,28 @@
     <Position X="12.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Race.cs</FileName>
+      <FileName>Race\Race.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SmallWorld.Core.Map" Collapsed="true">
     <Position X="5" Y="4" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAQAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Map.cs</FileName>
+      <FileName>Map\Map.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SmallWorld.Core.Tile" Collapsed="true">
     <Position X="4.75" Y="5.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
-      <FileName>Tile.cs</FileName>
+      <FileName>Tile\Tile.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="SmallWorld.Core.TileType" Collapsed="true">
     <Position X="0.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAIAAAAAACAAAAAAAAAAAAAAAgAAAAAgAAAAAAAAA=</HashCode>
-      <FileName>TileType.cs</FileName>
+      <FileName>Tile\TileType.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />
