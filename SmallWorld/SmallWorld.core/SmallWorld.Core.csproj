@@ -61,7 +61,6 @@
     <Compile Include="SmallWold.cs" />
     <Compile Include="Tile\Tile.cs" />
     <Compile Include="Tile\TileFactory.cs" />
-    <Compile Include="Tile\TileType.cs" />
     <Compile Include="Undo.cs" />
     <Compile Include="Unit\Unit.cs" />
     <Compile Include="Tile\Water.cs" />

@@ -7,7 +7,10 @@ namespace SmallWorld.Core
 {
     public class TileFactory
     {
-        private Dictionary<TileType, Tile> tiles;
+        private Plain _plainTile;
+        private Water _waterTile;
+        private Forest _forestTile;
+        private Mountain _mountainTIle;
 
         public TileFactory()
         {
@@ -19,7 +22,22 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        public Tile getTile(TileType type)
+        public Plain createPlainTile()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Water createWaterTile()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Forest createForestTile()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Mountain createMountainTile()
         {
             throw new System.NotImplementedException();
         }
