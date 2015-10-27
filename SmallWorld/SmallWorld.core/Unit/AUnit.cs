@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public abstract class Unit
+    public abstract class AUnit
     {
         private float _actionPool;
         private int _healthPt;

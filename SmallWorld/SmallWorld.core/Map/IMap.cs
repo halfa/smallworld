@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public interface Map
+    public interface IMap
     {
         List<SmallWorld.Core.Tile> tiles { get; set; }
         int width { get; set; }

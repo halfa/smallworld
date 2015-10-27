@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public class Elf : Race
+    public class Elf : IRace
     {
     }
 }

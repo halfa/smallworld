@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public class ElfUnit : Unit
+    public class ElfUnit : AUnit
     {
         public ElfUnit()
         {

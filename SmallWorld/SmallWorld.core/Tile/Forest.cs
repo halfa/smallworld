@@ -5,14 +5,14 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public class Forest : Tile
+    public class Forest : ITile
     {
-        public bool isWalkable(Unit unit)
+        public bool isWalkable(AUnit unit)
         {
             throw new System.NotImplementedException();
         }
 
-        public int countPoints(Unit unit)
+        public int countPoints(AUnit unit)
         {
             throw new System.NotImplementedException();
         }

@@ -20,7 +20,7 @@ namespace SmallWorld.Core
         /// <summary>
         /// Creates a demo map
         /// </summary>
-        public Map createMapDemo()
+        public MapDemo createMapDemo()
         {
             throw new System.NotImplementedException();
         }
@@ -28,7 +28,7 @@ namespace SmallWorld.Core
         /// <summary>
         /// Creates a small map
         /// </summary>
-        public Map createMapSmall()
+        public MapSmall createMapSmall()
         {
             throw new System.NotImplementedException();
         }
@@ -36,7 +36,7 @@ namespace SmallWorld.Core
         /// <summary>
         /// Creates a standard map
         /// </summary>
-        public Map createMapStandard()
+        public MapStandard createMapStandard()
         {
             throw new System.NotImplementedException();
         }

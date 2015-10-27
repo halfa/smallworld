@@ -12,7 +12,7 @@ namespace SmallWorld.Core
         private Array _board;
         private List<Player> _players;
         private int _turnCounter;
-        private Map _map;
+        private SmallWorld.Core.IMap _map;
 
         public Game(int nbPlayers, int nbTurns, int nbUnits)
         {
@@ -35,7 +35,7 @@ namespace SmallWorld.Core
             }
         }
 
-        public Map map
+        public IMap map
         {
             get
             {
