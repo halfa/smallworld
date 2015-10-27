@@ -8,7 +8,7 @@ namespace SmallWorld.Core
     public class MapDemo : IMap
     {
         private int _height;
-        private List<Tile> _tiles;
+        private List<ITile> _tiles;
         private int _width;
 
         public MapDemo()
@@ -21,7 +21,7 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        public List<Tile> tiles
+        public List<ITile> tiles
         {
             get
             {

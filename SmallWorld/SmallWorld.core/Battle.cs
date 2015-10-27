@@ -7,10 +7,10 @@ namespace SmallWorld.Core
 {
     public class Battle
     {
-        private Unit _attacker;
-        private Unit _defender;
+        private AUnit _attacker;
+        private AUnit _defender;
 
-        public Battle(Unit attacker, Unit defender)
+        public Battle(AUnit attacker, AUnit defender)
         {
             throw new System.NotImplementedException();
         }
@@ -20,7 +20,7 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        public Unit defender
+        public AUnit defender
         {
             get
             {
@@ -31,7 +31,7 @@ namespace SmallWorld.Core
             }
         }
 
-        public Unit attacker
+        public AUnit attacker
         {
             get
             {

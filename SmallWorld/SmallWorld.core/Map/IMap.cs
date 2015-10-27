@@ -7,7 +7,7 @@ namespace SmallWorld.Core
 {
     public interface IMap
     {
-        List<SmallWorld.Core.Tile> tiles { get; set; }
+        List<SmallWorld.Core.ITile> tiles { get; set; }
         int width { get; set; }
         int height { get; set; }
     }
