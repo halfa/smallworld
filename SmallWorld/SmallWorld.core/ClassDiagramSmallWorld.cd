@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Comment CommentText="Flyweight Factory">
-    <Position X="1.746" Y="5.742" Height="0.291" Width="1.245" />
+    <Position X="1.746" Y="8.242" Height="0.291" Width="1.245" />
   </Comment>
   <Comment CommentText="Factory">
-    <Position X="1.183" Y="2.276" Height="0.307" Width="0.802" />
+    <Position X="1.183" Y="2.526" Height="0.307" Width="0.802" />
   </Comment>
   <Class Name="SmallWorld.Core.SmallWold">
     <Position X="0.5" Y="0.5" Width="1.5" />
@@ -16,18 +16,16 @@
       <Property Name="game" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="SmallWorld.Core.Player">
-    <Position X="9.25" Y="0.5" Width="1.5" />
+  <Class Name="SmallWorld.Core.Player" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="2" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
-      <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAIEAEAAAAAgAAAAAAAAAAAAAQAAACACAAAAAAAAI=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="race" />
       <Property Name="undo" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
@@ -35,18 +33,17 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="SmallWorld.Core.Orc" Collapsed="true">
-    <Position X="14.5" Y="1.75" Width="1.5" />
+    <Position X="15.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Race\Orc.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="SmallWorld.Core.Game">
+  <Class Name="SmallWorld.Core.Game" Collapsed="true">
     <Position X="5" Y="0.5" Width="2.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
-      <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <AssociationLine Name="players" Type="SmallWorld.Core.Player">
       <MemberNameLabel ManuallyPlaced="true">
@@ -57,15 +54,12 @@
       <HashCode>BAACEAAEAAAAgAAAEAAAAAAAARAAAAAAIEAAAIAAgAA=</HashCode>
       <FileName>Game.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="map" />
-    </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="players" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="SmallWorld.Core.Human" Collapsed="true">
-    <Position X="11" Y="1.75" Width="1.5" />
+    <Position X="11.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Race\Human.cs</FileName>
@@ -73,7 +67,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SmallWorld.Core.Elf" Collapsed="true">
-    <Position X="12.75" Y="1.75" Width="1.5" />
+    <Position X="13.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Race\Elf.cs</FileName>
@@ -81,7 +75,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SmallWorld.Core.Plain" Collapsed="true">
-    <Position X="1.25" Y="7" Width="1.5" />
+    <Position X="0.5" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>Tile\Plain.cs</FileName>
@@ -89,7 +83,7 @@
     <Lollipop Position="0.233" />
   </Class>
   <Class Name="SmallWorld.Core.Water" Collapsed="true">
-    <Position X="2.75" Y="7" Width="1.5" />
+    <Position X="2" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>Tile\Water.cs</FileName>
@@ -97,7 +91,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SmallWorld.Core.Forest" Collapsed="true">
-    <Position X="4.25" Y="7" Width="1.5" />
+    <Position X="3.5" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>Tile\Forest.cs</FileName>
@@ -105,49 +99,52 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SmallWorld.Core.Mountain" Collapsed="true">
-    <Position X="5.75" Y="7" Width="1.5" />
+    <Position X="5" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>Tile\Mountain.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="SmallWorld.Core.Unit">
+  <Class Name="SmallWorld.Core.Unit" Collapsed="true">
     <Position X="9.25" Y="4" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
       <HashCode>EAAAAAAAAQAAAACAEAEACAAAAAAAAACBAAAEAAAAAAA=</HashCode>
-      <FileName>Unit.cs</FileName>
+      <FileName>Unit\Unit.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="player" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="SmallWorld.Core.BaseUnit" Collapsed="true">
-    <Position X="9.25" Y="6.25" Width="1.5" />
+  <Class Name="SmallWorld.Core.HumanUnit" Collapsed="true">
+    <Position X="7.25" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>BaseUnit.cs</FileName>
+      <FileName>Unit\HumanUnit.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.TileFactory" Collapsed="true">
-    <Position X="0.5" Y="5.5" Width="2.5" />
+    <Position X="0.5" Y="8" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Tile\TileFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.MapFactory" Collapsed="true">
-    <Position X="0.5" Y="2" Width="1.5" />
+    <Position X="0.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAQAAAAEAAAAAA=</HashCode>
       <FileName>Map\MapFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.MapDemo" Collapsed="true">
-    <Position X="2.5" Y="2" Width="1.5" />
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAADAAAQAQAAAAAAAAhAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Map\MapDemo.cs</FileName>
@@ -155,7 +152,10 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SmallWorld.Core.MapSmall" Collapsed="true">
-    <Position X="2.75" Y="2.25" Width="1.5" />
+    <Position X="2.5" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAADAAAQAQAAAAAAAAhAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Map\MapSmall.cs</FileName>
@@ -163,18 +163,20 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SmallWorld.Core.MapStandard" Collapsed="true">
-    <Position X="3" Y="2.5" Width="1.5" />
+    <Position X="4.5" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAADAAAQAQAAAAAAAAhAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Map\MapStandard.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="SmallWorld.Core.Battle">
+  <Class Name="SmallWorld.Core.Battle" Collapsed="true">
     <Position X="11.75" Y="4" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
-      <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
       <HashCode>CAAAAAAAAAABAAAAgCAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -186,7 +188,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="SmallWorld.Core.Undo" Collapsed="true">
-    <Position X="7.25" Y="2.75" Width="1.5" />
+    <Position X="7.25" Y="4" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -195,29 +197,50 @@
       <FileName>Undo.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="SmallWorld.Core.ElfUnit" Collapsed="true">
+    <Position X="9.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Unit\ElfUnit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmallWorld.Core.OrcUnit" Collapsed="true">
+    <Position X="11.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Unit\OrcUnit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmallWorld.Core.UnitFactory" Collapsed="true">
+    <Position X="13.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAACAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Unit\UnitFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="SmallWorld.Core.Race" Collapsed="true">
-    <Position X="12.75" Y="0.75" Width="1.5" />
+    <Position X="13.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Race\Race.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SmallWorld.Core.Map" Collapsed="true">
-    <Position X="5" Y="4" Width="2.25" />
+    <Position X="2.5" Y="2.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAQAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Map\Map.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SmallWorld.Core.Tile" Collapsed="true">
-    <Position X="4.75" Y="5.75" Width="2.25" />
+    <Position X="3.5" Y="8" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>Tile\Tile.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="SmallWorld.Core.TileType" Collapsed="true">
-    <Position X="0.5" Y="4.75" Width="1.5" />
+    <Position X="0.5" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAIAAAAAACAAAAAAAAAAAAAAAgAAAAAgAAAAAAAAA=</HashCode>
       <FileName>Tile\TileType.cs</FileName>

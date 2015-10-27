@@ -39,8 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseUnit.cs" />
+    <Compile Include="Unit\ElfUnit.cs" />
+    <Compile Include="Unit\HumanUnit.cs" />
     <Compile Include="Battle.cs" />
+    <Compile Include="Unit\OrcUnit.cs" />
     <Compile Include="Race\Elf.cs" />
     <Compile Include="Tile\Forest.cs" />
     <Compile Include="Game.cs" />
@@ -61,8 +63,9 @@
     <Compile Include="Tile\TileFactory.cs" />
     <Compile Include="Tile\TileType.cs" />
     <Compile Include="Undo.cs" />
-    <Compile Include="Unit.cs" />
+    <Compile Include="Unit\Unit.cs" />
     <Compile Include="Tile\Water.cs" />
+    <Compile Include="Unit\UnitFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagramSmallWorld.cd" />
