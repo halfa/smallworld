@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Map.cs" />
     <Compile Include="Unit\ElfUnit.cs" />
     <Compile Include="Unit\HumanUnit.cs" />
     <Compile Include="Battle.cs" />
@@ -48,10 +49,6 @@
     <Compile Include="Game.cs" />
     <Compile Include="Race\Human.cs" />
     <Compile Include="Map\IMap.cs" />
-    <Compile Include="Map\MapDemo.cs" />
-    <Compile Include="Map\MapFactory.cs" />
-    <Compile Include="Map\MapSmall.cs" />
-    <Compile Include="Map\MapStandard.cs" />
     <Compile Include="Tile\Mountain.cs" />
     <Compile Include="Race\Orc.cs" />
     <Compile Include="Tile\Plain.cs" />

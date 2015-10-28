@@ -5,20 +5,33 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public class MapStandard : IMap
+    public class Map : IMap
     {
         private int _height;
         private List<ITile> _tiles;
         private int _width;
 
-        public MapStandard()
+        public Map(int width, int height)
         {
             throw new System.NotImplementedException();
         }
 
-        ~MapStandard()
+        ~Map()
         {
             throw new System.NotImplementedException();
+        }
+
+        public int height
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
+            {
+                throw new NotImplementedException();
+            }
         }
 
         public List<ITile> tiles
@@ -27,6 +40,7 @@ namespace SmallWorld.Core
             {
                 throw new NotImplementedException();
             }
+
             set
             {
                 throw new NotImplementedException();
@@ -34,18 +48,6 @@ namespace SmallWorld.Core
         }
 
         public int width
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int height
         {
             get
             {
