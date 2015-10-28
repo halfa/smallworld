@@ -12,6 +12,7 @@ namespace SmallWorld.Core
         private Undo _undo;
         private SmallWorld.Core.IRace _race;
         private List<AUnit> _units;
+        private Game _game;
 
         public Player(String name)
         {
@@ -51,6 +52,18 @@ namespace SmallWorld.Core
             {
                 throw new System.NotImplementedException();
             }
+            set
+            {
+            }
+        }
+
+        public Game game
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
             set
             {
             }

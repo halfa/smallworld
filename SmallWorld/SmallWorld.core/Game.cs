@@ -7,12 +7,10 @@ namespace SmallWorld.Core
 {
     public class Game
     {
-        private readonly int _turnLimit;
-        private readonly int _unitLimit;
-        private Array _board;
         private List<Player> _players;
         private int _turnCounter;
         private SmallWorld.Core.IMap _map;
+        private GameSettings _settings;
 
         public Game(int nbPlayers, int nbTurns, int nbUnits)
         {
@@ -41,6 +39,18 @@ namespace SmallWorld.Core
             {
                 throw new System.NotImplementedException();
             }
+            set
+            {
+            }
+        }
+
+        public GameSettings settings
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
             set
             {
             }

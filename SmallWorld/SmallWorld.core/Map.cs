@@ -11,7 +11,7 @@ namespace SmallWorld.Core
         private List<ITile> _tiles;
         private int _width;
 
-        public Map(int width, int height)
+        public Map(MapType type)
         {
             throw new System.NotImplementedException();
         }

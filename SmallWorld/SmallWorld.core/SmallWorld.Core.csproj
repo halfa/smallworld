@@ -39,7 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AGameBuilder.cs" />
+    <Compile Include="GameBuilder.cs" />
+    <Compile Include="GameSettings.cs" />
     <Compile Include="Map.cs" />
+    <Compile Include="MapType.cs" />
     <Compile Include="Unit\ElfUnit.cs" />
     <Compile Include="Unit\HumanUnit.cs" />
     <Compile Include="Battle.cs" />
