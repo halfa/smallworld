@@ -39,18 +39,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AGameBuilder.cs" />
-    <Compile Include="GameBuilder.cs" />
-    <Compile Include="GameSettings.cs" />
-    <Compile Include="Map.cs" />
-    <Compile Include="MapType.cs" />
+    <Compile Include="Game\GameBuilder.cs" />
+    <Compile Include="Game\GameSettings.cs" />
+    <Compile Include="Game\IGameBuilder.cs" />
+    <Compile Include="Map\Map.cs" />
+    <Compile Include="Map\MapType.cs" />
     <Compile Include="Unit\ElfUnit.cs" />
     <Compile Include="Unit\HumanUnit.cs" />
     <Compile Include="Battle.cs" />
     <Compile Include="Unit\OrcUnit.cs" />
     <Compile Include="Race\Elf.cs" />
     <Compile Include="Tile\Forest.cs" />
-    <Compile Include="Game.cs" />
+    <Compile Include="Game\Game.cs" />
     <Compile Include="Race\Human.cs" />
     <Compile Include="Map\IMap.cs" />
     <Compile Include="Tile\Mountain.cs" />

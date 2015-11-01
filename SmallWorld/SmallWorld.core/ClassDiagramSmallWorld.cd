@@ -10,7 +10,7 @@
     <Position X="12.097" Y="0.685" Height="0.335" Width="0.787" />
   </Comment>
   <Comment CommentText="Builder">
-    <Position X="16.243" Y="0.759" Height="0.291" Width="0.7" />
+    <Position X="16.507" Y="0.759" Height="0.291" Width="0.7" />
   </Comment>
   <Class Name="SmallWorld.Core.SmallWold">
     <Position X="0.5" Y="0.5" Width="1.5" />
@@ -47,7 +47,7 @@
     <Position X="6.75" Y="0.5" Width="3.25" />
     <TypeIdentifier>
       <HashCode>BAACEAAEAAAAAAAAgAAAAAAAARCAAAAAIEAAAIAAgAA=</HashCode>
-      <FileName>Game.cs</FileName>
+      <FileName>Game\Game.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.Human" Collapsed="true">
@@ -183,16 +183,9 @@
     </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAADAAAQAQAAAAAAAAhAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Map.cs</FileName>
+      <FileName>Map\Map.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="SmallWorld.Core.AGameBuilder">
-    <Position X="14" Y="0.5" Width="3" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAIAgAACAAAAAAQAAAA=</HashCode>
-      <FileName>AGameBuilder.cs</FileName>
-    </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.GameSettings">
     <Position X="10.75" Y="0.5" Width="2.5" />
@@ -201,15 +194,16 @@
     </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAIAIAAAAggAAAIBAAEAAAAQAAEAgIAkAAAAAAAA=</HashCode>
-      <FileName>GameSettings.cs</FileName>
+      <FileName>Game\GameSettings.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SmallWorld.Core.GameBuilder" Collapsed="true">
-    <Position X="14" Y="3.25" Width="3" />
+  <Class Name="SmallWorld.Core.GameBuilder">
+    <Position X="14" Y="2.25" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAIAgAACAAAAAAQAAAA=</HashCode>
-      <FileName>GameBuilder.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAACAAAACAIAAAAQAAAA=</HashCode>
+      <FileName>Game\GameBuilder.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Interface Name="SmallWorld.Core.IRace" Collapsed="true">
     <Position X="0.5" Y="10.75" Width="1.5" />
@@ -232,11 +226,18 @@
       <FileName>Tile\ITile.cs</FileName>
     </TypeIdentifier>
   </Interface>
+  <Interface Name="SmallWorld.Core.IGameBuilder">
+    <Position X="14" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Game\IGameBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Enum Name="SmallWorld.Core.MapType" Collapsed="true">
     <Position X="3.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAIAAAAAAAAAEAAAAAAA=</HashCode>
-      <FileName>MapType.cs</FileName>
+      <FileName>Map\MapType.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />

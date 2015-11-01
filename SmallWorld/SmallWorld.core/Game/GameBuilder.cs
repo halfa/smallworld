@@ -5,29 +5,39 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public abstract class AGameBuilder
+    public class GameBuilder : IGameBuilder
     {
-        public Game buildGame(GameSettings settings)
+        public GameBuilder()
         {
             throw new System.NotImplementedException();
         }
 
-        public Game setSettings(GameSettings settings)
+        ~GameBuilder()
         {
             throw new System.NotImplementedException();
         }
 
-        public Game buildMap()
+        public Game build()
         {
             throw new System.NotImplementedException();
         }
 
-        public Game buildPlayers()
+        protected void buildMap()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        protected void buildPlayers()
         {
             throw new System.NotImplementedException();
         }
 
         protected void buildUnits(Player player)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public SmallWorld.Core.IGameBuilder settings(GameSettings settings)
         {
             throw new System.NotImplementedException();
         }
