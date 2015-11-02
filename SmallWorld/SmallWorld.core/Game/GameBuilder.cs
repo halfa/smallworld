@@ -7,6 +7,8 @@ namespace SmallWorld.Core
 {
     public class GameBuilder : IGameBuilder
     {
+        private GameSettings _settings;
+
         public GameBuilder()
         {
             throw new System.NotImplementedException();
