@@ -29,13 +29,6 @@
       <SubType>Content</SubType>
       <DependentUpon>UMLActivityDiagramGameSettings.activitydiagram</DependentUpon>
     </Content>
-    <Content Include="UMLClassDiagramSmallWorld.classdiagram">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="UMLClassDiagramSmallWorld.classdiagram.layout">
-      <SubType>Content</SubType>
-      <DependentUpon>UMLClassDiagramSmallWorld.classdiagram</DependentUpon>
-    </Content>
     <Content Include="UMLSequenceDiagramGameStart.sequencediagram">
       <SubType>Content</SubType>
     </Content>

@@ -13,6 +13,7 @@ namespace SmallWorld.Core
         private int _defencePt;
         private int _range;
         private Player _player;
+        private Position _position;
 
         public Player player
         {
@@ -20,6 +21,18 @@ namespace SmallWorld.Core
             {
                 throw new System.NotImplementedException();
             }
+            set
+            {
+            }
+        }
+
+        public Position position
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
             set
             {
             }
