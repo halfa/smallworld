@@ -47,5 +47,9 @@ namespace SmallWorld.Core
         {
             throw new System.NotImplementedException();
         }
+
+        public abstract int countPoints();
+
+        public abstract bool canWalk(Position position);
     }
 }

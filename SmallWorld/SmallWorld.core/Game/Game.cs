@@ -7,10 +7,9 @@ namespace SmallWorld.Core
 {
     public class Game
     {
-        private List<Player> _players;
-        private int _turnCounter;
-        private SmallWorld.Core.IMap _map;
         private GameSettings _settings;
+        private GameState _currentState;
+        private System.Collections.Generic.Stack<GameState> _previousGameStates;
 
         public Game(int nbPlayers, int nbTurns, int nbUnits)
         {
@@ -21,30 +20,32 @@ namespace SmallWorld.Core
         {
             throw new System.NotImplementedException();
         }
-    
-        public List<SmallWorld.Core.Player> players
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public IMap map
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
 
         public GameSettings settings
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public GameState currentState
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public Stack<GameState> previousGameStates
         {
             get
             {
@@ -67,14 +68,6 @@ namespace SmallWorld.Core
         }
 
         /// <summary>
-        /// Undo the last move
-        /// </summary>
-        public void undo()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        /// <summary>
         /// Terminates the current player's turn
         /// </summary>
         public void endTurn()
@@ -83,6 +76,16 @@ namespace SmallWorld.Core
         }
 
         public Player getCurrentPlayer()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void undo()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool isGameOver()
         {
             throw new System.NotImplementedException();
         }

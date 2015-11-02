@@ -43,5 +43,10 @@ namespace SmallWorld.Core
         {
             throw new System.NotImplementedException();
         }
+
+        protected void buildState()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

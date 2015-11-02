@@ -7,6 +7,8 @@ namespace SmallWorld.Core
 {
     public class SmallWold
     {
+        private Game _game;
+
         public Game game
         {
             get
@@ -16,6 +18,11 @@ namespace SmallWorld.Core
             set
             {
             }
+        }
+
+        public void loadGame(SaveFile file)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

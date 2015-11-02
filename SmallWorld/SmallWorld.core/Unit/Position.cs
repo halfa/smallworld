@@ -10,6 +10,21 @@ namespace SmallWorld.Core
         private int _x;
         private int _y;
 
+        public Position(int x, int y)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Position(Position position)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        ~Position()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public int x
         {
             get

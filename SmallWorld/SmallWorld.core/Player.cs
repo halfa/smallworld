@@ -8,13 +8,16 @@ namespace SmallWorld.Core
     public class Player
     {
         private string _name;
-        private int _score;
-        private Undo _undo;
         private SmallWorld.Core.IRace _race;
         private List<AUnit> _units;
         private Game _game;
 
-        public Player(String name)
+        public Player(String name, IRace race)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Player(Player player)
         {
             throw new System.NotImplementedException();
         }
@@ -46,17 +49,6 @@ namespace SmallWorld.Core
             }
         }
 
-        public Undo undo
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
         public Game game
         {
             get
@@ -67,6 +59,26 @@ namespace SmallWorld.Core
             set
             {
             }
+        }
+
+        public void undo()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void addUnit(AUnit unit)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void removeUnit(AUnit unit)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public int countPoints()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

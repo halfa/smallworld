@@ -22,12 +22,27 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
+        public HumanUnit createHumanUnit(HumanUnit humanUnit)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public ElfUnit createElfUnit()
         {
             throw new System.NotImplementedException();
         }
 
+        public ElfUnit createElfUnit(ElfUnit elfUnit)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public OrcUnit createOrcUnit()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public OrcUnit createOrcUnit(OrcUnit orcUnit)
         {
             throw new System.NotImplementedException();
         }
