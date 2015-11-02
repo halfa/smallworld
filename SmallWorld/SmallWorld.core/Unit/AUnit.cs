@@ -38,18 +38,19 @@ namespace SmallWorld.Core
             }
         }
 
-        public void move()
+        public void move(Position position)
         {
             throw new System.NotImplementedException();
         }
 
-        public void attack()
+        public void attack(AUnit defender)
         {
+            /*
+            This method should update the life and eventually kill state of BOTH INVOLVED UNITS.
+            */
             throw new System.NotImplementedException();
         }
 
         public abstract int countPoints();
-
-        public abstract bool canWalk(Position position);
     }
 }

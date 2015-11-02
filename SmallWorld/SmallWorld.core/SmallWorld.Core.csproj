@@ -43,13 +43,13 @@
     <Compile Include="Game\GameBuilder.cs" />
     <Compile Include="Game\GameSettings.cs" />
     <Compile Include="Game\IGameBuilder.cs" />
-    <Compile Include="SaveFile.cs" />
+    <Compile Include="SaveFiles\ISaveFile.cs" />
+    <Compile Include="SaveFiles\SaveFile.cs" />
     <Compile Include="Unit\Position.cs" />
     <Compile Include="Map\Map.cs" />
     <Compile Include="Map\MapType.cs" />
     <Compile Include="Unit\ElfUnit.cs" />
     <Compile Include="Unit\HumanUnit.cs" />
-    <Compile Include="Battle.cs" />
     <Compile Include="Unit\OrcUnit.cs" />
     <Compile Include="Race\Elf.cs" />
     <Compile Include="Tile\Forest.cs" />

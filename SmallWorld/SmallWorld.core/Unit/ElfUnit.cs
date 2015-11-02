@@ -22,11 +22,6 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        override public bool canWalk(Position position)
-        {
-            throw new System.NotImplementedException();
-        }
-
         override public int countPoints()
         {
             throw new System.NotImplementedException();
