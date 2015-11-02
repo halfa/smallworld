@@ -10,6 +10,8 @@ namespace SmallWorld.Core
         private GameSettings _settings;
         private GameState _currentState;
         private System.Collections.Generic.Stack<GameState> _previousGameStates;
+        private IMap _map;
+        private Player[] _orderedPlayers;
 
         public Game(int nbPlayers, int nbTurns, int nbUnits)
         {
@@ -57,9 +59,28 @@ namespace SmallWorld.Core
             }
         }
 
-        public Player[] getTurnOrder()
+        public IMap map
         {
-            throw new System.NotImplementedException();
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public Player[] orderedPlayers
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
         }
 
         public int countPoints(Player player)
@@ -75,7 +96,7 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        public Player getCurrentPlayer()
+        public Player getActivePlayer()
         {
             throw new System.NotImplementedException();
         }

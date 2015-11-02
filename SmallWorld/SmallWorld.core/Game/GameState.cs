@@ -9,9 +9,8 @@ namespace SmallWorld.Core
     {
         private int _turnCounter;
         private Dictionary<Position, List<AUnit>> _positionsUnits;
-        private Player _activePlayer;
-        private IMap _map;
-        private List<Player> _players;
+        private int _activePlayerIndex;
+        private Dictionary<Player, List<AUnit>> _playersUnits;
 
         public int turnCounter
         {
@@ -37,7 +36,7 @@ namespace SmallWorld.Core
             }
         }
 
-        public Player activePlayer
+        public int activePlayerIndex
         {
             get
             {
@@ -49,19 +48,7 @@ namespace SmallWorld.Core
             }
         }
 
-        public IMap map
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public List<Player> players
+        public Dictionary<Player, List<AUnit>> playersUnits
         {
             get
             {
