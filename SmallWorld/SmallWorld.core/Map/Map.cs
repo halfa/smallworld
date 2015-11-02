@@ -10,9 +10,13 @@ namespace SmallWorld.Core
         private int _height;
         private List<ITile> _tiles;
         private int _width;
+        private IMapSetup _mapSetup;
 
         public Map(MapType type)
         {
+            /*
+            This method should create a new IMapSetup and set it as the coresponding attribute according to the MapType.
+            */
             throw new System.NotImplementedException();
         }
 
@@ -58,6 +62,23 @@ namespace SmallWorld.Core
             {
                 throw new NotImplementedException();
             }
+        }
+
+        public IMapSetup mapSetup
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public void setupMap()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

@@ -43,6 +43,10 @@
     <Compile Include="Game\GameBuilder.cs" />
     <Compile Include="Game\GameSettings.cs" />
     <Compile Include="Game\IGameBuilder.cs" />
+    <Compile Include="Map\IMapSetup.cs" />
+    <Compile Include="Map\MapDemoSetup.cs" />
+    <Compile Include="Map\MapSmallSetup.cs" />
+    <Compile Include="Map\MapStandardSetup.cs" />
     <Compile Include="SaveFiles\ISaveFile.cs" />
     <Compile Include="SaveFiles\SaveFile.cs" />
     <Compile Include="Unit\Position.cs" />
