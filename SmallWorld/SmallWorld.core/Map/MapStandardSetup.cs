@@ -7,7 +7,7 @@ namespace SmallWorld.Core
 {
     public class MapStandardSetup : IMapSetup
     {
-        public void setupMap()
+        public void setupMap(List<ITile> tiles)
         {
             throw new System.NotImplementedException();
         }
