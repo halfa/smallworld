@@ -7,5 +7,9 @@ namespace SmallWorld.Core
 {
     public class Human : IRace
     {
+        public string hash()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

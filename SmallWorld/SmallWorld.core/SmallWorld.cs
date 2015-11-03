@@ -5,14 +5,24 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public class GameState : IHashable
+    public class SmallWorld
     {
-        private int _turnCounter;
-        private Dictionary<Position, List<AUnit>> _positionsUnits;
-        private int _activePlayerIndex;
-        private Dictionary<Player, List<AUnit>> _playersUnits;
+        private Game _game;
+        private ISaveManager _saveManager;
+        private ILoadManager _loadManager;
 
-        public int turnCounter
+        public Game game
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
+        public ISaveManager saveManager
         {
             get
             {
@@ -24,7 +34,7 @@ namespace SmallWorld.Core
             }
         }
 
-        public Dictionary<Position, List<AUnit>> positionsUnits
+        public ILoadManager loadManager
         {
             get
             {
@@ -36,33 +46,19 @@ namespace SmallWorld.Core
             }
         }
 
-        public int activePlayerIndex
+        public void loadGame(string filePath)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
+            throw new System.NotImplementedException();
         }
 
-        public Dictionary<Player, List<AUnit>> playersUnits
+        public void saveGame()
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
+            throw new System.NotImplementedException();
         }
 
-        public string hash()
+        public void newGame()
         {
-            throw new NotImplementedException();
+            throw new System.NotImplementedException();
         }
     }
 }

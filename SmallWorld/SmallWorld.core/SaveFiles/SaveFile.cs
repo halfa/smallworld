@@ -7,12 +7,44 @@ namespace SmallWorld.Core
 {
     public class SaveFile : ISaveFile
     {
-        public void saveGame()
+        private String _filePath;
+        private string _data;
+
+        public SaveFile(String filePath, string data)
         {
             throw new System.NotImplementedException();
         }
 
-        public void loadGame(SmallWorld.Core.ISaveFile file)
+        ~SaveFile()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public String filePath
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public string data
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public void saveToDisk()
         {
             throw new System.NotImplementedException();
         }

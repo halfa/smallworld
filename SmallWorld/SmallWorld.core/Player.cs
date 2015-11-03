@@ -5,10 +5,10 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public class Player
+    public class Player : IHashable
     {
         private string _name;
-        private SmallWorld.Core.IRace _race;
+        private global::SmallWorld.Core.IRace _race;
         private List<AUnit> _units;
         private Game _game;
         private AUnit _selectedUnit;
@@ -39,7 +39,7 @@ namespace SmallWorld.Core
             }
         }
 
-        public System.Collections.Generic.List<SmallWorld.Core.AUnit> units
+        public System.Collections.Generic.List<global::SmallWorld.Core.AUnit> units
         {
             get
             {
@@ -115,6 +115,11 @@ namespace SmallWorld.Core
             Checks if the tile at the new position is walkable for the selected unit.
             */
             throw new System.NotImplementedException();
+        }
+
+        public string hash()
+        {
+            throw new NotImplementedException();
         }
     }
 }

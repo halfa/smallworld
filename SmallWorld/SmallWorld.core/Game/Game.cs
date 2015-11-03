@@ -5,13 +5,14 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public class Game
+    public class Game : IHashable
     {
         private GameSettings _settings;
         private GameState _currentState;
         private System.Collections.Generic.Stack<GameState> _previousGameStates;
         private IMap _map;
         private Player[] _orderedPlayers;
+        private SmallWorld _smallWorld;
 
         public Game(int nbPlayers, int nbTurns, int nbUnits)
         {
@@ -83,6 +84,18 @@ namespace SmallWorld.Core
             }
         }
 
+        public SmallWorld smallWorld
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         public int countPoints(Player player)
         {
             throw new System.NotImplementedException();
@@ -109,6 +122,11 @@ namespace SmallWorld.Core
         public bool isGameOver()
         {
             throw new System.NotImplementedException();
+        }
+
+        public string hash()
+        {
+            throw new NotImplementedException();
         }
     }
 }

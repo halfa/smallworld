@@ -39,7 +39,7 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        public SmallWorld.Core.IGameBuilder settings(GameSettings settings)
+        public global::SmallWorld.Core.IGameBuilder settings(GameSettings settings)
         {
             throw new System.NotImplementedException();
         }

@@ -43,6 +43,11 @@
     <Compile Include="Game\GameBuilder.cs" />
     <Compile Include="Game\GameSettings.cs" />
     <Compile Include="Game\IGameBuilder.cs" />
+    <Compile Include="SaveManager.cs" />
+    <Compile Include="IHashable.cs" />
+    <Compile Include="ISaveManager.cs" />
+    <Compile Include="ILoadManager.cs" />
+    <Compile Include="LoadManager.cs" />
     <Compile Include="Map\IMapSetup.cs" />
     <Compile Include="Map\MapDemoSetup.cs" />
     <Compile Include="Map\MapSmallSetup.cs" />
@@ -66,7 +71,7 @@
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Race\IRace.cs" />
-    <Compile Include="SmallWold.cs" />
+    <Compile Include="SmallWorld.cs" />
     <Compile Include="Tile\ITile.cs" />
     <Compile Include="Tile\TileFactory.cs" />
     <Compile Include="Unit\AUnit.cs" />

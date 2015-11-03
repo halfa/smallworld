@@ -7,5 +7,9 @@ namespace SmallWorld.Core
 {
     public class Elf : IRace
     {
+        public string hash()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

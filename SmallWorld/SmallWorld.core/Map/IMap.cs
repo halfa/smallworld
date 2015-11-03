@@ -5,9 +5,9 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public interface IMap
+    public interface IMap : IHashable
     {
-        List<SmallWorld.Core.ITile> tiles { get; set; }
+        List<global::SmallWorld.Core.ITile> tiles { get; set; }
         int width { get; set; }
         int height { get; set; }
     }

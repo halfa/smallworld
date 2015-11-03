@@ -5,11 +5,8 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public interface ISaveFile
+    public interface IHashable
     {
-        String filePath { get; set; }
-        string data { get; set; }
-
-        void saveToDisk();
+        String hash();
     }
 }

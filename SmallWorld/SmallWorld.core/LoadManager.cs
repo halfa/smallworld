@@ -5,27 +5,22 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public class Position : IHashable
+    public class LoadManager : ILoadManager
     {
-        private int _x;
-        private int _y;
+        private Game _game;
+        private LoadManager _INSTANCE;
 
-        public Position(int x, int y)
+        private LoadManager()
         {
             throw new System.NotImplementedException();
         }
 
-        public Position(Position position)
+        ~LoadManager()
         {
             throw new System.NotImplementedException();
         }
 
-        ~Position()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public int x
+        public Game game
         {
             get
             {
@@ -37,21 +32,17 @@ namespace SmallWorld.Core
             }
         }
 
-        public int y
+        public LoadManager INSTANCE
         {
             get
             {
                 throw new System.NotImplementedException();
             }
-
-            set
-            {
-            }
         }
 
-        public string hash()
+        public void load(string filePath)
         {
-            throw new NotImplementedException();
+            throw new System.NotImplementedException();
         }
     }
 }

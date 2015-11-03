@@ -11,6 +11,7 @@ namespace SmallWorld.Core
         private List<ITile> _tiles;
         private int _width;
         private IMapSetup _mapSetup;
+        private MapType _type;
 
         public Map(MapType type)
         {
@@ -76,9 +77,26 @@ namespace SmallWorld.Core
             }
         }
 
+        public MapType type
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         public void setupMap()
         {
             throw new System.NotImplementedException();
+        }
+
+        public string hash()
+        {
+            throw new NotImplementedException();
         }
     }
 }

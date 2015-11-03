@@ -5,11 +5,9 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public interface ISaveFile
+    public interface ISaveManager
     {
-        String filePath { get; set; }
-        string data { get; set; }
-
-        void saveToDisk();
+        ISaveFile saveFile { get; set; }
+        void save(string filePath);
     }
 }

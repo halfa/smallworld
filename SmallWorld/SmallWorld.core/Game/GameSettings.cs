@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public class GameSettings
+    public class GameSettings : IHashable
     {
         private int _turnLimit;
         private MapType _mapType;
@@ -13,7 +13,7 @@ namespace SmallWorld.Core
         private String[] _playersNames;
         private IRace[] _playersRaces;
         private int _unitLimit;
-        public static GameSettings INSTANCE;
+        private static GameSettings _INSTANCE;
 
         private GameSettings()
         {
@@ -97,9 +97,22 @@ namespace SmallWorld.Core
             }
         }
 
+        public GameSettings INSTANCE
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+        }
+
         public void setFieldsAccordingToMapType()
         {
             throw new System.NotImplementedException();
+        }
+
+        public string hash()
+        {
+            throw new NotImplementedException();
         }
     }
 }

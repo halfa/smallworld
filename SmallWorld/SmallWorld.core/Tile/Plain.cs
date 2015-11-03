@@ -7,5 +7,9 @@ namespace SmallWorld.Core
 {
     public class Plain : ITile
     {
+        public string hash()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

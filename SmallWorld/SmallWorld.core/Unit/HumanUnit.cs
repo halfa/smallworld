@@ -26,5 +26,10 @@ namespace SmallWorld.Core
         {
             throw new System.NotImplementedException();
         }
+
+        public override string hash()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
