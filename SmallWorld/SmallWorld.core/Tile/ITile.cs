@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public interface ITile : IHashable
+    public interface ITile : ISavable
     {
     }
 }

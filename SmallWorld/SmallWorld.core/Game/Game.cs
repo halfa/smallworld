@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public class Game : IHashable
+    public class Game : ISavable
     {
         private GameSettings _settings;
         private GameState _currentState;
@@ -124,9 +124,14 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        public string hash()
+        public System.SerializableAttribute toData()
         {
             throw new NotImplementedException();
+        }
+
+        public void loadData(System.SerializableAttribute data)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

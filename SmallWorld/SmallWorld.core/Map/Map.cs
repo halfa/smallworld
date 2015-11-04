@@ -94,9 +94,14 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        public string hash()
+        public System.SerializableAttribute toData()
         {
-            throw new NotImplementedException();
+            throw new System.NotImplementedException();
+        }
+
+        public void loadData(System.SerializableAttribute data)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

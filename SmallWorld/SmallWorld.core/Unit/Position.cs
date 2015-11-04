@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public class Position : IHashable
+    public class Position : ISavable
     {
         private int _x;
         private int _y;
@@ -49,9 +49,14 @@ namespace SmallWorld.Core
             }
         }
 
-        public string hash()
+        public System.SerializableAttribute toData()
         {
             throw new NotImplementedException();
+        }
+
+        public void loadData(System.SerializableAttribute data)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

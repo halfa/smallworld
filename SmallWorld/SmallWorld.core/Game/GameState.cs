@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public class GameState : IHashable
+    public class GameState : ISavable
     {
         private int _turnCounter;
         private Dictionary<Position, List<AUnit>> _positionsUnits;
@@ -60,9 +60,14 @@ namespace SmallWorld.Core
             }
         }
 
-        public string hash()
+        public System.SerializableAttribute toData()
         {
             throw new NotImplementedException();
+        }
+
+        public void loadData(System.SerializableAttribute data)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

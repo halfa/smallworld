@@ -7,7 +7,7 @@ namespace SmallWorld.Core
 {
     public class SaveManager : ISaveManager
     {
-        private List<IHashable> _hashables;
+        private List<ISavable> _savables;
         private ISaveFile _saveFile;
         private SaveManager INSTANCE;
 
@@ -33,7 +33,7 @@ namespace SmallWorld.Core
             }
         }
 
-        public List<IHashable> hashables
+        public List<ISavable> savables
         {
             get
             {
@@ -55,7 +55,7 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        public void addHashable(IHashable hashable)
+        public void addHashable(ISavable savable)
         {
             throw new System.NotImplementedException();
         }

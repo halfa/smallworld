@@ -44,7 +44,7 @@
     <Compile Include="Game\GameSettings.cs" />
     <Compile Include="Game\IGameBuilder.cs" />
     <Compile Include="SaveLoad\SaveManager\SaveManager.cs" />
-    <Compile Include="SaveLoad\IHashable.cs" />
+    <Compile Include="SaveLoad\ISavable.cs" />
     <Compile Include="SaveLoad\SaveManager\ISaveManager.cs" />
     <Compile Include="SaveLoad\LoadManager\ILoadManager.cs" />
     <Compile Include="SaveLoad\LoadManager\LoadManager.cs" />

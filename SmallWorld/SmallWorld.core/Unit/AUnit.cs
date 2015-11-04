@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public abstract class AUnit : IHashable
+    public abstract class AUnit : ISavable
     {
         private float _actionPool;
         private int _healthPt;
@@ -53,6 +53,8 @@ namespace SmallWorld.Core
 
         public abstract int countPoints();
 
-        public abstract string hash();
+        public abstract System.SerializableAttribute toData();
+
+        public abstract void loadData(System.SerializableAttribute data);
     }
 }

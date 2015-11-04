@@ -7,9 +7,14 @@ namespace SmallWorld.Core
 {
     public class Human : IRace
     {
-        public string hash()
+        public System.SerializableAttribute toData()
         {
             throw new NotImplementedException();
+        }
+
+        public void loadData(System.SerializableAttribute data)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public class GameSettings : IHashable
+    public class GameSettings : ISavable
     {
         private int _turnLimit;
         private MapType _mapType;
@@ -110,9 +110,14 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        public string hash()
+        public System.SerializableAttribute toData()
         {
             throw new NotImplementedException();
+        }
+
+        public void loadData(System.SerializableAttribute data)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

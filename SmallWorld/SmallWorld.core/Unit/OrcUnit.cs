@@ -27,9 +27,14 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        public override string hash()
+        public override System.SerializableAttribute toData()
         {
             throw new NotImplementedException();
+        }
+
+        override public void loadData(System.SerializableAttribute data)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

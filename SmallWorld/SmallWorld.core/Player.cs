@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public class Player : IHashable
+    public class Player : ISavable
     {
         private string _name;
         private global::SmallWorld.Core.IRace _race;
@@ -117,9 +117,14 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        public string hash()
+        public System.SerializableAttribute toData()
         {
             throw new NotImplementedException();
+        }
+
+        public void loadData(System.SerializableAttribute data)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
