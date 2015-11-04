@@ -17,7 +17,7 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        override public int countPoints()
+        public override int countPoints()
         {
             throw new System.NotImplementedException();
         }
@@ -27,7 +27,7 @@ namespace SmallWorld.Core
             throw new NotImplementedException();
         }
 
-        override public void loadData(System.SerializableAttribute data)
+        public override void loadData(System.SerializableAttribute data)
         {
             throw new System.NotImplementedException();
         }

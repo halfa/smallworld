@@ -17,7 +17,7 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        override public int countPoints()
+        public override int countPoints()
         {
             throw new System.NotImplementedException();
         }
