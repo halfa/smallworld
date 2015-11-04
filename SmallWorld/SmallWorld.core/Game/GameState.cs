@@ -12,6 +12,11 @@ namespace SmallWorld.Core
         private int _activePlayerIndex;
         private Dictionary<Player, List<AUnit>> _playersUnits;
 
+        public GameState()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public int turnCounter
         {
             get

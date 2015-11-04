@@ -17,11 +17,6 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        ~OrcUnit()
-        {
-            throw new System.NotImplementedException();
-        }
-
         override public int countPoints()
         {
             throw new System.NotImplementedException();

@@ -17,11 +17,6 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        ~ElfUnit()
-        {
-            throw new System.NotImplementedException();
-        }
-
         override public int countPoints()
         {
             throw new System.NotImplementedException();

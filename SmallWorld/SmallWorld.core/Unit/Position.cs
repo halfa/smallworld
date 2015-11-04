@@ -20,11 +20,6 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        ~Position()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public int x
         {
             get

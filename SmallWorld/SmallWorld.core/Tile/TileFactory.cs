@@ -17,11 +17,6 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        ~TileFactory()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public Plain createPlainTile()
         {
             throw new System.NotImplementedException();

@@ -16,11 +16,6 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        ~SaveManager()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public ISaveFile saveFile
         {
             get

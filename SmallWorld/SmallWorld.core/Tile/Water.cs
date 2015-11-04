@@ -7,6 +7,11 @@ namespace SmallWorld.Core
 {
     public class Water : ITile
     {
+        public Water()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public System.SerializableAttribute toData()
         {
             throw new NotImplementedException();

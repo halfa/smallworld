@@ -7,6 +7,11 @@ namespace SmallWorld.Core
 {
     public class Plain : ITile
     {
+        public Plain()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public System.SerializableAttribute toData()
         {
             throw new NotImplementedException();

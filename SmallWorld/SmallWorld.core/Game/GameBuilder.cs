@@ -14,11 +14,6 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        ~GameBuilder()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public Game build()
         {
             throw new System.NotImplementedException();

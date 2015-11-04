@@ -21,11 +21,6 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        ~Map()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public int height
         {
             get

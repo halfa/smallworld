@@ -7,6 +7,11 @@ namespace SmallWorld.Core
 {
     public class Mountain : ITile
     {
+        public Mountain()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public System.SerializableAttribute toData()
         {
             throw new NotImplementedException();

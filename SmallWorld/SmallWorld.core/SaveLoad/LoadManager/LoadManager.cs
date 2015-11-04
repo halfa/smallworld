@@ -15,11 +15,6 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        ~LoadManager()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public Game game
         {
             get

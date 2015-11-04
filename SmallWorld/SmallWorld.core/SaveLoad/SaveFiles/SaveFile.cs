@@ -15,11 +15,6 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        ~SaveFile()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public String filePath
         {
             get

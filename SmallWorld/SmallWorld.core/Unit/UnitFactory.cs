@@ -12,11 +12,6 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        ~UnitFactory()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public HumanUnit createHumanUnit()
         {
             throw new System.NotImplementedException();

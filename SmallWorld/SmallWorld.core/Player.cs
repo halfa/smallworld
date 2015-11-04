@@ -23,11 +23,6 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        ~Player()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public IRace race
         {
             get

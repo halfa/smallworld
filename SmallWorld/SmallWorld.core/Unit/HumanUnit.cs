@@ -17,11 +17,6 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        ~HumanUnit()
-        {
-            throw new System.NotImplementedException();
-        }
-
         override public int countPoints()
         {
             throw new System.NotImplementedException();
@@ -32,9 +27,9 @@ namespace SmallWorld.Core
             throw new NotImplementedException();
         }
 
-        override public void loadData(System.SerializableAttribute data)
+        public override void loadData(SerializableAttribute data)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

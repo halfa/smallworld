@@ -19,11 +19,6 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        ~Game()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public GameSettings settings
         {
             get

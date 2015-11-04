@@ -20,11 +20,6 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        ~GameSettings()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public MapType mapType
         {
             get

@@ -7,6 +7,11 @@ namespace SmallWorld.Core
 {
     public class Forest : ITile
     {
+        public Forest()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public System.SerializableAttribute toData()
         {
             throw new NotImplementedException();
