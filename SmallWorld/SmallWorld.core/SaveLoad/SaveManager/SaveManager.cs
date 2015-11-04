@@ -8,24 +8,11 @@ namespace SmallWorld.Core
     public class SaveManager : ISaveManager
     {
         private List<ISavable> _savables;
-        private ISaveFile _saveFile;
         private SaveManager INSTANCE;
 
         private SaveManager()
         {
             throw new System.NotImplementedException();
-        }
-
-        public ISaveFile saveFile
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
         }
 
         public List<ISavable> savables

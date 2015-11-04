@@ -7,7 +7,6 @@ namespace SmallWorld.Core
 {
     public interface ISaveManager
     {
-        ISaveFile saveFile { get; set; }
         void save(string filePath);
     }
 }

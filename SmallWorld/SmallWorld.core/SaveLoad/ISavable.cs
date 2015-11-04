@@ -7,7 +7,7 @@ namespace SmallWorld.Core
 {
     public interface ISavable
     {
-        System.SerializableAttribute toData();
-        void loadData(System.SerializableAttribute data);
+        void saveData(string filePath);
+        void loadData(string filePath);
     }
 }

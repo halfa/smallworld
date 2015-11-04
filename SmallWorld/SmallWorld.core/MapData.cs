@@ -6,19 +6,14 @@ using System.Text;
 namespace SmallWorld.Core
 {
     [Serializable]
-    public class GameState
+    public class MapData
     {
-        private int _turnCounter;
-        private Dictionary<Position, List<AUnit>> _positionsUnits;
-        private int _activePlayerIndex;
-        private Dictionary<Player, List<AUnit>> _playersUnits;
+        private int _height;
+        private int _width;
+        private List<ITile> _tiles;
+        private MapType _type;
 
-        public GameState()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public int turnCounter
+        public int height
         {
             get
             {
@@ -30,7 +25,7 @@ namespace SmallWorld.Core
             }
         }
 
-        public Dictionary<Position, List<AUnit>> positionsUnits
+        public int width
         {
             get
             {
@@ -42,7 +37,7 @@ namespace SmallWorld.Core
             }
         }
 
-        public int activePlayerIndex
+        public MapType type
         {
             get
             {
@@ -54,7 +49,7 @@ namespace SmallWorld.Core
             }
         }
 
-        public Dictionary<Player, List<AUnit>> playersUnits
+        public List<ITile> tiles
         {
             get
             {

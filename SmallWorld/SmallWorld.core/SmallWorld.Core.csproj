@@ -39,10 +39,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameData.cs" />
     <Compile Include="Game\GameState.cs" />
     <Compile Include="Game\GameBuilder.cs" />
     <Compile Include="Game\GameSettings.cs" />
     <Compile Include="Game\IGameBuilder.cs" />
+    <Compile Include="MapData.cs" />
+    <Compile Include="PlayerData.cs" />
     <Compile Include="SaveLoad\SaveManager\SaveManager.cs" />
     <Compile Include="SaveLoad\ISavable.cs" />
     <Compile Include="SaveLoad\SaveManager\ISaveManager.cs" />
@@ -52,8 +55,6 @@
     <Compile Include="Map\MapDemoSetup.cs" />
     <Compile Include="Map\MapSmallSetup.cs" />
     <Compile Include="Map\MapStandardSetup.cs" />
-    <Compile Include="SaveLoad\SaveFiles\ISaveFile.cs" />
-    <Compile Include="SaveLoad\SaveFiles\SaveFile.cs" />
     <Compile Include="Unit\Position.cs" />
     <Compile Include="Map\Map.cs" />
     <Compile Include="Map\MapType.cs" />
@@ -64,7 +65,6 @@
     <Compile Include="Tile\Forest.cs" />
     <Compile Include="Game\Game.cs" />
     <Compile Include="Race\Human.cs" />
-    <Compile Include="Map\IMap.cs" />
     <Compile Include="Tile\Mountain.cs" />
     <Compile Include="Race\Orc.cs" />
     <Compile Include="Tile\Plain.cs" />

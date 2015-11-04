@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public class Map : IMap
+    public class Map
     {
         private int _height;
         private List<ITile> _tiles;
@@ -89,12 +89,7 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        public System.SerializableAttribute toData()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void loadData(System.SerializableAttribute data)
+        public MapData toData()
         {
             throw new System.NotImplementedException();
         }

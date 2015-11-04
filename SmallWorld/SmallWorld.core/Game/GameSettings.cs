@@ -5,7 +5,8 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public class GameSettings : ISavable
+    [Serializable]
+    public class GameSettings
     {
         private int _turnLimit;
         private MapType _mapType;
@@ -13,7 +14,7 @@ namespace SmallWorld.Core
         private String[] _playersNames;
         private IRace[] _playersRaces;
         private int _unitLimit;
-        private static GameSettings _INSTANCE;
+        [NonSerialized]private static GameSettings _INSTANCE;
 
         private GameSettings()
         {
@@ -101,16 +102,6 @@ namespace SmallWorld.Core
         }
 
         public void setFieldsAccordingToMapType()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public System.SerializableAttribute toData()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void loadData(System.SerializableAttribute data)
         {
             throw new System.NotImplementedException();
         }

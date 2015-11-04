@@ -5,14 +5,15 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public abstract class AUnit : ISavable
+    [Serializable]
+    public abstract class AUnit
     {
         private float _actionPool;
         private int _healthPt;
         private int _attackPt;
         private int _defencePt;
         private int _range;
-        private Player _player;
+        [NonSerialized]private Player _player;
         private Position _position;
 
         public Player player
@@ -52,9 +53,5 @@ namespace SmallWorld.Core
         }
 
         public abstract int countPoints();
-
-        public abstract System.SerializableAttribute toData();
-
-        public abstract void loadData(System.SerializableAttribute data);
     }
 }

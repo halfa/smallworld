@@ -9,6 +9,6 @@ namespace SmallWorld.Core
     {
         Game game { get; set; }
 
-        void load(string filePath);
+        void loadGame(string filePath);
     }
 }

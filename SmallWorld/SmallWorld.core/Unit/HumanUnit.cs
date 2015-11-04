@@ -21,15 +21,5 @@ namespace SmallWorld.Core
         {
             throw new System.NotImplementedException();
         }
-
-        public override System.SerializableAttribute toData()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void loadData(SerializableAttribute data)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

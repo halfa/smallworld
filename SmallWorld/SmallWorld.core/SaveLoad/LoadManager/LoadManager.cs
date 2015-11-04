@@ -35,7 +35,7 @@ namespace SmallWorld.Core
             }
         }
 
-        public void load(string filePath)
+        public void loadGame(string filePath)
         {
             throw new System.NotImplementedException();
         }

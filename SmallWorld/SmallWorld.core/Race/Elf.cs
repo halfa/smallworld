@@ -5,19 +5,10 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
+    [Serializable]
     public class Elf : IRace
     {
         public Elf()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public System.SerializableAttribute toData()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void loadData(System.SerializableAttribute data)
         {
             throw new System.NotImplementedException();
         }

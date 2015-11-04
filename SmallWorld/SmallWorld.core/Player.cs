@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public class Player : ISavable
+    public class Player
     {
         private string _name;
         private global::SmallWorld.Core.IRace _race;
@@ -69,6 +69,18 @@ namespace SmallWorld.Core
             }
         }
 
+        public String name
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         public void undo()
         {
             throw new System.NotImplementedException();
@@ -112,12 +124,7 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        public System.SerializableAttribute toData()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void loadData(System.SerializableAttribute data)
+        public PlayerData toData()
         {
             throw new System.NotImplementedException();
         }

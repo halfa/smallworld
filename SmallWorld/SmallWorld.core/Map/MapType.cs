@@ -5,6 +5,7 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
+    [Serializable]
     public enum MapType
     {
         Demo,

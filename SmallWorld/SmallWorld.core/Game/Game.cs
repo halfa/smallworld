@@ -5,14 +5,16 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
+    [Serializable()]
     public class Game : ISavable
     {
         private GameSettings _settings;
         private GameState _currentState;
         private System.Collections.Generic.Stack<GameState> _previousGameStates;
-        private IMap _map;
+        private Map _map;
         private Player[] _orderedPlayers;
         private SmallWorld _smallWorld;
+        private GameData _gameData;
 
         public Game(int nbPlayers, int nbTurns, int nbUnits)
         {
@@ -55,7 +57,7 @@ namespace SmallWorld.Core
             }
         }
 
-        public IMap map
+        public Map map
         {
             get
             {
@@ -80,6 +82,18 @@ namespace SmallWorld.Core
         }
 
         public SmallWorld smallWorld
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public GameData gameData
         {
             get
             {
@@ -119,12 +133,17 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        public System.SerializableAttribute toData()
+        public void saveData(string filePath)
         {
             throw new NotImplementedException();
         }
 
-        public void loadData(System.SerializableAttribute data)
+        public void loadData(string filePath)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GameData toData()
         {
             throw new System.NotImplementedException();
         }

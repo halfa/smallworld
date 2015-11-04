@@ -5,7 +5,8 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public class Position : ISavable
+    [Serializable]
+    public class Position
     {
         private int _x;
         private int _y;
@@ -42,16 +43,6 @@ namespace SmallWorld.Core
             set
             {
             }
-        }
-
-        public System.SerializableAttribute toData()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void loadData(System.SerializableAttribute data)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }
