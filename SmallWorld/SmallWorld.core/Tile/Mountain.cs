@@ -6,7 +6,7 @@ using System.Text;
 namespace SmallWorld.Core
 {
     [Serializable]
-    public class Mountain : ITile
+    public class Mountain : ATile
     {
         public Mountain()
         {

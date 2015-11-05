@@ -44,5 +44,10 @@ namespace SmallWorld.Core
             {
             }
         }
+
+        public bool equals(Position position)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

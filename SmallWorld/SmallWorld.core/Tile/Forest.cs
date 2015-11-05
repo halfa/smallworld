@@ -6,7 +6,7 @@ using System.Text;
 namespace SmallWorld.Core
 {
     [Serializable]
-    public class Forest : ITile
+    public class Forest : ATile
     {
         public Forest()
         {

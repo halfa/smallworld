@@ -5,7 +5,8 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public interface ITile
+    [Serializable]
+    public abstract class ATile
     {
     }
 }

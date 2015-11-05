@@ -7,15 +7,27 @@ namespace SmallWorld.Core
 {
     public class SaveManager : ISaveManager
     {
-        private List<ISavable> _savables;
-        private SaveManager INSTANCE;
+        private ISavable _savable;
+        private SaveManager _INSTANCE;
 
         private SaveManager()
         {
             throw new System.NotImplementedException();
         }
 
-        public List<ISavable> savables
+        public ISavable savable
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public SaveManager INSTANCE
         {
             get
             {
@@ -28,21 +40,6 @@ namespace SmallWorld.Core
         }
 
         private String hashToSaveFormat()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void save()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void addHashable(ISavable savable)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void clearHashables()
         {
             throw new System.NotImplementedException();
         }

@@ -8,7 +8,7 @@ namespace SmallWorld.Core
     public class Map
     {
         private int _height;
-        private List<ITile> _tiles;
+        private List<ATile> _tiles;
         private int _width;
         private IMapSetup _mapSetup;
         private MapType _type;
@@ -34,7 +34,7 @@ namespace SmallWorld.Core
             }
         }
 
-        public List<ITile> tiles
+        public List<ATile> tiles
         {
             get
             {

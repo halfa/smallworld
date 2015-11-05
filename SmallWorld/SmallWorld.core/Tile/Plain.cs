@@ -6,7 +6,7 @@ using System.Text;
 namespace SmallWorld.Core
 {
     [Serializable]
-    public class Plain : ITile
+    public class Plain : ATile
     {
         public Plain()
         {

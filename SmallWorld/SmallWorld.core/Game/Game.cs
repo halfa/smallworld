@@ -14,7 +14,6 @@ namespace SmallWorld.Core
         private Map _map;
         private Player[] _orderedPlayers;
         private SmallWorld _smallWorld;
-        private GameData _gameData;
 
         public Game(int nbPlayers, int nbTurns, int nbUnits)
         {
@@ -82,18 +81,6 @@ namespace SmallWorld.Core
         }
 
         public SmallWorld smallWorld
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public GameData gameData
         {
             get
             {

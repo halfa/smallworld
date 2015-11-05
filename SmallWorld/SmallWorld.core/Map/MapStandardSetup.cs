@@ -12,7 +12,7 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        public void setupMap(List<ITile> tiles)
+        public void setupMap(List<ATile> tiles)
         {
             throw new System.NotImplementedException();
         }

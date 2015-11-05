@@ -8,22 +8,17 @@ namespace SmallWorld.Core
     public class Player
     {
         private string _name;
-        private global::SmallWorld.Core.IRace _race;
+        private global::SmallWorld.Core.ARace _race;
         private List<AUnit> _units;
         private Game _game;
         private AUnit _selectedUnit;
 
-        public Player(String name, IRace race)
+        public Player(String name, ARace race)
         {
             throw new System.NotImplementedException();
         }
 
-        public Player(Player player)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public IRace race
+        public ARace race
         {
             get
             {
@@ -125,6 +120,11 @@ namespace SmallWorld.Core
         }
 
         public PlayerData toData()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void endTurn()
         {
             throw new System.NotImplementedException();
         }

@@ -5,6 +5,7 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
+    [Serializable]
     public class ElfUnit : AUnit
     {
         public ElfUnit()

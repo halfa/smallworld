@@ -6,7 +6,7 @@ using System.Text;
 namespace SmallWorld.Core
 {
     [Serializable]
-    public class Human : IRace
+    public class Human : ARace
     {
         public Human()
         {

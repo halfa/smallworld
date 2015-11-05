@@ -1,109 +1,93 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace SmallWorld.Core
 {
     [Serializable]
-    public class GameSettings
+    public class GameData
     {
-        private int _turnLimit;
-        private MapType _mapType;
-        private int _nbPlayers;
-        private String[] _playersNames;
-        private ARace[] _playersRaces;
-        private int _unitLimit;
-        [NonSerialized]private static GameSettings _INSTANCE;
+        private MapData _mapData;
+        private GameSettings _gameSettings;
+        private GameState _currentState;
+        private Stack<GameState> _previousGameStates;
+        private PlayerData[] _orderedPlayersData;
 
-        private GameSettings()
+        public MapData mapData
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public GameSettings gameSettings
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public GameState currentState
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public Stack<GameState> previousGameStates
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public PlayerData[] orderedPlayersData
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public static GameData load(string filePath)
         {
             throw new System.NotImplementedException();
         }
 
-        public MapType mapType
+        public void save(string filePath)
         {
-            get
+            XmlSerializer ser = new XmlSerializer(typeof(GameData));
+            using (var file = File.OpenWrite(filePath))
             {
-                throw new System.NotImplementedException();
+                ser.Serialize(file, this);
             }
-
-            set
-            {
-            }
-        }
-
-        public int nbPlayers
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public String[] playersNames
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public ARace[] playersRaces
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int turnLimit
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int unitLimit
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public GameSettings INSTANCE
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-        }
-
-        public void setFieldsAccordingToMapType()
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

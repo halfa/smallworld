@@ -53,5 +53,10 @@ namespace SmallWorld.Core
         }
 
         public abstract int countPoints();
+
+        public void loseHP(int amount)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

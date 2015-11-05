@@ -5,24 +5,15 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    public class SmallWorld
+    [Serializable]
+    public class MapData
     {
-        private Game _game;
-        private ISaveManager _saveManager;
-        private ILoadManager _loadManager;
+        private int _height;
+        private int _width;
+        private List<ATile> _tiles;
+        private MapType _type;
 
-        public Game game
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public ISaveManager saveManager
+        public int height
         {
             get
             {
@@ -34,7 +25,7 @@ namespace SmallWorld.Core
             }
         }
 
-        public ILoadManager loadManager
+        public int width
         {
             get
             {
@@ -46,19 +37,28 @@ namespace SmallWorld.Core
             }
         }
 
-        public void loadGame(string filePath)
+        public MapType type
         {
-            throw new System.NotImplementedException();
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
         }
 
-        public void saveGame(string filePath)
+        public List<ATile> tiles
         {
-            throw new System.NotImplementedException();
-        }
+            get
+            {
+                throw new System.NotImplementedException();
+            }
 
-        public void newGame()
-        {
-            throw new System.NotImplementedException();
+            set
+            {
+            }
         }
     }
 }

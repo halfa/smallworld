@@ -6,14 +6,14 @@ using System.Text;
 namespace SmallWorld.Core
 {
     [Serializable]
-    public class MapData
+    public class PlayerData
     {
-        private int _height;
-        private int _width;
-        private List<ITile> _tiles;
-        private MapType _type;
+        private ARace _race;
+        private AUnit _selectedUnit;
+        private string _name;
+        private List<AUnit> _units;
 
-        public int height
+        public ARace race
         {
             get
             {
@@ -25,7 +25,7 @@ namespace SmallWorld.Core
             }
         }
 
-        public int width
+        public AUnit selectedUnit
         {
             get
             {
@@ -37,7 +37,7 @@ namespace SmallWorld.Core
             }
         }
 
-        public MapType type
+        public string name
         {
             get
             {
@@ -49,7 +49,7 @@ namespace SmallWorld.Core
             }
         }
 
-        public List<ITile> tiles
+        public List<AUnit> units
         {
             get
             {

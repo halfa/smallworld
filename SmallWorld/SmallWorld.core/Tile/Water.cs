@@ -6,7 +6,7 @@ using System.Text;
 namespace SmallWorld.Core
 {
     [Serializable]
-    public class Water : ITile
+    public class Water : ATile
     {
         public Water()
         {
