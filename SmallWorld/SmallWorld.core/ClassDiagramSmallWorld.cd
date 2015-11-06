@@ -40,7 +40,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAIEmEAAAEAAAAIAAAAAAAAQAUQAEMACAAAIAAAAY=</HashCode>
+      <HashCode>AAAAIEmEAAAEAAAgIAAAAAAABQAUQAAMACAAAIAAAAY=</HashCode>
       <FileName>Player\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -282,7 +282,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.GameData">
-    <Position X="4.5" Y="13.5" Width="2.75" />
+    <Position X="4.5" Y="13.5" Width="3.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>

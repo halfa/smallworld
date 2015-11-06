@@ -13,7 +13,7 @@ namespace SmallWorld.Core
         private Game _game;
         private AUnit _selectedUnit;
 
-        public Player(String name, ARace race)
+        public Player(String name, ARace race, Game game)
         {
             throw new System.NotImplementedException();
         }
@@ -81,7 +81,7 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        public void addUnit(AUnit unit)
+        public void addNewUnit(AUnit unit)
         {
             throw new System.NotImplementedException();
         }
@@ -125,6 +125,11 @@ namespace SmallWorld.Core
         }
 
         public void endTurn()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public UnitType raceToUnitType()
         {
             throw new System.NotImplementedException();
         }
