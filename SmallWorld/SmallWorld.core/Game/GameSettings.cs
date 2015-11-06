@@ -14,9 +14,8 @@ namespace SmallWorld.Core
         private String[] _playersNames;
         private ARace[] _playersRaces;
         private int _unitLimit;
-        [NonSerialized]private static GameSettings _INSTANCE;
 
-        private GameSettings()
+        public GameSettings()
         {
             throw new System.NotImplementedException();
         }
@@ -90,14 +89,6 @@ namespace SmallWorld.Core
 
             set
             {
-            }
-        }
-
-        public GameSettings INSTANCE
-        {
-            get
-            {
-                throw new System.NotImplementedException();
             }
         }
 

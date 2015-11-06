@@ -81,7 +81,7 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        public void addNewUnit(AUnit unit)
+        public void addNewUnit()
         {
             throw new System.NotImplementedException();
         }
@@ -125,11 +125,6 @@ namespace SmallWorld.Core
         }
 
         public void endTurn()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public UnitType raceToUnitType()
         {
             throw new System.NotImplementedException();
         }

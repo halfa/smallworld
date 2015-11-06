@@ -6,9 +6,6 @@
   <Comment CommentText="Factory">
     <Position X="14.661" Y="19.25" Height="0.307" Width="0.802" />
   </Comment>
-  <Comment CommentText="Singleton">
-    <Position X="10.689" Y="13.718" Height="0.335" Width="0.787" />
-  </Comment>
   <Comment CommentText="Builder">
     <Position X="14.523" Y="13.784" Height="0.291" Width="0.7" />
   </Comment>
@@ -40,7 +37,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAIEmEAAAEAAAgIAAAAAAABQAUQAAMACAAAIAAAAY=</HashCode>
+      <HashCode>AAAAIEmEAAAEAAAgIAAAAAAAAQAUQAAMACAAAIAAAAY=</HashCode>
       <FileName>Player\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -190,7 +187,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAIAIAAAAwgAAAIBAAEAAAAQAAEAgIAkAAAAAAAA=</HashCode>
+      <HashCode>AAAAAIAIAAAAggAAAIBAAEAAAAAAAEAgIAkAAAAAAAA=</HashCode>
       <FileName>Game\GameSettings.cs</FileName>
     </TypeIdentifier>
   </Class>
