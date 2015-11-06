@@ -2801,7 +2801,7 @@
         <messages>
           <message
             Id="0288cdb2-b341-4985-8fe3-e7ef14bb8417"
-            name="New game with parameters (GameSettings settings)"
+            name="Game(GameSettings settings)"
             messageKind="Complete"
             messageSort="AsynchCall"
             createSelfMessage="false">

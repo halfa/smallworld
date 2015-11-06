@@ -1264,7 +1264,7 @@
           </lifeline>
         </lifelines>
         <messages>
-          <message Id="01fd3756-660b-4d6e-bfd8-5c2736b37e90" name="New game with parameters (GameSettings settings)" messageKind="Complete" messageSort="AsynchCall" createSelfMessage="false">
+          <message Id="01fd3756-660b-4d6e-bfd8-5c2736b37e90" name="Game(GameSettings settings)" messageKind="Complete" messageSort="AsynchCall" createSelfMessage="false">
             <elementDefinition Id="0288cdb2-b341-4985-8fe3-e7ef14bb8417" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="8a22ad6e-e4a4-49e4-a10d-ae8ee58eccba" LastKnownName="MessageOccurrenceSpecification45" />
