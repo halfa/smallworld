@@ -44,7 +44,7 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        public void attack(AUnit defender)
+        public void attack(Position defenderPos)
         {
             /*
             This method should update the life and eventually kill state of BOTH INVOLVED UNITS.
@@ -54,7 +54,7 @@ namespace SmallWorld.Core
 
         public abstract int countPoints();
 
-        public void loseHP(int amount)
+        public bool loseHP(int amount)
         {
             throw new System.NotImplementedException();
         }

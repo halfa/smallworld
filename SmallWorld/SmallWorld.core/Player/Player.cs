@@ -96,7 +96,7 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        public AUnit selectUnitAtPosition(Position position)
+        public AUnit selectUnitAt(Position position)
         {
             throw new System.NotImplementedException();
         }

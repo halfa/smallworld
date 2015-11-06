@@ -40,7 +40,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAIEmEAAAEAAAAIAAAAAAAAQAUAAEMACAAAIAAAIY=</HashCode>
+      <HashCode>AAAAIEmEAAAEAAAAIAAAAAAAAQAUQAEMACAAAIAAAAY=</HashCode>
       <FileName>Player\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
