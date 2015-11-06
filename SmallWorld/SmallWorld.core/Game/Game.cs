@@ -15,7 +15,7 @@ namespace SmallWorld.Core
         private Player[] _orderedPlayers;
         private SmallWorld _smallWorld;
 
-        public Game(int nbPlayers, int nbTurns, int nbUnits)
+        public Game(GameSettings settings)
         {
             throw new System.NotImplementedException();
         }
