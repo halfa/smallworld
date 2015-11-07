@@ -202,11 +202,11 @@
         <umlExecutionSpecificationShapeMoniker Id="11bcf196-392f-4f95-b2ba-47106fae1be5" />
       </nodes>
     </syncSelfMessageConnector>
-    <commentShape Id="7cc83b05-ee01-4d82-9772-39600a5887de" absoluteBounds="7.75, 11.125, 1.25, 0.375" customColor="251, 247, 200">
+    <commentShape Id="7cc83b05-ee01-4d82-9772-39600a5887de" absoluteBounds="9.5, 11.125, 1.25, 0.375" customColor="251, 247, 200">
       <commentMoniker Id="02ade968-7243-493c-b51c-88dc1b35dc1d" />
       <relativeChildShapes />
     </commentShape>
-    <commentConnector edgePoints="[(9 : 11.3125); (9.07083326821526 : 11.275)]" fixedFrom="NotFixed" fixedTo="NotFixed" TargetRelationshipDomainClassId="217d6bd0-42ed-4e7f-ad2b-af3ef5142428" customColor="Black">
+    <commentConnector edgePoints="[(9.5 : 11.3125); (9.22083326821526 : 11.3125)]" fixedFrom="Algorithm" fixedTo="Algorithm" TargetRelationshipDomainClassId="217d6bd0-42ed-4e7f-ad2b-af3ef5142428" customColor="Black">
       <relativeChildShapes />
       <nodes>
         <commentShapeMoniker Id="7cc83b05-ee01-4d82-9772-39600a5887de" />

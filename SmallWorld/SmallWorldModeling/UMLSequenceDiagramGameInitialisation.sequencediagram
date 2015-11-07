@@ -808,16 +808,16 @@
               <lifelineMoniker Id="f0c0f4da-8426-466e-8d49-7a04ebc2b50d" LastKnownName=": Unit_factory" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="1635b5fc-c4ff-45fc-90f6-a0f6f4c36473" name="MessageOccurrenceSpecification150">
-            <elementDefinition Id="a29ab099-6661-494f-8497-e25662553f19" />
-            <covered>
-              <lifelineMoniker Id="f0c0f4da-8426-466e-8d49-7a04ebc2b50d" LastKnownName=": Unit_factory" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="487a372b-46a4-4364-bbc1-ed981bc41835" name="MessageOccurrenceSpecification149">
             <elementDefinition Id="11b8d7b8-8f20-4a69-9407-341864661038" />
             <covered>
               <lifelineMoniker Id="ce2cfb72-67c5-4dc4-ae93-9807e737d0aa" LastKnownName=": Player" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="1635b5fc-c4ff-45fc-90f6-a0f6f4c36473" name="MessageOccurrenceSpecification150">
+            <elementDefinition Id="a29ab099-6661-494f-8497-e25662553f19" />
+            <covered>
+              <lifelineMoniker Id="f0c0f4da-8426-466e-8d49-7a04ebc2b50d" LastKnownName=": Unit_factory" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="4c858eff-0dc6-4af4-91c8-0c4b2c851d33" name="MessageOccurrenceSpecification151">
@@ -1300,7 +1300,7 @@
               <messageOccurrenceSpecificationMoniker Id="0e36bcfd-4410-4bb1-8834-6fc05386dc2f" LastKnownName="MessageOccurrenceSpecification106" />
             </receiveEvent>
           </message>
-          <message Id="52b82f01-7e65-4864-af4f-8df5331b140d" name="&lt;&lt;return&gt;&gt; (Map map)" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
+          <message Id="52b82f01-7e65-4864-af4f-8df5331b140d" name="&lt;&lt;return&gt;&gt; (Map gMap)" messageKind="Complete" messageSort="Reply" createSelfMessage="false">
             <elementDefinition Id="c0516caa-c107-41d7-8616-4a65d4b19bd3" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="e4b08ca7-b9e7-4040-ac98-8f5fa0ec5ec0" LastKnownName="MessageOccurrenceSpecification97" />
@@ -1309,7 +1309,7 @@
               <messageOccurrenceSpecificationMoniker Id="bc49e48d-4a51-4a64-8296-e12cab2b8456" LastKnownName="MessageOccurrenceSpecification98" />
             </receiveEvent>
           </message>
-          <message Id="f7360af9-ab5d-49c4-8cec-f89e904bbfa4" name="map(map)" messageKind="Complete" messageSort="SynchCall" createSelfMessage="true">
+          <message Id="f7360af9-ab5d-49c4-8cec-f89e904bbfa4" name="map(gMap)" messageKind="Complete" messageSort="SynchCall" createSelfMessage="true">
             <elementDefinition Id="453abdc2-9286-4038-a882-fe464ac67d53" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="e5203103-b2ec-4a7e-9430-21143a81bcc2" LastKnownName="MessageOccurrenceSpecification99" />
@@ -1327,7 +1327,7 @@
               <messageOccurrenceSpecificationMoniker Id="60795f5f-2e64-4bbf-9b2d-82b9e130822c" LastKnownName="MessageOccurrenceSpecification130" />
             </receiveEvent>
           </message>
-          <message Id="bfff6d7f-c9b8-4968-acb1-3dfde75da504" name="Player(string name, ARace race, Game game)" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
+          <message Id="bfff6d7f-c9b8-4968-acb1-3dfde75da504" name="Player(string pName, ARace pRace, Game pGame)" messageKind="Complete" messageSort="SynchCall" createSelfMessage="false">
             <elementDefinition Id="3db19f65-564e-4454-ad82-9fd01efe9cec" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="65fe69d5-0160-4199-84c3-c95343cbd39b" LastKnownName="MessageOccurrenceSpecification61" />
@@ -1336,7 +1336,7 @@
               <messageOccurrenceSpecificationMoniker Id="329518ae-bb2f-409c-a84a-c31f482e4b84" LastKnownName="MessageOccurrenceSpecification62" />
             </receiveEvent>
           </message>
-          <message Id="82d1cd98-5bf0-4fdc-a08f-37d5f2667e0e" name="game(game)" messageKind="Complete" messageSort="SynchCall" createSelfMessage="true">
+          <message Id="82d1cd98-5bf0-4fdc-a08f-37d5f2667e0e" name="game(pGame)" messageKind="Complete" messageSort="SynchCall" createSelfMessage="true">
             <elementDefinition Id="794400b4-5950-4872-a9a3-eff2c52e8157" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="9bc9e8ff-0649-421e-ad33-2d67d25cb619" LastKnownName="MessageOccurrenceSpecification127" />
@@ -1345,7 +1345,7 @@
               <messageOccurrenceSpecificationMoniker Id="8322b3b6-4348-4297-861b-ab726af1baa9" LastKnownName="MessageOccurrenceSpecification128" />
             </receiveEvent>
           </message>
-          <message Id="40bb5c34-51ea-497e-bb99-a7d2f06e62a6" name="name(name)" messageKind="Complete" messageSort="SynchCall" createSelfMessage="true">
+          <message Id="40bb5c34-51ea-497e-bb99-a7d2f06e62a6" name="name(pName)" messageKind="Complete" messageSort="SynchCall" createSelfMessage="true">
             <elementDefinition Id="34ee69b0-d9ee-4706-91d4-800f41522744" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="78c63288-c56f-4cb5-8b2e-35e87db21582" LastKnownName="MessageOccurrenceSpecification107" />
@@ -1354,7 +1354,7 @@
               <messageOccurrenceSpecificationMoniker Id="2b75d968-a140-44c5-8bdf-b80775c78fbf" LastKnownName="MessageOccurrenceSpecification108" />
             </receiveEvent>
           </message>
-          <message Id="65fb3fa0-11ea-48be-95fb-2f323b885271" name="race(race)" messageKind="Complete" messageSort="SynchCall" createSelfMessage="true">
+          <message Id="65fb3fa0-11ea-48be-95fb-2f323b885271" name="race(pRace)" messageKind="Complete" messageSort="SynchCall" createSelfMessage="true">
             <elementDefinition Id="137c236d-d3cb-4981-8f62-52b0420ef71c" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="e3cca7cb-cfbf-41f0-adf9-1adcd1cb70ce" LastKnownName="MessageOccurrenceSpecification109" />

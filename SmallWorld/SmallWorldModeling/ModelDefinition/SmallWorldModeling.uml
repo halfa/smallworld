@@ -1987,22 +1987,22 @@
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="a29ab099-6661-494f-8497-e25662553f19"
-            name="MessageOccurrenceSpecification150">
-            <covered>
-              <lifelineMoniker
-                Id="7477d036-ae80-4786-987c-908356b7ba3a"
-                LastKnownName=": Unit_factory"
-                LastKnownLocation="SmallWorldModeling.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="11b8d7b8-8f20-4a69-9407-341864661038"
             name="MessageOccurrenceSpecification149">
             <covered>
               <lifelineMoniker
                 Id="521e9604-47aa-43d0-b037-393478c028bc"
                 LastKnownName=": Player"
+                LastKnownLocation="SmallWorldModeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="a29ab099-6661-494f-8497-e25662553f19"
+            name="MessageOccurrenceSpecification150">
+            <covered>
+              <lifelineMoniker
+                Id="7477d036-ae80-4786-987c-908356b7ba3a"
+                LastKnownName=": Unit_factory"
                 LastKnownLocation="SmallWorldModeling.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -2877,7 +2877,7 @@
           </message>
           <message
             Id="c0516caa-c107-41d7-8616-4a65d4b19bd3"
-            name="&lt;&lt;return&gt;&gt; (Map map)"
+            name="&lt;&lt;return&gt;&gt; (Map gMap)"
             messageKind="Complete"
             messageSort="Reply"
             createSelfMessage="false">
@@ -2896,7 +2896,7 @@
           </message>
           <message
             Id="453abdc2-9286-4038-a882-fe464ac67d53"
-            name="map(map)"
+            name="map(gMap)"
             messageKind="Complete"
             messageSort="SynchCall"
             createSelfMessage="true">
@@ -2934,7 +2934,7 @@
           </message>
           <message
             Id="3db19f65-564e-4454-ad82-9fd01efe9cec"
-            name="Player(string name, ARace race, Game game)"
+            name="Player(string pName, ARace pRace, Game pGame)"
             messageKind="Complete"
             messageSort="SynchCall"
             createSelfMessage="false">
@@ -2953,7 +2953,7 @@
           </message>
           <message
             Id="794400b4-5950-4872-a9a3-eff2c52e8157"
-            name="game(game)"
+            name="game(pGame)"
             messageKind="Complete"
             messageSort="SynchCall"
             createSelfMessage="true">
@@ -2972,7 +2972,7 @@
           </message>
           <message
             Id="34ee69b0-d9ee-4706-91d4-800f41522744"
-            name="name(name)"
+            name="name(pName)"
             messageKind="Complete"
             messageSort="SynchCall"
             createSelfMessage="true">
@@ -2991,7 +2991,7 @@
           </message>
           <message
             Id="137c236d-d3cb-4981-8f62-52b0420ef71c"
-            name="race(race)"
+            name="race(pRace)"
             messageKind="Complete"
             messageSort="SynchCall"
             createSelfMessage="true">
