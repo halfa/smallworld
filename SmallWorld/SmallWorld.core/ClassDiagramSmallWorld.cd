@@ -38,7 +38,8 @@
     </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAIEmEAAAEAAAgIAAAAAAAAQAUQAAMACAAAIAAAAY=</HashCode>
-      <FileName>Player\Player.cs</FileName>
+      <FileName>player\Player.cs</FileName>
+      <NewMemberFileName>Player\Player.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.Orc">
@@ -52,25 +53,16 @@
     </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Race\Orc.cs</FileName>
+      <FileName>race\Orc.cs</FileName>
+      <NewMemberFileName>Race\Orc.cs</NewMemberFileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="SmallWorld.Core.Game">
-    <Position X="0.5" Y="13.5" Width="3.5" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-    </Compartments>
-    <TypeIdentifier>
-      <HashCode>AAAAEBAEIAgAAAEAoBAAAAKAAQCABAIEAEAIAIAAABA=</HashCode>
-      <FileName>Game\Game.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="SmallWorld.Core.Human">
     <Position X="19" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Race\Human.cs</FileName>
+      <FileName>race\Human.cs</FileName>
+      <NewMemberFileName>Race\Human.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.Elf">
@@ -84,35 +76,40 @@
     </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Race\Elf.cs</FileName>
+      <FileName>race\Elf.cs</FileName>
+      <NewMemberFileName>Race\Elf.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.Plain">
     <Position X="12.75" Y="6.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Tile\Plain.cs</FileName>
+      <FileName>tile\Plain.cs</FileName>
+      <NewMemberFileName>Tile\Plain.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.Water">
     <Position X="9.75" Y="10.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Tile\Water.cs</FileName>
+      <FileName>tile\Water.cs</FileName>
+      <NewMemberFileName>Tile\Water.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.Forest">
     <Position X="12.75" Y="10.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Tile\Forest.cs</FileName>
+      <FileName>tile\Forest.cs</FileName>
+      <NewMemberFileName>Tile\Forest.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.Mountain">
     <Position X="9.75" Y="6.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Tile\Mountain.cs</FileName>
+      <FileName>tile\Mountain.cs</FileName>
+      <NewMemberFileName>Tile\Mountain.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.AUnit">
@@ -122,14 +119,16 @@
     </Compartments>
     <TypeIdentifier>
       <HashCode>EAAAAAAAAQAAAACAEAUAKAAAAAAAAACBAAAEgIAAAAA=</HashCode>
-      <FileName>Unit\AUnit.cs</FileName>
+      <FileName>unit\AUnit.cs</FileName>
+      <NewMemberFileName>Unit\AUnit.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.HumanUnit">
     <Position X="8.75" Y="22.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
-      <FileName>Unit\HumanUnit.cs</FileName>
+      <FileName>unit\HumanUnit.cs</FileName>
+      <NewMemberFileName>Unit\HumanUnit.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.TileFactory">
@@ -139,7 +138,8 @@
     </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAAgAAAAAIAgJAAAAAAAgAAAAAQAAAAA=</HashCode>
-      <FileName>Tile\TileFactory.cs</FileName>
+      <FileName>tile\TileFactory.cs</FileName>
+      <NewMemberFileName>Tile\TileFactory.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.ElfUnit">
@@ -154,21 +154,24 @@
     </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
-      <FileName>Unit\ElfUnit.cs</FileName>
+      <FileName>unit\ElfUnit.cs</FileName>
+      <NewMemberFileName>Unit\ElfUnit.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.OrcUnit">
     <Position X="14.75" Y="22.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
-      <FileName>Unit\OrcUnit.cs</FileName>
+      <FileName>unit\OrcUnit.cs</FileName>
+      <NewMemberFileName>Unit\OrcUnit.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.UnitFactory">
     <Position X="11.75" Y="19" Width="3.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAACAAQAAAAAAAAAAA=</HashCode>
-      <FileName>Unit\UnitFactory.cs</FileName>
+      <FileName>unit\UnitFactory.cs</FileName>
+      <NewMemberFileName>Unit\UnitFactory.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.Map">
@@ -178,7 +181,8 @@
     </Compartments>
     <TypeIdentifier>
       <HashCode>EAAAAAAAAADAAAQAQAAAAAAAAhABAAAEAAAAAAwAAAA=</HashCode>
-      <FileName>Map\Map.cs</FileName>
+      <FileName>map\Map.cs</FileName>
+      <NewMemberFileName>Map\Map.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.GameSettings">
@@ -188,7 +192,8 @@
     </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAIAIAAAAggAAAIBAAEAAAAAAAEAgIAkAAAAAAAA=</HashCode>
-      <FileName>Game\GameSettings.cs</FileName>
+      <FileName>game\GameSettings.cs</FileName>
+      <NewMemberFileName>Game\GameSettings.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.GameBuilder">
@@ -198,7 +203,8 @@
     </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAIAAAAAAAAAAAgAAAACAAAACAAAACAIAAAAQAAAA=</HashCode>
-      <FileName>Game\GameBuilder.cs</FileName>
+      <FileName>game\GameBuilder.cs</FileName>
+      <NewMemberFileName>Game\GameBuilder.cs</NewMemberFileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -209,7 +215,8 @@
     </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAIAASAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAA=</HashCode>
-      <FileName>Unit\Position.cs</FileName>
+      <FileName>unit\Position.cs</FileName>
+      <NewMemberFileName>Unit\Position.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.GameState">
@@ -219,14 +226,16 @@
     </Compartments>
     <TypeIdentifier>
       <HashCode>BBAAAAACAAAAAAAEAAAAAAAAABAAIAAAAAAAAAQAAAA=</HashCode>
-      <FileName>Game\GameState.cs</FileName>
+      <FileName>game\GameState.cs</FileName>
+      <NewMemberFileName>Game\GameState.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.MapDemoSetup">
     <Position X="0.5" Y="10.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
-      <FileName>Map\MapDemoSetup.cs</FileName>
+      <FileName>map\MapDemoSetup.cs</FileName>
+      <NewMemberFileName>Map\MapDemoSetup.cs</NewMemberFileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -234,7 +243,8 @@
     <Position X="3.5" Y="10.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
-      <FileName>Map\MapSmallSetup.cs</FileName>
+      <FileName>map\MapSmallSetup.cs</FileName>
+      <NewMemberFileName>Map\MapSmallSetup.cs</NewMemberFileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -242,7 +252,8 @@
     <Position X="6.5" Y="10.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
-      <FileName>Map\MapStandardSetup.cs</FileName>
+      <FileName>map\MapStandardSetup.cs</FileName>
+      <NewMemberFileName>Map\MapStandardSetup.cs</NewMemberFileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -253,7 +264,8 @@
     </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACAQAAAAAAAAAAAAAQAAAEAAAAABAACAAA=</HashCode>
-      <FileName>SaveLoad\SaveManager\SaveManager.cs</FileName>
+      <FileName>saveLoad\saveManager\SaveManager.cs</FileName>
+      <NewMemberFileName>SaveLoad\SaveManager\SaveManager.cs</NewMemberFileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -264,7 +276,8 @@
     </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAQAAAAAAQAAAAAAAAAAAAAQAAAAIAAAAAAAAAAQ=</HashCode>
-      <FileName>SaveLoad\LoadManager\LoadManager.cs</FileName>
+      <FileName>saveLoad\loadManager\LoadManager.cs</FileName>
+      <NewMemberFileName>SaveLoad\LoadManager\LoadManager.cs</NewMemberFileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -275,7 +288,8 @@
     </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAADAAAQAQAAAAAAAAhABAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Map\MapData.cs</FileName>
+      <FileName>map\MapData.cs</FileName>
+      <NewMemberFileName>Map\MapData.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.GameData">
@@ -285,7 +299,8 @@
     </Compartments>
     <TypeIdentifier>
       <HashCode>wgACAAAQAYiAAAEAIAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
-      <FileName>Game\GameData.cs</FileName>
+      <FileName>game\GameData.cs</FileName>
+      <NewMemberFileName>Game\GameData.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.PlayerData">
@@ -295,63 +310,84 @@
     </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAIEAAAAAEAAAAIAAAAAAAAAAUAAAAACAAAAAAAAI=</HashCode>
-      <FileName>Player\PlayerData.cs</FileName>
+      <FileName>player\PlayerData.cs</FileName>
+      <NewMemberFileName>Player\PlayerData.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.ATile">
     <Position X="11.25" Y="8.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Tile\ATile.cs</FileName>
+      <FileName>tile\ATile.cs</FileName>
+      <NewMemberFileName>Tile\ATile.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.ARace">
     <Position X="19" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Race\ARace.cs</FileName>
+      <FileName>race\ARace.cs</FileName>
+      <NewMemberFileName>Race\ARace.cs</NewMemberFileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="SmallWorld.Core.Game">
+    <Position X="0.5" Y="13.5" Width="3.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAEBAEIAgAAAEAoBAAAAKAAQCABAIEAEAIAIAAABA=</HashCode>
+      <FileName>game\Game.cs</FileName>
+      <NewMemberFileName>Game\Game.cs</NewMemberFileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Interface Name="SmallWorld.Core.IGameBuilder">
     <Position X="12" Y="13.5" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAIAAAAAAAAA=</HashCode>
-      <FileName>Game\IGameBuilder.cs</FileName>
+      <FileName>game\IGameBuilder.cs</FileName>
+      <NewMemberFileName>Game\IGameBuilder.cs</NewMemberFileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SmallWorld.Core.IMapSetup">
     <Position X="3.5" Y="8.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
-      <FileName>Map\IMapSetup.cs</FileName>
+      <FileName>map\IMapSetup.cs</FileName>
+      <NewMemberFileName>Map\IMapSetup.cs</NewMemberFileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SmallWorld.Core.ISaveManager">
     <Position X="4.25" Y="0.5" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
-      <FileName>SaveLoad\SaveManager\ISaveManager.cs</FileName>
+      <FileName>saveLoad\saveManager\ISaveManager.cs</FileName>
+      <NewMemberFileName>SaveLoad\SaveManager\ISaveManager.cs</NewMemberFileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SmallWorld.Core.ISavable">
     <Position X="0.5" Y="3.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAABAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>SaveLoad\ISavable.cs</FileName>
+      <FileName>saveLoad\ISavable.cs</FileName>
+      <NewMemberFileName>SaveLoad\ISavable.cs</NewMemberFileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SmallWorld.Core.ILoadManager">
     <Position X="8" Y="0.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
-      <FileName>SaveLoad\LoadManager\ILoadManager.cs</FileName>
+      <FileName>saveLoad\loadManager\ILoadManager.cs</FileName>
+      <NewMemberFileName>SaveLoad\LoadManager\ILoadManager.cs</NewMemberFileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="SmallWorld.Core.MapType">
     <Position X="3.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAIAAAAAAAAAEAAAAAAA=</HashCode>
-      <FileName>Map\MapType.cs</FileName>
+      <FileName>map\MapType.cs</FileName>
+      <NewMemberFileName>Map\MapType.cs</NewMemberFileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />
