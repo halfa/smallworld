@@ -134,5 +134,10 @@ namespace SmallWorld.Core
         {
             throw new System.NotImplementedException();
         }
+
+        public void stack()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

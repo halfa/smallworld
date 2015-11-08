@@ -336,7 +336,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAEBAEIAgAAAEAoBAAAAKAAQCABAIEAEAIAIAAABA=</HashCode>
+      <HashCode>AAAAEBAEIAgAAAEAoBAAAAKAAQCABIIEAEAIAIAAABA=</HashCode>
       <FileName>game\Game.cs</FileName>
       <NewMemberFileName>Game\Game.cs</NewMemberFileName>
     </TypeIdentifier>
