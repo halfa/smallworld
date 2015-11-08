@@ -36,12 +36,12 @@
       <SubType>Content</SubType>
       <DependentUpon>UMLSequenceDiagramGameTurn.sequencediagram</DependentUpon>
     </Content>
-    <Content Include="UMLUseCaseDiagramSmallWorld.usecasediagram">
+    <Content Include="UMLUseCaseDiagramSmallWorldUsage.usecasediagram">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="UMLUseCaseDiagramSmallWorld.usecasediagram.layout">
+    <Content Include="UMLUseCaseDiagramSmallWorldUsage.usecasediagram.layout">
       <SubType>Content</SubType>
-      <DependentUpon>UMLUseCaseDiagramSmallWorld.usecasediagram</DependentUpon>
+      <DependentUpon>UMLUseCaseDiagramSmallWorldUsage.usecasediagram</DependentUpon>
     </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="ModelDefinition\SmallWorldModeling.uml">

@@ -1,19 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel"
   dslVersion="1.0.0.0"
   Id="7d9ff38b-01f1-4f39-a73e-0df1aa40d855"
   name="SmallWorldModeling" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
   <ownedCommentsInternal>
-    <comment
-      Id="cdbee088-b640-4191-883a-ed23e6e4e463">
-      <body>Game initialisation</body>
-      <annotatedElements>
-        <subsystemMoniker
-          Id="59658411-a9a3-42d6-a010-984a5bd04f9a"
-          LastKnownName="GameSettings"
-          LastKnownLocation="SmallWorldModeling.uml" />
-      </annotatedElements>
-    </comment>
     <comment
       Id="4ac2bfeb-00b6-4f6c-9d4c-56f35c514d15">
       <body>Is name already used?</body>
@@ -56,7 +46,7 @@
             isAbstract="false">
             <useCaseMoniker
               Id="4dd16994-45d0-4958-8553-5343f06b0e0a"
-              LastKnownName="Chose race"
+              LastKnownName="Chose Players' Races"
               LastKnownLocation="SmallWorldModeling.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -95,7 +85,7 @@
             isAbstract="false">
             <useCaseMoniker
               Id="396fa55a-7df9-480d-b082-4bdfec3c7657"
-              LastKnownName="Chose map"
+              LastKnownName="Chose Map Type"
               LastKnownLocation="SmallWorldModeling.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -134,7 +124,7 @@
             isAbstract="false">
             <useCaseMoniker
               Id="409e30f7-97bf-4823-ad2b-c7ec5bca526a"
-              LastKnownName="Chose name"
+              LastKnownName="Chose Players' Names"
               LastKnownLocation="SmallWorldModeling.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -170,7 +160,7 @@
     <packageHasNamedElement>
       <useCase
         Id="4dd16994-45d0-4958-8553-5343f06b0e0a"
-        name="Chose race"
+        name="Chose Players' Races"
         isAbstract="false"
         isLeaf="false">
         <subjects>
@@ -184,7 +174,7 @@
     <packageHasNamedElement>
       <useCase
         Id="396fa55a-7df9-480d-b082-4bdfec3c7657"
-        name="Chose map"
+        name="Chose Map Type"
         isAbstract="false"
         isLeaf="false">
         <subjects>
@@ -198,7 +188,7 @@
     <packageHasNamedElement>
       <useCase
         Id="409e30f7-97bf-4823-ad2b-c7ec5bca526a"
-        name="Chose name"
+        name="Chose Players' Names"
         isAbstract="false"
         isLeaf="false">
         <subjects>
@@ -231,6 +221,15 @@
         name="Begin Turn"
         isAbstract="false"
         isLeaf="false">
+        <additions>
+          <include
+            Id="994d0ca1-3f72-48dd-8eb7-eb2c6b533446">
+            <useCaseMoniker
+              Id="d30c3256-002b-4faf-a9c0-42ffc28970d9"
+              LastKnownName="New Game"
+              LastKnownLocation="SmallWorldModeling.uml" />
+          </include>
+        </additions>
         <subjects>
           <subsystemMoniker
             Id="df032b0a-ac9c-4be1-b13d-50eaa5dd4796"
@@ -1987,22 +1986,22 @@
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="11b8d7b8-8f20-4a69-9407-341864661038"
-            name="MessageOccurrenceSpecification149">
-            <covered>
-              <lifelineMoniker
-                Id="521e9604-47aa-43d0-b037-393478c028bc"
-                LastKnownName=": Player"
-                LastKnownLocation="SmallWorldModeling.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="a29ab099-6661-494f-8497-e25662553f19"
             name="MessageOccurrenceSpecification150">
             <covered>
               <lifelineMoniker
                 Id="7477d036-ae80-4786-987c-908356b7ba3a"
                 LastKnownName=": Unit_factory"
+                LastKnownLocation="SmallWorldModeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="11b8d7b8-8f20-4a69-9407-341864661038"
+            name="MessageOccurrenceSpecification149">
+            <covered>
+              <lifelineMoniker
+                Id="521e9604-47aa-43d0-b037-393478c028bc"
+                LastKnownName=": Player"
                 LastKnownLocation="SmallWorldModeling.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -8629,6 +8628,763 @@
       <executionEvent
         Id="352e1123-6cff-42a5-bc64-1990043a787e"
         name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="00429177-9811-4138-8e96-c94e12f72086"
+        name="Player2"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="45c453f0-a154-418c-8d37-8d12674f98cc"
+        name="Select Unit"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="5aa2bed4-6652-4128-afb4-6e9cf9f3b861">
+            <useCaseMoniker
+              Id="b2b30df2-cd7b-4f49-ae51-1b5c7c820860"
+              LastKnownName="Begin Turn"
+              LastKnownLocation="SmallWorldModeling.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="df032b0a-ac9c-4be1-b13d-50eaa5dd4796"
+            LastKnownName="GameTurn"
+            LastKnownLocation="SmallWorldModeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="5268bac3-2b4e-4a95-aef1-ce13f9e0c3f8"
+        name="Move Unit"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="6839d984-23f8-4924-bba2-641fdba9b8f6">
+            <useCaseMoniker
+              Id="45c453f0-a154-418c-8d37-8d12674f98cc"
+              LastKnownName="Select Unit"
+              LastKnownLocation="SmallWorldModeling.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="df032b0a-ac9c-4be1-b13d-50eaa5dd4796"
+            LastKnownName="GameTurn"
+            LastKnownLocation="SmallWorldModeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="21daace1-8148-4d9d-ae3a-c280dfe878a4"
+        name="Attack Enemy Unit"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="b63ebfef-89d4-4ace-8fdc-6e0b42f4ae8e">
+            <useCaseMoniker
+              Id="45c453f0-a154-418c-8d37-8d12674f98cc"
+              LastKnownName="Select Unit"
+              LastKnownLocation="SmallWorldModeling.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="df032b0a-ac9c-4be1-b13d-50eaa5dd4796"
+            LastKnownName="GameTurn"
+            LastKnownLocation="SmallWorldModeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9d648a69-c6b9-44c9-a36b-5ac2ab6c2e05"
+        name="Undo Last Action"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="df032b0a-ac9c-4be1-b13d-50eaa5dd4796"
+            LastKnownName="GameTurn"
+            LastKnownLocation="SmallWorldModeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a69edf38-2d15-470b-a32d-08232ef59c80"
+        name="Access Menu"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="df032b0a-ac9c-4be1-b13d-50eaa5dd4796"
+            LastKnownName="GameTurn"
+            LastKnownLocation="SmallWorldModeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d02e5c81-e7b4-4a66-9598-4198e1fe615b"
+        name="Save Game"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="21af743f-bba9-4a22-8305-cfd648a7052d">
+            <useCaseMoniker
+              Id="a69edf38-2d15-470b-a32d-08232ef59c80"
+              LastKnownName="Access Menu"
+              LastKnownLocation="SmallWorldModeling.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="df032b0a-ac9c-4be1-b13d-50eaa5dd4796"
+            LastKnownName="GameTurn"
+            LastKnownLocation="SmallWorldModeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="bebdd1aa-158d-4cd2-8e22-999e6451e1e6"
+        name="Load Game"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="20766c8a-443b-439c-b552-486a6fe090b7">
+            <useCaseMoniker
+              Id="a69edf38-2d15-470b-a32d-08232ef59c80"
+              LastKnownName="Access Menu"
+              LastKnownLocation="SmallWorldModeling.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="df032b0a-ac9c-4be1-b13d-50eaa5dd4796"
+            LastKnownName="GameTurn"
+            LastKnownLocation="SmallWorldModeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="0b9f46eb-3849-4254-b8e0-8266f09be58c"
+        name="End Turn"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="df032b0a-ac9c-4be1-b13d-50eaa5dd4796"
+            LastKnownName="GameTurn"
+            LastKnownLocation="SmallWorldModeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="173fb8f3-3684-4dbc-895b-057c140b096c"
+        name="Actor1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d30c3256-002b-4faf-a9c0-42ffc28970d9"
+        name="New Game"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="3bdd3e39-b4a0-4a93-811d-b424fa272ab4">
+            <useCaseMoniker
+              Id="70afeb0d-a4b9-460e-86f2-d993348c7e9a"
+              LastKnownName="Validate Settings"
+              LastKnownLocation="SmallWorldModeling.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="70afeb0d-a4b9-460e-86f2-d993348c7e9a"
+        name="Validate Settings"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="04571748-ba18-4fb2-89cc-4d20ce47ffdc">
+            <useCaseMoniker
+              Id="409e30f7-97bf-4823-ad2b-c7ec5bca526a"
+              LastKnownName="Chose Players' Names"
+              LastKnownLocation="SmallWorldModeling.uml" />
+          </include>
+          <include
+            Id="5dda624e-01a7-4d8b-819c-f539fd721d3c">
+            <useCaseMoniker
+              Id="396fa55a-7df9-480d-b082-4bdfec3c7657"
+              LastKnownName="Chose Map Type"
+              LastKnownLocation="SmallWorldModeling.uml" />
+          </include>
+          <include
+            Id="88a3bc46-6b81-44ba-8466-0cc23264ad31">
+            <useCaseMoniker
+              Id="4dd16994-45d0-4958-8553-5343f06b0e0a"
+              LastKnownName="Chose Players' Races"
+              LastKnownLocation="SmallWorldModeling.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="59658411-a9a3-42d6-a010-984a5bd04f9a"
+            LastKnownName="GameSettings"
+            LastKnownLocation="SmallWorldModeling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="1509c85b-8850-41a5-823a-146f42de4153"
+        name="Small World Application"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="e4a94ad0-9f30-4621-8a0b-49f40399869a"
+            isDerived="false"
+            sourceEndRoleName="Small World Application"
+            targetEndRoleName="Validate Settings"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="70afeb0d-a4b9-460e-86f2-d993348c7e9a"
+              LastKnownName="Validate Settings"
+              LastKnownLocation="SmallWorldModeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="59571d58-8633-4a35-8877-371d230a4c5a"
+                  name="Small World Application"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8e7dfc64-5e37-457f-8e42-44bebb92b8f5"
+                  name="Validate Settings"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="64f2effd-9cc3-4622-a522-db08f09bbd5b"
+        name="Player"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="6bf626d0-5645-4935-84dd-9ae184f8d00c"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="New Game"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d30c3256-002b-4faf-a9c0-42ffc28970d9"
+              LastKnownName="New Game"
+              LastKnownLocation="SmallWorldModeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5ff87d85-3cdd-4a5a-9773-644aa5beae15"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a6a2436f-8bac-49db-8d69-e54c29f9c298"
+                  name="New Game"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="04c81c1a-502a-4e22-9eb6-387be65ef165"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Load Game"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="7dcd0df0-cd4c-44bc-a1e3-6d5175b73224"
+              LastKnownName="Load Game"
+              LastKnownLocation="SmallWorldModeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="58057b52-d5d0-4fb1-a456-633d0a3e143b"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="45894541-98d1-4d1c-90b1-34a27106e17c"
+                  name="Load Game"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="9dcf3fb0-566a-42b0-8962-83d01883a25d"
+        name="Player"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="9efff132-3d0b-40fd-ba14-7960984205ae"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Select Unit"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="45c453f0-a154-418c-8d37-8d12674f98cc"
+              LastKnownName="Select Unit"
+              LastKnownLocation="SmallWorldModeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bcd82884-122d-473a-aab9-1b31ff591e70"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1b4b5999-6893-4c54-8bbe-d8dbe0708be6"
+                  name="Select Unit"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="80065bba-f72e-434a-b8f2-efbff5df6589"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Move Unit"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="5268bac3-2b4e-4a95-aef1-ce13f9e0c3f8"
+              LastKnownName="Move Unit"
+              LastKnownLocation="SmallWorldModeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bd84ee57-d7c8-41a8-9db9-a01d0c952a4c"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="230b1112-70bc-49d4-8763-e20e16eb28d6"
+                  name="Move Unit"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="52441721-90aa-44bd-a4ba-ca4d8c0e94a9"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Attack Enemy Unit"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="21daace1-8148-4d9d-ae3a-c280dfe878a4"
+              LastKnownName="Attack Enemy Unit"
+              LastKnownLocation="SmallWorldModeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e961caf8-f8e2-4033-8a17-392a9e4083ef"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c8524b1f-b9b7-451c-9ac7-9cdfcfebe24c"
+                  name="Attack Enemy Unit"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="fd6bdc1c-4979-4909-a6d5-05a71f539a1d"
+        name="Actor2"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="14a09371-c928-4337-956c-479fbd5f01e4"
+        name="Player"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="756e8c9e-e143-4b09-ab04-4a09c2cf1dff"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Undo Last Action"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="9d648a69-c6b9-44c9-a36b-5ac2ab6c2e05"
+              LastKnownName="Undo Last Action"
+              LastKnownLocation="SmallWorldModeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ba028169-c529-4d52-8239-d61c5dab95a4"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3bb53f71-7ab2-4a97-aa90-63ceee8bc48c"
+                  name="Undo Last Action"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="934c2307-1eda-42dd-a704-b7ab2a6db9e4"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Access Menu"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="a69edf38-2d15-470b-a32d-08232ef59c80"
+              LastKnownName="Access Menu"
+              LastKnownLocation="SmallWorldModeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9c59f907-0538-4dce-a711-87e6d2d1df77"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c8a49d21-6daf-4f7a-bbee-fcbc4a740269"
+                  name="Access Menu"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="330e6afd-0c2b-414d-9759-0d593ad69f36"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Save Game"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d02e5c81-e7b4-4a66-9598-4198e1fe615b"
+              LastKnownName="Save Game"
+              LastKnownLocation="SmallWorldModeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="23e87b8c-24be-4d76-af4b-44cd441879c0"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="02261d3f-b226-4b13-85dc-48a21edb676d"
+                  name="Save Game"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="304e0574-bc46-47aa-8166-e9cd4b9a63c7"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Load Game"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="bebdd1aa-158d-4cd2-8e22-999e6451e1e6"
+              LastKnownName="Load Game"
+              LastKnownLocation="SmallWorldModeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="eae600b4-38fa-42c3-ba39-f53bc8f0cd29"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4c5ea6c8-4b94-41f3-a8b2-3998a3e673ce"
+                  name="Load Game"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="35c4df42-9fd3-45fe-9c93-d015f47c5be9"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="End Turn"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="0b9f46eb-3849-4254-b8e0-8266f09be58c"
+              LastKnownName="End Turn"
+              LastKnownLocation="SmallWorldModeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="14437cea-6d3c-4786-81e2-768b68227c02"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="34b255cb-5d20-44b2-99b3-a6dc66210ba8"
+                  name="End Turn"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="7dcd0df0-cd4c-44bc-a1e3-6d5175b73224"
+        name="Load Game"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="fb68e5e6-e335-4c1d-b1f4-3cd0984c1b8b"
+        name="Small World Application"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="a106e481-3ff8-4477-acb8-5c5e8df317fd"
+            isDerived="false"
+            sourceEndRoleName="Small World Application"
+            targetEndRoleName="Begin Turn"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="b2b30df2-cd7b-4f49-ae51-1b5c7c820860"
+              LastKnownName="Begin Turn"
+              LastKnownLocation="SmallWorldModeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="51dc87c8-7831-430b-8d75-b25e0dbe4507"
+                  name="Small World Application"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="10ca12bf-410e-46bf-b671-2d479ee1a47b"
+                  name="Begin Turn"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
