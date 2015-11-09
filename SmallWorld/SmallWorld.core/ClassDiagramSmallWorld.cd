@@ -124,7 +124,13 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.HumanUnit">
-    <Position X="8.75" Y="22.5" Width="2.5" />
+    <Position X="8.75" Y="22.5" Width="2.75" />
+    <InheritanceLine Type="SmallWorld.Core.AUnit" FixedToPoint="true">
+      <Path>
+        <Point X="10" Y="21.584" />
+        <Point X="10" Y="22.5" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>unit\HumanUnit.cs</FileName>
@@ -143,13 +149,13 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.ElfUnit">
-    <Position X="11.75" Y="22.5" Width="2.5" />
+    <Position X="12" Y="22.5" Width="2.5" />
     <InheritanceLine Type="SmallWorld.Core.AUnit" FixedToPoint="true">
       <Path>
         <Point X="10" Y="21.584" />
         <Point X="10" Y="22.125" />
-        <Point X="13" Y="22.125" />
-        <Point X="13" Y="22.5" />
+        <Point X="13.25" Y="22.125" />
+        <Point X="13.25" Y="22.5" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -159,7 +165,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.OrcUnit">
-    <Position X="14.75" Y="22.5" Width="2.5" />
+    <Position X="15" Y="22.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>unit\OrcUnit.cs</FileName>
