@@ -22,16 +22,45 @@ Ce document présente les résultats de la phase de modélisation du projet de q
 Le projet proposé consiste en la réalisation d'un jeu vidéo tour par tour, basé sur le jeu de plateau \textit{SmallWorld}. Au cours d'une partie, les joueurs s'affrontent pendant un certain nombre de tours, afin prendre le contrôle d'un territoire. Ce projet met l'accent sur les différentes phases de la réalisation d'un projet d'application orientée objet. La modélisation, l'utilisation de patrons de conceptions, l'organisation du code, l'implémentation, l'utilisation de librairies dynamiques, l'interfaçage entre plusieurs langages, la gestion d'IHM et les phases de tests sont des points clés des objectifs pédagogiques de ce projet.
 
 \section{Présentation des règles du jeu}
+\paragraph{}
 
 \subsection{But du jeu}
-Le but de SmallWorld est d'accumuler des points. A la fin de chaque tour de jeu, le joueur compte les points gagnés et les ajoutes à son total. Au bout d'un nombre de tour défini au préalable, le jeu s'arrête et le joueur ayant le plus de point remporte la partie.
+\paragraph{}
+Le but de SmallWorld est d'accumuler des points.
+À la fin de chaque tour de jeu, le joueur compte les points gagnés et les ajoutes à son total. Au bout d'un nombre de tour défini au préalable, le jeu s'arrête et le joueur ayant le plus de point remporte la partie. Une partie peut également s'interrompre si un des joueurs élimine l'ensemble des unités de l'adversaire. Un joueur qui ne possède plus d'unités perd la partie, quel que soit son total de point.
+
 \subsubsection{Plateau de jeu}
-Le jeu se déroule sur une plateau dont la dimension dépend du nombre de joueurs et de la durée de la partie.
+\paragraph{}
+Le jeu se déroule sur une plateau quadrillé de cases carré dont la dimension dépend du nombre de joueurs et de la durée de la partie.\label{map_gen} Il est composé de cases de différents types : plaine, mer, montagne et forêt.La carte est généré de manière aléatoire, mais doit contenir le même nombre de case de chaque type.
+
+\subsubsection{Unité}
+\paragraph{}
+Des unitées sont placées sur le plateau, sur lequel elles peuvent se déplacer.
+
+\subsubsection{Races et comptage des points en fin de tour}
+
+\paragraph{}
+Voici les configurations de jeu conseillées :
+\begin{itemize}
+    \item 2 joueurs, plateau de 6 par 6, 5 tours de jeu : 4 unités par joueur
+    \item 2 joueurs, plateau de 10 par 10, 20 tours de jeu : 6 unités par joueur
+    \item 2 joueurs, plateau de 14 par 14, 30 tours de jeu : 8 unités par joueur
+\end{itemize}
+
+\subsubsection{Préparation}
+\paragraph{}
+La préparation du jeu necéssite que le joueur choississe le type de partie parmis les configurations proposées, 
 
 \subsection{Déroulement d'un tour de jeu}
+\paragraph{}
+Chaque \em{tour de jeu} est constitué de plusieurs \em{tours de joueurs}. Ces tours sont séquentiels. Lors du premier tour de jeu, le joueur jouant le premier tout est tiré au hasard, et cet ordre est conservé durant le reste de la partie.
 
+Déroulement du tour :
 \begin{itemize}
-    \item 
+    \item Début du tour
+    \item Déplacement des unités et combats
+    \item Décompte des points
+    \item Fin du tour
 \end{itemize}
 
 \subsection{Déplacement et combat}
@@ -65,7 +94,7 @@ Les interactions entre ces différents regroupements sont symbolisées par les f
 \subsection{Diagramme de classes}
 \label{DDC}
 \paragraph{}
-Le diagramme suivant représente l'organisation en classes de notre application.
+Le diagramme suivant illustre l'organisation en classes de notre application.
 
 \includepdf{images/classDiagram.pdf}
 
