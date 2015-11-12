@@ -133,6 +133,8 @@ L'utilisation de ces patrons de conception nous a permis de structurer nos class
 \includepdf{images/classDiagram.pdf}
 
 \subsection{Diagrammes d'interaction}
+\paragraph{}
+Les diagrammes suivants permettent de détailler précisément les échanges entre les différentes instances de nos classes, dans deux traitements spécifiques.
 
 \subsubsection{Diagramme de séquence : initialisation d'une partie}
 
@@ -140,9 +142,32 @@ L'utilisation de ces patrons de conception nous a permis de structurer nos class
 
 \subsubsection{Diagramme de séquence : déroulement d'un tour}
 
+Le diagramme suivant présente le déroulement d'un tour et aborde différents cas particuliers.
+
+\paragraph{}
+Au début du tour, le joueur courant \textit{sélectionne} une de ses unités. Il lui donne ensuite un ordre de \textit{déplacement}. Selon la case ciblée, on détermine la faisabilité du trajet. Si le trajet est impossible, rien ne se passe. Au contraire, si le trajet est possible, on détermine alors s'il s'agit d'un \textit{déplacement} (vers une case inoccupée ou occupée par des unités alliées), ou d'une \textit{attaque}. De plus, le joueur informe la partie qu'un changement significatif va être effectué. Celle-ci enregistre alors l'état de jeu actuel, pour pouvoir y revenir si besoin.
+
+\paragraph{}
+Dans le cas d'un simple \textit{déplacement}, le joueur met à jour la position de l'unité sélectionnée, qui elle-même averti la partie des modifications qu'elle subit, afin que cette dernière mette à jour son état courant.
+
+\paragraph{}
+Dans le cas d'une \textit{attaque}, on effectue les traitements suivants :
+\begin{itemize}
+    \item Perte de points de vie de l'attaquant (en cas de décès de l'unité attaquant, on met à jour l'unité sélectionnée du joueur, et on supprime l'unité de sa liste d'unités, avant d'avertir la partie des nouvelles modifications).
+    \item Perte de points de vie du défenseur (en cas de décès de l'unité du défenseur, on la supprime de la liste d'unités du joueur défenseur, avant d'avertir la partie des nouvelles modifications).
+    \item Si le défenseur est mort, que l'attaquant a survécu, et qu'il n'y a plus de défenseurs sur la case ciblée, alors le joueur déplace l'unité attaquante jusqu'à la position spécifiée, avant d'avertir la partie des nouvelles modifications.
+\end{itemize}
+
+\paragraph{}
+Dans les deux cas, le joueur peut répéter ces manipulations autant de fois qu'il le peut et le désire, avant de valider son tour. Il informe alors la partie de sa décision, qui va mettre à jour l'état courant, et les états précédents, afin de préparer le tour du joueur suivant.
+
+\paragraph{}
+Nous n'avons pas représenté ici les cas de victoire par élimination, ni spécifié le traitement du comptage des points à la fin du tour. De plus, le cas de l'utilisation de l'action \textit{undo} par le joueur n'a pas été traité. Le diagramme se concentre sur un tour typique, et non sur des cas exceptionnels. Bien entendu, tous ces cas seront traités dans le code, et nous les détaillons d'ailleurs dans la section \ref{DET}
+
 \includepdf{images/gameTurnSequenceDiagram.pdf}
 
-\subsection{Diagramme d'états-transitions : gestion d'une unité}
+\subsection{Diagramme d'états-transitions : états de la partie}
+\label{DET}
 Le diagramme suivant illustre les différents états d'une partie, et les évènements et conditions qui permettent une transition entre états.
 
 \paragraph{}
