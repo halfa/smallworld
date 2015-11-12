@@ -30,6 +30,18 @@ Le projet proposé consiste en la réalisation d'un jeu vidéo tour par tour, ba
 Le but de SmallWorld est d'accumuler des points.
 À la fin de chaque tour de jeu, le joueur compte les points gagnés et les ajoutes à son total. Au bout d'un nombre de tour défini au préalable, le jeu s'arrête et le joueur ayant le plus de point remporte la partie. Une partie peut également s'interrompre si un des joueurs élimine l'ensemble des unités de l'adversaire. Un joueur qui ne possède plus d'unités perd la partie, quel que soit son total de point.
 
+\paragraph{}
+\textbf{Déroulement d'une partie}
+\begin{itemize}
+    \item Choix de la configuration du plateau de jeu
+    \item Choix des races
+    \item Choix du joueur qui commence la partie
+    \item Création du plateau de jeu
+    \item Début du premier tour de jeu\\(\dots)
+    \item Fin du dernier tour de jeu
+    \item Décompte final des points
+\end{itemize}
+
 \subsubsection{Plateau de jeu}
 \paragraph{}
 Le jeu se déroule sur une plateau quadrillé de cases carré dont la dimension dépend du nombre de joueurs et de la durée de la partie.\label{map_gen} Il est composé de cases de différents types : plaine, mer, montagne et forêt.La carte est généré de manière aléatoire, mais doit contenir le même nombre de case de chaque type.
@@ -39,7 +51,7 @@ Le jeu se déroule sur une plateau quadrillé de cases carré dont la dimension 
 Des unitées sont placées sur le plateau, sur lequel elles peuvent se déplacer.
 
 \subsubsection{Races et comptage des points en fin de tour}
-
+E
 \paragraph{}
 \textbf{Configurations conseillées}
 \begin{itemize}
