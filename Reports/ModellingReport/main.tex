@@ -98,6 +98,37 @@ Par ailleurs, la séparation de notre application en paquetages "modèle" , "API
 \label{DDC}
 \paragraph{}
 Le diagramme suivant illustre l'organisation en classes de notre application.
+On distingue des regroupements de classes par thématiques : 
+\begin{itemize}
+    \item SmallWorld : la classe principale de l'application
+    \item Game : gestion d'une partie
+    \item Player : gestion des joueurs
+    \item Map : gestion d'une carte
+    \item Tile : gestion des cases de la carte
+    \item Race : gestion des différentes races
+    \item Unit : gestion des unités
+    \item SaveLoad : gestion des sauvegardes et chargement de parties
+\end{itemize}
+
+\paragraph{}
+Concernant nos choix de modélisation, nous avons utilisé les patrons de conception suivants :
+\begin{itemize}
+    \item Factory : classes \textbf{UnitFactory} et \textbf{TileFactory} : faciliter l'instanciation des objets associés par l'utilisation d'une fabrique.
+    \item Flyweight : classe \textbf{TileFactory} : limiter l'instanciation des cases (\textbf{Tile}) à une instance par type de case (gain de place mémoire)
+    \item Builder : interface \textbf{IGameBuilder} et classes associées : permettre le montage d'une partie (opération \textbf{complexe}) en fonction des paramètres proposés, en séparant ces traitements de la classe \textbf{Game}, pour ne pas l'alourdir.
+    \item Strategy : interface \textbf{IMapSetup} et classes associées : permettre de réaliser une carte de plusieurs façons différentes, suivant le type de carte spécifié.
+    \item Command : interface \textbf{ISaveManager} et classes associées : permettre la sauvegarde d'une partie en déléguant le processus de sérialisation aux éléments concernés.
+\end{itemize}
+
+\paragraph{}
+En plus de ces patrons attendus, nous avons utilisé les patrons suivants :
+\begin{itemize}
+    \item Singleton : classes \textbf{SaveManager} et \textbf{LoadManager} : ces classes ont un caractère unique pour notre application, qui ne devra se référer qu'à un unique gestionnaire de sauvegarde, et un unique gestionnaire de chargement.
+    \item Memento : classe \textbf{GameState} : adaptation du patron de conception afin de sauvegarder les états de la partie en cours, et permettre la restauration des états précédents (\textit{undo}).
+\end{itemize}
+
+\paragraph{}
+L'utilisation de ces patrons de conception nous a permis de structurer nos classes et interfaces de façon à répondre à nos besoins de modélisation. Leur manipulation nous as assuré une cohérence entre les classes et nous a permis de mieux appréhender les interactions entre les différentes classes et patrons de conception.
 
 \includepdf{images/classDiagram.pdf}
 
