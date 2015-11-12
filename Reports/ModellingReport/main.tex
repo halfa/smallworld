@@ -62,7 +62,7 @@ Des unités sont placées sur le plateau, sur lequel elles peuvent être déplac
 
 \subsubsection{Préparation}
 \paragraph{}
-La préparation du jeu necéssite que le joueur choisisse le type de partie parmis les configurations proposées.
+La préparation du jeu necéssite que le joueur choisisse un type de partie parmis les configurations proposées.
 
 \subsection{Déroulement d'un tour de jeu}
 \paragraph{}
@@ -87,7 +87,10 @@ La phase de modélisation nous a conduit à réaliser plusieurs diagrammes UML, 
 \subsection{Diagramme de paquetage}
 \paragraph{}
 Le diagramme suivant illustre la structuration à gros grain du code de notre application. On y retrouve les classes et interfaces que nous détaillerons dans la section \ref{DDC}.
-Comme on peut le constater, nous n'avons pas hiérarchisé notre application selon plusieurs paquetages. En effet, les interactions entre nos classes et interfaces auraient conduit à des dépendances circulaires entre les éventuels paquetages, mais transformer le modèle afin d'éviter ces problèmes aurait résulté en une complexité des traitements beaucoup plus importante, ou en la création de trop nombreux paquetages. Nous avons donc opté pour la simplicité de traitement. Les différentes classes et interfaces étant toutes liées, il nous semble inapproprié de les séparer dans des paquetages différents : les modifications éventuelles impacteront bon nombre d'entre elles, touchant à plusieurs des paquetages envisagés.
+Comme on peut le constater, nous n'avons pas hiérarchisé notre application selon plusieurs paquetages. En effet, les interactions entre nos classes et interfaces auraient conduit à des dépendances circulaires entre les éventuels paquetages, mais transformer le modèle afin d'éviter ces problèmes aurait résulté en une complexité des traitements beaucoup plus importante, ou en la création de trop nombreux paquetages.
+
+\paragraph{}
+Nous avons donc opté pour la simplicité de traitement. Les différentes classes et interfaces étant toutes liées, il nous semble inapproprié de les séparer dans des paquetages différents : les modifications éventuelles impacteront bon nombre d'entre elles, touchant à plusieurs des paquetages envisagés.
 
 \paragraph{}
 Par ailleurs, la séparation de notre application en paquetages "modèle" , "API" n'est pas pertinente, car ce projet ne porte que sur \textbf{une} implémentation du jeu proposé. Si plusieurs implémentations avaient été requises, la séparation précédente aurait alors eu du sens.
@@ -115,7 +118,7 @@ Concernant nos choix de modélisation, nous avons utilisé les patrons de concep
 \begin{itemize}
     \item Factory : classes \textbf{UnitFactory} et \textbf{TileFactory} : faciliter l'instanciation des objets associés par l'utilisation d'une fabrique.
     \item Flyweight : classe \textbf{TileFactory} : limiter l'instanciation des cases (\textbf{Tile}) à une instance par type de case (gain de place mémoire)
-    \item Builder : interface \textbf{IGameBuilder} et classes associées : permettre le montage d'une partie (opération \textbf{complexe}) en fonction des paramètres proposés, en séparant ces traitements de la classe \textbf{Game}, pour ne pas l'alourdir.
+    \item Builder : interface \textbf{IGameBuilder} et classes associées : permettre le montage d'une partie (opération \textit{complexe}) en fonction des paramètres spécifiés, en séparant ces traitements de la classe \textbf{Game}, pour ne pas l'alourdir.
     \item Strategy : interface \textbf{IMapSetup} et classes associées : permettre de réaliser une carte de plusieurs façons différentes, suivant le type de carte spécifié.
     \item Command : interface \textbf{ISaveManager} et classes associées : permettre la sauvegarde d'une partie en déléguant le processus de sérialisation aux éléments concernés.
 \end{itemize}
@@ -128,7 +131,7 @@ En plus de ces patrons attendus, nous avons utilisé les patrons suivants :
 \end{itemize}
 
 \paragraph{}
-L'utilisation de ces patrons de conception nous a permis de structurer nos classes et interfaces de façon à répondre à nos besoins de modélisation. Leur manipulation nous as assuré une cohérence entre les classes et nous a permis de mieux appréhender les interactions entre les différentes classes et patrons de conception.
+L'utilisation de ces patrons de conception nous a permis de structurer nos classes et interfaces de façon à répondre à nos besoins de modélisation. Leur manipulation nous a assuré une cohérence entre les classes et nous a permis de mieux appréhender les interactions entre les différentes classes et patrons de conception.
 
 \includepdf{images/classDiagram.pdf}
 
@@ -142,10 +145,10 @@ Les diagrammes suivants permettent de détailler précisément les échanges ent
 
 \subsubsection{Diagramme de séquence : déroulement d'un tour}
 
-Le diagramme suivant présente le déroulement d'un tour et aborde différents cas particuliers.
+Le diagramme suivant présente le déroulement d'un tour et aborde différentes actions typiques.
 
 \paragraph{}
-Au début du tour, le joueur courant \textit{sélectionne} une de ses unités. Il lui donne ensuite un ordre de \textit{déplacement}. Selon la case ciblée, on détermine la faisabilité du trajet. Si le trajet est impossible, rien ne se passe. Au contraire, si le trajet est possible, on détermine alors s'il s'agit d'un \textit{déplacement} (vers une case inoccupée ou occupée par des unités alliées), ou d'une \textit{attaque}. De plus, le joueur informe la partie qu'un changement significatif va être effectué. Celle-ci enregistre alors l'état de jeu actuel, pour pouvoir y revenir si besoin.
+Au début du tour, le joueur courant \textit{sélectionne} une de ses unités. Il lui donne ensuite un ordre de \textit{déplacement}. Selon la case ciblée, on détermine la faisabilité du trajet. Si le trajet est impossible, rien ne se passe. Au contraire, si le trajet est possible, on détermine alors s'il s'agit d'un \textit{déplacement} (vers une case inoccupée ou occupée par des unités alliées), ou d'une \textit{attaque}. À la suite de quoi, le joueur informe la partie qu'un changement significatif va être effectué. Celle-ci enregistre alors l'état de jeu actuel, pour pouvoir y revenir si besoin.
 
 \paragraph{}
 Dans le cas d'un simple \textit{déplacement}, le joueur met à jour la position de l'unité sélectionnée, qui elle-même averti la partie des modifications qu'elle subit, afin que cette dernière mette à jour son état courant.
@@ -171,13 +174,13 @@ Nous n'avons pas représenté ici les cas de victoire par élimination, ni spéc
 Le diagramme suivant illustre les différents états d'une partie, et les évènements et conditions qui permettent une transition entre états.
 
 \paragraph{}
-En premier lieu, l'utilisateur détermine les paramètres de la partie (noms des joueurs, races, type de carte), puis ces informations sont transmises à la partie qui est alors \textbf{paramétrée}. La partie s'\textbf{initialise} alors selon les paramètres fournis. Durant cette phase, on détermine le joueur qui sera le premier à agir. La partie démarre alors un nouveau tour, et donne la main au premier joueur, que nous appellerons par la suite joueur 1.
+En premier lieu, l'utilisateur détermine les paramètres de la partie (noms des joueurs, races, type de carte), puis ces informations sont transmises à la partie qui est alors \textit{paramétrée}. La partie s'\textit{initialise} alors selon les paramètres fournis. Durant cette phase, on détermine le joueur qui sera le premier à agir. La partie démarre alors un nouveau tour, et donne la main au premier joueur, que nous appellerons par la suite joueur 1.
 
 \paragraph{}
-Le changement de joueur s'effectue lors de l'annonce de fin de tour par le joueur 1. Si durant son tour, le joueur 1 est parvenu à éliminer toutes les unités de son adversaire, on arrive à la \textbf{victoire du joueur 1}. Si le joueur 1 a perdu toutes ses unités durant son tour et décide tout de même de le valider, on arrive à la \textbf{victoire du joueur 2}. Sinon, le jeu donne la main au joueur 2. De la même façon, on détermine si le joueur 2 gagne ou perd par élimination à la fin de son tour. On arrive alors à la \textbf{fin du tour de jeu} (tous les joueurs ont eu leur tour). S'il reste des tours à jouer, la partie donne la main au joueur 1.
+Le changement de joueur s'effectue lors de l'annonce de fin de tour par le joueur 1. Si durant son tour, le joueur 1 est parvenu à éliminer toutes les unités de son adversaire, on arrive à la \textit{victoire du joueur 1}. Si le joueur 1 a perdu toutes ses unités durant son tour et décide tout de même de le valider, on arrive à la \textit{victoire du joueur 2}. Sinon, le jeu donne la main au joueur 2. De la même façon, on détermine si le joueur 2 gagne ou perd par élimination à la fin de son tour. On arrive alors à la \textit{fin du tour de jeu} (tous les joueurs ont eu leur tour). S'il reste des tours à jouer, la partie redonne la main au joueur 1.
 
 \paragraph{}
-À la fin du nombre limite de tours, si aucun des joueurs n'a atteint de victoire par élimination, on arrive à la \textbf{fin de partie}. La partie détermine alors, en fonction des points de victoire accumulés par les deux joueurs, s'il s'agit d'une situation de \textbf{victoire du joueur 1}, de \textbf{victoire du joueur 2}, ou encore d'\textbf{égalité}. La partie se termine alors.
+À la fin du nombre limite de tours, si aucun des joueurs n'a atteint de victoire par élimination, on arrive à la \textit{fin de partie}. La partie détermine alors, en fonction des points de victoire accumulés par les deux joueurs, s'il s'agit d'une situation de \textit{victoire du joueur 1}, de \textit{victoire du joueur 2}, ou encore d'\textit{égalité}. La partie se termine alors.
 
 \includepdf[landscape=true]{images/gameStatechart.pdf}
 
