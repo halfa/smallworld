@@ -111,6 +111,16 @@ Le diagramme suivant illustre l'organisation en classes de notre application.
 \includepdf{images/gameTurnSequenceDiagram.pdf}
 
 \subsection{Diagramme d'états-transitions : gestion d'une unité}
+Le diagramme suivant illustre les différents états d'une partie, et les évènements et conditions qui permettent une transition entre états.
+
+\paragraph{}
+En premier lieu, l'utilisateur détermine les paramètres de la partie (noms des joueurs, races, type de carte), puis ces informations sont transmises à la partie qui est alors \textbf{paramétrée}. La partie s'\textbf{initialise} alors selon les paramètres fournis. Durant cette phase, on détermine le joueur qui sera le premier à agir. La partie démarre alors un nouveau tour, et donne la main au premier joueur, que nous appellerons par la suite joueur 1.
+
+\paragraph{}
+Le changement de joueur s'effectue lors de l'annonce de fin de tour par le joueur 1. Si durant son tour, le joueur 1 est parvenu à éliminer toutes les unités de son adversaire, on arrive à la \textbf{victoire du joueur 1}. Si le joueur 1 a perdu toutes ses unités durant son tour et décide tout de même de le valider, on arrive à la \textbf{victoire du joueur 2}. Sinon, le jeu donne la main au joueur 2. De la même façon, on détermine si le joueur 2 gagne ou perd par élimination à la fin de son tour. On arrive alors à la \textbf{fin du tour de jeu} (tous les joueurs ont eu leur tour). S'il reste des tours à jouer, la partie donne la main au joueur 1.
+
+\paragramh{}
+À la fin du nombre limite de tours, si aucun des joueurs n'a atteint de victoire par élimination, on arrive à la \textbf{fin de partie}. La partie détermine alors, en fonction des points de victoire accumulés par les deux joueurs, s'il s'agit d'une situation de \textbf{victoire du joueur 1}, de \textbf{victoire du joueur 2}, ou encore d'\textbf{égalité}. La partie se termine alors.
 
 \includepdf{images/gameStatechart.pdf}
 
