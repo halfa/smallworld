@@ -73,22 +73,11 @@ La phase de modélisation nous a conduit à réaliser plusieurs diagrammes UML, 
 
 \subsection{Diagramme de paquetage}
 \paragraph{}
-Le diagramme suivant illustre la structuration à gros grain du code de notre application. On y retrouve les classes et interfaces que nous détaillerons dans la section \ref{DDC}. Ce diagramme illustre les interactions entre les regroupements de classes. On ne parle pas ici de \textit{package} proprement dit, car le choix du \textbf{C\#} comme langage de programmation ne permet pas l'utilisation de paquetages. Il s'agit d'un découpage ayant pour but de présenter la structure des différentes parties de l'application, sans détailler les interactions internes à chaque regroupement.
+Le diagramme suivant illustre la structuration à gros grain du code de notre application. On y retrouve les classes et interfaces que nous détaillerons dans la section \ref{DDC}.
+Comme on peut le constater, nous n'avons pas hierarchisé notre application selon plusieurs paquetages. En effet, les interactions entre nos classes et interfaces auraient conduit à des dépendances circulaires entre les éventuels paquetages, mais transformer le modèle afin d'éviter ces problèmes aurait résulté en une complexité des traitements beaucoup plus importante, ou en la création de trop nombreux paquetages. Nous avons donc opté pour la simplicité de traitement. Les différentes classes et interfaces étant toutes liées, il nous semble inapproprié de les séparer dans des paquetages différents : les modifications éventuelles impacteront bon nombre d'entre elles, touchant à plusieurs des paquetages envisagés.
 
 \paragraph{}
-On distingue 7 regroupements, en plus de l'application principale (\textit{SmallWorld}) :
-\begin{enumerate}
-\item \textit{Tile} : gestion des cases du terrain de jeu.
-\item \textit{Map} : gestion du terrain de jeu.
-\item \textit{Race} : gestion des différentes races jouables.
-\item \textit{Unit} : gestion des unités.
-\item \textit{Player} : gestion des joueurs.
-\item \textit{Game} : gestion de la partie.
-\item \textit{SaveLoad} : gestion de la sauvegarde et du chargement de parties.
-\end{enumerate}
-
-\paragraph{}
-Les interactions entre ces différents regroupements sont symbolisées par les flèches présentes sur le diagramme. Par exemple, le groupement \textit{Map} utilise des membres du groupement \textit{Tile}. Les interactions ainsi mises en valeur présentent bien la mise en cascade des regroupements, selon les données modélisées.
+Par ailleurs, la séparation de notre application en paquetages "modèle" , "API" n'est pas pertinente, car ce projet ne porte que sur \textbf{une} implémentation du jeu proposé. Si plusieurs implémentations avaient été requises, la séparation précédente aurait alors eu du sens.
 
 \includepdf[landscape=true]{images/packageDiagram.pdf}
 
