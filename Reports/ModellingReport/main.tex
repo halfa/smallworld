@@ -150,6 +150,23 @@ L'utilisation de ces patrons de conception nous a permis de structurer nos class
 Les diagrammes suivants permettent de détailler précisément les échanges entre les différentes instances de nos classes, dans deux traitements spécifiques.
 
 \subsubsection{Diagramme de séquence : initialisation d'une partie}
+Le diagramme suivant présente le processus d'initialisation d'une partie.
+
+\paragraph{}
+La partie est paramétrée par l'utilisateur au moyen de l'interface graphique. Ces informations sont ensuite regroupées dans un objet passé en paramètre de la création de la partie. La partie créé alors sa carte, et initialise son état courant.
+
+\paragraph{}
+Afin d'initialiser les objets joueurs, on répète les actions suivantes pour chaque joueur : 
+\begin{itemize}
+    \item Création d'une instance de joueur paramétrée par le nom et la race spécifiés (le joueur possède une référence vers la partie, et initialise son unité sélectionnée par défaut).
+    \item Pour chaque unité affectée au joueur, on créé une unité de la race correspondante, et on l'ajoute à la liste des unités du joueur.
+    \item On définit ensuite la position par défaut des unités du joueur.
+    \item Ajout du joueur aux joueurs de la partie.
+\end{itemize}
+
+\paragraph{}
+Une fois tous les joueurs initialisés, on tire au sort l'ordre de jeu, et on initialise la pile des états précédents.
+La partie peut maintenant donner la main au premier joueur.
 
 \includepdf{images/gameInitialisationSequenceDiagram.pdf}
 
@@ -175,7 +192,10 @@ Dans le cas d'une \textit{attaque}, on effectue les traitements suivants :
 Dans les deux cas, le joueur peut répéter ces manipulations autant de fois qu'il le peut et le désire, avant de valider son tour. Il informe alors la partie de sa décision, qui va mettre à jour l'état courant, et les états précédents, afin de préparer le tour du joueur suivant.
 
 \paragraph{}
-Nous n'avons pas représenté ici les cas de victoire par élimination, ni spécifié le traitement du comptage des points à la fin du tour. De plus, le cas de l'utilisation de l'action \textit{undo} par le joueur n'a pas été traité. Le diagramme se concentre sur un tour typique, et non sur des cas exceptionnels. Bien entendu, tous ces cas seront traités dans le code, et nous les détaillons d'ailleurs dans la section \ref{DET}
+Nous n'avons pas représenté ici les cas de victoire par élimination, ni spécifié le traitement du comptage des points à la fin du tour. De plus, le cas de l'utilisation de l'action \textit{undo} par le joueur n'a pas été traité. Le diagramme se concentre sur un tour typique, et non sur des cas exceptionnels. Bien entendu, tous ces cas seront traités dans le code, et nous les détaillons d'ailleurs dans la section \ref{DET}.
+
+\paragraph{}
+\textit{Remarque : }les traitements de perte de points de vie son conditionnés par le type des unités impliquées dans le combat (distance ou corps à corps). Ces considérations sont prises en compte dans la méthode de perte de points de vie.
 
 \includepdf{images/gameTurnSequenceDiagram.pdf}
 
