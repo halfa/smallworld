@@ -85,7 +85,7 @@ Chaque \textit{tour de jeu} est constitué de plusieurs \textit{tours de joueurs
 Un joueur peut, durant son tour, déplacer une ou plusieurs unité lui appartenant. Une unité ne peut être déplacé que si il lui reste assez de point d'action pour effectuer le déplacement demandé. Le nombre de point d'action nécessaire dépend de la race du jouer et du type de la case de destination. Les déplacement ne peuvent s'effectuer que vers une case adjacente, et non en diagonale. Un déplacement vers une case occupée par un ou plusieurs alliées ets autorisé. Un déplacement vers une case occupée par une unité adverse engendre un combat.
 
 \paragraph{}
-Les combats sont détaillé plus bas\ref{fight_seq}. Il est possible d'attaquer une unité plusieurs fois de suite, à condition de disposer des points d'action nécéssaires.
+Les combats sont détaillés en [\ref{fight_seq}]. Il est possible d'attaquer une unité plusieurs fois de suite, à condition de disposer des points d'action nécéssaires.
 \subsubsection{Combat au corps à corps}
 Le combat au CaC est provoqué par un déplacement. Dans le cas de la mort de l'unité adverse, l'attaquant est déplacé sur sa case. Dans le cas contraire, il conserve sa position.
 Il engendre une rispose de l'adversaire. Cette risposte n'influe pas sur les points d'action dont dispose celui-ci au tour suivant.
@@ -182,7 +182,7 @@ Au début du tour, le joueur courant \textit{sélectionne} une de ses unités. I
 \paragraph{}
 Dans le cas d'un simple \textit{déplacement}, le joueur met à jour la position de l'unité sélectionnée, qui elle-même averti la partie des modifications qu'elle subit, afin que cette dernière mette à jour son état courant.
 
-\paragraph{}
+\paragraph{}\label{fight_seq}
 Dans le cas d'une \textit{attaque}, on effectue les traitements suivants :
 \begin{itemize}
     \item Perte de points de vie de l'attaquant (en cas de décès de l'unité attaquant, on met à jour l'unité sélectionnée du joueur, et on supprime l'unité de sa liste d'unités, avant d'avertir la partie des nouvelles modifications).
