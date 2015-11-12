@@ -87,7 +87,7 @@ La phase de modélisation nous a conduit à réaliser plusieurs diagrammes UML, 
 \subsection{Diagramme de paquetage}
 \paragraph{}
 Le diagramme suivant illustre la structuration à gros grain du code de notre application. On y retrouve les classes et interfaces que nous détaillerons dans la section \ref{DDC}.
-Comme on peut le constater, nous n'avons pas hierarchisé notre application selon plusieurs paquetages. En effet, les interactions entre nos classes et interfaces auraient conduit à des dépendances circulaires entre les éventuels paquetages, mais transformer le modèle afin d'éviter ces problèmes aurait résulté en une complexité des traitements beaucoup plus importante, ou en la création de trop nombreux paquetages. Nous avons donc opté pour la simplicité de traitement. Les différentes classes et interfaces étant toutes liées, il nous semble inapproprié de les séparer dans des paquetages différents : les modifications éventuelles impacteront bon nombre d'entre elles, touchant à plusieurs des paquetages envisagés.
+Comme on peut le constater, nous n'avons pas hiérarchisé notre application selon plusieurs paquetages. En effet, les interactions entre nos classes et interfaces auraient conduit à des dépendances circulaires entre les éventuels paquetages, mais transformer le modèle afin d'éviter ces problèmes aurait résulté en une complexité des traitements beaucoup plus importante, ou en la création de trop nombreux paquetages. Nous avons donc opté pour la simplicité de traitement. Les différentes classes et interfaces étant toutes liées, il nous semble inapproprié de les séparer dans des paquetages différents : les modifications éventuelles impacteront bon nombre d'entre elles, touchant à plusieurs des paquetages envisagés.
 
 \paragraph{}
 Par ailleurs, la séparation de notre application en paquetages "modèle" , "API" n'est pas pertinente, car ce projet ne porte que sur \textbf{une} implémentation du jeu proposé. Si plusieurs implémentations avaient été requises, la séparation précédente aurait alors eu du sens.
@@ -179,6 +179,6 @@ Le changement de joueur s'effectue lors de l'annonce de fin de tour par le joueu
 \paragraph{}
 À la fin du nombre limite de tours, si aucun des joueurs n'a atteint de victoire par élimination, on arrive à la \textbf{fin de partie}. La partie détermine alors, en fonction des points de victoire accumulés par les deux joueurs, s'il s'agit d'une situation de \textbf{victoire du joueur 1}, de \textbf{victoire du joueur 2}, ou encore d'\textbf{égalité}. La partie se termine alors.
 
-\includepdf{images/gameStatechart.pdf}
+\includepdf[landscape=true]{images/gameStatechart.pdf}
 
 \end{document}
