@@ -27,8 +27,8 @@ Le projet proposé consiste en la réalisation d'un jeu vidéo tour par tour, ba
 
 \subsection{But du jeu}
 \paragraph{}
-Le but de SmallWorld est d'accumuler des points.
-À la fin de chaque tour de jeu, le joueur compte les points gagnés et les ajoutes à son total. Au bout d'un nombre de tour défini au préalable, le jeu s'arrête et le joueur ayant le plus de point remporte la partie. Une partie peut également s'interrompre si un des joueurs élimine l'ensemble des unités de l'adversaire. Un joueur qui ne possède plus d'unités perd la partie, quel que soit son total de point.
+Le but de SmallWorld est d'accumuler des points de victoire.
+À la fin de chaque tour de jeu, le joueur compte les points gagnés et les ajoute à son total. Au bout d'un nombre de tour défini au préalable, le jeu s'arrête et le joueur ayant le plus de point remporte la partie. Une partie peut également s'interrompre si un des joueurs élimine l'ensemble des unités de l'adversaire. Un joueur qui ne possède plus d'unités perd la partie, quel que soit son total de point.
 
 \paragraph{}
 \textbf{Déroulement d'une partie}
@@ -44,14 +44,14 @@ Le but de SmallWorld est d'accumuler des points.
 
 \subsubsection{Plateau de jeu}
 \paragraph{}
-Le jeu se déroule sur une plateau quadrillé de cases carré dont la dimension dépend du nombre de joueurs et de la durée de la partie.\label{map_gen} Il est composé de cases de différents types : plaine, mer, montagne et forêt.La carte est généré de manière aléatoire, mais doit contenir le même nombre de case de chaque type.
+Le jeu se déroule sur une plateau quadrillé de cases carrées dont la dimension dépend du nombre de joueurs et de la durée de la partie.\label{map_gen} Il est composé de cases de différents types : plaine, mer, montagne et forêt. La carte est généré de manière aléatoire, mais doit contenir le même nombre de case de chaque type.
 
 \subsubsection{Unité}
 \paragraph{}
-Des unitées sont placées sur le plateau, sur lequel elles peuvent se déplacer.
+Des unités sont placées sur le plateau, sur lequel elles peuvent être déplacées.
 
 \subsubsection{Races et comptage des points en fin de tour}
-E
+
 \paragraph{}
 \textbf{Configurations conseillées}
 \begin{itemize}
@@ -62,11 +62,12 @@ E
 
 \subsubsection{Préparation}
 \paragraph{}
-La préparation du jeu necéssite que le joueur choississe le type de partie parmis les configurations proposées, 
+La préparation du jeu necéssite que le joueur choisisse le type de partie parmis les configurations proposées.
 
 \subsection{Déroulement d'un tour de jeu}
 \paragraph{}
-Chaque \em{tour de jeu} est constitué de plusieurs \em{tours de joueurs}. Ces tours sont séquentiels. Lors du premier tour de jeu, le joueur jouant le premier tout est tiré au hasard, et cet ordre est conservé durant le reste de la partie.
+Chaque \em{tour de jeu} est constitué de plusieurs \em{tours de joueurs}. Ces tours sont séquentiels. Lors du premier tour de jeu, le joueur jouant le premier tour est tiré au hasard, et cet ordre est conservé durant le reste de la partie.
+
 \paragraph{}
 \textbf{Déroulement du tour}
 \begin{itemize}
