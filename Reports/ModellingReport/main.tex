@@ -30,10 +30,10 @@ Le projet proposé consiste en la réalisation d'un jeu vidéo tour par tour, ba
 \subsection{But du jeu}
 \paragraph{}
 Le but de SmallWorld est d'accumuler des points de victoire.
-À la fin de chaque tour de jeu, le joueur compte les points gagnés et les ajoute à son total. Au bout d'un nombre de tour défini au préalable, le jeu s'arrête et le joueur ayant le plus de point remporte la partie. Une partie peut également s'interrompre si un des joueurs élimine l'ensemble des unités de l'adversaire. Un joueur qui ne possède plus d'unités perd la partie, quel que soit son total de point.
+À la fin de chaque tour de jeu, le joueur compte les points gagnés et les ajoute à son total. Au bout d'un nombre de tour défini au préalable, le jeu s'arrête et le joueur ayant le plus de points remporte la partie. Une partie peut également s'interrompre si un des joueurs élimine l'ensemble des unités de l'adversaire. Un joueur qui ne possède plus d'unités perd la partie, quel que soit son total de point.
 
 \paragraph{}
-\textbf{Déroulement d'une partie}
+\textbf{Déroulement d'une partie : }
 \begin{itemize}
     \item Choix de la configuration du plateau de jeu
     \item Choix des races
@@ -46,17 +46,17 @@ Le but de SmallWorld est d'accumuler des points de victoire.
 
 \subsubsection{Plateau de jeu}
 \paragraph{}
-Le jeu se déroule sur une plateau quadrillé de cases carrées dont la dimension dépend du nombre de joueurs et de la durée de la partie.\label{map_gen} Il est composé de cases de différents types : plaine, mer, montagne et forêt. La carte est généré de manière aléatoire, mais doit contenir le même nombre de case de chaque type.
+Le jeu se déroule sur une plateau quadrillé de cases carrées dont la dimension dépend du nombre de joueurs et de la durée de la partie.\label{map_gen} Il est composé de cases de différents types : plaine, mer, montagne et forêt. La carte est généré de manière aléatoire, mais doit contenir le même nombre de cases de chaque type.
 
 \subsubsection{Unité}
 \paragraph{}
-Des unités sont placées sur le plateau, sur lequel elles peuvent être déplacées. Elles possèdent des points d'action, rechargé en début de tour, mais aussi une jauge de vie et des statistiques d'attaque et de défense.
+Des unités sont placées sur le plateau, sur lequel elles peuvent être déplacées. Elles possèdent des points d'action, rechargés en début de tour, mais aussi une jauge de vie et des statistiques d'attaque et de défense.
 
 \subsubsection{Races et décompte des points en fin de tour}
-À la fin de chaque tour, le joueur compte les points gagné et les ajoutes à son total. Le montant des points gagné est déterminé en fonction de la race choisie et du type de terrain sur lequel ses unités sont placées.
+À la fin de chaque tour, le joueur compte les points gagné et les ajoute à son total. Le montant des points gagnés est déterminé en fonction de la race choisie et du type de terrain sur lequel ses unités sont placées.
 
 \paragraph{}
-\textbf{Configurations conseillées}
+\textbf{Configurations conseillées : }
 \begin{itemize}
     \item 2 joueurs, plateau de 6 par 6, 5 tours de jeu : 4 unités par joueur
     \item 2 joueurs, plateau de 10 par 10, 20 tours de jeu : 6 unités par joueur
@@ -65,14 +65,14 @@ Des unités sont placées sur le plateau, sur lequel elles peuvent être déplac
 
 \subsubsection{Préparation}
 \paragraph{}
-La préparation du jeu necéssite que le joueur choisisse le type de partie parmis les configurations proposées. 
+La préparation du jeu necéssite que le joueur choisisse le type de partie parmi les configurations proposées. 
 
 \subsection{Déroulement d'un tour de jeu}
 \paragraph{}
 Chaque \textit{tour de jeu} est constitué de plusieurs \textit{tours de joueurs}. Ces tours sont séquentiels. Lors du premier tour de jeu, le joueur jouant le premier tour est tiré au hasard, et cet ordre est conservé durant le reste de la partie.
 
 \paragraph{}
-\textbf{Déroulement du tour}
+\textbf{Déroulement du tour : }
 \begin{itemize}
     \item Début du tour
     \item Déplacement des unités et combats
@@ -82,16 +82,17 @@ Chaque \textit{tour de jeu} est constitué de plusieurs \textit{tours de joueurs
 
 \subsection{Déplacement et combat}
 \paragraph{}
-Un joueur peut, durant son tour, déplacer une ou plusieurs unité lui appartenant. Une unité ne peut être déplacé que si il lui reste assez de point d'action pour effectuer le déplacement demandé. Le nombre de point d'action nécessaire dépend de la race du jouer et du type de la case de destination. Les déplacement ne peuvent s'effectuer que vers une case adjacente, et non en diagonale. Un déplacement vers une case occupée par un ou plusieurs alliées ets autorisé. Un déplacement vers une case occupée par une unité adverse engendre un combat.
+Un joueur peut, durant son tour, déplacer une ou plusieurs unités lui appartenant. Une unité ne peut être déplacée que s'il lui reste assez de points d'action pour effectuer le déplacement demandé. Le nombre de points d'action nécessaires dépend de la race du joueur et du type des cases traversées. Les déplacements ne peuvent s'effectuer que vers une case adjacente, et non en diagonale. Un déplacement vers une case occupée par une ou plusieurs unités alliées est autorisé. Un déplacement vers une case occupée par une unité adverse engendre un combat.
 
 \paragraph{}
-Les combats sont détaillés en [\ref{fight_seq}]. Il est possible d'attaquer une unité plusieurs fois de suite, à condition de disposer des points d'action nécéssaires.
+Les combats sont détaillés plus bas\ref{fight_seq}. Il est possible d'attaquer une unité plusieurs fois de suite, à condition de disposer des points d'action nécessaires.
+
 \subsubsection{Combat au corps à corps}
-Le combat au CaC est provoqué par un déplacement. Dans le cas de la mort de l'unité adverse, l'attaquant est déplacé sur sa case. Dans le cas contraire, il conserve sa position.
-Il engendre une rispose de l'adversaire. Cette risposte n'influe pas sur les points d'action dont dispose celui-ci au tour suivant.
+Le combat au corps à corps est provoqué par un déplacement. Dans le cas de la mort de l'unité adverse, l'attaquant est déplacé sur sa case si aucune autre unité adverse ne s'y trouve encore. Dans le cas contraire, il conserve sa position.
+Lors de son attaque, il engendre une riposte de l'adversaire. Cette risposte n'influe pas sur les points d'actions dont disposera l'unité du défenseur au tour suivant.
 \subsubsection{Combat à distance}
 Un combat à distance n'implique pas de déplacement. L'attaquant doit se trouver sur la même ligne ou la même colonne que sa cible, à deux cases de distance. Sur la case vide situé entre l'attaquant et sa cible peut se trouver une unité allié ou adverse sans que cela n'ai d'incidence sur le déroulement de l'attaque.
-Ce combat se déroule sans contre-attaque de l'adversaire, et n'engendre aucun déplacement en cas de victoire. 
+Ce combat se déroule sans contre-attaque de l'adversaire si celui-ci est de type corps à corps. S'il s'agit d'une unité de type distance, elle ripostera. Cependant, aucun déplacement n'est engendré en cas de victoire.
 \section{Modélisation UML}
 \paragraph{}
 La phase de modélisation nous a conduit à réaliser plusieurs diagrammes UML, afin de représenter différents aspects de notre application. Nous présentons ci-après ces diagrammes, en explicitant leur contenu.
