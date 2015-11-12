@@ -48,9 +48,10 @@ Le jeu se déroule sur une plateau quadrillé de cases carrées dont la dimensio
 
 \subsubsection{Unité}
 \paragraph{}
-Des unités sont placées sur le plateau, sur lequel elles peuvent être déplacées.
+Des unités sont placées sur le plateau, sur lequel elles peuvent être déplacées. Elles possèdent des points d'action, rechargé en début de tour, mais aussi une jauge de vie et des statistiques d'attaque et de défense.
 
-\subsubsection{Races et comptage des points en fin de tour}
+\subsubsection{Races et décompte des points en fin de tour}
+À la fin de chaque tour, le joueur compte les points gagné et les ajoutes à son total. Le montant des points gagné est déterminé en fonction de la race choisie et du type de terrain sur lequel ses unités sont placées.
 
 \paragraph{}
 \textbf{Configurations conseillées}
@@ -62,11 +63,11 @@ Des unités sont placées sur le plateau, sur lequel elles peuvent être déplac
 
 \subsubsection{Préparation}
 \paragraph{}
-La préparation du jeu necéssite que le joueur choisisse un type de partie parmis les configurations proposées.
+La préparation du jeu necéssite que le joueur choisisse le type de partie parmis les configurations proposées. 
 
 \subsection{Déroulement d'un tour de jeu}
 \paragraph{}
-Chaque \em{tour de jeu} est constitué de plusieurs \em{tours de joueurs}. Ces tours sont séquentiels. Lors du premier tour de jeu, le joueur jouant le premier tour est tiré au hasard, et cet ordre est conservé durant le reste de la partie.
+Chaque \textit{tour de jeu} est constitué de plusieurs \textit{tours de joueurs}. Ces tours sont séquentiels. Lors du premier tour de jeu, le joueur jouant le premier tour est tiré au hasard, et cet ordre est conservé durant le reste de la partie.
 
 \paragraph{}
 \textbf{Déroulement du tour}
@@ -78,8 +79,17 @@ Chaque \em{tour de jeu} est constitué de plusieurs \em{tours de joueurs}. Ces t
 \end{itemize}
 
 \subsection{Déplacement et combat}
+\paragraph{}
+Un joueur peut, durant son tour, déplacer une ou plusieurs unité lui appartenant. Une unité ne peut être déplacé que si il lui reste assez de point d'action pour effectuer le déplacement demandé. Le nombre de point d'action nécessaire dépend de la race du jouer et du type de la case de destination. Les déplacement ne peuvent s'effectuer que vers une case adjacente, et non en diagonale. Un déplacement vers une case occupée par un ou plusieurs alliées ets autorisé. Un déplacement vers une case occupée par une unité adverse engendre un combat.
 
-
+\paragraph{}
+Les combats sont détaillé plus bas\ref{fight_seq}. Il est possible d'attaquer une unité plusieurs fois de suite, à condition de disposer des points d'action nécéssaires.
+\subsubsection{Combat au corps à corps}
+Le combat au CaC est provoqué par un déplacement. Dans le cas de la mort de l'unité adverse, l'attaquant est déplacé sur sa case. Dans le cas contraire, il conserve sa position.
+Il engendre une rispose de l'adversaire. Cette risposte n'influe pas sur les points d'action dont dispose celui-ci au tour suivant.
+\subsubsection{Combat à distance}
+Un combat à distance n'implique pas de déplacement. L'attaquant doit se trouver sur la même ligne ou la même colonne que sa cible, à deux cases de distance. Sur la case vide situé entre l'attaquant et sa cible peut se trouver une unité allié ou adverse sans que cela n'ai d'incidence sur le déroulement de l'attaque.
+Ce combat se déroule sans contre-attaque de l'adversaire, et n'engendre aucun déplacement en cas de victoire. 
 \section{Modélisation UML}
 \paragraph{}
 La phase de modélisation nous a conduit à réaliser plusieurs diagrammes UML, afin de représenter différents aspects de notre application. Nous présentons ci-après ces diagrammes, en explicitant leur contenu.
