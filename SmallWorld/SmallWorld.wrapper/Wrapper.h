@@ -1,6 +1,6 @@
 #ifndef __WRAPPER__
 #define __WRAPPER__
-#include "../libCPP/Algo.h"
+#include "../SmallWorld.lib/Algo.h"
 
 #pragma comment(lib, "../Debug/libCPP.lib")
 using namespace System;
