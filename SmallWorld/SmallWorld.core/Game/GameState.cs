@@ -12,6 +12,7 @@ namespace SmallWorld.Core
         private Dictionary<Position, List<AUnit>> _positionsUnits;
         private int _activePlayerIndex;
         private Dictionary<Player, List<AUnit>> _playersUnits;
+        private AUnit _selectedUnit;
 
         public GameState()
         {
@@ -55,6 +56,18 @@ namespace SmallWorld.Core
         }
 
         public Dictionary<Player, List<AUnit>> playersUnits
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public AUnit selectedUnit
         {
             get
             {

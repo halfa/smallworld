@@ -8,19 +8,18 @@ namespace SmallWorld.Core
     [Serializable()]
     public class Game : ISavable
     {
-        private GameSettings _settings;
+        private GameSettings _gameSettings;
         private GameState _currentState;
         private System.Collections.Generic.Stack<GameState> _previousGameStates;
         private Map _map;
         private Player[] _orderedPlayers;
-        private SmallWorld _smallWorld;
 
         public Game(GameSettings settings)
         {
             throw new System.NotImplementedException();
         }
 
-        public GameSettings settings
+        public GameSettings gameSettings
         {
             get
             {
@@ -80,18 +79,6 @@ namespace SmallWorld.Core
             }
         }
 
-        public SmallWorld smallWorld
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
         public int countPoints(Player player)
         {
             throw new System.NotImplementedException();
@@ -100,7 +87,7 @@ namespace SmallWorld.Core
         /// <summary>
         /// Terminates the current player's turn
         /// </summary>
-        public void endTurn()
+        public void endGameTurn()
         {
             throw new System.NotImplementedException();
         }
@@ -136,6 +123,26 @@ namespace SmallWorld.Core
         }
 
         public void stack()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool isSelectedUnitMovableTo(Position position)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public AUnit selectUnitAt(Position position)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void moveSelectedUnitTo(Position position)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void endPlayerTurn(Player player)
         {
             throw new System.NotImplementedException();
         }

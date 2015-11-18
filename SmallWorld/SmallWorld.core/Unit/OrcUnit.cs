@@ -18,6 +18,11 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
+        public override bool canCrossTile(ATile tile)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public override int countPoints()
         {
             throw new System.NotImplementedException();

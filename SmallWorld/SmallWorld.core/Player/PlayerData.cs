@@ -9,23 +9,10 @@ namespace SmallWorld.Core
     public class PlayerData
     {
         private ARace _race;
-        private AUnit _selectedUnit;
         private string _name;
         private List<AUnit> _units;
 
         public ARace race
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public AUnit selectedUnit
         {
             get
             {

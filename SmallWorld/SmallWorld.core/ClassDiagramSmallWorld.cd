@@ -37,7 +37,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAIEmEAAAEAAAgIAAAAAAAAQAUQAAMACAAAIAAAAY=</HashCode>
+      <HashCode>AAAAIECEAAAAAAAgIAAAAAAAAAAUAAAEACAAAIAAAAI=</HashCode>
       <FileName>player\Player.cs</FileName>
       <NewMemberFileName>Player\Player.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -118,7 +118,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAQAAAACAEAUAKAAAAAAAAACBAAAEgIAAAAA=</HashCode>
+      <HashCode>EAAAAAAAAQAAAACAEAUQIAAAAAAAAACAAAAEgIAAAAA=</HashCode>
       <FileName>unit\AUnit.cs</FileName>
       <NewMemberFileName>Unit\AUnit.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -132,7 +132,7 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>unit\HumanUnit.cs</FileName>
       <NewMemberFileName>Unit\HumanUnit.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -159,7 +159,7 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>unit\ElfUnit.cs</FileName>
       <NewMemberFileName>Unit\ElfUnit.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -167,7 +167,7 @@
   <Class Name="SmallWorld.Core.OrcUnit">
     <Position X="15" Y="22.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>unit\OrcUnit.cs</FileName>
       <NewMemberFileName>Unit\OrcUnit.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -231,7 +231,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>BBAAAAACAAAAAAAEAAAAAAAAABAAIAAAAAAAAAQAAAA=</HashCode>
+      <HashCode>BBAAAAACAAAEAAAEIAAAAAAAABAAIAAAAAAAAAQAAAA=</HashCode>
       <FileName>game\GameState.cs</FileName>
       <NewMemberFileName>Game\GameState.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -315,7 +315,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAIEAAAAAEAAAAIAAAAAAAAAAUAAAAACAAAAAAAAI=</HashCode>
+      <HashCode>AAAAIEAAAAAAAAAAAAAAAAAAAAAUAAAAACAAAAAAAAI=</HashCode>
       <FileName>player\PlayerData.cs</FileName>
       <NewMemberFileName>Player\PlayerData.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -342,7 +342,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAEBAEIAgAAAEAoBAAAAKAAQCABIIEAEAIAIAAABA=</HashCode>
+      <HashCode>wAACEBkEAAgAAAEAIBAAAACAAAAARIIEAEAIAIEAABA=</HashCode>
       <FileName>game\Game.cs</FileName>
       <NewMemberFileName>Game\Game.cs</NewMemberFileName>
     </TypeIdentifier>

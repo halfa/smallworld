@@ -13,19 +13,7 @@ namespace SmallWorld.Core
         private int _attackPt;
         private int _defencePt;
         private int _range;
-        [NonSerialized]private Player _player;
         private Position _position;
-
-        public Player player
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
 
         public Position position
         {
@@ -58,5 +46,7 @@ namespace SmallWorld.Core
         {
             throw new System.NotImplementedException();
         }
+
+        public abstract bool canCrossTile(ATile tile);
     }
 }
