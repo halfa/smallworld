@@ -41,5 +41,15 @@ namespace SmallWorld.Core
                 return 0;
             return 1;
         }
+
+        public override int getAttackRange(ATile currentTile)
+        {
+            return range;
+        }
+
+        public override double getMoveCost(ATile aimedTile)
+        {
+            return 1;
+        }
     }
 }

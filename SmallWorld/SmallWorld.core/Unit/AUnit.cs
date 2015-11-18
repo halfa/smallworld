@@ -8,84 +8,17 @@ namespace SmallWorld.Core
     [Serializable]
     public abstract class AUnit
     {
-        private float _actionPool;
-        private int _healthPt;
-        private int _attackPt;
-        private int _defencePt;
-        private int _range;
-        private Position _position;
+        public double actionPool { get; set; }
 
-        public Position position
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public int attackPt { get; set; }
 
-            set
-            {
-            }
-        }
+        public int defencePt { get; set; }
 
-        public float actionPool
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public int healthPt { get; set; }
 
-            set
-            {
-            }
-        }
+        public Position position { get; set; }
 
-        public int attackPt
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int defencePt
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int healthPt
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int range
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
+        public int range { get; set; }
 
         public void move(Position position)
         {
@@ -100,18 +33,24 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        public bool loseHP(int amount)
+        public void loseHP(int amount)
         {
-            throw new System.NotImplementedException();
+            healthPt -= amount;
+            if (healthPt < 0)
+                healthPt = 0;
         }
 
         public bool isDead()
         {
-            throw new System.NotImplementedException();
+            return healthPt == 0;
         }
 
         public abstract bool canCrossTile(ATile tile);
 
         public abstract int countPoints(ATile tile);
+
+        public abstract double getMoveCost(ATile aimedTile);
+
+        public abstract int getAttackRange(ATile currentTile);
     }
 }

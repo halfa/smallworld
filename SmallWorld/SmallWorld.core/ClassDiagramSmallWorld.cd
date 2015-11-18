@@ -118,21 +118,21 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>EAAAAAAKAQAAgACAEAUSIAAAABAAAACAAAAEgIAgAAA=</HashCode>
+      <HashCode>AAACAAAKAAAAgACAAAQSIAAAQBAAAACAAAAAAIAgAAA=</HashCode>
       <FileName>unit\AUnit.cs</FileName>
       <NewMemberFileName>Unit\AUnit.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.HumanUnit">
-    <Position X="8.75" Y="23" Width="2.75" />
+    <Position X="8.75" Y="23.5" Width="2.75" />
     <InheritanceLine Type="SmallWorld.Core.AUnit" FixedToPoint="true">
       <Path>
-        <Point X="10" Y="22.738" />
-        <Point X="10" Y="23" />
+        <Point X="10" Y="22.863" />
+        <Point X="10" Y="23.5" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAQAAAAQAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>unit\HumanUnit.cs</FileName>
       <NewMemberFileName>Unit\HumanUnit.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -149,25 +149,25 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.ElfUnit">
-    <Position X="12" Y="23" Width="2.5" />
+    <Position X="12" Y="23.5" Width="2.5" />
     <InheritanceLine Type="SmallWorld.Core.AUnit" FixedToPoint="true">
       <Path>
-        <Point X="10" Y="22.738" />
-        <Point X="10" Y="22.962" />
-        <Point X="13.25" Y="22.962" />
-        <Point X="13.25" Y="23" />
+        <Point X="10" Y="22.863" />
+        <Point X="10" Y="23.125" />
+        <Point X="13.25" Y="23.125" />
+        <Point X="13.25" Y="23.5" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAQAAAAQAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>unit\ElfUnit.cs</FileName>
       <NewMemberFileName>Unit\ElfUnit.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.OrcUnit">
-    <Position X="15" Y="23" Width="2.5" />
+    <Position X="15" Y="23.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAQAAAAQAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>unit\OrcUnit.cs</FileName>
       <NewMemberFileName>Unit\OrcUnit.cs</NewMemberFileName>
     </TypeIdentifier>

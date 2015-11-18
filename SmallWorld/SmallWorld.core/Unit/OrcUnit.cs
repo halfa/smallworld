@@ -43,5 +43,21 @@ namespace SmallWorld.Core
                 return 0;
             return 1;
         }
+
+        public override int getAttackRange(ATile currentTile)
+        {
+            if (currentTile.GetType().Equals(typeof(Mountain)))
+                return 2;
+            return 1;
+        }
+
+        public override double getMoveCost(ATile aimedTile)
+        {
+            if (aimedTile.GetType().Equals(typeof(Plain)))
+                return 0.5;
+            if (aimedTile.GetType().Equals(typeof(Water)))
+                throw new Exception("Invalid target tile type");
+            return 1;
+        }
     }
 }
