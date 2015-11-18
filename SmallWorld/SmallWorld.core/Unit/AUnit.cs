@@ -27,6 +27,66 @@ namespace SmallWorld.Core
             }
         }
 
+        public float actionPool
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public int attackPt
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public int defencePt
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public int healthPt
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public int range
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         public void move(Position position)
         {
             throw new System.NotImplementedException();
@@ -40,13 +100,18 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
-        public abstract int countPoints();
-
         public bool loseHP(int amount)
         {
             throw new System.NotImplementedException();
         }
 
+        public bool isDead()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public abstract bool canCrossTile(ATile tile);
+
+        public abstract int countPoints(ATile tile);
     }
 }

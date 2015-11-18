@@ -10,22 +10,36 @@ namespace SmallWorld.Core
     {
         public HumanUnit()
         {
-            throw new System.NotImplementedException();
+            actionPool = 2;
+            attackPt = 6;
+            defencePt = 3;
+            healthPt = 15;
+            position = null;
+            range = 1;
         }
 
         public HumanUnit(HumanUnit humanUnit)
         {
-            throw new System.NotImplementedException();
+            actionPool = humanUnit.actionPool;
+            attackPt = humanUnit.attackPt;
+            defencePt = humanUnit.defencePt;
+            healthPt = humanUnit.healthPt;
+            position = new Position(humanUnit.position);
+            range = humanUnit.range;
         }
 
         public override bool canCrossTile(ATile tile)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
-        public override int countPoints()
+        public override int countPoints(ATile tile)
         {
-            throw new NotImplementedException();
+            if (tile.GetType().Equals(typeof(Plain)))
+                return 2;
+            if (tile.GetType().Equals(typeof(Water)))
+                return 0;
+            return 1;
         }
     }
 }
