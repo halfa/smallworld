@@ -5,6 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmallWorld.gui"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid/>
+        Title="Small World Game" Height="500" Width="600">
+    <Grid>
+        <Button x:Name="start" Content="Start Game" HorizontalAlignment="Left" Margin="425,420,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.533,3"/>
+        <GroupBox x:Name="mapChoice" Header="Carte" HorizontalAlignment="Left" Margin="380,330,0,0" VerticalAlignment="Top" Height="80" Width="165">
+            <StackPanel Height="70" VerticalAlignment="Top" Margin="5,0,0,0" HorizontalAlignment="Left" Width="145">
+                <RadioButton x:Name="mapChoice_case1" Content="Démo - 6x6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0"/>
+                <RadioButton x:Name="mapChoice_case2" Content="Small - 10x10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,3,0,0"/>
+                <RadioButton x:Name="mapChoice_case3" Content="Standard - 14x14" VerticalAlignment="Top" Margin="5,3,0,0" HorizontalAlignment="Left" Width="109"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox x:Name="player1input" Header="Player 1" HorizontalAlignment="Left" Margin="365,35,0,0" VerticalAlignment="Top" Height="140" Width="195" Padding="5">
+            <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="160">
+                <Label x:Name="player1_name_label" Content="Player name"/>
+                <TextBox x:Name="player1_name_input" Height="20" TextWrapping="Wrap" Text=""/>
+                <Label x:Name="player1_race_label" Content="Select a race"/>
+                <ComboBox x:Name="player1_race" ToolTip="Chose a race"/>
+
+
+            </StackPanel>
+        </GroupBox>
+        <GroupBox x:Name="player2input" Header="Player 2" HorizontalAlignment="Left" Margin="365,180,0,0" VerticalAlignment="Top" Height="140" Width="195" Padding="5">
+            <StackPanel HorizontalAlignment="Left" Height="105" VerticalAlignment="Top" Width="160" Margin="0,0,0,-12">
+                <Label x:Name="player2_name_label" Content="Player name"/>
+                <TextBox x:Name="player2_name_input" Height="20" TextWrapping="Wrap" Text=""/>
+                <Label x:Name="player2_race_label" Content="Select a race"/>
+                <ComboBox x:Name="player2_race" IsReadOnly="True" ToolTip="Chose a race"/>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
 </Window>

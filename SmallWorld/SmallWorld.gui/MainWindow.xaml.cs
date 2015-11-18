@@ -24,5 +24,10 @@ namespace SmallWorld.gui
         {
             InitializeComponent();
         }
+
+        private void player1_race_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
