@@ -16,7 +16,6 @@ namespace SmallWorld.Core
         /// </summary>
         public Orc()
         {
-            throw new System.NotImplementedException();
         }
     }
 }
