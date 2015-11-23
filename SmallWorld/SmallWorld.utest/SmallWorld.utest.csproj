@@ -52,8 +52,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTestPosition.cs" />
-    <Compile Include="UnitTestUnit.cs" />
+    <Compile Include="unit\UnitTestPosition.cs" />
+    <Compile Include="unit\UnitTestUnit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
