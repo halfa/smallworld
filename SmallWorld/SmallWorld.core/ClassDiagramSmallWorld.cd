@@ -118,7 +118,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAACAAAKAAAAgACAAAQSIAAAQBAAAACAAAAAAIAgAAA=</HashCode>
+      <HashCode>AAACAAAKAAAAgAAAAAQSIAAAQBAAAACACAAAAIAgAAA=</HashCode>
       <FileName>unit\AUnit.cs</FileName>
       <NewMemberFileName>Unit\AUnit.cs</NewMemberFileName>
     </TypeIdentifier>
