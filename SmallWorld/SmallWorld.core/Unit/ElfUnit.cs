@@ -74,6 +74,8 @@ namespace SmallWorld.Core
         /// <returns></returns>
         public override int getAttackRange(ATile currentTile)
         {
+            if (currentTile.GetType().Equals(typeof(Water)))
+                throw new Exception("Invalid current tile type");
             return range;
         }
 

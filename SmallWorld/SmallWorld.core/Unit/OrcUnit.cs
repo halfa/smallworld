@@ -60,7 +60,7 @@ namespace SmallWorld.Core
             if (tile.GetType().Equals(typeof(Mountain)))
                 return 2;
             if (tile.GetType().Equals(typeof(Water)))
-                return 0;
+                throw new Exception("Invalid current tile type");
             return 1;
         }
 
@@ -74,6 +74,8 @@ namespace SmallWorld.Core
         {
             if (currentTile.GetType().Equals(typeof(Mountain)))
                 return 2;
+            if (currentTile.GetType().Equals(typeof(Water)))
+                throw new Exception("Invalid current tile type");
             return 1;
         }
 

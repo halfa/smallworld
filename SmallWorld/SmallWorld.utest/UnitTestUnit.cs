@@ -11,15 +11,6 @@ namespace SmallWorld.utest
     {
         // TESTING ELVEN UNITS //
         [TestMethod]
-        public void TestElfCrossingWater()
-        {
-            ElfUnit unit = new ElfUnit();
-            Water water = new Water();
-
-            Assert.IsFalse(unit.canCrossTile(water));
-        }
-
-        [TestMethod]
         public void TestElfCrossingNotWater()
         {
             ElfUnit unit = new ElfUnit();
@@ -34,34 +25,29 @@ namespace SmallWorld.utest
         }
 
         [TestMethod]
-        public void TestElfCountPointsForest()
+        public void TestElfCrossingWater()
+        {
+            ElfUnit unit = new ElfUnit();
+            Water water = new Water();
+
+            Assert.IsFalse(unit.canCrossTile(water));
+        }
+
+        [TestMethod]
+        public void TestElfCountPointsNotWater()
         {
             ElfUnit unit = new ElfUnit();
             Forest forest = new Forest();
-
-            Assert.AreEqual(3, unit.countPoints(forest));
-        }
-
-        [TestMethod]
-        public void TestElfCountPointsMountain()
-        {
-            ElfUnit unit = new ElfUnit();
             Mountain mountain = new Mountain();
-
-            Assert.AreEqual(0, unit.countPoints(mountain));
-        }
-
-        [TestMethod]
-        public void TestElfCountPointsPlain()
-        {
-            ElfUnit unit = new ElfUnit();
             Plain plain = new Plain();
 
+            Assert.AreEqual(3, unit.countPoints(forest));
+            Assert.AreEqual(0, unit.countPoints(mountain));
             Assert.AreEqual(1, unit.countPoints(plain));
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Invalid current tile type.")]
+        [ExpectedException(typeof(Exception), "Invalid current tile type")]
         public void TestElfCountPointsWater()
         {
             ElfUnit unit = new ElfUnit();
@@ -71,43 +57,43 @@ namespace SmallWorld.utest
         }
 
         [TestMethod]
-        public void TestElfGetAttackRange()
+        public void TestElfGetAttackRangeNotWater()
+        {
+            ElfUnit unit = new ElfUnit();
+            Forest forest = new Forest();
+            Mountain mountain = new Mountain();
+            Plain plain = new Plain();
+
+            Assert.AreEqual(2, unit.getAttackRange(forest));
+            Assert.AreEqual(2, unit.getAttackRange(mountain));
+            Assert.AreEqual(2, unit.getAttackRange(plain));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception), "Invalid current tile type")]
+        public void TestElfGetAttackRangeWater()
         {
             ElfUnit unit = new ElfUnit();
             Water water = new Water();
 
-            Assert.AreEqual(2, unit.getAttackRange(water));
+            unit.getAttackRange(water);
         }
 
         [TestMethod]
-        public void TestElfMoveCostForest()
+        public void TestElfMoveCostNotWater()
         {
             ElfUnit unit = new ElfUnit();
             Forest forest = new Forest();
-
-            Assert.AreEqual(1, unit.getMoveCost(forest));
-        }
-
-        [TestMethod]
-        public void TestElfMoveCostMountain()
-        {
-            ElfUnit unit = new ElfUnit();
             Mountain mountain = new Mountain();
-
-            Assert.AreEqual(2, unit.getMoveCost(mountain));
-        }
-
-        [TestMethod]
-        public void TestElfMoveCostPlain()
-        {
-            ElfUnit unit = new ElfUnit();
             Plain plain = new Plain();
 
+            Assert.AreEqual(1, unit.getMoveCost(forest));
+            Assert.AreEqual(2, unit.getMoveCost(mountain));
             Assert.AreEqual(1, unit.getMoveCost(plain));
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "Invalid target tile type.")]
+        [ExpectedException(typeof(Exception), "Invalid target tile type")]
         public void TestElfMoveCostWater()
         {
             ElfUnit unit = new ElfUnit();
@@ -116,76 +102,50 @@ namespace SmallWorld.utest
             unit.getMoveCost(water);
         }
 
-
         // TESTING HUMAN UNITS //
         [TestMethod]
         public void TestHumanCrossingAll()
         {
             HumanUnit unit = new HumanUnit();
-            Mountain mountain = new Mountain();
             Forest forest = new Forest();
+            Mountain mountain = new Mountain();
             Plain plain = new Plain();
             Water water = new Water();
-            bool res = unit.canCrossTile(mountain);
 
-            res = res && unit.canCrossTile(forest);
-            res = res && unit.canCrossTile(plain);
-            res = res && unit.canCrossTile(water);
-
-            Assert.IsTrue(res);
+            Assert.IsTrue(unit.canCrossTile(forest));
+            Assert.IsTrue(unit.canCrossTile(mountain));
+            Assert.IsTrue(unit.canCrossTile(plain));
+            Assert.IsTrue(unit.canCrossTile(water));
         }
 
         [TestMethod]
-        public void TestHumanCountPointsForest()
+        public void TestHumanCountPointsAll()
         {
             HumanUnit unit = new HumanUnit();
             Forest forest = new Forest();
+            Mountain mountain = new Mountain();
+            Plain plain = new Plain();
+            Water water = new Water();
 
             Assert.AreEqual(1, unit.countPoints(forest));
-        }
-
-        [TestMethod]
-        public void TestHumanCountPointsMountain()
-        {
-            HumanUnit unit = new HumanUnit();
-            Mountain mountain = new Mountain();
-
             Assert.AreEqual(1, unit.countPoints(mountain));
-        }
-
-        [TestMethod]
-        public void TestHumanCountPointsPlain()
-        {
-            HumanUnit unit = new HumanUnit();
-            Plain plain = new Plain();
-
             Assert.AreEqual(2, unit.countPoints(plain));
-        }
-
-        [TestMethod]
-        public void TestHumanCountPointsWater()
-        {
-            HumanUnit unit = new HumanUnit();
-            Water water = new Water();
-
             Assert.AreEqual(0, unit.countPoints(water));
         }
 
         [TestMethod]
-        public void TestHumanGetAttackRange()
+        public void TestHumanGetAttackRangeAll()
         {
             HumanUnit unit = new HumanUnit();
             Mountain mountain = new Mountain();
             Forest forest = new Forest();
             Plain plain = new Plain();
             Water water = new Water();
-            bool res = true && unit.getAttackRange(mountain) == 1;
 
-            res = res && unit.getAttackRange(forest) == 1;
-            res = res && unit.getAttackRange(plain) == 1;
-            res = res && unit.getAttackRange(water) == 1;
-
-            Assert.IsTrue(res);
+            Assert.AreEqual(1, unit.getAttackRange(forest));
+            Assert.AreEqual(1, unit.getAttackRange(mountain));
+            Assert.AreEqual(1, unit.getAttackRange(plain));
+            Assert.AreEqual(1, unit.getAttackRange(water));
         }
 
         [TestMethod]
@@ -196,15 +156,103 @@ namespace SmallWorld.utest
             Forest forest = new Forest();
             Plain plain = new Plain();
             Water water = new Water();
-            bool res = true && unit.getMoveCost(mountain) == 1;
 
-            res = res && unit.getMoveCost(forest) == 1;
-            res = res && unit.getMoveCost(plain) == 1;
-            res = res && unit.getMoveCost(water) == 1;
-
-            Assert.IsTrue(res);
+            Assert.AreEqual(1, unit.getMoveCost(forest));
+            Assert.AreEqual(1, unit.getMoveCost(mountain));
+            Assert.AreEqual(1, unit.getMoveCost(plain));
+            Assert.AreEqual(1, unit.getMoveCost(water));
         }
 
+        // TESTING ORC UNITS //
+        [TestMethod]
+        public void TestOrcCrossingNotWater()
+        {
+            OrcUnit unit = new OrcUnit();
+            Mountain mountain = new Mountain();
+            Forest forest = new Forest();
+            Plain plain = new Plain();
 
+            Assert.IsTrue(unit.canCrossTile(forest));
+            Assert.IsTrue(unit.canCrossTile(mountain));
+            Assert.IsTrue(unit.canCrossTile(plain));
+        }
+
+        [TestMethod]
+        public void TestOrcCrossingWater()
+        {
+            OrcUnit unit = new OrcUnit();
+            Water water = new Water();
+
+            Assert.IsFalse(unit.canCrossTile(water));
+        }
+
+        [TestMethod]
+        public void TestOrcCountPointsNotWater()
+        {
+            OrcUnit unit = new OrcUnit();
+            Forest forest = new Forest();
+            Mountain mountain = new Mountain();
+            Plain plain = new Plain();
+
+            Assert.AreEqual(1, unit.countPoints(forest));
+            Assert.AreEqual(2, unit.countPoints(mountain));
+            Assert.AreEqual(1, unit.countPoints(plain));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception), "Invalid current tile type")]
+        public void TestOrcCountPointsWater()
+        {
+            OrcUnit unit = new OrcUnit();
+            Water water = new Water();
+
+            unit.countPoints(water);
+        }
+
+        [TestMethod]
+        public void TestOrcGetAttackRangeNotWater()
+        {
+            OrcUnit unit = new OrcUnit();
+            Forest forest = new Forest();
+            Mountain mountain = new Mountain();
+            Plain plain = new Plain();
+
+            Assert.AreEqual(1, unit.getAttackRange(forest));
+            Assert.AreEqual(2, unit.getAttackRange(mountain));
+            Assert.AreEqual(1, unit.getAttackRange(plain));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception), "Invalid current tile type")]
+        public void TestOrcGetAttackRangeWater()
+        {
+            OrcUnit unit = new OrcUnit();
+            Water water = new Water();
+
+            unit.getAttackRange(water);
+        }
+
+        [TestMethod]
+        public void TestOrcMoveCostNotWater()
+        {
+            OrcUnit unit = new OrcUnit();
+            Forest forest = new Forest();
+            Mountain mountain = new Mountain();
+            Plain plain = new Plain();
+
+            Assert.AreEqual(1, unit.getMoveCost(forest));
+            Assert.AreEqual(1, unit.getMoveCost(mountain));
+            Assert.AreEqual(0.5, unit.getMoveCost(plain));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception), "Invalid target tile type")]
+        public void TestOrcMoveCostWater()
+        {
+            OrcUnit unit = new OrcUnit();
+            Water water = new Water();
+
+            unit.getMoveCost(water);
+        }
     }
 }
