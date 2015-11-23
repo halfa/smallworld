@@ -61,6 +61,8 @@ namespace SmallWorld.Core
                 return 3;
             if (tile.GetType().Equals(typeof(Plain)))
                 return 1;
+            if (tile.GetType().Equals(typeof(Water)))
+                throw new Exception("Invalid current tile type");
             return 0;
         }
 

@@ -31,5 +31,89 @@ namespace SmallWorld.utest
             res = res && unit.canCrossTile(forest);
             Assert.IsTrue(res);
         }
+
+        [TestMethod]
+        public void TestElfCountPointsForest()
+        {
+            ElfUnit unit = new ElfUnit();
+            Forest forest = new Forest();
+
+            Assert.AreEqual(3, unit.countPoints(forest));
+        }
+
+        [TestMethod]
+        public void TestElfCountPointsMountain()
+        {
+            ElfUnit unit = new ElfUnit();
+            Mountain mountain = new Mountain();
+
+            Assert.AreEqual(0, unit.countPoints(mountain));
+        }
+
+        [TestMethod]
+        public void TestElfCountPointsPlain()
+        {
+            ElfUnit unit = new ElfUnit();
+            Plain plain = new Plain();
+
+            Assert.AreEqual(1, unit.countPoints(plain));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception), "Invalid current tile type.")]
+        public void TestElfCountPointsWater()
+        {
+            ElfUnit unit = new ElfUnit();
+            Water water = new Water();
+
+            unit.countPoints(water);
+        }
+
+        [TestMethod]
+        public void TestElfGetAttackRange()
+        {
+            ElfUnit unit = new ElfUnit();
+            Water water = new Water();
+
+            Assert.AreEqual(2, unit.getAttackRange(water));
+        }
+
+        [TestMethod]
+        public void TestElfMoveCostForest()
+        {
+            ElfUnit unit = new ElfUnit();
+            Forest forest = new Forest();
+
+            Assert.AreEqual(1, unit.getMoveCost(forest));
+        }
+
+        [TestMethod]
+        public void TestElfMoveCostMountain()
+        {
+            ElfUnit unit = new ElfUnit();
+            Mountain mountain = new Mountain();
+
+            Assert.AreEqual(2, unit.getMoveCost(mountain));
+        }
+
+        [TestMethod]
+        public void TestElfMoveCostPlain()
+        {
+            ElfUnit unit = new ElfUnit();
+            Plain plain = new Plain();
+
+            Assert.AreEqual(1, unit.getMoveCost(plain));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception), "Invalid target tile type.")]
+        public void TestElfMoveCostWater()
+        {
+            ElfUnit unit = new ElfUnit();
+            Water water = new Water();
+
+            unit.getMoveCost(water);
+        }
+
     }
 }
