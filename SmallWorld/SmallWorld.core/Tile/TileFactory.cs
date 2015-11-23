@@ -34,7 +34,7 @@ namespace SmallWorld.Core
         /// <summary>
         /// The singleton for the TileFactory class.
         /// </summary>
-        private TileFactory _INSTANCE = new TileFactory();
+        private static TileFactory _INSTANCE = new TileFactory();
 
         /// <summary>
         /// Private constructor for the TileFactory class.
@@ -51,7 +51,7 @@ namespace SmallWorld.Core
         /// <summary>
         /// Read-only access to the unique instance of tile factory.
         /// </summary>
-        public TileFactory INSTANCE
+        public static TileFactory INSTANCE
         {
             get
             {
@@ -60,30 +60,12 @@ namespace SmallWorld.Core
         }
 
         /// <summary>
-        /// Returns the unique private plain tile.
-        /// </summary>
-        /// <returns></returns>
-        public Plain createPlainTile()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        /// <summary>
-        /// Returns the unique private water tile.
-        /// </summary>
-        /// <returns></returns>
-        public Water createWaterTile()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        /// <summary>
         /// Returns the unique private forest tile.
         /// </summary>
         /// <returns></returns>
         public Forest createForestTile()
         {
-            throw new System.NotImplementedException();
+            return _forestTile;
         }
 
         /// <summary>
@@ -92,7 +74,25 @@ namespace SmallWorld.Core
         /// <returns></returns>
         public Mountain createMountainTile()
         {
-            throw new System.NotImplementedException();
+            return _mountainTIle;
+        }
+
+        /// <summary>
+        /// Returns the unique private plain tile.
+        /// </summary>
+        /// <returns></returns>
+        public Plain createPlainTile()
+        {
+            return _plainTile;
+        }
+
+        /// <summary>
+        /// Returns the unique private water tile.
+        /// </summary>
+        /// <returns></returns>
+        public Water createWaterTile()
+        {
+            return _waterTile;
         }
     }
 }
