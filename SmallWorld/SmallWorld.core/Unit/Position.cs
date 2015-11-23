@@ -5,49 +5,52 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
+    /// <summary>
+    /// This class is a template for map positions.
+    /// </summary>
     [Serializable]
     public class Position
     {
-        private int _x;
-        private int _y;
-
-        public Position(int x, int y)
+        /// <summary>
+        /// Constructor for the Position class.
+        /// Creates a position with the specified X and Y coordinates.
+        /// </summary>
+        /// <param name="px"></param>
+        /// <param name="py"></param>
+        public Position(int px, int py)
         {
-            throw new System.NotImplementedException();
+            x = px;
+            y = py;
         }
 
+        /// <summary>
+        /// Constructor using memberwise copy for the Position class.
+        /// </summary>
+        /// <param name="position"></param>
         public Position(Position position)
         {
-            throw new System.NotImplementedException();
+            x = position.x;
+            y = position.y;
         }
 
-        public int x
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        /// <summary>
+        /// Read and Write access on the X coordinate field.
+        /// </summary>
+        public int x { get; set; }
 
-            set
-            {
-            }
-        }
+        /// <summary>
+        /// Read and Write access on the X coordinate field.
+        /// </summary>
+        public int y { get; set; }
 
-        public int y
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
+        /// <summary>
+        /// Determines if the current position is equal to the specified position.
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns></returns>
         public bool equals(Position position)
         {
-            throw new System.NotImplementedException();
+            return (x == position.x && y == position.y);
         }
     }
 }
