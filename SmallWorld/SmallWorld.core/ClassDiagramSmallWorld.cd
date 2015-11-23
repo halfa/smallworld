@@ -139,11 +139,8 @@
   </Class>
   <Class Name="SmallWorld.Core.TileFactory">
     <Position X="15.75" Y="6.5" Width="2.5" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-    </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAgAAAAAIAgJAAAAAAAgAAAAAQAAAAA=</HashCode>
+      <HashCode>AAAAAEAAAAAAQAgAAAAAIAgJAAQAAAAgAAAAAQAAAAA=</HashCode>
       <FileName>tile\TileFactory.cs</FileName>
       <NewMemberFileName>Tile\TileFactory.cs</NewMemberFileName>
     </TypeIdentifier>

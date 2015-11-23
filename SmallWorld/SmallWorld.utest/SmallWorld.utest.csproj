@@ -53,6 +53,12 @@
     <Compile Include="UnitTestUnit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SmallWorld.core\SmallWorld.Core.csproj">
+      <Project>{1d7139fe-33a6-4dc5-98cf-25e4bea540da}</Project>
+      <Name>SmallWorld.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

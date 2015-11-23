@@ -5,33 +5,91 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
+    /// <summary>
+    /// This class is a template for a flyweight tile factory.
+    /// It also uses the Singleton design pattern.
+    /// </summary>
     public class TileFactory
     {
+        /// <summary>
+        /// The unique private plain tile.
+        /// </summary>
         private Plain _plainTile;
+
+        /// <summary>
+        /// The unique private water tile.
+        /// </summary>
         private Water _waterTile;
+
+        /// <summary>
+        /// The unique private forest tile.
+        /// </summary>
         private Forest _forestTile;
+
+        /// <summary>
+        /// The unique private mountain tile.
+        /// </summary>
         private Mountain _mountainTIle;
 
-        public TileFactory()
+        /// <summary>
+        /// The singleton for the TileFactory class.
+        /// </summary>
+        private TileFactory _INSTANCE = new TileFactory();
+
+        /// <summary>
+        /// Private constructor for the TileFactory class.
+        /// Initializes the private flyweight tiles.
+        /// </summary>
+        private TileFactory()
         {
-            throw new System.NotImplementedException();
+            _plainTile = new Plain();
+            _waterTile = new Water();
+            _forestTile = new Forest();
+            _mountainTIle = new Mountain();
         }
 
+        /// <summary>
+        /// Read-only access to the unique instance of tile factory.
+        /// </summary>
+        public TileFactory INSTANCE
+        {
+            get
+            {
+                return _INSTANCE;
+            }
+        }
+
+        /// <summary>
+        /// Returns the unique private plain tile.
+        /// </summary>
+        /// <returns></returns>
         public Plain createPlainTile()
         {
             throw new System.NotImplementedException();
         }
 
+        /// <summary>
+        /// Returns the unique private water tile.
+        /// </summary>
+        /// <returns></returns>
         public Water createWaterTile()
         {
             throw new System.NotImplementedException();
         }
 
+        /// <summary>
+        /// Returns the unique private forest tile.
+        /// </summary>
+        /// <returns></returns>
         public Forest createForestTile()
         {
             throw new System.NotImplementedException();
         }
 
+        /// <summary>
+        /// Returns the unique private mountain tile.
+        /// </summary>
+        /// <returns></returns>
         public Mountain createMountainTile()
         {
             throw new System.NotImplementedException();
