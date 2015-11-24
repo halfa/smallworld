@@ -8,7 +8,7 @@ namespace SmallWorld.Core
     public class Player
     {
         private string _name;
-        private global::SmallWorld.Core.ARace _race;
+        private ARace _race;
         private List<AUnit> _units;
         private AUnit _selectedUnit;
 
@@ -28,7 +28,7 @@ namespace SmallWorld.Core
             }
         }
 
-        public System.Collections.Generic.List<global::SmallWorld.Core.AUnit> units
+        public List<AUnit> units
         {
             get
             {
@@ -39,7 +39,7 @@ namespace SmallWorld.Core
             }
         }
 
-        public String name
+        public string name
         {
             get
             {
@@ -49,11 +49,6 @@ namespace SmallWorld.Core
             set
             {
             }
-        }
-
-        public void undo()
-        {
-            throw new System.NotImplementedException();
         }
 
         public void addNewUnit()

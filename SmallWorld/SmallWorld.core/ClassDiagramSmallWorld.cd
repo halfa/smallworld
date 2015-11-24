@@ -10,7 +10,7 @@
     <Position X="14.523" Y="13.784" Height="0.291" Width="0.7" />
   </Comment>
   <Comment CommentText="Strategy">
-    <Position X="5.281" Y="9.017" Height="0.291" Width="0.7" />
+    <Position X="5.281" Y="8.717" Height="0.291" Width="0.7" />
   </Comment>
   <Comment CommentText="Command">
     <Position X="6.307" Y="0.769" Height="0.291" Width="0.884" />
@@ -37,7 +37,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAIECEAAAAAAAgIAAAAAAAAAAUAAAEACAAAIAAAAI=</HashCode>
+      <HashCode>AAAAIECAAAAAAAAgIAAAAAAAAAAUAAAEACAAAIAAAAI=</HashCode>
       <FileName>player\Player.cs</FileName>
       <NewMemberFileName>Player\Player.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -183,7 +183,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAADAAAQAQAAAAAAAAhABAAAEAAAAAAwAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAQAQAAAAAAAAgABAAAEAAAAAAwAAAA=</HashCode>
       <FileName>map\Map.cs</FileName>
       <NewMemberFileName>Map\Map.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -236,7 +236,7 @@
   <Class Name="SmallWorld.Core.MapDemoSetup">
     <Position X="0.5" Y="10.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
       <FileName>map\MapDemoSetup.cs</FileName>
       <NewMemberFileName>Map\MapDemoSetup.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -245,7 +245,7 @@
   <Class Name="SmallWorld.Core.MapSmallSetup">
     <Position X="3.5" Y="10.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
       <FileName>map\MapSmallSetup.cs</FileName>
       <NewMemberFileName>Map\MapSmallSetup.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -254,7 +254,7 @@
   <Class Name="SmallWorld.Core.MapStandardSetup">
     <Position X="6.5" Y="10.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
       <FileName>map\MapStandardSetup.cs</FileName>
       <NewMemberFileName>Map\MapStandardSetup.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -290,7 +290,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAADAAAQAQAAAAAAAAhABAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAQAQAAAAAAAAgABAAAAAAAAAAAAAAA=</HashCode>
       <FileName>map\MapData.cs</FileName>
       <NewMemberFileName>Map\MapData.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -354,9 +354,9 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="SmallWorld.Core.IMapSetup">
-    <Position X="3.5" Y="8.75" Width="2.5" />
+    <Position X="3.5" Y="8.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
       <FileName>map\IMapSetup.cs</FileName>
       <NewMemberFileName>Map\IMapSetup.cs</NewMemberFileName>
     </TypeIdentifier>

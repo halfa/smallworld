@@ -5,15 +5,36 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
+    /// <summary>
+    /// This class is a template for the Small type map setup.
+    /// </summary>
     public class MapStandardSetup : IMapSetup
     {
-        public MapStandardSetup()
+        /// <summary>
+        /// Read and write access to the map field.
+        /// </summary>
+        public Map map { get; set; }
+
+        /// <summary>
+        /// Constructor for the MaptandardSetup class.
+        /// </summary>
+        /// <param name="map"></param>
+        public MapStandardSetup(Map map)
         {
-            throw new System.NotImplementedException();
+            this.map = map;
         }
 
-        public void setupMap(List<ATile> tiles)
+        /// <summary>
+        /// Sets up the current object's map field.
+        /// </summary>
+        public void setupMap()
         {
+            map.height = 14;
+
+            // Setup tiles in the c++ //
+
+            map.type = MapType.Standard;
+            map.width = 14;
             throw new System.NotImplementedException();
         }
     }

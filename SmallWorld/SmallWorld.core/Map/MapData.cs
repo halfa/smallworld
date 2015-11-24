@@ -5,60 +5,30 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
+    /// <summary>
+    /// This class is a template for the serializable game map data.
+    /// </summary>
     [Serializable]
     public class MapData
     {
-        private int _height;
-        private int _width;
-        private List<ATile> _tiles;
-        private MapType _type;
+        /// <summary>
+        /// Read and write access to the height field.
+        /// </summary>
+        public int height { get; set; }
 
-        public int height
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        /// <summary>
+        /// Read and write access to the tiles field.
+        /// </summary>
+        public List<ATile> tiles { get; set; }
 
-            set
-            {
-            }
-        }
+        /// <summary>
+        /// Read and write access to the type field.
+        /// </summary>
+        public MapType type { get; set; }
 
-        public int width
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public MapType type
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public List<ATile> tiles
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
+        /// <summary>
+        /// Read and write access to the width field.
+        /// </summary>
+        public int width { get; set; }
     }
 }

@@ -7,6 +7,8 @@ namespace SmallWorld.Core
 {
     public interface IMapSetup
     {
-        void setupMap(List<ATile> tiles);
+        Map map { get; set; }
+
+        void setupMap();
     }
 }
