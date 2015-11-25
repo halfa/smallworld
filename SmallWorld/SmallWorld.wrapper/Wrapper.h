@@ -2,7 +2,7 @@
 #define __WRAPPER__
 #include "../SmallWorld.lib/Algo.h"
 
-#pragma comment(lib, "../Debug/libCPP.lib")
+#pragma comment(lib, "../Debug/SmallWorld.lib")
 using namespace System;
 using namespace System::Collections;
 using namespace System::Collections::Generic;
@@ -21,6 +21,15 @@ namespace Wrapper {
 		
 		~WrapperAlgo(){ 
 			Algo_delete(algo); 
+		}
+
+		List<int>^ createMap(int size) {
+			List<int>^ res = gcnew List<int>(size);
+			int* list = Algo_createMap(algo, size);
+			for (int i = 0; i < size; i++)
+				res[i] = list[i];
+
+			return res;
 		}
 
 		/*Map createMap(int size) { 

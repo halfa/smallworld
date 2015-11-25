@@ -393,5 +393,12 @@
       <NewMemberFileName>Map\MapType.cs</NewMemberFileName>
     </TypeIdentifier>
   </Enum>
+  <Enum Name="SmallWorld.Core.TileType">
+    <Position X="9.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAACAAAAAAAAAAAAAAAgAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>tile\TileType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
