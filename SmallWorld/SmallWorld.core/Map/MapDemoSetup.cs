@@ -31,6 +31,11 @@ namespace SmallWorld.Core
         {
             map.height = 6;
 
+            Algo algo = new Algo();
+            int nbTiles = 36;
+            int[] rdmTiles = new int[nbTiles];
+            rdmTiles = algo.createMap(nbTiles);
+
             //Wrapper wrapper;
             // Setup tiles in the c++ //
             // For now, setting uit up here //
