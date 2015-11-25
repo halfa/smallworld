@@ -45,25 +45,7 @@ namespace SmallWorld.Core
             for (int i = 0; i < rdmTiles.Count(); i++)
             {
                 TileType val = rdmTiles[i];
-                ATile tile;
-                switch (val)
-                {
-                    case TileType.Forest:
-                        tile = factory.createForestTile();
-                        break;
-                    case TileType.Mountain:
-                        tile = factory.createMountainTile();
-                        break;
-                    case TileType.Plain:
-                        tile = factory.createPlainTile();
-                        break;
-                    case TileType.Water:
-                        tile = factory.createWaterTile();
-                        break;
-                    default:
-                        tile = factory.createWaterTile();
-                        break;
-                }
+                ATile tile = factory.createTile(val);
                 tiles[i] = tile;
             }
             map.tiles = tiles;
