@@ -11,7 +11,7 @@ namespace SmallWorld.Core
 
         public GameBuilder()
         {
-            throw new System.NotImplementedException();
+            _settings = new GameSettings();
         }
 
         public Game build()

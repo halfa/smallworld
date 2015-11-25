@@ -5,96 +5,43 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
+    /// <summary>
+    /// Manage settings provided by the UI
+    /// </summary>
     [Serializable]
     public class GameSettings
     {
-        private int _turnLimit;
-        private MapType _mapType;
-        private int _nbPlayers;
-        private String[] _playersNames;
-        private ARace[] _playersRaces;
-        private int _unitLimit;
-
         public GameSettings()
         {
-            throw new System.NotImplementedException();
+            // nothing defined by default
         }
 
-        public MapType mapType
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int nbPlayers
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public String[] playersNames
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public ARace[] playersRaces
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int turnLimit
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int unitLimit
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
+        public MapType mapType { get; set; }
+        public int nbPlayers { get; set; }
+        public String[] playersNames { get; set; } // set by UI
+        public ARace[] playersRaces { get; set; } // set by UI
+        public int turnLimit { get; set; }
+        public int unitLimit { get; set; }
 
         public void setFieldsAccordingToMapType()
         {
-            throw new System.NotImplementedException();
+            switch (mapType) {
+                case MapType.Demo:
+                    nbPlayers = 2;
+                    turnLimit = 5;
+                    unitLimit = 4;
+                    break;
+                case MapType.Small:
+                    nbPlayers = 2;
+                    turnLimit = 10;
+                    unitLimit = 6;
+                    break;
+                case MapType.Standard:
+                    nbPlayers = 2;
+                    turnLimit = 30;
+                    unitLimit = 8;
+                    break;
+            }
         }
     }
 }
