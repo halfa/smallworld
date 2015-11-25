@@ -76,9 +76,7 @@ namespace SmallWorld.Core
             TileFactory factory = TileFactory.INSTANCE;
 
             for(int i = 0; i < mapData.tiles.Count(); i++)
-            {
                 t[i] = factory.createTile(mapData.tiles[i]);
-            }
 
             // The mapSetup field will never be used, because the map has been set up already. //
             // *Eventually*, this field could be removed, but keeping the stategy DP intact. //
