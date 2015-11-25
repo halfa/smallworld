@@ -17,5 +17,14 @@ namespace SmallWorld.Core
         public Forest()
         {
         }
+
+        /// <summary>
+        /// Provide the TileType related to Forest tiles.
+        /// </summary>
+        /// <returns></returns>
+        public override TileType getType()
+        {
+            return TileType.Forest;
+        }
     }
 }

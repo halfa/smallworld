@@ -10,9 +10,9 @@ namespace SmallWorld.Core
     /// </summary>
     public enum TileType
     {
-        Forest,
-        Mountain,
-        Plain,
-        Water
+        Forest = 0,
+        Mountain = 1,
+        Plain = 2,
+        Water = 3
     }
 }

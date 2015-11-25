@@ -12,9 +12,9 @@ namespace SmallWorld.Core
         bool disposed = false;
         IntPtr nativeAlgo;
 
-        public int[] createMap(int nbTiles)
+        public TileType[] createMap(int nbTiles)
         {
-            int[] res = new int[nbTiles];
+            TileType[] res = new TileType[nbTiles];
             Algo_fillMap(nativeAlgo, res, nbTiles);
 
             return res;
@@ -51,7 +51,7 @@ namespace SmallWorld.Core
 
 
         [DllImport("smallWorld.dll", CallingConvention = CallingConvention.Cdecl)]
-        extern static void Algo_fillMap(IntPtr algo, int[] tiles, int nbTiles);
+        extern static void Algo_fillMap(IntPtr algo, TileType[] tiles, int nbTiles);
 
         [DllImport("smallWorld.dll", CallingConvention = CallingConvention.Cdecl)]
         extern static IntPtr Algo_new();

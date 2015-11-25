@@ -11,5 +11,10 @@ namespace SmallWorld.Core
     [Serializable]
     public abstract class ATile
     {
+        /// <summary>
+        /// Determines the actual type of the current tile.
+        /// </summary>
+        /// <returns></returns>
+        public abstract TileType getType();
     }
 }

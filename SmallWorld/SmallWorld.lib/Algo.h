@@ -1,4 +1,13 @@
 #pragma once
+
+enum TileType
+{
+	Forest = 0,
+	Mountain = 1,
+	Plain = 2,
+	Water = 3
+};
+
 class Algo {
 
 public:
@@ -6,7 +15,7 @@ public:
 	~Algo() {}
 
 	// You can change the return type and the parameters according to your needs.
-	void fillMap(int map[], int size);
+	void fillMap(TileType map[], int size);
 };
 
 
@@ -15,7 +24,7 @@ public:
 // export all C++ class/methods as friendly C functions to be consumed by external component in a portable way
 ///
 
-EXPORTCDECL void Algo_fillMap(Algo* algo, int map[], int size) {
+EXPORTCDECL void Algo_fillMap(Algo* algo, TileType map[], int size) {
 	return algo->fillMap(map, size);
 }
 

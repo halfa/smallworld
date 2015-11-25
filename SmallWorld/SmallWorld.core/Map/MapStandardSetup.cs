@@ -36,7 +36,7 @@ namespace SmallWorld.Core
             // Setup tiles with the c++ "wrapper" //
             Algo algo = new Algo();
             int nbTiles = map.height * map.width; ;
-            int[] rdmTiles = new int[nbTiles];
+            TileType[] rdmTiles = new TileType[nbTiles];
             rdmTiles = algo.createMap(nbTiles);
 
             List<ATile> tiles = new List<ATile>(nbTiles);
@@ -44,20 +44,20 @@ namespace SmallWorld.Core
 
             for (int i = 0; i < rdmTiles.Count(); i++)
             {
-                int val = rdmTiles[i];
+                TileType val = rdmTiles[i];
                 ATile tile;
                 switch (val)
                 {
-                    case 0:
+                    case TileType.Forest:
                         tile = factory.createForestTile();
                         break;
-                    case 1:
+                    case TileType.Mountain:
                         tile = factory.createMountainTile();
                         break;
-                    case 2:
+                    case TileType.Plain:
                         tile = factory.createPlainTile();
                         break;
-                    case 3:
+                    case TileType.Water:
                         tile = factory.createWaterTile();
                         break;
                     default:
