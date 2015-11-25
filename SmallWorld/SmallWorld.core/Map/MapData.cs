@@ -19,7 +19,7 @@ namespace SmallWorld.Core
         /// <summary>
         /// Read and write access to the tiles field.
         /// </summary>
-        public List<ATile> tiles { get; set; }
+        public List<TileType> tiles { get; set; }
 
         /// <summary>
         /// Read and write access to the type field.

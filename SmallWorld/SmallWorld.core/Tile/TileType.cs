@@ -8,6 +8,7 @@ namespace SmallWorld.Core
     /// <summary>
     /// This enum containts keywords for all the different tile types.
     /// </summary>
+    [Serializable]
     public enum TileType
     {
         Forest = 0,
