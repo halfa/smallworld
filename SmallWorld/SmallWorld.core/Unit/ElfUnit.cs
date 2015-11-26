@@ -93,5 +93,14 @@ namespace SmallWorld.Core
                 throw new Exception("Invalid target tile type");
             return 1;
         }
+
+        /// <summary>
+        /// Determines the current unit's race.
+        /// </summary>
+        /// <returns></returns>
+        public override Races getRace()
+        {
+            return Races.Elf;
+        }
     }
 }

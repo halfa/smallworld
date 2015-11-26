@@ -7,53 +7,34 @@ namespace SmallWorld.Core
 {
     public class Player
     {
-        private string _name;
-        private ARace _race;
-        private List<AUnit> _units;
-        private AUnit _selectedUnit;
-
-        public Player(String name, ARace race)
+        public Player(String name, Races race)
         {
-            throw new System.NotImplementedException();
+            this.name = name;
+            this.race = race;
+            units = new List<AUnit>();
         }
 
-        public ARace race
+        public Player(Player p)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            name = p.name;
+            race = p.race;
+            UnitFactory factory = new UnitFactory();
+            List<AUnit> tmp = new List<AUnit>(p.units.Count());
+            foreach (AUnit unit in p.units)
+                tmp.Add(factory.copyUnit(unit));
+            units = tmp;
         }
 
-        public List<AUnit> units
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public Races race { get; set; }
 
-        public string name
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public List<AUnit> units { get; set; }
 
-            set
-            {
-            }
-        }
+        public string name { get; set; }
 
         public void addNewUnit()
         {
-            throw new System.NotImplementedException();
+            UnitFactory factory = new UnitFactory();
+            units.Add(factory.createUnit(race));
         }
 
         public void removeUnit(AUnit unit)

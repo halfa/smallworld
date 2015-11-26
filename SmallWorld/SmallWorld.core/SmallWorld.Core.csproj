@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algo.cs" />
-    <Compile Include="race\ARace.cs" />
+    <Compile Include="race\Races.cs" />
     <Compile Include="tile\TileType.cs" />
     <Compile Include="tile\ATile.cs" />
     <Compile Include="game\GameData.cs" />
@@ -68,12 +68,9 @@
     <Compile Include="unit\ElfUnit.cs" />
     <Compile Include="unit\HumanUnit.cs" />
     <Compile Include="unit\OrcUnit.cs" />
-    <Compile Include="race\Elf.cs" />
     <Compile Include="tile\Forest.cs" />
     <Compile Include="game\Game.cs" />
-    <Compile Include="race\Human.cs" />
     <Compile Include="tile\Mountain.cs" />
-    <Compile Include="race\Orc.cs" />
     <Compile Include="tile\Plain.cs" />
     <Compile Include="player\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

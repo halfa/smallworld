@@ -115,5 +115,11 @@ namespace SmallWorld.Core
         /// <param name="currentTile"></param>
         /// <returns></returns>
         public abstract int getAttackRange(ATile currentTile);
+
+        /// <summary>
+        /// Determines the current unit's race.
+        /// </summary>
+        /// <returns></returns>
+        public abstract Races getRace();
     }
 }

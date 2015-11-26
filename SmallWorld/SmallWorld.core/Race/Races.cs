@@ -6,9 +6,13 @@ using System.Text;
 namespace SmallWorld.Core
 {
     /// <summary>
-    /// This class is an abstract template for in game races.
+    /// This enum contains keywords for all the different races.
     /// </summary>
-    public abstract class ARace
+    [Serializable]
+    public enum Races
     {
+        Elf = 0,
+        Human = 1,
+        Orc = 2
     }
 }

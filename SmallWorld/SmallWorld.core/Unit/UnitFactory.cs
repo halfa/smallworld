@@ -74,5 +74,47 @@ namespace SmallWorld.Core
         {
             return new OrcUnit(orcUnit);
         }
+
+        /// <summary>
+        /// Creates a new unit based of the specified race.
+        /// </summary>
+        /// <param name="race"></param>
+        /// <returns></returns>
+        public AUnit createUnit(Races race)
+        {
+            switch(race)
+            {
+                case Races.Elf:
+                    return new ElfUnit();
+                case Races.Human:
+                    return new HumanUnit();
+                case Races.Orc:
+                    return new OrcUnit();
+                default:
+                    return new OrcUnit();
+            }
+        }
+
+        /// <summary>
+        /// Creates a memberwise copy of the specified unit.
+        /// </summary>
+        /// <param name="unit"></param>
+        /// <param name="race"></param>
+        /// <returns></returns>
+        public AUnit copyUnit(AUnit unit)
+        {
+            Races race = unit.getRace();
+            switch (race)
+            {
+                case Races.Elf:
+                    return new ElfUnit((ElfUnit)unit);
+                case Races.Human:
+                    return new HumanUnit((HumanUnit)unit);
+                case Races.Orc:
+                    return new OrcUnit((OrcUnit)unit);
+                default:
+                    return new OrcUnit((OrcUnit)unit);
+            }
+        }
     }
 }

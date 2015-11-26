@@ -64,7 +64,7 @@ namespace SmallWorld.Core
             }
         }
 
-        public PlayerData[] orderedPlayersData
+        public List<PlayerData> orderedPlayersData
         {
             get
             {

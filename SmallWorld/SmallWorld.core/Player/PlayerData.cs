@@ -8,11 +8,11 @@ namespace SmallWorld.Core
     [Serializable]
     public class PlayerData
     {
-        private ARace _race;
+        private Races _race;
         private string _name;
         private List<AUnit> _units;
 
-        public ARace race
+        public Races race
         {
             get
             {

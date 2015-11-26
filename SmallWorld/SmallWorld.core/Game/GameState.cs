@@ -11,7 +11,7 @@ namespace SmallWorld.Core
         private int _turnCounter;
         private Dictionary<Position, List<AUnit>> _positionsUnits;
         private int _activePlayerIndex;
-        private Dictionary<Player, List<AUnit>> _playersUnits;
+        private List<Player> _players;
         private AUnit _selectedUnit;
 
         public GameState()
@@ -55,7 +55,7 @@ namespace SmallWorld.Core
             }
         }
 
-        public Dictionary<Player, List<AUnit>> playersUnits
+        public List<Player> players
         {
             get
             {

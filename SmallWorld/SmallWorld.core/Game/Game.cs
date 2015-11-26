@@ -16,7 +16,7 @@ namespace SmallWorld.Core
 
         public Game(GameSettings settings)
         {
-            throw new System.NotImplementedException();
+            gameSettings = settings;
         }
 
         public GameSettings gameSettings
@@ -67,7 +67,7 @@ namespace SmallWorld.Core
             }
         }
 
-        public Player[] orderedPlayers
+        public List<Player> orderedPlayers
         {
             get
             {
