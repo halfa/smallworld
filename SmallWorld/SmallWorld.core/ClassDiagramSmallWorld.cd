@@ -83,7 +83,7 @@
   <Class Name="SmallWorld.Core.Plain">
     <Position X="12.75" Y="6.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>tile\Plain.cs</FileName>
       <NewMemberFileName>Tile\Plain.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -91,7 +91,7 @@
   <Class Name="SmallWorld.Core.Water">
     <Position X="9.75" Y="10.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>tile\Water.cs</FileName>
       <NewMemberFileName>Tile\Water.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -99,7 +99,7 @@
   <Class Name="SmallWorld.Core.Forest">
     <Position X="12.75" Y="10.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>tile\Forest.cs</FileName>
       <NewMemberFileName>Tile\Forest.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -107,7 +107,7 @@
   <Class Name="SmallWorld.Core.Mountain">
     <Position X="9.75" Y="6.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>tile\Mountain.cs</FileName>
       <NewMemberFileName>Tile\Mountain.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -140,7 +140,7 @@
   <Class Name="SmallWorld.Core.TileFactory">
     <Position X="15.75" Y="6.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAQAgAAAAAIAgJAAQAAAAgAAAAAQAAAAA=</HashCode>
+      <HashCode>AAAAAEAAAAEAQAgAAAAAIAgJAAQAAAAgAAAAAQAAAAA=</HashCode>
       <FileName>tile\TileFactory.cs</FileName>
       <NewMemberFileName>Tile\TileFactory.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -285,7 +285,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SmallWorld.Core.MapData">
-    <Position X="5.75" Y="6.5" Width="2.25" />
+    <Position X="5.75" Y="6.5" Width="2.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -320,7 +320,7 @@
   <Class Name="SmallWorld.Core.ATile">
     <Position X="11.25" Y="8.75" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>tile\ATile.cs</FileName>
       <NewMemberFileName>Tile\ATile.cs</NewMemberFileName>
     </TypeIdentifier>

@@ -17,5 +17,14 @@ namespace SmallWorld.Core
         public Mountain()
         {
         }
+
+        /// <summary>
+        /// Provide the TileType related to Mountain tiles.
+        /// </summary>
+        /// <returns></returns>
+        public override TileType getType()
+        {
+            return TileType.Mountain;
+        }
     }
 }

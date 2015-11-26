@@ -17,5 +17,14 @@ namespace SmallWorld.Core
         public Water()
         {
         }
+
+        /// <summary>
+        /// Provide the TileType related to Water tiles.
+        /// </summary>
+        /// <returns></returns>
+        public override TileType getType()
+        {
+            return TileType.Water;
+        }
     }
 }

@@ -55,9 +55,9 @@ namespace SmallWorld.Core
         /// <returns></returns>
         public override int countPoints(ATile tile)
         {
-            if (tile.GetType().Equals(typeof(Plain)))
+            if (tile.getType() == TileType.Plain)
                 return 2;
-            if (tile.GetType().Equals(typeof(Water)))
+            if (tile.getType() == TileType.Water)
                 return 0;
             return 1;
         }

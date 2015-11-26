@@ -45,7 +45,7 @@ namespace SmallWorld.Core
         /// <returns></returns>
         public override bool canCrossTile(ATile tile)
         {
-            if (tile.GetType().Equals(typeof(Water)))
+            if (tile.getType() == TileType.Water)
                 return false;
             return true;
         }
@@ -57,11 +57,11 @@ namespace SmallWorld.Core
         /// <returns></returns>
         public override int countPoints(ATile tile)
         {
-            if (tile.GetType().Equals(typeof(Forest)))
+            if (tile.getType() == TileType.Forest)
                 return 3;
-            if (tile.GetType().Equals(typeof(Plain)))
+            if (tile.getType() == TileType.Plain)
                 return 1;
-            if (tile.GetType().Equals(typeof(Water)))
+            if (tile.getType() == TileType.Water)
                 throw new Exception("Invalid current tile type");
             return 0;
         }
@@ -74,7 +74,7 @@ namespace SmallWorld.Core
         /// <returns></returns>
         public override int getAttackRange(ATile currentTile)
         {
-            if (currentTile.GetType().Equals(typeof(Water)))
+            if (currentTile.getType() == TileType.Water)
                 throw new Exception("Invalid current tile type");
             return range;
         }
@@ -87,9 +87,9 @@ namespace SmallWorld.Core
         /// <returns></returns>
         public override double getMoveCost(ATile aimedTile)
         {
-            if (aimedTile.GetType().Equals(typeof(Mountain)))
+            if (aimedTile.getType() == TileType.Mountain)
                 return 2;
-            if (aimedTile.GetType().Equals(typeof(Water)))
+            if (aimedTile.getType() == TileType.Water)
                 throw new Exception("Invalid target tile type");
             return 1;
         }

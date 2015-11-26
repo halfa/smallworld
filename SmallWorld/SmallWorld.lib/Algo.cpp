@@ -6,22 +6,15 @@
 
 using namespace std;
 
-
-int* Algo_createMap(Algo* algo, int nbTiles) {
-	return NULL;
-}
-
-int* Algo_suggestTilesForMove(int locationUnit, int* locationEnnemyUnits, float movePoints, int* tiles, int mapSize) {
-	return NULL;
-}
-
-
-Algo* Algo_new() {
-	return new Algo();
-}
-
-
-void Algo_delete(Algo* algo) {
-	if (algo != NULL)
-		delete algo;
+void Algo::fillMap(TileType map[], int size)
+{
+	//TODO : init map tiles with a better algorithm
+	for (int i = 0; i < size; i++)
+		map[i] = (TileType)(i % 4);
+	for (int i = 0; i < size; i++) {
+		TileType tmp = map[i];
+		int rd = rand() % size;
+		map[i] = map[rd];
+		map[rd] = tmp;
+	}
 }

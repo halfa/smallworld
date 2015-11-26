@@ -30,12 +30,25 @@ namespace SmallWorld.Core
         public void setupMap()
         {
             map.height = 14;
-
-            // Setup tiles in the c++ //
-
             map.type = MapType.Standard;
             map.width = 14;
-            throw new System.NotImplementedException();
+
+            // Setup tiles with the c++ "wrapper" //
+            Algo algo = new Algo();
+            int nbTiles = map.height * map.width; ;
+            TileType[] rdmTiles = new TileType[nbTiles];
+            rdmTiles = algo.createMap(nbTiles);
+
+            List<ATile> tiles = new List<ATile>(nbTiles);
+            TileFactory factory = TileFactory.INSTANCE;
+
+            for (int i = 0; i < rdmTiles.Count(); i++)
+            {
+                TileType val = rdmTiles[i];
+                ATile tile = factory.createTile(val);
+                tiles[i] = tile;
+            }
+            map.tiles = tiles;
         }
     }
 }

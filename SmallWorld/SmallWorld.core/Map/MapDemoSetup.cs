@@ -30,56 +30,25 @@ namespace SmallWorld.Core
         public void setupMap()
         {
             map.height = 6;
+            map.type = MapType.Demo;
+            map.width = 6;
 
-            //Wrapper wrapper;
-            // Setup tiles in the c++ //
-            // For now, setting uit up here //
-            List<ATile> tiles = new List<ATile>(36);
-            List<int> simplifiedTiles = new List<int>(36);
+            // Setup tiles with the c++ "wrapper" //
+            Algo algo = new Algo();
+            int nbTiles = map.height * map.width; ;
+            TileType[] rdmTiles = new TileType[nbTiles];
+            rdmTiles = algo.createMap(nbTiles);
+
+            List<ATile> tiles = new List<ATile>(nbTiles);
             TileFactory factory = TileFactory.INSTANCE;
 
-            for(int i = 0; i < 4; i++)
-                for(int j = 0; j < 9; j++)
-                    simplifiedTiles[i * 4 + j] = i;
-
-            Random rdm = new Random();
-            for(int i = 0; i < simplifiedTiles.Count(); i++)
+            for(int i = 0; i < rdmTiles.Count(); i++)
             {
-                int rd = rdm.Next(36);
-                int tmp = simplifiedTiles[i];
-                simplifiedTiles[i] = simplifiedTiles[rd];
-                simplifiedTiles[rd] = tmp;
-            }
-
-            for(int i = 0; i < simplifiedTiles.Count(); i++)
-            {
-                int val = simplifiedTiles[i];
-                ATile tile;
-                switch (val)
-                {
-                    case 0:
-                        tile = factory.createForestTile();
-                        break;
-                    case 1:
-                        tile = factory.createMountainTile();
-                        break;
-                    case 2:
-                        tile = factory.createPlainTile();
-                        break;
-                    case 3:
-                        tile = factory.createWaterTile();
-                        break;
-                    default:
-                        tile = factory.createWaterTile();
-                        break;
-                }
+                TileType val = rdmTiles[i];
+                ATile tile = factory.createTile(val);
                 tiles[i] = tile;
             }
             map.tiles = tiles;
-
-            map.type = MapType.Demo;
-            map.width = 6;
-            throw new System.NotImplementedException();
         }
     }
 }

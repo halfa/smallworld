@@ -63,6 +63,27 @@ namespace SmallWorld.Core
         }
 
         /// <summary>
+        /// Constructor for the Map class using the specified mapData to recreate the map.
+        /// </summary>
+        /// <param name="mapData"></param>
+        public Map(MapData mapData)
+        {
+            height = mapData.height;
+            type = mapData.type;
+            width = mapData.width;
+
+            List<ATile> t = new List<ATile>(mapData.tiles.Count());
+            TileFactory factory = TileFactory.INSTANCE;
+
+            for(int i = 0; i < mapData.tiles.Count(); i++)
+                t[i] = factory.createTile(mapData.tiles[i]);
+
+            // The mapSetup field will never be used, because the map has been set up already. //
+            // *Eventually*, this field could be removed, but keeping the stategy DP intact. //
+            mapSetup = null;
+        }
+
+        /// <summary>
         /// Sets the map according to its mapSetup field.
         /// </summary>
         public void setupMap()
@@ -76,8 +97,19 @@ namespace SmallWorld.Core
         /// <returns></returns>
         public MapData toData()
         {
-            // This method should handle the memberwise copy of the current mapt's fields before creating a new MapData object with these copies. //
-            throw new System.NotImplementedException();
+            // This method should handle the memberwise copy of the current map's fields before creating a new MapData object with these copies. //
+            MapData data = new MapData();
+            data.height = height;
+            data.width = width;
+            data.type = type;
+
+            List<TileType> copiedTiles = new List<TileType>(tiles.Count());
+            for(int i = 0; i < tiles.Count(); i++)
+                copiedTiles[i] = tiles[i].getType();
+
+            data.tiles = copiedTiles;
+
+            return data;
         }
     }
 }

@@ -94,5 +94,34 @@ namespace SmallWorld.Core
         {
             return _waterTile;
         }
+
+        /// <summary>
+        /// Returns the unique private tile of the specified type.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public ATile createTile(TileType type)
+        {
+            ATile tile;
+            switch (type)
+            {
+                case TileType.Forest:
+                    tile = createForestTile();
+                    break;
+                case TileType.Mountain:
+                    tile = createMountainTile();
+                    break;
+                case TileType.Plain:
+                    tile = createPlainTile();
+                    break;
+                case TileType.Water:
+                    tile = createWaterTile();
+                    break;
+                default:
+                    tile = createWaterTile();
+                    break;
+            }
+            return tile;
+        }
     }
 }

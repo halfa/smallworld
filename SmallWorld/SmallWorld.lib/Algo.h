@@ -1,25 +1,37 @@
-#ifdef WANTDLLEXP
-#define DLL _declspec(dllexport)
-#define EXTERNC extern "C"
-#else
-#define DLL
-#define EXTERNC
-#endif
+#pragma once
 
-class DLL Algo {
+enum TileType
+{
+	Forest = 0,
+	Mountain = 1,
+	Plain = 2,
+	Water = 3
+};
+
+class Algo {
+
 public:
 	Algo() {}
 	~Algo() {}
 
 	// You can change the return type and the parameters according to your needs.
-	int* createMap(int size);
-	int* suggestTilesForMove(int locationUnit, int* locationEnnemyUnits, int typeRace, float movePoints, int* tiles, int mapSize);
-	// and you can add other functions.
+	void fillMap(TileType map[], int size);
 };
 
-// Not to implement in this header file.
-EXTERNC DLL Algo* Algo_new();
-EXTERNC DLL void Algo_delete(Algo* algo);
-EXTERNC DLL int* Algo_createMap(Algo* algo, int size);
-EXTERNC DLL int* Algo_suggestTilesForMove(int locationUnit, int* locationEnnemyUnits, float movePoints, int* tiles, int mapSize);
 
+#define EXPORTCDECL extern "C" __declspec(dllexport)
+//
+// export all C++ class/methods as friendly C functions to be consumed by external component in a portable way
+///
+
+EXPORTCDECL void Algo_fillMap(Algo* algo, TileType map[], int size) {
+	return algo->fillMap(map, size);
+}
+
+EXPORTCDECL Algo* Algo_new() {
+	return new Algo();
+}
+
+EXPORTCDECL void Algo_delete(Algo* algo) {
+	delete algo;
+}
