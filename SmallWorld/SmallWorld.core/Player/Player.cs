@@ -20,6 +20,7 @@ namespace SmallWorld.Core
             this.name = name;
             this.race = race;
             units = new List<AUnit>();
+            points = 0;
         }
 
         /// <summary>
@@ -30,6 +31,7 @@ namespace SmallWorld.Core
         {
             name = p.name;
             race = p.race;
+            points = p.points;
             UnitFactory factory = new UnitFactory();
             List<AUnit> tmp = new List<AUnit>(p.units.Count());
             foreach (AUnit unit in p.units)
@@ -43,10 +45,16 @@ namespace SmallWorld.Core
         /// <param name="mapData"></param>
         public Player(PlayerData data)
         {
+            points = data.points;
             race = data.race;
             name = data.name;
             units = data.units;
         }
+
+        /// <summary>
+        /// Read and write access to the current player's victory points.
+        /// </summary>
+        public int points { get; set; }
 
         /// <summary>
         /// Read and write access to the current player's race field.
@@ -106,6 +114,7 @@ namespace SmallWorld.Core
             PlayerData data = new PlayerData();
             data.race = race;
             data.name = name;
+            data.points = points;
             data.units = new List<AUnit>();
             UnitFactory factory = new UnitFactory();
             foreach (AUnit unit in units)
@@ -136,6 +145,35 @@ namespace SmallWorld.Core
                 res[unit.position].Add(unit);
 
             return res;
+        }
+
+        /// <summary>
+        /// Determines if the specified unit belongs to the current player.
+        /// </summary>
+        /// <param name="unit"></param>
+        /// <returns></returns>
+        public bool hasUnit(AUnit unit)
+        {
+            return units.Contains(unit);
+        }
+
+        /// <summary>
+        /// Determines if the specified player can't play anymore, due to lack of alive units.
+        /// </summary>
+        /// <returns></returns>
+        public static bool isDead(Player p)
+        {
+            return p.units.Count == 0;
+        }
+
+        /// <summary>
+        /// Determines if the specified player can still play the game, ie is not dead.
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
+        public static bool isAlive(Player p)
+        {
+            return !Player.isDead(p);
         }
     }
 }

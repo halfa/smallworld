@@ -1,64 +1,64 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace SmallWorld.Core
+﻿namespace SmallWorld.Core
 {
+    /// <summary>
+    /// This class is a template for the main class of the application: the game of SmallWorld.
+    /// </summary>
     public class SmallWorld
     {
-        private Game _game;
-        private ISaveManager _saveManager;
-        private ILoadManager _loadManager;
+        /// <summary>
+        /// Read and write access to the current smallWorld's game field.
+        /// </summary>
+        public Game game { get; set; }
 
-        public Game game
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
+        /// <summary>
+        /// Read only access to the current smallWorld's saveManager field.
+        /// </summary>
         public ISaveManager saveManager
         {
             get
             {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
+                return SaveManager.INSTANCE;
             }
         }
 
+        /// <summary>
+        /// Read only access to the current smallWorld's loadManager field.
+        /// </summary>
         public ILoadManager loadManager
         {
             get
             {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
+                return LoadManager.INSTANCE;
             }
         }
 
+        /// <summary>
+        /// Sets the current smallWorld's game field to the loaded game specified by the filePath.
+        /// </summary>
+        /// <param name="filePath"></param>
         public void loadGame(string filePath)
         {
-            throw new System.NotImplementedException();
+            loadManager.loadGame(filePath);
+            game = loadManager.game;
         }
 
+        /// <summary>
+        /// Saves the current smallWorld's game to the specified filePath.
+        /// </summary>
+        /// <param name="filePath"></param>
         public void saveGame(string filePath)
         {
-            throw new System.NotImplementedException();
+            saveManager.savable = game;
+            saveManager.save(filePath);
         }
 
-        public void newGame()
+        /// <summary>
+        /// Sets the current smallWorld's game field to be a new game according to the specified gameSettings.
+        /// </summary>
+        /// <param name="settings"></param>
+        public void newGame(GameSettings settings)
         {
-            throw new System.NotImplementedException();
+            game = new Game(settings);
         }
     }
 }

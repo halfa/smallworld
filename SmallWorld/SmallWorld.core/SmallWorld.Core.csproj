@@ -54,7 +54,6 @@
     <Compile Include="map\MapData.cs" />
     <Compile Include="player\PlayerData.cs" />
     <Compile Include="saveLoad\saveManager\SaveManager.cs" />
-    <Compile Include="saveLoad\ISavable.cs" />
     <Compile Include="saveLoad\saveManager\ISaveManager.cs" />
     <Compile Include="saveLoad\loadManager\ILoadManager.cs" />
     <Compile Include="saveLoad\loadManager\LoadManager.cs" />
