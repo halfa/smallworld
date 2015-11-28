@@ -10,7 +10,8 @@ namespace SmallWorld.Core
     {
         public GameSettings()
         {
-            throw new System.NotImplementedException();
+            playersNames = new List<string>();
+            playersRaces = new List<Races>();
         }
 
         public MapType mapType { get; set; }

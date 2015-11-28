@@ -5,12 +5,26 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
-    [Serializable()]
     public class Game : ISavable
     {
         public Game(GameSettings settings)
         {
             gameSettings = settings;
+        }
+
+        /// <summary>
+        /// Constructor for the Game class using the specified gameData to recreate the game.
+        /// </summary>
+        /// <param name="mapData"></param>
+        public Game(GameData data)
+        {
+            currentState = data.currentState;
+            gameSettings = data.gameSettings;
+            map = new Map(data.mapData);
+            orderedPlayers = new List<Player>();
+            foreach (PlayerData p in data.orderedPlayersData)
+                orderedPlayers.Add(new Player(p));
+            previousGameStates = data.previousGameStates;
         }
 
         public GameSettings gameSettings { get; set; }
@@ -61,9 +75,22 @@ namespace SmallWorld.Core
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Creates the serializable data object representing the current game.
+        /// </summary>
+        /// <returns></returns>
         public GameData toData()
         {
-            throw new System.NotImplementedException();
+            GameData data = new GameData();
+
+            data.currentState = currentState;
+            data.gameSettings = gameSettings;
+            data.mapData = map.toData();
+            foreach (Player p in orderedPlayers)
+                data.orderedPlayersData.Add(p.toData());
+            data.previousGameStates = previousGameStates;
+
+            return data;
         }
 
         /// <summary>

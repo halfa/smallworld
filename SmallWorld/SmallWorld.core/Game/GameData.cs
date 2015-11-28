@@ -7,87 +7,48 @@ using System.Xml.Serialization;
 
 namespace SmallWorld.Core
 {
+    /// <summary>
+    /// This class is a template for the serializable game data.
+    /// </summary>
     [Serializable]
     public class GameData
     {
-        private MapData _mapData;
-        private GameSettings _gameSettings;
-        private GameState _currentState;
-        private Stack<GameState> _previousGameStates;
-        private PlayerData[] _orderedPlayersData;
+        /// <summary>
+        /// Read and write access to the current gameData's mapData field.
+        /// </summary>
+        public MapData mapData { get; set; }
 
-        public MapData mapData
+        /// <summary>
+        /// Read and write access to the current gameData's gameSettings field.
+        /// </summary>
+        public GameSettings gameSettings { get; set; }
+
+        /// <summary>
+        /// Read and write access to the current gameData's currentState field.
+        /// </summary>
+        public GameState currentState { get; set; }
+
+        /// <summary>
+        /// Read and write access to the current gameData's previousGameStates field.
+        /// </summary>
+        public Stack<GameState> previousGameStates { get; set; }
+
+        /// <summary>
+        /// Read and write access to the current gameData's orderedPlayersData field.
+        /// </summary>
+        public List<PlayerData> orderedPlayersData { get; set; }
+
+        /// <summary>
+        /// Constructor for the GameData class.
+        /// </summary>
+        public GameData()
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
+            mapData = new MapData();
+            gameSettings = new GameSettings();
+            currentState = new GameState();
+            previousGameStates = new Stack<GameState>();
+            orderedPlayersData = new List<PlayerData>();
         }
-
-        public GameSettings gameSettings
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public GameState currentState
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public Stack<GameState> previousGameStates
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public List<PlayerData> orderedPlayersData
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public static GameData load(string filePath)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void save(string filePath)
-        {
-            XmlSerializer ser = new XmlSerializer(typeof(GameData));
-            using (var file = File.OpenWrite(filePath))
-            {
-                ser.Serialize(file, this);
-            }
-        }
+        
     }
 }

@@ -25,5 +25,13 @@ namespace SmallWorld.Core
         /// Read and write access to the current playerData's units field.
         /// </summary>
         public List<AUnit> units { get; set; }
+
+        /// <summary>
+        /// Constructor for the PlayerData class.
+        /// </summary>
+        public PlayerData()
+        {
+            units = new List<AUnit>();
+        }
     }
 }

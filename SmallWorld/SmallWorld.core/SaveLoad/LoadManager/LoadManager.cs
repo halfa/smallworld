@@ -10,6 +10,13 @@ namespace SmallWorld.Core
         private Game _game;
         private LoadManager _INSTANCE;
 
+        /*
+        public static GameData load(string filePath)
+        {
+            throw new System.NotImplementedException();
+        }
+        */
+
         private LoadManager()
         {
             throw new System.NotImplementedException();
@@ -41,3 +48,4 @@ namespace SmallWorld.Core
         }
     }
 }
+ 

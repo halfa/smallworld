@@ -39,9 +39,9 @@ namespace SmallWorld.Core
         }
 
         /// <summary>
-        /// Constructor for the Player class, using serializable PlayerData as model for the player to create.
+        /// Constructor for the Player class using the specified playerData to recreate the player.
         /// </summary>
-        /// <param name="data"></param>
+        /// <param name="mapData"></param>
         public Player(PlayerData data)
         {
             race = data.race;
@@ -99,7 +99,7 @@ namespace SmallWorld.Core
         }
 
         /// <summary>
-        /// Creates the serializable object corresponding to the current player.
+        /// Creates the serializable data object representing the current player.
         /// </summary>
         /// <returns></returns>
         public PlayerData toData()

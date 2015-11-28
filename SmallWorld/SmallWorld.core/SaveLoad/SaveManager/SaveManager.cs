@@ -10,6 +10,17 @@ namespace SmallWorld.Core
         private ISavable _savable;
         private SaveManager _INSTANCE;
 
+        /*
+         public void save(string filePath)
+        {
+            XmlSerializer ser = new XmlSerializer(typeof(GameData));
+            using (var file = File.OpenWrite(filePath))
+            {
+                ser.Serialize(file, this);
+            }
+        }
+        */
+
         private SaveManager()
         {
             throw new System.NotImplementedException();
@@ -50,3 +61,4 @@ namespace SmallWorld.Core
         }
     }
 }
+ 
