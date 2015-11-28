@@ -108,13 +108,13 @@ namespace SmallWorld.Core
         /// Determines the winner of the game if there is one.
         /// If a draw is stated, returns null.
         /// Called upon in case of a game end.
-        /// *NOTE* This method won't work in case a a game involving any other number of players than 2.
+        /// *NOTE* This method won't work in case of a game involving any other number of players than 2.
         /// </summary>
         /// <returns></returns>
         public Player winner()
         {
             if (orderedPlayers.Exists(new Predicate<Player>(Player.isAlive)))
-                // Not the best way to do it, but we hate to check what the default value for type Player is,
+                // Not the best way to do it, but we have to check what the default value for type Player is,
                 // because that's what is returned when no match is found.
                 return orderedPlayers.Find(new Predicate<Player>(Player.isAlive));
             else
@@ -124,7 +124,7 @@ namespace SmallWorld.Core
         /// <summary>
         /// Determines if the game is over, regarding the current game state.
         /// A Game is said to be over if the maximum nomber of turn has been reached, or if a player is dead.
-        /// *NOTE* This method won't work in case a a game involving any other number of players than 2.
+        /// *NOTE* This method won't work in case of a game involving any other number of players than 2.
         /// </summary>
         /// <returns></returns>
         public bool isGameOver()
