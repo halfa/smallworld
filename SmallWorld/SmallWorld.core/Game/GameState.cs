@@ -3,9 +3,15 @@ using System.Collections.Generic;
 
 namespace SmallWorld.Core
 {
+    /// <summary>
+    /// This class is a template for the serializable game states.
+    /// </summary>
     [Serializable]
     public class GameState
     {
+        /// <summary>
+        /// Constructor for the GameState class.
+        /// </summary>
         public GameState()
         {
             turnCounter = 0;
@@ -71,14 +77,29 @@ namespace SmallWorld.Core
             return dic;
         }
 
+        /// <summary>
+        /// Read and write access to the current gameState's turnCounter field.
+        /// </summary>
         public int turnCounter { get; set; }
 
+        /// <summary>
+        /// Read and write access to the current gameState's positionsUnits field.
+        /// </summary>
         public Dictionary<Position, List<AUnit>> positionsUnits { get; set; }
 
+        /// <summary>
+        /// Read and write access to the current gameState's activePlayerIndex field.
+        /// </summary>
         public int activePlayerIndex { get; set; }
 
+        /// <summary>
+        /// Read and write access to the current gameState's players field.
+        /// </summary>
         public List<Player> players { get; set; }
 
+        /// <summary>
+        /// Read and write access to the current gameState's selectedUnit field.
+        /// </summary>
         public AUnit selectedUnit { get; set; }
     }
 }
