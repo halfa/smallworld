@@ -5,8 +5,17 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
+    /// <summary>
+    /// This class is a template for game players.
+    /// </summary>
     public class Player
     {
+        /// <summary>
+        /// Constructor for the Player class.
+        /// Creates a player with the specified name and race.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="race"></param>
         public Player(String name, Races race)
         {
             this.name = name;
@@ -14,6 +23,10 @@ namespace SmallWorld.Core
             units = new List<AUnit>();
         }
 
+        /// <summary>
+        /// Memberwise constructor for the Player class.
+        /// </summary>
+        /// <param name="p"></param>
         public Player(Player p)
         {
             name = p.name;
@@ -25,31 +38,81 @@ namespace SmallWorld.Core
             units = tmp;
         }
 
+        /// <summary>
+        /// Constructor for the Player class, using serializable PlayerData as model for the player to create.
+        /// </summary>
+        /// <param name="data"></param>
+        public Player(PlayerData data)
+        {
+            race = data.race;
+            name = data.name;
+            units = data.units;
+        }
+
+        /// <summary>
+        /// Read and write access to the current player's race field.
+        /// </summary>
         public Races race { get; set; }
 
+        /// <summary>
+        /// Read and write access to the current player's units field.
+        /// </summary>
         public List<AUnit> units { get; set; }
 
+        /// <summary>
+        /// Read and write access to the current player's name field.
+        /// </summary>
         public string name { get; set; }
 
+        /// <summary>
+        /// Adds a new unit to the current player, according to his race.
+        /// </summary>
         public void addNewUnit()
         {
             UnitFactory factory = new UnitFactory();
             units.Add(factory.createUnit(race));
         }
 
+        /// <summary>
+        /// Removes a unit from the current player's units.
+        /// If no match is found for the specified unit, does nothing.
+        /// </summary>
+        /// <param name="unit"></param>
         public void removeUnit(AUnit unit)
         {
-            throw new System.NotImplementedException();
+            if (units.Contains(unit))
+                units.Remove(unit);
         }
 
-        public int countPoints()
+        /// <summary>
+        /// Counts the number of points the player would get if he chose to end his turn.
+        /// </summary>
+        /// <returns></returns>
+        public int countPoints(Map map)
         {
-            throw new System.NotImplementedException();
+            Dictionary<Position, List<AUnit>> dic = getPositionsUnits();
+            int res = 0;
+            foreach(Position p in dic.Keys)
+                res += dic[p][0].countPoints(map.getTileAtPos(p));
+
+            return res;
         }
 
+        /// <summary>
+        /// Creates the serializable object corresponding to the current player.
+        /// </summary>
+        /// <returns></returns>
         public PlayerData toData()
         {
-            throw new System.NotImplementedException();
+            PlayerData data = new PlayerData();
+            data.race = race;
+            data.name = name;
+            data.units = new List<AUnit>();
+            UnitFactory factory = new UnitFactory();
+            foreach (AUnit unit in units)
+                data.units.Add(factory.copyUnit(unit));
+
+            return data;
         }
 
         /// <summary>

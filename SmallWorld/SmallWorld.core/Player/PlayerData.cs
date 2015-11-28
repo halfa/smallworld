@@ -5,47 +5,25 @@ using System.Text;
 
 namespace SmallWorld.Core
 {
+    /// <summary>
+    /// This class is a template for the serializable game player data.
+    /// </summary>
     [Serializable]
     public class PlayerData
     {
-        private Races _race;
-        private string _name;
-        private List<AUnit> _units;
+        /// <summary>
+        /// Read and write access to the current playerData's race field.
+        /// </summary>
+        public Races race { get; set; }
 
-        public Races race
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        /// <summary>
+        /// Read and write access to the current playerData's name field.
+        /// </summary>
+        public string name { get; set; }
 
-            set
-            {
-            }
-        }
-
-        public string name
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public List<AUnit> units
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
+        /// <summary>
+        /// Read and write access to the current playerData's units field.
+        /// </summary>
+        public List<AUnit> units { get; set; }
     }
 }

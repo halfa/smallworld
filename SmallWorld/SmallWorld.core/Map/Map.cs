@@ -112,6 +112,11 @@ namespace SmallWorld.Core
             return data;
         }
 
+        /// <summary>
+        /// Determines a valid random starting position for the specified race of player.
+        /// </summary>
+        /// <param name="race"></param>
+        /// <returns></returns>
         public Position getRandomStartPos(Races race)
         {
             Random rd = new Random();
@@ -129,6 +134,22 @@ namespace SmallWorld.Core
                         y = rd.Next() % height;
                 }
                 return new Position(x, y);
+            }
+        }
+
+        /// <summary>
+        /// Returns the tile at the specified position.
+        /// If the specified position is invalid, throws an exception.
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
+        public ATile getTileAtPos(Position p)
+        {
+            if (p.x < 0 || p.x >= width || p.y < 0 || p.y >= height)
+                throw new Exception("Invalid coordinates.");
+            else
+            {
+                return tiles[p.x + width * p.y];
             }
         }
     }
