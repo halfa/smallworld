@@ -8,76 +8,20 @@ namespace SmallWorld.Core
     [Serializable()]
     public class Game : ISavable
     {
-        private GameSettings _gameSettings;
-        private GameState _currentState;
-        private System.Collections.Generic.Stack<GameState> _previousGameStates;
-        private Map _map;
-        private Player[] _orderedPlayers;
-
         public Game(GameSettings settings)
         {
             gameSettings = settings;
         }
 
-        public GameSettings gameSettings
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public GameSettings gameSettings { get; set; }
 
-            set
-            {
-            }
-        }
+        public GameState currentState { get; set; }
 
-        public GameState currentState
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public Stack<GameState> previousGameStates { get; set; }
 
-            set
-            {
-            }
-        }
+        public Map map { get; set; }
 
-        public Stack<GameState> previousGameStates
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public Map map
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public List<Player> orderedPlayers
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
+        public List<Player> orderedPlayers { get; set; }
 
         public int countPoints(Player player)
         {
@@ -122,9 +66,14 @@ namespace SmallWorld.Core
             throw new System.NotImplementedException();
         }
 
+        /// <summary>
+        /// Stacks the current game state onto the previous game states stack.
+        /// The stored data is a memberwise copy of the current state data.
+        /// </summary>
         public void stack()
         {
-            throw new System.NotImplementedException();
+            GameState toStack = new GameState(currentState);
+            previousGameStates.Push(toStack);
         }
 
         public bool isSelectedUnitMovableTo(Position position)

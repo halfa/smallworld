@@ -51,5 +51,29 @@ namespace SmallWorld.Core
         {
             throw new System.NotImplementedException();
         }
+
+        /// <summary>
+        /// Returns the hashtable associating the player's units' position to their respective units.
+        /// The returned dictionary is not a memberwise copy of the players' attributes, but real references to its fields.
+        /// </summary>
+        /// <returns></returns>
+        public Dictionary<Position, List<AUnit>> getPositionsUnits()
+        {
+            Dictionary<Position, List<AUnit>> res = new Dictionary<Position, List<AUnit>>();
+
+            foreach(AUnit unit in units)
+            {
+                if(!res.ContainsKey(unit.position))
+                {
+                    List<AUnit> list = new List<AUnit>();
+                    res.Add(unit.position, list);
+                }
+            }
+
+            foreach (AUnit unit in units)
+                res[unit.position].Add(unit);
+
+            return res;
+        }
     }
 }

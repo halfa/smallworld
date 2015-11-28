@@ -64,11 +64,10 @@ namespace SmallWorld.Core
                     for (int i = 0; i < gameSettings.unitLimit; i++)
                         p.addNewUnit();
 
-                // Find the random default position for each player. //
+                // Find the random default position for each player according to its race. //
                 List<Position> rdmPos = new List<Position>(gameSettings.nbPlayers);
 
-                rdmPos[0] = map.getRandomStartPos(players[0].race);
-                for(int i = 1; i < gameSettings.nbPlayers; i++)
+                for(int i = 0; i < gameSettings.nbPlayers; i++)
                 {
                     Position p = map.getRandomStartPos(players[i].race);
                     bool ok = false;
@@ -102,30 +101,9 @@ namespace SmallWorld.Core
                 GameState startState = new GameState();
 
                 startState.activePlayerIndex = 0;
-
-                List<Player> copiedPlayers = new List<Player>();
-                foreach (Player p in players)
-                    copiedPlayers.Add(new Player(p));
-
-                startState.players = copiedPlayers;
-
+                startState.players = players;
                 startState.selectedUnit = null;
-
-                Dictionary<Position, List<AUnit>> dic = new Dictionary<Position, List<AUnit>>();
-
-                // Initialize all the needed lists. //
-                foreach(Player p in copiedPlayers)
-                    foreach(AUnit unit in p.units)
-                        dic.Add(unit.position, new List<AUnit>());
-
-                // Add all the units to their respective list. //
-                foreach (Player p in copiedPlayers)
-                    foreach (AUnit unit in p.units)
-                        if(dic.ContainsKey(unit.position))
-                            dic[unit.position].Add(unit);
-                        
-                startState.positionsUnits = dic;
-
+                startState.positionsUnits = GameState.concatPositionsUnits(players);
                 startState.turnCounter = 0;
 
                 game.currentState = startState;
