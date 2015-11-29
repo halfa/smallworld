@@ -73,7 +73,7 @@
     <Compile Include="tile\Plain.cs" />
     <Compile Include="player\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SmallWorld.cs" />
+    <Compile Include="GameMaster.cs" />
     <Compile Include="tile\TileFactory.cs" />
     <Compile Include="unit\AUnit.cs" />
     <Compile Include="tile\Water.cs" />

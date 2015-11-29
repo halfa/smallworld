@@ -21,14 +21,14 @@
   <Comment CommentText="Singleton">
     <Position X="9.658" Y="3.017" Height="0.291" Width="0.812" />
   </Comment>
-  <Class Name="SmallWorld.Core.SmallWorld">
+  <Class Name="SmallWorld.Core.GameMaster">
     <Position X="0.5" Y="0.5" Width="3" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAQAAAAAAAAAAEAAAAAAEAAQAAAAIAAAAAAAABAA=</HashCode>
-      <FileName>SmallWorld.cs</FileName>
+      <HashCode>AAAAAQAAAAAAAAAAEAAAAAAEAAQAAAAIAAAAAAAABAQ=</HashCode>
+      <FileName>GameMaster.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.Player">

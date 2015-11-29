@@ -3,7 +3,7 @@
     /// <summary>
     /// This class is a template for the main class of the application: the game of SmallWorld.
     /// </summary>
-    public class SmallWorld
+    public class GameMaster
     {
         /// <summary>
         /// Read and write access to the current smallWorld's game field.
@@ -59,6 +59,15 @@
         public void newGame(GameSettings settings)
         {
             game = new Game(settings);
+        }
+
+        /// <summary>
+        /// For testing only. Should be handled by the UI.
+        /// </summary>
+        public void main()
+        {
+            GameSettings GS = new GameSettings(); // provided by UI
+            newGame(GS);
         }
     }
 }
