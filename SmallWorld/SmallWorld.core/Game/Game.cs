@@ -154,6 +154,190 @@ namespace SmallWorld.Core
         }
 
         /// <summary>
+        /// Determines in which order the findPath algorithm should explore adjacent tiles,
+        /// in order to optimise the computed path if it exists.
+        /// The path won't cross any tile on wich an enemy unit is located.
+        /// </summary>
+        /// <param name="current"></param>
+        /// <param name="to"></param>
+        /// <param name="currentCost"></param>
+        /// <param name="currentPath"></param>
+        /// <returns></returns>
+        private List<Position> heuristic(Position current, Position to, double currentCost, List<Position> currentPath)
+        {
+            List<Position> res = new List<Position>();
+
+            double dx = to.x - current.x;
+            double dy = to.y - current.y;
+
+            Position up = new Position(current.x, current.y - 1);
+            Position right = new Position(current.x + 1, current.y);
+            Position down = new Position(current.x, current.y + 1);
+            Position left = new Position(current.x - 1, current.y);
+
+            if(dx > 0)
+            {
+                if(dy > 0)
+                {
+                    //3
+                    if (dx >= dy)
+                    {
+                        // should go right first
+                        res.Add(right);
+                        res.Add(up);
+                    }
+                    else
+                    {
+                        // should go up first
+                        res.Add(up);
+                        res.Add(right);
+                    }
+                    res.Add(down);
+                    res.Add(left);
+                }
+                if(dy < 0)
+                {
+                    //5
+                    if (dx >= -dy)
+                    {
+                        // should go right first
+                        res.Add(right);
+                        res.Add(down);
+                    }
+                    else
+                    {
+                        // should down up first
+                        res.Add(down);
+                        res.Add(right);
+                    }
+                    res.Add(up);
+                    res.Add(left);
+                }
+                else // dy == 0
+                {
+                    //4
+                    res.Add(right);
+                    res.Add(up);
+                    res.Add(down);
+                    res.Add(left);
+                }
+            }
+            if(dx < 0)
+            {
+                if (dy > 0)
+                {
+                    //1
+                    if (-dx >= dy)
+                    {
+                        // should go left first
+                        res.Add(left);
+                        res.Add(up);
+                    }
+                    else
+                    {
+                        // should go up first
+                        res.Add(up);
+                        res.Add(left);
+                    }
+                    res.Add(down);
+                    res.Add(right);
+                }
+                if (dy < 0)
+                {
+                    //7
+                    if (-dx >= -dy)
+                    {
+                        // should go left first
+                        res.Add(left);
+                        res.Add(down);
+                    }
+                    else
+                    {
+                        // should go down first
+                        res.Add(down);
+                        res.Add(left);
+                    }
+                    res.Add(up);
+                    res.Add(right);
+                }
+                else // dy == 0
+                {
+                    //8
+                    res.Add(left);
+                    res.Add(up);
+                    res.Add(down);
+                    res.Add(right);
+                }
+            }
+            else // dx == 0
+            {
+                if (dy > 0)
+                {
+                    //2
+                    res.Add(up);
+                    res.Add(left);
+                    res.Add(right);
+                    res.Add(down);
+                }
+                if (dy < 0)
+                {
+                    //6
+                    res.Add(down);
+                    res.Add(left);
+                    res.Add(right);
+                    res.Add(up);
+                }
+                else // dy == 0
+                {
+                    // current == to
+                    // IMPOSSIBLE
+                }
+            }
+
+            // Now clear from the advised positions the invalid ones. //
+            // Not in bounds or not walkable. //
+            foreach (Position p in res)
+            {
+                if (!map.inBound(p) || !currentState.selectedUnit.canCrossTile(map.getTileAtPos(p)))
+                    res.Remove(p);
+            }
+            // Already crossed earlier. //
+            foreach(Position p in res)
+            {
+                if (currentPath.Contains(p))
+                    res.Remove(p);
+            }
+            // Enemy unit at pos. //
+            foreach(Position p in res)
+            {
+                if (enemyUnitAtPos(p))
+                    res.Remove(p);
+            }
+            // Not enough action points. //
+            foreach (Position p in res) {
+                double newCost = currentCost + currentState.selectedUnit.getMoveCost(map.getTileAtPos(p));
+                if (newCost > currentState.selectedUnit.actionPool)
+                    res.Remove(p);
+            }
+            return res;
+        }
+
+
+        /// <summary>
+        /// Determines if there is at least one enemy unit (for the current player) at the specified position.
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
+        private bool enemyUnitAtPos(Position p)
+        {
+            if (map.inBound(p))
+                if (currentState.positionsUnits.ContainsKey(p))
+                    return !currentState.players[currentState.activePlayerIndex].units.Contains(currentState.positionsUnits[p][0]);
+
+            return false;
+        }
+
+        /// <summary>
         /// Computes a possible path from the specified tile to the specified tile, for the currently selected unit.
         /// If no valid path has been found, returns null.
         /// </summary>
@@ -166,19 +350,14 @@ namespace SmallWorld.Core
         {
             if (current.equals(to))
                 return currentPath;
+            /* // NOT NEEDED BECAUSE IF A POSITION IS BEIING TESTED HERE? IT MEANS THAT THE HEURISTIC METHOD HAS BEEN CALLED, AND IT WOULD HAVE REMOVE THIS INVALID CHOICE.
             if (currentCost > currentState.selectedUnit.actionPool)
                 return null;
-
-            Position up = new Position(current.x, current.y - 1);
-            Position right = new Position(current.x + 1, current.y);
-            Position down = new Position(current.x, current.y + 1);
-            Position left = new Position(current.x - 1, current.y);
-            List<Position> nextPos = new List<Position>() { up, right, down, left };
+            */
+            List<Position> nextPos = heuristic(current, to, currentCost, currentPath);
 
             foreach(Position p in nextPos)
             {
-                if (map.inBound(p) && currentState.selectedUnit.canCrossTile(map.getTileAtPos(p)))
-                {
                     double newCost = currentCost + currentState.selectedUnit.getMoveCost(map.getTileAtPos(p));
                     List<Position> newPath = new List<Position>();
                     foreach (Position pp in currentPath)
@@ -187,14 +366,13 @@ namespace SmallWorld.Core
                     List<Position> path = findPath(p, to, newCost, newPath);
                     if (path != null)
                         return path;
-                }
             }
             return null;
         }
 
         /// <summary>
         /// Determines the cost of the specified path for the currently selected unit.
-        /// The path is know to be valid, ie the positions are valid and the total cost if inferior or equal to the currently selected action pool.
+        /// The path is known to be valid, ie the positions are valid and the total cost if inferior or equal to the currently selected action pool.
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
@@ -210,11 +388,15 @@ namespace SmallWorld.Core
         /// Determines a possible path for the currently selected unit to the specified position.
         /// If a path exists, returns it as a list of positions.
         /// If no path was found, returns null.
+        /// This method shall not be used to attack a unit at the specified position,
+        /// for a position on which there is an enemy unit is considered invalid for the path.
         /// </summary>
         /// <param name="position"></param>
         /// <returns></returns>
         public List<Position> isSelectedUnitMovableTo(Position position)
         {
+            if (enemyUnitAtPos(position))
+                return null;
             if(currentState.players[currentState.activePlayerIndex].units.Contains(currentState.selectedUnit))
                 return findPath(currentState.selectedUnit.position, position, 0, new List<Position>());
             return null;
@@ -241,6 +423,11 @@ namespace SmallWorld.Core
             }
         }
 
+        /// <summary>
+        /// Currently moves the currently selected unit to the specified position if possible.
+        /// DOENS'T HANDLE THE ATTACK CASE, and probably should not in any way.
+        /// </summary>
+        /// <param name="position"></param>
         public void moveSelectedUnitTo(Position position)
         {
             List<Position> path = isSelectedUnitMovableTo(position);
