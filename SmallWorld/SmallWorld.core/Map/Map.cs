@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace SmallWorld.Core
 {
@@ -110,6 +109,47 @@ namespace SmallWorld.Core
             data.tiles = copiedTiles;
 
             return data;
+        }
+
+        /// <summary>
+        /// Determines a valid random starting position for the specified race of player.
+        /// </summary>
+        /// <param name="race"></param>
+        /// <returns></returns>
+        public Position getRandomStartPos(Races race)
+        {
+            Random rd = new Random();
+
+            int x = rd.Next() % width;
+            int y = rd.Next() % height;
+
+            if (race == Races.Human)
+                return new Position(x, y);
+            else
+            {
+                while (tiles[x + y*width].getType() == TileType.Water)
+                {
+                        x = rd.Next() % width;
+                        y = rd.Next() % height;
+                }
+                return new Position(x, y);
+            }
+        }
+
+        /// <summary>
+        /// Returns the tile at the specified position.
+        /// If the specified position is invalid, throws an exception.
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
+        public ATile getTileAtPos(Position p)
+        {
+            if (p.x < 0 || p.x >= width || p.y < 0 || p.y >= height)
+                throw new Exception("Invalid coordinates.");
+            else
+            {
+                return tiles[p.x + width * p.y];
+            }
         }
     }
 }

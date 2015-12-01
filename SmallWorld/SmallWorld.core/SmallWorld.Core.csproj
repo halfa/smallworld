@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algo.cs" />
-    <Compile Include="race\ARace.cs" />
+    <Compile Include="race\Races.cs" />
     <Compile Include="tile\TileType.cs" />
     <Compile Include="tile\ATile.cs" />
     <Compile Include="game\GameData.cs" />
@@ -54,7 +54,6 @@
     <Compile Include="map\MapData.cs" />
     <Compile Include="player\PlayerData.cs" />
     <Compile Include="saveLoad\saveManager\SaveManager.cs" />
-    <Compile Include="saveLoad\ISavable.cs" />
     <Compile Include="saveLoad\saveManager\ISaveManager.cs" />
     <Compile Include="saveLoad\loadManager\ILoadManager.cs" />
     <Compile Include="saveLoad\loadManager\LoadManager.cs" />
@@ -68,16 +67,13 @@
     <Compile Include="unit\ElfUnit.cs" />
     <Compile Include="unit\HumanUnit.cs" />
     <Compile Include="unit\OrcUnit.cs" />
-    <Compile Include="race\Elf.cs" />
     <Compile Include="tile\Forest.cs" />
     <Compile Include="game\Game.cs" />
-    <Compile Include="race\Human.cs" />
     <Compile Include="tile\Mountain.cs" />
-    <Compile Include="race\Orc.cs" />
     <Compile Include="tile\Plain.cs" />
     <Compile Include="player\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SmallWorld.cs" />
+    <Compile Include="GameMaster.cs" />
     <Compile Include="tile\TileFactory.cs" />
     <Compile Include="unit\AUnit.cs" />
     <Compile Include="tile\Water.cs" />

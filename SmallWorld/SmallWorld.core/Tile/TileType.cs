@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace SmallWorld.Core
 {
     /// <summary>
-    /// This enum containts keywords for all the different tile types.
+    /// This enum contains keywords for all the different tile types.
     /// </summary>
     [Serializable]
     public enum TileType

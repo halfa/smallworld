@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace SmallWorld.Core
 {
@@ -82,6 +79,15 @@ namespace SmallWorld.Core
         public override double getMoveCost(ATile aimedTile)
         {
             return 1;
+        }
+
+        /// <summary>
+        /// Determines the current unit's race.
+        /// </summary>
+        /// <returns></returns>
+        public override Races getRace()
+        {
+            return Races.Human;
         }
     }
 }

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace SmallWorld.Core
 {
@@ -51,6 +48,28 @@ namespace SmallWorld.Core
         public bool equals(Position position)
         {
             return (x == position.x && y == position.y);
+        }
+
+        /// <summary>
+        /// Overriding the Equals method to match the equals method of the Position class.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(object obj)
+        {
+            if (!obj.GetType().Equals(typeof(Position)))
+                return false;
+            return this.equals((Position)obj);
+        }
+
+        /// <summary>
+        /// Overriding the GetHashCode method.
+        /// This method has the default object's GetHashCode method behaviour.
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

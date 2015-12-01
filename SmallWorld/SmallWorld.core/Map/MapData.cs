@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace SmallWorld.Core
 {
@@ -30,5 +28,13 @@ namespace SmallWorld.Core
         /// Read and write access to the width field.
         /// </summary>
         public int width { get; set; }
+
+        /// <summary>
+        /// Constructor for the MapData class;
+        /// </summary>
+        public MapData()
+        {
+            tiles = new List<TileType>();
+        }
     }
 }

@@ -1,82 +1,105 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace SmallWorld.Core
 {
+    /// <summary>
+    /// This class is a template for the serializable game states.
+    /// </summary>
     [Serializable]
     public class GameState
     {
-        private int _turnCounter;
-        private Dictionary<Position, List<AUnit>> _positionsUnits;
-        private int _activePlayerIndex;
-        private Dictionary<Player, List<AUnit>> _playersUnits;
-        private AUnit _selectedUnit;
-
+        /// <summary>
+        /// Constructor for the GameState class.
+        /// </summary>
         public GameState()
         {
-            throw new System.NotImplementedException();
+            turnCounter = 0;
+            positionsUnits = new Dictionary<Position, List<AUnit>>();
+            activePlayerIndex = 0;
+            players = new List<Player>();
+            selectedUnit = null;
         }
 
-        public int turnCounter
+        /// <summary>
+        /// Memberwise constructor for the GameState class.
+        /// </summary>
+        /// <param name="s"></param>
+        public GameState(GameState s)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+            turnCounter = s.turnCounter;
+            activePlayerIndex = s.activePlayerIndex;
 
-            set
+            players = new List<Player>();
+            foreach (Player p in s.players)
+                players.Add(new Player(p));
+
+            positionsUnits = GameState.concatPositionsUnits(players);
+
+            if (s.selectedUnit != null)
             {
+                UnitFactory factory = new UnitFactory();
+                selectedUnit = factory.copyUnit(s.selectedUnit);
             }
+            else
+                selectedUnit = null;
         }
 
-        public Dictionary<Position, List<AUnit>> positionsUnits
+        /// <summary>
+        /// Concats the respective positionsUnits dictionaries of the specified players into one.
+        /// </summary>
+        /// <param name="l"></param>
+        /// <returns></returns>
+        public static Dictionary<Position, List<AUnit>> concatPositionsUnits(List<Player> l)
         {
-            get
+            Dictionary<Position, List<AUnit>> dic = new Dictionary<Position, List<AUnit>>();
+
+            foreach (Player p in l)
             {
-                throw new System.NotImplementedException();
+                Dictionary<Position, List<AUnit>> playerDic = p.getPositionsUnits();
+                foreach (Position pos in playerDic.Keys)
+                {
+                    if (dic.ContainsKey(pos))
+                    {
+                        foreach (AUnit unit in playerDic[pos])
+                            dic[pos].Add(unit);
+                    }
+                    else
+                    {
+                        List<AUnit> list = new List<AUnit>();
+                        foreach (AUnit unit in playerDic[pos])
+                            list.Add(unit);
+                        dic.Add(pos, list);
+                    }
+                }
             }
 
-            set
-            {
-            }
+            return dic;
         }
 
-        public int activePlayerIndex
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        /// <summary>
+        /// Read and write access to the current gameState's turnCounter field.
+        /// </summary>
+        public int turnCounter { get; set; }
 
-            set
-            {
-            }
-        }
+        /// <summary>
+        /// Read and write access to the current gameState's positionsUnits field.
+        /// </summary>
+        public Dictionary<Position, List<AUnit>> positionsUnits { get; set; }
 
-        public Dictionary<Player, List<AUnit>> playersUnits
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        /// <summary>
+        /// Read and write access to the current gameState's activePlayerIndex field.
+        /// </summary>
+        public int activePlayerIndex { get; set; }
 
-            set
-            {
-            }
-        }
+        /// <summary>
+        /// Read and write access to the current gameState's players field.
+        /// </summary>
+        public List<Player> players { get; set; }
 
-        public AUnit selectedUnit
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
+        /// <summary>
+        /// Read and write access to the current gameState's selectedUnit field.
+        /// </summary>
+        public AUnit selectedUnit { get; set; }
     }
 }

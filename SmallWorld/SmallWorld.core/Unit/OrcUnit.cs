@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace SmallWorld.Core
 {
@@ -92,6 +89,15 @@ namespace SmallWorld.Core
             if (aimedTile.getType() == TileType.Water)
                 throw new Exception("Invalid target tile type");
             return 1;
+        }
+
+        /// <summary>
+        /// Determines the current unit's race.
+        /// </summary>
+        /// <returns></returns>
+        public override Races getRace()
+        {
+            return Races.Orc;
         }
     }
 }

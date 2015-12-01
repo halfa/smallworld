@@ -7,33 +7,16 @@ namespace SmallWorld.Core
 {
     public class LoadManager : ILoadManager
     {
-        private Game _game;
-        private LoadManager _INSTANCE;
+        private static LoadManager _INSTANCE = new LoadManager();
 
         private LoadManager()
         {
-            throw new System.NotImplementedException();
+            game = null;
         }
 
-        public Game game
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public Game game { get; set; }
 
-            set
-            {
-            }
-        }
-
-        public LoadManager INSTANCE
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-        }
+        public static LoadManager INSTANCE { get; }
 
         public void loadGame(string filePath)
         {
@@ -41,3 +24,4 @@ namespace SmallWorld.Core
         }
     }
 }
+ 
