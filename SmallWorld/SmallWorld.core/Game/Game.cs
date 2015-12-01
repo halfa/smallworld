@@ -10,6 +10,7 @@ namespace SmallWorld.Core
     {
         /// <summary>
         /// Constructor for the Game class, according to the specified settings.
+        /// This constructor should not be called upon, instead, use the GameBuilder class to obtain your Game instance.
         /// </summary>
         /// <param name="settings"></param>
         public Game(GameSettings settings)
@@ -26,9 +27,6 @@ namespace SmallWorld.Core
             currentState = data.currentState;
             gameSettings = data.gameSettings;
             map = new Map(data.mapData);
-            orderedPlayers = new List<Player>();
-            foreach (PlayerData p in data.orderedPlayersData)
-                orderedPlayers.Add(new Player(p));
             previousGameStates = data.previousGameStates;
         }
 
@@ -53,11 +51,6 @@ namespace SmallWorld.Core
         public Map map { get; set; }
 
         /// <summary>
-        /// Read and write access to the current game's orderedPlayers field.
-        /// </summary>
-        public List<Player> orderedPlayers { get; set; }
-
-        /// <summary>
         /// Determines the number of points the specified players would recieve regarding the current state of the game.
         /// </summary>
         /// <param name="player"></param>
@@ -72,7 +65,7 @@ namespace SmallWorld.Core
         /// </summary>
         public void endGameTurn()
         {
-            foreach (Player p in orderedPlayers)
+            foreach (Player p in currentState.players)
                 p.points += p.countPoints(map);
             if (isGameOver())
                 // DO SOMETHING
@@ -86,7 +79,7 @@ namespace SmallWorld.Core
         /// <returns></returns>
         public Player getActivePlayer()
         {
-            Player p = orderedPlayers[currentState.activePlayerIndex];
+            Player p = currentState.players[currentState.activePlayerIndex];
             if (p == null)
                 throw new Exception("Invalid player index.");
             else
@@ -113,10 +106,10 @@ namespace SmallWorld.Core
         /// <returns></returns>
         public Player winner()
         {
-            if (orderedPlayers.Exists(new Predicate<Player>(Player.isAlive)))
+            if (currentState.players.Exists(new Predicate<Player>(Player.isAlive)))
                 // Not the best way to do it, but we have to check what the default value for type Player is,
                 // because that's what is returned when no match is found.
-                return orderedPlayers.Find(new Predicate<Player>(Player.isAlive));
+                return currentState.players.Find(new Predicate<Player>(Player.isAlive));
             else
                 return null;
         }
@@ -131,7 +124,7 @@ namespace SmallWorld.Core
         {
             if (currentState.turnCounter == gameSettings.turnLimit)
                 return true;
-            return orderedPlayers.Exists(new Predicate<Player>(Player.isDead));
+            return currentState.players.Exists(new Predicate<Player>(Player.isDead));
         }
 
         /// <summary>
@@ -145,8 +138,6 @@ namespace SmallWorld.Core
             data.currentState = currentState;
             data.gameSettings = gameSettings;
             data.mapData = map.toData();
-            foreach (Player p in orderedPlayers)
-                data.orderedPlayersData.Add(p.toData());
             data.previousGameStates = previousGameStates;
 
             return data;
@@ -162,9 +153,71 @@ namespace SmallWorld.Core
             previousGameStates.Push(toStack);
         }
 
-        public bool isSelectedUnitMovableTo(Position position)
+        /// <summary>
+        /// Computes a possible path from the specified tile to the specified tile, for the currently selected unit.
+        /// If no valid path has been found, returns null.
+        /// </summary>
+        /// <param name="current">The current position. If it equals the target position, a path has been found.</param>
+        /// <param name="to">The target position.</param>
+        /// <param name="currentCost">The current cost of the path thus far.</param>
+        /// <param name="currentPath">The current path created thus far.</param>
+        /// <returns></returns>
+        private List<Position> findPath(Position current, Position to, double currentCost, List<Position> currentPath)
         {
-            throw new System.NotImplementedException();
+            if (current.equals(to))
+                return currentPath;
+            if (currentCost > currentState.selectedUnit.actionPool)
+                return null;
+
+            Position up = new Position(current.x, current.y - 1);
+            Position right = new Position(current.x + 1, current.y);
+            Position down = new Position(current.x, current.y + 1);
+            Position left = new Position(current.x - 1, current.y);
+            List<Position> nextPos = new List<Position>() { up, right, down, left };
+
+            foreach(Position p in nextPos)
+            {
+                if (map.inBound(p) && currentState.selectedUnit.canCrossTile(map.getTileAtPos(p)))
+                {
+                    double newCost = currentCost + currentState.selectedUnit.getMoveCost(map.getTileAtPos(p));
+                    List<Position> newPath = new List<Position>();
+                    foreach (Position pp in currentPath)
+                        newPath.Add(pp);
+                    newPath.Add(p);
+                    List<Position> path = findPath(p, to, newCost, newPath);
+                    if (path != null)
+                        return path;
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Determines the cost of the specified path for the currently selected unit.
+        /// The path is know to be valid, ie the positions are valid and the total cost if inferior or equal to the currently selected action pool.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        private double computePathCost(List<Position> path)
+        {
+            double res = 0;
+            foreach (Position p in path)
+                res += currentState.selectedUnit.getMoveCost(map.getTileAtPos(p));
+            return res;
+        }
+
+        /// <summary>
+        /// Determines a possible path for the currently selected unit to the specified position.
+        /// If a path exists, returns it as a list of positions.
+        /// If no path was found, returns null.
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns></returns>
+        public List<Position> isSelectedUnitMovableTo(Position position)
+        {
+            if(currentState.players[currentState.activePlayerIndex].units.Contains(currentState.selectedUnit))
+                return findPath(currentState.selectedUnit.position, position, 0, new List<Position>());
+            return null;
         }
 
         /// <summary>
@@ -190,12 +243,39 @@ namespace SmallWorld.Core
 
         public void moveSelectedUnitTo(Position position)
         {
-            throw new System.NotImplementedException();
+            List<Position> path = isSelectedUnitMovableTo(position);
+            if (path == null)
+                return;
+            stack();
+            double cost = computePathCost(path);
+
+            // Updates the positionsUnits dictionary by removing the selected unit from the values associated with its position.
+            // If it's the last unit on the said position, removes the key from the dictionary.
+            currentState.positionsUnits[currentState.selectedUnit.position].Remove(currentState.selectedUnit);
+            if (currentState.positionsUnits[currentState.selectedUnit.position].Count == 0)
+                currentState.positionsUnits.Remove(currentState.selectedUnit.position);
+            else
+                currentState.positionsUnits[currentState.selectedUnit.position].Remove(currentState.selectedUnit);
+
+            // Updates the currently selected unit's fields.
+            currentState.selectedUnit.position = position;
+            currentState.selectedUnit.actionPool -= cost;
+
+            // Updates the positionsUnits dictionary with the new values for the currently selected unit.
+            if(!currentState.positionsUnits.ContainsKey(currentState.selectedUnit.position))
+            {
+                List<AUnit> list = new List<AUnit>() { currentState.selectedUnit };
+                currentState.positionsUnits.Add(currentState.selectedUnit.position, list);
+            }
+            else
+            {
+                currentState.positionsUnits[currentState.selectedUnit.position].Add(currentState.selectedUnit);
+            }
         }
 
         /// <summary>
         /// Terminates the current player's turn.
-        /// If it was the last player to play during this game turn, call upont the endGameTurn method.
+        /// If it was the last player to play during this game turn, call upon the endGameTurn method.
         /// </summary>
         /// <param name="player"></param>
         public void endPlayerTurn(Player player)

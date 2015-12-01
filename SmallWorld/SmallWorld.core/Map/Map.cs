@@ -151,5 +151,15 @@ namespace SmallWorld.Core
                 return tiles[p.x + width * p.y];
             }
         }
+
+        /// <summary>
+        /// Determines if the specified position is in the map bounds or not.
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
+        public bool inBound(Position p)
+        {
+            return p.x > -1 && p.x < width && p.y > -1 && p.y < height;
+        }
     }
 }

@@ -30,11 +30,6 @@ namespace SmallWorld.Core
         public Stack<GameState> previousGameStates { get; set; }
 
         /// <summary>
-        /// Read and write access to the current gameData's orderedPlayersData field.
-        /// </summary>
-        public List<PlayerData> orderedPlayersData { get; set; }
-
-        /// <summary>
         /// Constructor for the GameData class.
         /// </summary>
         public GameData()
@@ -43,7 +38,6 @@ namespace SmallWorld.Core
             gameSettings = new GameSettings();
             currentState = new GameState();
             previousGameStates = new Stack<GameState>();
-            orderedPlayersData = new List<PlayerData>();
         }
         
     }

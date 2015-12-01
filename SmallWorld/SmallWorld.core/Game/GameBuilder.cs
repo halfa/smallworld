@@ -17,9 +17,9 @@ namespace SmallWorld.Core
         /// <summary>
         /// Constructor for the GameBuilder class. Dones not instanciate the settings field.
         /// </summary>
-        public GameBuilder()
+        public GameBuilder(GameSettings settings)
         {
-            gameSettings = null;
+            gameSettings = settings;
         }
 
         /// <summary>
@@ -89,7 +89,6 @@ namespace SmallWorld.Core
                         unit.position = rdmPos[i];
 
                 // Now the players are ready. //
-                game.orderedPlayers = players;
 
                 // Setup the game states stack. //
                 Stack<GameState> stack = new Stack<GameState>();
