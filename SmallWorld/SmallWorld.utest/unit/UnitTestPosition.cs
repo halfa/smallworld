@@ -27,7 +27,6 @@ namespace SmallWorld.utest
 
             Assert.AreEqual(x, position2.x);
             Assert.AreEqual(y, position2.y);
-            Assert.IsFalse(position1.Equals(position2));
         }
 
         [TestMethod]
