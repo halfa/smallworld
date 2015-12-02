@@ -468,11 +468,15 @@ namespace SmallWorld.Core
         {
             bool attack = enemyUnitAtPos(position);
             List<Position> path = isSelectedUnitMovableTo(position, attack);
-            Position to = path[path.Count - 1];
             if (path == null)
                 return;
+
             stack();
+            Position to = path[path.Count - 1];
+            AUnit selected = currentState.selectedUnit;
+            Dictionary<Position, List<AUnit>> dic = currentState.positionsUnits;
             double cost = computePathCost(path);
+            bool moveAfterAttack = !attack;
 
             // Now handles the attack if it was an attack comand.
             // If we are attacking, and we got a path, then it means we have enough action points to perform the attack, ie
@@ -480,61 +484,66 @@ namespace SmallWorld.Core
             // we still lose the action points for attacking only.
             if (attack)
             {
-                bool respond = currentState.selectedUnit.getAttackRange(map.getTileAtPos(to)) == 1;
-                currentState.selectedUnit.attack(currentState.positionsUnits[position][0], respond);
-                AUnit defender = currentState.positionsUnits[position][0];
+                bool respond = selected.getAttackRange(map.getTileAtPos(to)) == 1;
+                AUnit defender = dic[position][0];
+                selected.attack(defender, respond);
+                
                 if (defender.isDead())
                 {
                     // Enemy unit died in battle, now we update the dictionary accordingly. //
                     int index = (currentState.activePlayerIndex + 1) % gameSettings.nbPlayers;
                     currentState.players[index].removeUnit(defender);
-                    currentState.positionsUnits[position].Remove(defender);
-                    if (currentState.positionsUnits[position].Count == 0)
-                        currentState.positionsUnits.Remove(position);
+                    dic[position].Remove(defender);
+                    if (dic[position].Count == 0)
+                        dic.Remove(position);
                 }
-                if (currentState.selectedUnit.isDead())
+                if (selected.isDead())
                 {
                     // Attacker died in battle.
-                    currentState.players[currentState.activePlayerIndex].removeUnit(currentState.selectedUnit);
-                    currentState.positionsUnits[currentState.selectedUnit.position].Remove(currentState.selectedUnit);
-                    currentState.selectedUnit = null;
+                    currentState.players[currentState.activePlayerIndex].removeUnit(selected);
+                    dic[selected.position].Remove(selected);
+                    selected = null;
                 }
                 else
                 {
+                    cost += selected.getMoveCost(map.getTileAtPos(position));
                     // Because there was no other unit on that position than the enemy player's units. So if it's empty, then it's because the last of the units died.
-                    if(defender.isDead() && !currentState.positionsUnits.ContainsKey(position))
+                    if (defender.isDead() && !dic.ContainsKey(position))
                     {
                         // No other defender.
-                        cost += currentState.selectedUnit.getMoveCost(map.getTileAtPos(position));
-                        if (currentState.selectedUnit.getAttackRange(map.getTileAtPos(to)) != 2)
+                        if (selected.getAttackRange(map.getTileAtPos(to)) != 2)
                         {
-                            // se déplacer
-                            if (currentState.selectedUnit.canCrossTile(map.getTileAtPos(position)))
+                            // We weren't attacking from range, so we move if we can. //
+                            if (selected.canCrossTile(map.getTileAtPos(position)))
+                            {
                                 to = position;
+                                moveAfterAttack = true;
+                            }
                         }
                     }
-                    // Update the attacker position.
                 }
-
-                // Si l'attaquant attaque et a tué la derniere unité défendant, et qu'il est en vie, alors le faire se déplacer.
+            }
+            if(moveAfterAttack)
+            {
+                // Update the attacker position.
                 // Updates the positionsUnits dictionary by removing the selected unit from the values associated with its position.
                 // If it's the last unit on the said position, removes the key from the dictionary.
-                currentState.positionsUnits[currentState.selectedUnit.position].Remove(currentState.selectedUnit);
-                if (currentState.positionsUnits[currentState.selectedUnit.position].Count == 0)
-                    currentState.positionsUnits.Remove(currentState.selectedUnit.position);
+                dic[selected.position].Remove(selected);
+                if (dic[selected.position].Count == 0)
+                    dic.Remove(selected.position);
 
                 // Updates the currently selected unit's fields.
-                currentState.selectedUnit.position = to;
-                currentState.selectedUnit.actionPool -= cost;
+                selected.position = to;
+                selected.actionPool -= cost;
 
                 // Updates the positionsUnits dictionary with the new values for the currently selected unit.
-                if (!currentState.positionsUnits.ContainsKey(currentState.selectedUnit.position))
+                if (!dic.ContainsKey(selected.position))
                 {
-                    List<AUnit> list = new List<AUnit>() { currentState.selectedUnit };
-                    currentState.positionsUnits.Add(currentState.selectedUnit.position, list);
+                    List<AUnit> list = new List<AUnit>() { selected };
+                    dic.Add(selected.position, list);
                 }
                 else
-                    currentState.positionsUnits[currentState.selectedUnit.position].Add(currentState.selectedUnit);
+                    dic[selected.position].Add(selected);
             }
         }
 
