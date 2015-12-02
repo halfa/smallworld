@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SmallWorld.Core
@@ -37,16 +38,11 @@ namespace SmallWorld.Core
             TileType[] rdmTiles = new TileType[nbTiles];
             rdmTiles = algo.createMap(nbTiles);
 
-            List<ATile> tiles = new List<ATile>(nbTiles);
+            List<ATile> tiles = new List<ATile>(nbTiles+1);
             TileFactory factory = TileFactory.INSTANCE;
 
-            for(int i = 0; i < rdmTiles.Count(); i++)
-            {
-                TileType val = rdmTiles[i];
-                ATile tile = factory.createTile(val);
-                tiles[i] = tile;
-            }
-            map.tiles = tiles;
+            // C# is nice ! <3
+            map.tiles = rdmTiles.Select(t => factory.createTile(t)).ToList();
         }
     }
 }
