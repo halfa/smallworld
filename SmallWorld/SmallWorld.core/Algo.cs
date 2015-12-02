@@ -50,13 +50,13 @@ namespace SmallWorld.Core
         }
 
 
-        [DllImport("smallWorld.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("SmallWorld.lib.dll", CallingConvention = CallingConvention.Cdecl)]
         extern static void Algo_fillMap(IntPtr algo, TileType[] tiles, int nbTiles);
 
-        [DllImport("smallWorld.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("SmallWorld.lib.dll", CallingConvention = CallingConvention.Cdecl)]
         extern static IntPtr Algo_new();
 
-        [DllImport("smallWorld.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("SmallWorld.lib.dll", CallingConvention = CallingConvention.Cdecl)]
         extern static IntPtr Algo_delete(IntPtr algo);
     }
 }
