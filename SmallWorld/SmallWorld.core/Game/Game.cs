@@ -338,18 +338,56 @@ namespace SmallWorld.Core
         }
 
         /// <summary>
+        /// Determines if the currently selected unit is in range of attack from the from position to the target position.
+        /// </summary>
+        /// <param name="from"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        private bool inAttackRange(Position from, Position target)
+        {
+            int dx = Math.Abs(target.x - from.x);
+            int dy = Math.Abs(target.y - from.y);
+            int sum = dx + dy;
+            int range = currentState.selectedUnit.getAttackRange(map.getTileAtPos(from));
+            if (range < sum)
+                return false;
+            if(sum == 1)
+                return true;
+            if (sum == 2)
+                if (dx == 0 || dy == 0)
+                {
+                    return true;
+                }
+            return false;
+        }
+
+        /// <summary>
         /// Computes a possible path from the specified tile to the specified tile, for the currently selected unit.
         /// If no valid path has been found, returns null.
+        /// If the command is a move command, the path is leading to the specified potiion.
+        /// If the command is an attack command, the path is leading to a tile in range of attack for the currently selected unit,
+        /// with the unit having enough action points to perform the attack after moving in range.
         /// </summary>
         /// <param name="current">The current position. If it equals the target position, a path has been found.</param>
         /// <param name="to">The target position.</param>
         /// <param name="currentCost">The current cost of the path thus far.</param>
         /// <param name="currentPath">The current path created thus far.</param>
         /// <returns></returns>
-        private List<Position> findPath(Position current, Position to, double currentCost, List<Position> currentPath)
+        private List<Position> findPath(Position current, Position to, double currentCost, List<Position> currentPath, bool attack)
         {
-            if (current.equals(to))
-                return currentPath;
+            if(attack)
+            {
+                if (inAttackRange(current, to))
+                    if(currentCost + currentState.selectedUnit.getMoveCost(map.getTileAtPos(current)) <= currentState.selectedUnit.actionPool)
+                        return currentPath;
+                return null;
+            }
+            else
+            {
+                if (current.equals(to))
+                    return currentPath;
+            }
+            
             /* // NOT NEEDED BECAUSE IF A POSITION IS BEIING TESTED HERE? IT MEANS THAT THE HEURISTIC METHOD HAS BEEN CALLED, AND IT WOULD HAVE REMOVE THIS INVALID CHOICE.
             if (currentCost > currentState.selectedUnit.actionPool)
                 return null;
@@ -363,7 +401,7 @@ namespace SmallWorld.Core
                     foreach (Position pp in currentPath)
                         newPath.Add(pp);
                     newPath.Add(p);
-                    List<Position> path = findPath(p, to, newCost, newPath);
+                    List<Position> path = findPath(p, to, newCost, newPath, attack);
                     if (path != null)
                         return path;
             }
@@ -393,12 +431,10 @@ namespace SmallWorld.Core
         /// </summary>
         /// <param name="position"></param>
         /// <returns></returns>
-        public List<Position> isSelectedUnitMovableTo(Position position)
+        public List<Position> isSelectedUnitMovableTo(Position position, bool attack)
         {
-            if (enemyUnitAtPos(position))
-                return null;
             if(currentState.players[currentState.activePlayerIndex].units.Contains(currentState.selectedUnit))
-                return findPath(currentState.selectedUnit.position, position, 0, new List<Position>());
+                return findPath(currentState.selectedUnit.position, position, 0, new List<Position>(), attack);
             return null;
         }
 
@@ -430,33 +466,75 @@ namespace SmallWorld.Core
         /// <param name="position"></param>
         public void moveSelectedUnitTo(Position position)
         {
-            List<Position> path = isSelectedUnitMovableTo(position);
+            bool attack = enemyUnitAtPos(position);
+            List<Position> path = isSelectedUnitMovableTo(position, attack);
+            Position to = path[path.Count - 1];
             if (path == null)
                 return;
             stack();
             double cost = computePathCost(path);
 
-            // Updates the positionsUnits dictionary by removing the selected unit from the values associated with its position.
-            // If it's the last unit on the said position, removes the key from the dictionary.
-            currentState.positionsUnits[currentState.selectedUnit.position].Remove(currentState.selectedUnit);
-            if (currentState.positionsUnits[currentState.selectedUnit.position].Count == 0)
-                currentState.positionsUnits.Remove(currentState.selectedUnit.position);
-            else
+            // Now handles the attack if it was an attack comand.
+            // If we are attacking, and we got a path, then it means we have enough action points to perform the attack, ie
+            // if we kill the last unit, we move to the position if we are not range, if we don't kill the unit,
+            // we still lose the action points for attacking only.
+            if (attack)
+            {
+                bool respond = currentState.selectedUnit.getAttackRange(map.getTileAtPos(to)) == 1;
+                currentState.selectedUnit.attack(currentState.positionsUnits[position][0], respond);
+                AUnit defender = currentState.positionsUnits[position][0];
+                if (defender.isDead())
+                {
+                    // Enemy unit died in battle, now we update the dictionary accordingly. //
+                    int index = (currentState.activePlayerIndex + 1) % gameSettings.nbPlayers;
+                    currentState.players[index].removeUnit(defender);
+                    currentState.positionsUnits[position].Remove(defender);
+                    if (currentState.positionsUnits[position].Count == 0)
+                        currentState.positionsUnits.Remove(position);
+                }
+                if (currentState.selectedUnit.isDead())
+                {
+                    // Attacker died in battle.
+                    currentState.players[currentState.activePlayerIndex].removeUnit(currentState.selectedUnit);
+                    currentState.positionsUnits[currentState.selectedUnit.position].Remove(currentState.selectedUnit);
+                    currentState.selectedUnit = null;
+                }
+                else
+                {
+                    // Because there was no other unit on that position than the enemy player's units. So if it's empty, then it's because the last of the units died.
+                    if(defender.isDead() && !currentState.positionsUnits.ContainsKey(position))
+                    {
+                        // No other defender.
+                        cost += currentState.selectedUnit.getMoveCost(map.getTileAtPos(position));
+                        if (currentState.selectedUnit.getAttackRange(map.getTileAtPos(to)) != 2)
+                        {
+                            // se déplacer
+                            if (currentState.selectedUnit.canCrossTile(map.getTileAtPos(position)))
+                                to = position;
+                        }
+                    }
+                    // Update the attacker position.
+                }
+
+                // Si l'attaquant attaque et a tué la derniere unité défendant, et qu'il est en vie, alors le faire se déplacer.
+                // Updates the positionsUnits dictionary by removing the selected unit from the values associated with its position.
+                // If it's the last unit on the said position, removes the key from the dictionary.
                 currentState.positionsUnits[currentState.selectedUnit.position].Remove(currentState.selectedUnit);
+                if (currentState.positionsUnits[currentState.selectedUnit.position].Count == 0)
+                    currentState.positionsUnits.Remove(currentState.selectedUnit.position);
 
-            // Updates the currently selected unit's fields.
-            currentState.selectedUnit.position = position;
-            currentState.selectedUnit.actionPool -= cost;
+                // Updates the currently selected unit's fields.
+                currentState.selectedUnit.position = to;
+                currentState.selectedUnit.actionPool -= cost;
 
-            // Updates the positionsUnits dictionary with the new values for the currently selected unit.
-            if(!currentState.positionsUnits.ContainsKey(currentState.selectedUnit.position))
-            {
-                List<AUnit> list = new List<AUnit>() { currentState.selectedUnit };
-                currentState.positionsUnits.Add(currentState.selectedUnit.position, list);
-            }
-            else
-            {
-                currentState.positionsUnits[currentState.selectedUnit.position].Add(currentState.selectedUnit);
+                // Updates the positionsUnits dictionary with the new values for the currently selected unit.
+                if (!currentState.positionsUnits.ContainsKey(currentState.selectedUnit.position))
+                {
+                    List<AUnit> list = new List<AUnit>() { currentState.selectedUnit };
+                    currentState.positionsUnits.Add(currentState.selectedUnit.position, list);
+                }
+                else
+                    currentState.positionsUnits[currentState.selectedUnit.position].Add(currentState.selectedUnit);
             }
         }
 

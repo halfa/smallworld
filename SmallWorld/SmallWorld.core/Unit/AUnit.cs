@@ -40,26 +40,20 @@ namespace SmallWorld.Core
         public int range { get; set; }
 
         /// <summary>
-        /// This method changes the current unit's position to the specified position, if the movement is possible.
-        /// If it's not, does nothing.
-        /// </summary>
-        /// <param name="position"></param>
-        public void moveTo(Position position)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        /// <summary>
-        /// This method performs the attack of the current unit at the specified position.
-        /// The specified position is known to be occcupied by dfenders.
+        /// This method performs the attack of the current unit at the specified enemy unit.
         /// </summary>
         /// <param name="defenderPos"></param>
-        public void attack(Position defenderPos)
+        public void attack(AUnit defender, bool respond)
         {
             /*
             This method should update the life and eventually kill state of BOTH INVOLVED UNITS.
             */
-            throw new System.NotImplementedException();
+            defender.loseHP(attackPt - defender.defencePt);
+            if(respond)
+            {
+                // The defender will not fight back. //
+                loseHP(defender.attackPt - defencePt);
+            }
         }
 
         /// <summary>
@@ -69,6 +63,8 @@ namespace SmallWorld.Core
         /// <param name="amount"></param>
         public void loseHP(int amount)
         {
+            if (amount < 0)
+                amount = 0;
             healthPt -= amount;
             if (healthPt < 0)
                 healthPt = 0;
