@@ -40,13 +40,8 @@ namespace SmallWorld.Core
             List<ATile> tiles = new List<ATile>(nbTiles);
             TileFactory factory = TileFactory.INSTANCE;
 
-            for (int i = 0; i < rdmTiles.Count(); i++)
-            {
-                TileType val = rdmTiles[i];
-                ATile tile = factory.createTile(val);
-                tiles[i] = tile;
-            }
-            map.tiles = tiles;
+            // C# is nice ! <3
+            map.tiles = rdmTiles.Select(t => factory.createTile(t)).ToList();
         }
     }
 }
