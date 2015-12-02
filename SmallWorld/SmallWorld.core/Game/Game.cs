@@ -354,10 +354,7 @@ namespace SmallWorld.Core
             if(sum == 1)
                 return true;
             if (sum == 2)
-                if (dx == 0 || dy == 0)
-                {
-                    return true;
-                }
+                return (dx == 0 || dy == 0);
             return false;
         }
 
@@ -538,10 +535,7 @@ namespace SmallWorld.Core
 
                 // Updates the positionsUnits dictionary with the new values for the currently selected unit.
                 if (!dic.ContainsKey(selected.position))
-                {
-                    List<AUnit> list = new List<AUnit>() { selected };
-                    dic.Add(selected.position, list);
-                }
+                    dic.Add(selected.position, new List<AUnit>() { selected });
                 else
                     dic[selected.position].Add(selected);
             }

@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="tile\UnitTestTileFactory.cs" />
     <Compile Include="map\UnitTestMap.cs" />
+    <Compile Include="UnitTestGameState.cs" />
     <Compile Include="unit\UnitTestPosition.cs" />
     <Compile Include="unit\UnitTestUnit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,6 +70,9 @@
       <Link>SmallWorld.lib.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="game\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

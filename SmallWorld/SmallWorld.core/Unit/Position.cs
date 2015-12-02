@@ -64,12 +64,13 @@ namespace SmallWorld.Core
 
         /// <summary>
         /// Overriding the GetHashCode method.
-        /// This method has the default object's GetHashCode method behaviour.
+        /// This method has a very bad generic behaviour, but suits our needs.
+        /// IT WILL BE IMPROVED IF WE HAVE THE TIME.
         /// </summary>
         /// <returns></returns>
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            return x*100+y;
         }
     }
 }
