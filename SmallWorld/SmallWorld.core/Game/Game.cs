@@ -385,10 +385,6 @@ namespace SmallWorld.Core
                     return currentPath;
             }
             
-            /* // NOT NEEDED BECAUSE IF A POSITION IS BEIING TESTED HERE? IT MEANS THAT THE HEURISTIC METHOD HAS BEEN CALLED, AND IT WOULD HAVE REMOVE THIS INVALID CHOICE.
-            if (currentCost > currentState.selectedUnit.actionPool)
-                return null;
-            */
             List<Position> nextPos = heuristic(current, to, currentCost, currentPath);
 
             foreach(Position p in nextPos)
@@ -437,6 +433,8 @@ namespace SmallWorld.Core
 
         /// <summary>
         /// Sets the selectedUnit field of the current game's currentState field to the first available unit at the specified position.
+        /// If the specified position matches the currently selected unit's position, then updates the currently selected unit to be the
+        /// next unit at the said tile. If it is the only unit, then the update will have no effect.
         /// If no unit is on the specified position, the selectedUnit field is set to null.
         /// A player can select an enemy unit, but he won't be able to give it orders.
         /// </summary>
@@ -447,18 +445,21 @@ namespace SmallWorld.Core
                 currentState.selectedUnit = null;
             else
             {
-                // Not sure if needed, we could update the dictionary when last unit leaves a position,
-                // so that the key would not be there if no unit is in the list.
-                if (currentState.positionsUnits[position].Count == 0)
-                    currentState.selectedUnit = null;
+                if (currentState.selectedUnit.position.Equals(position))
+                {
+                    int curIndex = currentState.positionsUnits[position].IndexOf(currentState.selectedUnit);
+                    if (curIndex == -1)
+                        throw new Exception("Invlid state of selected unit.");
+                    curIndex = (curIndex + 1) % currentState.positionsUnits[position].Count;
+                    currentState.selectedUnit = currentState.positionsUnits[position][curIndex];
+                }
                 else
                     currentState.selectedUnit = currentState.positionsUnits[position][0];
             }
         }
 
         /// <summary>
-        /// Currently moves the currently selected unit to the specified position if possible.
-        /// DOENS'T HANDLE THE ATTACK CASE, and probably should not in any way.
+        /// Moves the currently selected unit to the specified position if possible.
         /// </summary>
         /// <param name="position"></param>
         public void moveSelectedUnitTo(Position position)
@@ -473,7 +474,6 @@ namespace SmallWorld.Core
             AUnit selected = currentState.selectedUnit;
             Dictionary<Position, List<AUnit>> dic = currentState.positionsUnits;
             double cost = computePathCost(path);
-            bool moveAfterAttack = !attack;
 
             // Now handles the attack if it was an attack comand.
             // If we are attacking, and we got a path, then it means we have enough action points to perform the attack, ie
@@ -481,9 +481,8 @@ namespace SmallWorld.Core
             // we still lose the action points for attacking only.
             if (attack)
             {
-                bool respond = selected.getAttackRange(map.getTileAtPos(to)) == 1;
                 AUnit defender = dic[position][0];
-                selected.attack(defender, respond);
+                selected.attack(defender);
                 
                 if (defender.isDead())
                 {
@@ -494,51 +493,33 @@ namespace SmallWorld.Core
                     if (dic[position].Count == 0)
                         dic.Remove(position);
                 }
-                if (selected.isDead())
+                cost += selected.getMoveCost(map.getTileAtPos(position));
+                if (defender.isDead() && !dic.ContainsKey(position))
                 {
-                    // Attacker died in battle.
-                    currentState.players[currentState.activePlayerIndex].removeUnit(selected);
-                    dic[selected.position].Remove(selected);
-                    selected = null;
-                }
-                else
-                {
-                    cost += selected.getMoveCost(map.getTileAtPos(position));
-                    // Because there was no other unit on that position than the enemy player's units. So if it's empty, then it's because the last of the units died.
-                    if (defender.isDead() && !dic.ContainsKey(position))
+                    if (selected.getAttackRange(map.getTileAtPos(to)) != 2)
                     {
-                        // No other defender.
-                        if (selected.getAttackRange(map.getTileAtPos(to)) != 2)
-                        {
-                            // We weren't attacking from range, so we move if we can. //
-                            if (selected.canCrossTile(map.getTileAtPos(position)))
-                            {
-                                to = position;
-                                moveAfterAttack = true;
-                            }
-                        }
+                        // We weren't attacking from range, so we move if we can. //
+                        if (selected.canCrossTile(map.getTileAtPos(position)))
+                            to = position;
                     }
                 }
             }
-            if(moveAfterAttack)
-            {
-                // Update the attacker position.
-                // Updates the positionsUnits dictionary by removing the selected unit from the values associated with its position.
-                // If it's the last unit on the said position, removes the key from the dictionary.
-                dic[selected.position].Remove(selected);
-                if (dic[selected.position].Count == 0)
-                    dic.Remove(selected.position);
+            // Updates the currently selected unit's position.
+            // Updates the positionsUnits dictionary by removing the selected unit from the values associated with its position.
+            // If it's the last unit on the said position, removes the key from the dictionary.
+            dic[selected.position].Remove(selected);
+            if (dic[selected.position].Count == 0)
+                dic.Remove(selected.position);
 
-                // Updates the currently selected unit's fields.
-                selected.position = to;
-                selected.actionPool -= cost;
+            // Updates the currently selected unit's fields.
+            selected.position = to;
+            selected.actionPool -= cost;
 
-                // Updates the positionsUnits dictionary with the new values for the currently selected unit.
-                if (!dic.ContainsKey(selected.position))
-                    dic.Add(selected.position, new List<AUnit>() { selected });
-                else
-                    dic[selected.position].Add(selected);
-            }
+            // Updates the positionsUnits dictionary with the new values for the currently selected unit.
+            if (!dic.ContainsKey(selected.position))
+                dic.Add(selected.position, new List<AUnit>() { selected });
+            else
+                dic[selected.position].Add(selected);
         }
 
         /// <summary>

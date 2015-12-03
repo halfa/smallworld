@@ -43,17 +43,12 @@ namespace SmallWorld.Core
         /// This method performs the attack of the current unit at the specified enemy unit.
         /// </summary>
         /// <param name="defenderPos"></param>
-        public void attack(AUnit defender, bool respond)
+        public void attack(AUnit defender)
         {
-            /*
-            This method should update the life and eventually kill state of BOTH INVOLVED UNITS.
-            */
-            defender.loseHP(attackPt - defender.defencePt);
-            if(respond)
-            {
-                // The defender will not fight back. //
-                loseHP(defender.attackPt - defencePt);
-            }
+            Random rd = new Random();
+            double ratio = (rd.Next() % 30) / 100;
+            int attack = (int)(attackPt * (0.7 + ratio));
+            defender.loseHP(attack - defender.defencePt);
         }
 
         /// <summary>
