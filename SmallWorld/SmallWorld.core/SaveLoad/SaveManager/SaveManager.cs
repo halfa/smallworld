@@ -47,8 +47,9 @@ namespace SmallWorld.Core
             using (var file = File.OpenWrite(filePath))
             {
                 ser.Serialize(file, savable);
+                file.Close();
             }
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }
