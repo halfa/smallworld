@@ -1,0 +1,59 @@
+Serialiser les données :
+	Différencier les aspects opérations sur les données, et données (Game, GameData)
+	Les type Game peuvent transmettre leurs données
+	Les types données sont serialisables.
+
+
+//////////////////////////////////////////////////////////////////////////////
+
+*Eventuellement* supprimer l'attribut mapSetup de Map, puisqu'il n'est utilisé qu'à l'initialisation de la map, même pas à son rechargement.
+Dans ce cas, faire attention à conserver le DP Strategy.
+
+PENSEZ A COMMENT GERE LA VICTOIRE D'UN JOUEUR => modifs dans Game, attribut winner ? lien avec IHM ?
+
+//////////////////////////////////////////////////////////////////////////////
+
+Implémentation :        IMPL    UTESTS
+--------------------------------------------
+Game                |   
+GameBuilder         |   DONE
+GameData            |   DONE
+GameSettings        |   DONE
+GameState           |   DONE
+IGameBuilder        |   DONE
+
+IMapSetup           |   DONE    NOT NEEDED
+Map                 |   DONE
+MapData             |   DONE    ???
+MapDemoSetup        |   DONE    UTESTED
+MapSmallSetup       |   DONE    UTESTED
+MapStandartSetup    |   DONE    UTESTED
+MapType             |   DONE    NOT NEEDED
+
+Player              |   DONE
+PlayerData          |   DONE
+
+ARace               |   DONE    NOT NEEDED
+Elf                 |   DONE    NOT NEEDED
+Human               |   DONE    NOT NEEDED
+Orc                 |   DONE    NOT NEEDED
+
+ILoadManager        |
+LoadManager         |
+
+ISaveManager        |   DONE
+SaveManager         |   DONE
+
+ATile               |   DONE    NOT NEEDED
+Forest              |   DONE    NOT NEEDED
+Mountain            |   DONE    NOT NEEDED
+Plain               |   DONE    NOT NEEDED
+TileFactory         |   DONE    UTESTED
+Water               |   DONE    NOT NEEDED
+
+AUnit               |   DONE    NOT NEEDED
+ElfUnit             |   DONE    UTESTED
+HumanUnit           |   DONE    UTESTED
+OrcUnit             |   DONE    UTESTED
+Position            |   DONE    UTESTED
+UnitFactory         |   DONE    NOT NEEDED
