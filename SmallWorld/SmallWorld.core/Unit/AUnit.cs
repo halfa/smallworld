@@ -48,6 +48,10 @@ namespace SmallWorld.Core
             Random rd = new Random();
             double ratio = (rd.Next() % 30) / 100;
             int attack = (int)(attackPt * (0.7 + ratio));
+            // 4% chance of critical strike because lucky hit. //
+            int crit = rd.Next() % 25;
+            if (crit == 1)
+                attackPt = attackPt * 2;
             defender.loseHP(attack - defender.defencePt);
         }
 
@@ -58,6 +62,11 @@ namespace SmallWorld.Core
         /// <param name="amount"></param>
         public void loseHP(int amount)
         {
+            // 1% chance of not losing health because lucky miss. //
+            Random rd = new Random();
+            int crit = rd.Next() % 100;
+            if (crit == 1)
+                return;
             if (amount < 0)
                 amount = 0;
             healthPt -= amount;
