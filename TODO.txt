@@ -38,8 +38,8 @@ Elf                 |   DONE    NOT NEEDED
 Human               |   DONE    NOT NEEDED
 Orc                 |   DONE    NOT NEEDED
 
-ILoadManager        |
-LoadManager         |
+ILoadManager        |	DONE
+LoadManager         |	DONE
 
 ISaveManager        |   DONE
 SaveManager         |   DONE
