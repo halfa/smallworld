@@ -68,9 +68,24 @@ namespace SmallWorld.Core
             foreach (Player p in currentState.players)
                 p.points += p.countPoints(map);
             if (isGameOver())
-                // DO SOMETHING
-                
-            throw new System.NotImplementedException();
+                endGame();
+        }
+
+        /// <summary>
+        /// Terminates the current game.
+        /// </summary>
+        public void endGame()
+        {
+            Player win = winner();
+            if (win == null)
+            {
+                // DRAW. //
+            }
+            else
+            {
+                // Show the winner. //
+            }
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -106,6 +121,20 @@ namespace SmallWorld.Core
         /// <returns></returns>
         public Player winner()
         {
+            if(currentState.turnCounter == gameSettings.turnLimit)
+            {
+                // Victory or draw by points. //
+                // If the game ended with a player dead at the same time. //
+                if (currentState.players.Exists(new Predicate<Player>(Player.isDead)))
+                    return currentState.players.Find(new Predicate<Player>(Player.isAlive));
+                int p1Score = currentState.players[0].points;
+                int p2Score = currentState.players[1].points;
+                if (p1Score == p2Score)
+                    return null;
+                if (p1Score > p2Score)
+                    return currentState.players[0];
+                return currentState.players[1];
+            }
             if (currentState.players.Exists(new Predicate<Player>(Player.isAlive)))
                 // Not the best way to do it, but we have to check what the default value for type Player is,
                 // because that's what is returned when no match is found.
