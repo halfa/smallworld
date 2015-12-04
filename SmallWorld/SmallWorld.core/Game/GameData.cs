@@ -13,6 +13,11 @@ namespace SmallWorld.Core
         /// Read and write access to the current gameData's mapData field.
         /// </summary>
         public MapData mapData { get; set; }
+        
+        /// <summary>
+        /// Read and write access. If true, means that the game is not over. If false, the game is over and nothing else can be done.
+        /// </summary>
+        public bool running { get; set; }
 
         /// <summary>
         /// Read and write access to the current gameData's gameSettings field.

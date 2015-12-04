@@ -41,6 +41,7 @@ namespace SmallWorld.Core
 
         /// <summary>
         /// This method performs the attack of the current unit at the specified enemy unit.
+        /// The defender unit will lose health points as well as defence points, since it sustained an attack.
         /// </summary>
         /// <param name="defenderPos"></param>
         public void attack(AUnit defender)
@@ -53,11 +54,16 @@ namespace SmallWorld.Core
             if (crit == 1)
                 attackPt = attackPt * 2;
             defender.loseHP(attack - defender.defencePt);
+            int remainingDefence = defender.defencePt - 1;
+            if (remainingDefence >= 0)
+                defender.defencePt = remainingDefence;
+
         }
 
         /// <summary>
         /// This method updates the current unit's health points, lowering them by the specified amount.
         /// If the current unit loses more health points than it has, its health points are set to 0.
+        /// If the current unit has a lucky defence, it shall not lose any defence points.
         /// </summary>
         /// <param name="amount"></param>
         public void loseHP(int amount)
@@ -66,7 +72,10 @@ namespace SmallWorld.Core
             Random rd = new Random();
             int crit = rd.Next() % 100;
             if (crit == 1)
+            {
+                defencePt++;
                 return;
+            }
             if (amount < 0)
                 amount = 0;
             healthPt -= amount;
@@ -81,6 +90,14 @@ namespace SmallWorld.Core
         public bool isDead()
         {
             return healthPt == 0;
+        }
+
+        /// <summary>
+        /// Restores the action pool the the current unit to its default value.
+        /// </summary>
+        public void restoreActionPool()
+        {
+            actionPool = 2;
         }
 
         /// <summary>

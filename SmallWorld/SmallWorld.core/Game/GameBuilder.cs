@@ -34,6 +34,8 @@ namespace SmallWorld.Core
             {
                 Game game = new Game(gameSettings);
 
+                game.running = true;
+
                 // Setup the map. //
                 MapType mapType = gameSettings.mapType;
                 Map map = new Map(mapType);
@@ -44,7 +46,7 @@ namespace SmallWorld.Core
                 for(int i = 0; i < gameSettings.nbPlayers; i++)
                 {
                     Player p = new Player(gameSettings.playersNames[i], gameSettings.playersRaces[i]);
-                    players[i] = p;
+                    players.Add(p);
                 }
 
                 // Randomize the players order. //
@@ -80,7 +82,7 @@ namespace SmallWorld.Core
                                 break;
                             }
                     }
-                    rdmPos[i] = p;
+                    rdmPos.Add(p);
                 }
 
                 // Set the players' units' default position to the randomly generated one. //

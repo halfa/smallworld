@@ -19,6 +19,11 @@ namespace SmallWorld.Core
         }
 
         /// <summary>
+        /// Read and write access. If true, means that the game is not over. If false, the game is over and nothing else can be done.
+        /// </summary>
+        public bool running { get; set; }
+
+        /// <summary>
         /// Constructor for the Game class using the specified gameData to recreate the game.
         /// </summary>
         /// <param name="mapData"></param>
@@ -28,6 +33,7 @@ namespace SmallWorld.Core
             gameSettings = data.gameSettings;
             map = new Map(data.mapData);
             previousGameStates = data.previousGameStates;
+            running = data.running;
         }
 
         /// <summary>
@@ -66,26 +72,24 @@ namespace SmallWorld.Core
         public void endGameTurn()
         {
             foreach (Player p in currentState.players)
+            {
                 p.points += p.countPoints(map);
-            if (isGameOver())
+                foreach(AUnit unit in p.units)
+                    unit.restoreActionPool();
+            }
+            currentState.turnCounter++;
+            if (isGameOverTurnLimit())
                 endGame();
         }
 
         /// <summary>
         /// Terminates the current game.
+        /// Returns the winner of the game, or null if a draw has been stated.
         /// </summary>
-        public void endGame()
+        public Player endGame()
         {
-            Player win = winner();
-            if (win == null)
-            {
-                // DRAW. //
-            }
-            else
-            {
-                // Show the winner. //
-            }
-            throw new NotImplementedException();
+            running = false;
+            return winner();
         }
 
         /// <summary>
@@ -106,6 +110,9 @@ namespace SmallWorld.Core
         /// </summary>
         public void undo()
         {
+            // If the game is over, it means that the previous player accepted the loss, so we don't allow the undo command. //
+            if (!running)
+                return;
             // Seems too easy to work fine :D! //
             if (previousGameStates.Count == 0)
                 return;
@@ -144,15 +151,21 @@ namespace SmallWorld.Core
         }
 
         /// <summary>
-        /// Determines if the game is over, regarding the current game state.
-        /// A Game is said to be over if the maximum nomber of turn has been reached, or if a player is dead.
+        /// Determines if the game is over due to turn limit.
+        /// </summary>
+        /// <returns></returns>
+        public bool isGameOverTurnLimit()
+        {
+            return currentState.turnCounter == gameSettings.turnLimit;
+        }
+
+        /// <summary>
+        /// Determines if the game is over because a player has died, regarding the current game state.
         /// *NOTE* This method won't work in case of a game involving any other number of players than 2.
         /// </summary>
         /// <returns></returns>
-        public bool isGameOver()
+        public bool isGameOverSupremacy()
         {
-            if (currentState.turnCounter == gameSettings.turnLimit)
-                return true;
             return currentState.players.Exists(new Predicate<Player>(Player.isDead));
         }
 
@@ -208,8 +221,26 @@ namespace SmallWorld.Core
             {
                 if(dy > 0)
                 {
-                    //3
+                    //5
                     if (dx >= dy)
+                    {
+                        // should go right first
+                        res.Add(right);
+                        res.Add(down);
+                    }
+                    else
+                    {
+                        // should go down first
+                        res.Add(down);
+                        res.Add(right);
+                    }
+                    res.Add(up);
+                    res.Add(left);
+                }
+                if(dy < 0)
+                {
+                    //3
+                    if (dx >= -dy)
                     {
                         // should go right first
                         res.Add(right);
@@ -222,24 +253,6 @@ namespace SmallWorld.Core
                         res.Add(right);
                     }
                     res.Add(down);
-                    res.Add(left);
-                }
-                if(dy < 0)
-                {
-                    //5
-                    if (dx >= -dy)
-                    {
-                        // should go right first
-                        res.Add(right);
-                        res.Add(down);
-                    }
-                    else
-                    {
-                        // should down up first
-                        res.Add(down);
-                        res.Add(right);
-                    }
-                    res.Add(up);
                     res.Add(left);
                 }
                 else // dy == 0
@@ -255,26 +268,8 @@ namespace SmallWorld.Core
             {
                 if (dy > 0)
                 {
-                    //1
-                    if (-dx >= dy)
-                    {
-                        // should go left first
-                        res.Add(left);
-                        res.Add(up);
-                    }
-                    else
-                    {
-                        // should go up first
-                        res.Add(up);
-                        res.Add(left);
-                    }
-                    res.Add(down);
-                    res.Add(right);
-                }
-                if (dy < 0)
-                {
                     //7
-                    if (-dx >= -dy)
+                    if (-dx >= dy)
                     {
                         // should go left first
                         res.Add(left);
@@ -287,6 +282,24 @@ namespace SmallWorld.Core
                         res.Add(left);
                     }
                     res.Add(up);
+                    res.Add(right);
+                }
+                if (dy < 0)
+                {
+                    //1
+                    if (-dx >= -dy)
+                    {
+                        // should go left first
+                        res.Add(left);
+                        res.Add(up);
+                    }
+                    else
+                    {
+                        // should go up first
+                        res.Add(up);
+                        res.Add(left);
+                    }
+                    res.Add(down);
                     res.Add(right);
                 }
                 else // dy == 0
@@ -302,19 +315,19 @@ namespace SmallWorld.Core
             {
                 if (dy > 0)
                 {
-                    //2
-                    res.Add(up);
-                    res.Add(left);
-                    res.Add(right);
-                    res.Add(down);
-                }
-                if (dy < 0)
-                {
                     //6
                     res.Add(down);
                     res.Add(left);
                     res.Add(right);
                     res.Add(up);
+                }
+                if (dy < 0)
+                {
+                    //2
+                    res.Add(up);
+                    res.Add(left);
+                    res.Add(right);
+                    res.Add(down);
                 }
                 else // dy == 0
                 {
@@ -324,33 +337,26 @@ namespace SmallWorld.Core
             }
 
             // Now clear from the advised positions the invalid ones. //
-            // Not in bounds or not walkable. //
+            
+            List<Position> removable = new List<Position>();
             foreach (Position p in res)
             {
-                if (!map.inBound(p) || !currentState.selectedUnit.canCrossTile(map.getTileAtPos(p)))
-                    res.Remove(p);
+                // Not in bounds or not walkable. // Already crossed earlier. // Enemy unit at pos. //
+                if (!map.inBound(p) || !currentState.selectedUnit.canCrossTile(map.getTileAtPos(p))
+                    || currentPath.Contains(p) || enemyUnitAtPos(p))
+                    removable.Add(p);
+                else
+                {
+                    // Not enough action points. //
+                    double newCost = currentCost + currentState.selectedUnit.getMoveCost(map.getTileAtPos(p));
+                    if (newCost > currentState.selectedUnit.actionPool)
+                        removable.Add(p);
+                }
             }
-            // Already crossed earlier. //
-            foreach(Position p in res)
-            {
-                if (currentPath.Contains(p))
-                    res.Remove(p);
-            }
-            // Enemy unit at pos. //
-            foreach(Position p in res)
-            {
-                if (enemyUnitAtPos(p))
-                    res.Remove(p);
-            }
-            // Not enough action points. //
-            foreach (Position p in res) {
-                double newCost = currentCost + currentState.selectedUnit.getMoveCost(map.getTileAtPos(p));
-                if (newCost > currentState.selectedUnit.actionPool)
-                    res.Remove(p);
-            }
+            foreach (Position p in removable)
+                res.Remove(p);
             return res;
         }
-
 
         /// <summary>
         /// Determines if there is at least one enemy unit (for the current player) at the specified position.
@@ -406,7 +412,6 @@ namespace SmallWorld.Core
                 if (inAttackRange(current, to))
                     if(currentCost + currentState.selectedUnit.getMoveCost(map.getTileAtPos(current)) <= currentState.selectedUnit.actionPool)
                         return currentPath;
-                return null;
             }
             else
             {
@@ -455,6 +460,8 @@ namespace SmallWorld.Core
         /// <returns></returns>
         public List<Position> isSelectedUnitMovableTo(Position position, bool attack)
         {
+            if (!map.inBound(position))
+                return null;
             if(currentState.players[currentState.activePlayerIndex].units.Contains(currentState.selectedUnit))
                 return findPath(currentState.selectedUnit.position, position, 0, new List<Position>(), attack);
             return null;
@@ -474,17 +481,42 @@ namespace SmallWorld.Core
                 currentState.selectedUnit = null;
             else
             {
-                if (currentState.selectedUnit.position.Equals(position))
-                {
-                    int curIndex = currentState.positionsUnits[position].IndexOf(currentState.selectedUnit);
-                    if (curIndex == -1)
-                        throw new Exception("Invlid state of selected unit.");
-                    curIndex = (curIndex + 1) % currentState.positionsUnits[position].Count;
-                    currentState.selectedUnit = currentState.positionsUnits[position][curIndex];
-                }
-                else
+                if(currentState.selectedUnit == null)
                     currentState.selectedUnit = currentState.positionsUnits[position][0];
+                else
+                {
+                    if (currentState.selectedUnit.position.Equals(position))
+                    {
+                        int curIndex = currentState.positionsUnits[position].IndexOf(currentState.selectedUnit);
+                        if (curIndex == -1)
+                            throw new Exception("Invalid state of selected unit.");
+                        curIndex = (curIndex + 1) % currentState.positionsUnits[position].Count;
+                        currentState.selectedUnit = currentState.positionsUnits[position][curIndex];
+                    }
+                    else
+                        currentState.selectedUnit = currentState.positionsUnits[position][0];
+                }
+                
             }
+        }
+
+        /// <summary>
+        /// Determines the best defender at the specified position.
+        /// This method should only be called after verifying that the specified position is in bounds,
+        /// and contains enemy units.
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns></returns>
+        private AUnit findBestDefenderAt(Position position)
+        {
+            // All the OOB tests have already been mayde when this method is called upon. //
+            // Also, we know there is at least one unit at the specified position. //
+            AUnit res = currentState.positionsUnits[position][0];
+            for (int i = 1; i < currentState.positionsUnits[position].Count; i++) {
+                if (res.defencePt < currentState.positionsUnits[position][i].defencePt)
+                    res = currentState.positionsUnits[position][i]; 
+            }
+            return res;
         }
 
         /// <summary>
@@ -493,9 +525,13 @@ namespace SmallWorld.Core
         /// <param name="position"></param>
         public void moveSelectedUnitTo(Position position)
         {
+            // If the game is over, doesn't allow the move command. //
+            if (!running)
+                return;
             bool attack = enemyUnitAtPos(position);
             List<Position> path = isSelectedUnitMovableTo(position, attack);
-            if (path == null)
+            // If no path has been found or the selected target tile was the original tile of the moving unit. //
+            if (path == null || path.Count == 0)
                 return;
 
             stack();
@@ -510,7 +546,7 @@ namespace SmallWorld.Core
             // we still lose the action points for attacking only.
             if (attack)
             {
-                AUnit defender = dic[position][0];
+                AUnit defender = findBestDefenderAt(position);
                 selected.attack(defender);
                 
                 if (defender.isDead())
@@ -556,13 +592,23 @@ namespace SmallWorld.Core
         /// If it was the last player to play during this game turn, call upon the endGameTurn method.
         /// </summary>
         /// <param name="player"></param>
-        public void endPlayerTurn(Player player)
+        public void endPlayerTurn()
         {
+            // If the game is over, doesn't allow the next turn command. //
+            if (!running)
+                return;
             previousGameStates.Clear();
             currentState.selectedUnit = null;
-            currentState.activePlayerIndex = (currentState.activePlayerIndex + 1) % (gameSettings.nbPlayers);
-            if (currentState.activePlayerIndex == 0)
-                endGameTurn();
+            if (isGameOverSupremacy())
+            {
+                endGame();
+            }
+            else
+            {
+                currentState.activePlayerIndex = (currentState.activePlayerIndex + 1) % (gameSettings.nbPlayers);
+                if (currentState.activePlayerIndex == 0)
+                    endGameTurn();
+            }
         }
     }
 }
