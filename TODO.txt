@@ -57,3 +57,8 @@ HumanUnit           |   DONE    UTESTED
 OrcUnit             |   DONE    UTESTED
 Position            |   DONE    UTESTED
 UnitFactory         |   DONE    NOT NEEDED
+
+Tester la sérialisation / désérialisation
+Tester le undo
+Implémenter les suggestions de tiles en C++
+Implémenter la fonction de game donnant les suggestions (bouton dans gui, on ne veut pas que les suggestions polluent le jeu normal quoi...)
