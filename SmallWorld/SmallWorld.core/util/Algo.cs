@@ -20,6 +20,18 @@ namespace SmallWorld.Core
             return res;
         }
 
+        public List<int> suggestMove(int[] points, int size)
+        {
+            List<int> res = new List<int>();
+            int[] suggestions = new int[3];
+            int i = Algo_suggestMove(nativeAlgo, points, size, suggestions);
+            for(int j = 0; j < i; j++)
+            {
+                res.Add(suggestions[j]);
+            }
+            return res;
+        }
+
         public Algo()
         {
             nativeAlgo = Algo_new();
@@ -58,5 +70,9 @@ namespace SmallWorld.Core
 
         [DllImport("SmallWorld.lib.dll", CallingConvention = CallingConvention.Cdecl)]
         extern static IntPtr Algo_delete(IntPtr algo);
+
+        [DllImport("SmallWorld.lib.dll", CallingConvention = CallingConvention.Cdecl)]
+        extern static int Algo_suggestMove(IntPtr algo, int[] points, int nbChoice, int[] suggestions);
+
     }
 }

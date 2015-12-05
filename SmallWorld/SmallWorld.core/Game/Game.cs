@@ -631,5 +631,67 @@ namespace SmallWorld.Core
 
             return data;
         }
+
+        /*  Move suggestions from the C++. */
+
+        /// <summary>
+        /// Determines a maximum of three intersting possible moves for the currently selected friendly unit.
+        /// </summary>
+        /// <returns></returns>
+        public List<Position> suggestMove()
+        {
+            List<Position> res = new List<Position>();
+            // If there is no selected unit, or the selected unit doesn't belong to the active player, does nothing.
+            if (currentState.selectedUnit == null || !currentState.players[currentState.activePlayerIndex].units.Contains(currentState.selectedUnit))
+                return res;
+
+            int x = currentState.selectedUnit.position.x;
+            int y = currentState.selectedUnit.position.y;
+
+            // Adjacent positions as follow: //
+            /*  
+                .   .   9   .   .
+                .   1   2   3   .
+                12  8   0   4   10
+                .   7   6   5   .
+                .   .   11  .   .
+            */
+
+            List<Position> adjacentPositions = new List<Position>();
+            adjacentPositions.Add(new Position(x, y));      // 0
+            adjacentPositions.Add(new Position(x-1, y-1));  // 1
+            adjacentPositions.Add(new Position(x, y-1));    // 2
+            adjacentPositions.Add(new Position(x+1, y-1));  // 3
+            adjacentPositions.Add(new Position(x+1, y));    // 4
+            adjacentPositions.Add(new Position(x+1, y+1));  // 5
+            adjacentPositions.Add(new Position(x, y+1));    // 6
+            adjacentPositions.Add(new Position(x-1, y+1));  // 7
+            adjacentPositions.Add(new Position(x-1, y));    // 8
+            adjacentPositions.Add(new Position(x, y-2));    // 9
+            adjacentPositions.Add(new Position(x+2, y));    // 10
+            adjacentPositions.Add(new Position(x, y+2));    // 11
+            adjacentPositions.Add(new Position(x-2, y));    // 12
+
+            // Removing the impossible positions to reach. //
+            List<Position> removable = new List<Position>();
+
+            foreach(Position p in adjacentPositions)
+                if (!map.inBound(p) || !currentState.selectedUnit.canCrossTile(map.getTileAtPos(p)))
+                    removable.Add(p);
+
+            foreach (Position p in removable)
+                adjacentPositions.Remove(p);
+
+            int[] points = new int[adjacentPositions.Count];
+            for (int i = 0; i < adjacentPositions.Count; i++)
+                points[i] = currentState.selectedUnit.countPoints(map.getTileAtPos(adjacentPositions[i]));
+
+            Algo algo = new Algo();
+            List<int> indexes = algo.suggestMove(points, adjacentPositions.Count);
+            foreach (int n in indexes)
+                res.Add(adjacentPositions[n]);
+
+            return res;
+        }
     }
 }

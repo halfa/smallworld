@@ -16,6 +16,9 @@ public:
 
 	// You can change the return type and the parameters according to your needs.
 	void fillMap(TileType map[], int size);
+
+	// Returns the number of choices contained in the suggestions array.
+	int suggestMove(int points[], int nbChoice, int suggestions[]);
 };
 
 
@@ -34,4 +37,8 @@ EXPORTCDECL Algo* Algo_new() {
 
 EXPORTCDECL void Algo_delete(Algo* algo) {
 	delete algo;
+}
+
+EXPORTCDECL int Algo_suggestMove(Algo* algo, int points[], int nbChoice, int suggestions[]) {
+	return algo->suggestMove(points, nbChoice, suggestions);
 }
