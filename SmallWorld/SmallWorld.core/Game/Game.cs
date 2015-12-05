@@ -56,6 +56,8 @@ namespace SmallWorld.Core
             map = new Map(data.mapData);
             // We push all the states from the list onto the stack. //
             previousGameStates = new Stack<GameState>();
+            // Reverting the order from the list to match the stack order. //
+            data.previousGameStates.Reverse();
             foreach (GameState gs in data.previousGameStates)
                 previousGameStates.Push(gs);
 

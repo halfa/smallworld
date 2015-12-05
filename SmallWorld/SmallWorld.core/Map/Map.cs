@@ -76,7 +76,7 @@ namespace SmallWorld.Core
                 t.Add(factory.createTile(mapData.tiles[i]));
             tiles = t;
             // The mapSetup field will never be used, because the map has been set up already. //
-            // *Eventually*, this field could be removed, but keeping the stategy DP intact. //
+            // *Eventually*, this field could be removed, but we have to keep the strategy DP valid. //
             mapSetup = null;
         }
 
@@ -90,11 +90,11 @@ namespace SmallWorld.Core
 
         /// <summary>
         /// Creates the serializable data object representing the current map.
+        /// Handles the memberwise copy of the current map's fields.
         /// </summary>
         /// <returns></returns>
         public MapData toData()
         {
-            // This method should handle the memberwise copy of the current map's fields before creating a new MapData object with these copies. //
             MapData data = new MapData();
             data.height = height;
             data.width = width;
