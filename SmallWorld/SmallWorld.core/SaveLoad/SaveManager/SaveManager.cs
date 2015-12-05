@@ -13,15 +13,10 @@ namespace SmallWorld.Core
     public class SaveManager : ISaveManager
     {
         /// <summary>
-        /// Unique instance of the SaveManager class (Singleton DP).
-        /// </summary>
-        private static SaveManager _INSTANCE = new SaveManager();
-
-        /// <summary>
         /// Constructor for the SaveManager class.
         /// Sets the savable field's value to null.
         /// </summary>
-        private SaveManager()
+        public SaveManager()
         {
             savable = null;
         }
@@ -32,24 +27,20 @@ namespace SmallWorld.Core
         public Game savable { get; set; }
 
         /// <summary>
-        /// Read only access to the only SaveManager instance of the application.
-        /// </summary>
-        public static SaveManager INSTANCE { get; }
-
-        /// <summary>
         /// Saves the current saveManager's savable field to the specified filePath.
         /// Serializes the savable in xml format, and then saves it.
         /// </summary>
         /// <param name="filePath"></param>
         public void save(string filePath)
         {
+            string dir = "Saves";
+            System.IO.Directory.CreateDirectory(dir);
             XmlSerializer ser = new XmlSerializer(typeof(GameData));
-            using (var file = File.OpenWrite(filePath))
+            using (var file = File.OpenWrite(dir + "\\" + filePath + ".xml"))
             {
-                ser.Serialize(file, savable);
+                ser.Serialize(file, savable.toData());
                 file.Close();
             }
-            //throw new NotImplementedException();
         }
     }
 }

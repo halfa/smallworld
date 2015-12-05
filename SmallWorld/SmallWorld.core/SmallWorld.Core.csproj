@@ -42,7 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Algo.cs" />
+    <Compile Include="util\Algo.cs" />
+    <Compile Include="util\SerializableDictionary.cs" />
     <Compile Include="race\Races.cs" />
     <Compile Include="tile\TileType.cs" />
     <Compile Include="tile\ATile.cs" />
@@ -81,6 +82,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagramSmallWorld.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Debug\SmallWorld.lib.dll">
+      <Link>SmallWorld.lib.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

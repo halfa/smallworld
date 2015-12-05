@@ -15,7 +15,7 @@ namespace SmallWorld.Core
         public GameState()
         {
             turnCounter = 0;
-            positionsUnits = new Dictionary<Position, List<AUnit>>();
+            positionsUnits = new SerializableDictionary<Position, List<AUnit>>();
             activePlayerIndex = 0;
             players = new List<Player>();
             selectedUnit = null;
@@ -50,13 +50,13 @@ namespace SmallWorld.Core
         /// </summary>
         /// <param name="l"></param>
         /// <returns></returns>
-        public static Dictionary<Position, List<AUnit>> concatPositionsUnits(List<Player> l)
+        public static SerializableDictionary<Position, List<AUnit>> concatPositionsUnits(List<Player> l)
         {
-            Dictionary<Position, List<AUnit>> dic = new Dictionary<Position, List<AUnit>>();
+            SerializableDictionary<Position, List<AUnit>> dic = new SerializableDictionary<Position, List<AUnit>>();
 
             foreach (Player p in l)
             {
-                Dictionary<Position, List<AUnit>> playerDic = p.getPositionsUnits();
+                SerializableDictionary<Position, List<AUnit>> playerDic = p.getPositionsUnits();
                 foreach (Position pos in playerDic.Keys)
                 {
                     if (dic.ContainsKey(pos))
@@ -85,7 +85,7 @@ namespace SmallWorld.Core
         /// <summary>
         /// Read and write access to the current gameState's positionsUnits field.
         /// </summary>
-        public Dictionary<Position, List<AUnit>> positionsUnits { get; set; }
+        public SerializableDictionary<Position, List<AUnit>> positionsUnits { get; set; }
 
         /// <summary>
         /// Read and write access to the current gameState's activePlayerIndex field.

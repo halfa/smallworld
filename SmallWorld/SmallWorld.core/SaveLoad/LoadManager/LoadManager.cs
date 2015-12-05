@@ -10,15 +10,10 @@ namespace SmallWorld.Core
     public class LoadManager : ILoadManager
     {
         /// <summary>
-        /// Unique instance of the LoadManager class (Single DP).
-        /// </summary>
-        private static LoadManager _INSTANCE = new LoadManager();
-
-        /// <summary>
         /// Constructor for the SaveManager class.
         /// Sets the game field's value to null.
         /// </summary>
-        private LoadManager()
+        public LoadManager()
         {
             game = null;
         }
@@ -30,28 +25,32 @@ namespace SmallWorld.Core
         public Game game { get; set; }
 
         /// <summary>
-        /// Read only access to the only LoadManager instance of the application.
-        /// </summary>
-        public static LoadManager INSTANCE { get; }
-
-        /// <summary>
         /// Loads game data from the specified file, which has previously been serialized and saved by a saveManager.
         /// Updates the game field to be the loaded game.
+        /// If the file has been loaded, returns true. Returns false otherwise.
         /// </summary>
         /// <param name="filePath"></param>
-        public void loadGame(string filePath)
+        public bool loadGame(string filePath)
         {
-            XmlSerializer ser = new XmlSerializer(typeof(GameData));
-            GameData data = null;
-            using (var file = File.OpenRead(filePath))
+            if (System.IO.Directory.Exists("Saves") && System.IO.File.Exists("Saves\\" + filePath + ".xml"))
             {
-                data = (GameData)ser.Deserialize(file);
-                file.Close();
+                System.Console.WriteLine("directory and file found.");
+                XmlSerializer ser = new XmlSerializer(typeof(GameData));
+                GameData data = null;
+                using (var file = File.OpenRead("Saves\\" + filePath + ".xml"))
+                {
+                    data = (GameData)ser.Deserialize(file);
+                    file.Close();
+                }
+                if (data == null)
+                    throw new Exception("Error occured while loading.");
+                game = new Game(data);
+                return true;
+            } else
+            {
+                System.Console.WriteLine("directory and file NOT found.");
+                return false;
             }
-            if (data == null)
-                throw new Exception("Error occured while loading.");
-            game = new Game(data);
-            //throw new System.NotImplementedException();
         }
     }
 }

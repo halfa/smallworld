@@ -23,6 +23,8 @@ namespace SmallWorld.Core
             points = 0;
         }
 
+        public Player() { }
+
         /// <summary>
         /// Memberwise constructor for the Player class.
         /// </summary>
@@ -97,7 +99,7 @@ namespace SmallWorld.Core
         /// <returns></returns>
         public int countPoints(Map map)
         {
-            Dictionary<Position, List<AUnit>> dic = getPositionsUnits();
+            SerializableDictionary<Position, List<AUnit>> dic = getPositionsUnits();
             int res = 0;
             foreach(Position p in dic.Keys)
                 res += dic[p][0].countPoints(map.getTileAtPos(p));
@@ -128,9 +130,9 @@ namespace SmallWorld.Core
         /// The returned dictionary is not a memberwise copy of the players' attributes, but real references to its fields.
         /// </summary>
         /// <returns></returns>
-        public Dictionary<Position, List<AUnit>> getPositionsUnits()
+        public SerializableDictionary<Position, List<AUnit>> getPositionsUnits()
         {
-            Dictionary<Position, List<AUnit>> res = new Dictionary<Position, List<AUnit>>();
+            SerializableDictionary<Position, List<AUnit>> res = new SerializableDictionary<Position, List<AUnit>>();
 
             foreach(AUnit unit in units)
             {

@@ -20,6 +20,8 @@ namespace SmallWorld.Core
             y = py;
         }
 
+        public Position() { }
+
         /// <summary>
         /// Constructor using memberwise copy for the Position class.
         /// </summary>

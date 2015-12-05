@@ -18,8 +18,9 @@ namespace SmallWorld.Core
 
         /// <summary>
         /// Loads a game object from the specified file and updates the current load manager's game field.
+        /// If the object has been loaded, returns true. Returns false otherwise.
         /// </summary>
         /// <param name="filePath"></param>
-        void loadGame(string filePath);
+        bool loadGame(string filePath);
     }
 }

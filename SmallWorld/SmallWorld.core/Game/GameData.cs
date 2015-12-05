@@ -32,7 +32,7 @@ namespace SmallWorld.Core
         /// <summary>
         /// Read and write access to the current gameData's previousGameStates field.
         /// </summary>
-        public Stack<GameState> previousGameStates { get; set; }
+        public List<GameState> previousGameStates { get; set; }
 
         /// <summary>
         /// Constructor for the GameData class.
@@ -42,7 +42,7 @@ namespace SmallWorld.Core
             mapData = new MapData();
             gameSettings = new GameSettings();
             currentState = new GameState();
-            previousGameStates = new Stack<GameState>();
+            previousGameStates = new List<GameState>();
         }
         
     }

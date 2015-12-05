@@ -54,7 +54,11 @@ namespace SmallWorld.Core
             currentState = data.currentState;
             gameSettings = data.gameSettings;
             map = new Map(data.mapData);
-            previousGameStates = data.previousGameStates;
+            // We push all the states from the list onto the stack. //
+            previousGameStates = new Stack<GameState>();
+            foreach (GameState gs in data.previousGameStates)
+                previousGameStates.Push(gs);
+
             running = data.running;
         }
 
@@ -523,7 +527,7 @@ namespace SmallWorld.Core
             stack();
             Position to = path[path.Count - 1];
             AUnit selected = currentState.selectedUnit;
-            Dictionary<Position, List<AUnit>> dic = currentState.positionsUnits;
+            SerializableDictionary<Position, List<AUnit>> dic = currentState.positionsUnits;
             double cost = computePathCost(path);
 
             // Now handles the attack if it was an attack comand.
@@ -619,7 +623,9 @@ namespace SmallWorld.Core
             data.currentState = currentState;
             data.gameSettings = gameSettings;
             data.mapData = map.toData();
-            data.previousGameStates = previousGameStates;
+            // We pop all the states into the list. //
+            while (previousGameStates.Count != 0)
+                data.previousGameStates.Add(previousGameStates.Pop());
 
             return data;
         }

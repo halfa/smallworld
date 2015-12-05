@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Serialization;
 
 namespace SmallWorld.Core
 {
@@ -6,6 +7,9 @@ namespace SmallWorld.Core
     /// The AUnit class is an asbtract tempplate for game Units.
     /// </summary>
     [Serializable]
+    [XmlInclude(typeof(ElfUnit))]
+    [XmlInclude(typeof(HumanUnit))]
+    [XmlInclude(typeof(OrcUnit))]
     public abstract class AUnit
     {
         /// <summary>

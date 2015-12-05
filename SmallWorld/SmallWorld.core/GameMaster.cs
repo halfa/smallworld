@@ -13,24 +13,12 @@
         /// <summary>
         /// Read only access to the current smallWorld's saveManager field.
         /// </summary>
-        public ISaveManager saveManager
-        {
-            get
-            {
-                return SaveManager.INSTANCE;
-            }
-        }
+        public ISaveManager saveManager { get; set; }
 
         /// <summary>
         /// Read only access to the current smallWorld's loadManager field.
         /// </summary>
-        public ILoadManager loadManager
-        {
-            get
-            {
-                return LoadManager.INSTANCE;
-            }
-        }
+        public ILoadManager loadManager { get; set; }
 
         /// <summary>
         /// Sets the current smallWorld's game field to the loaded game specified by the filePath.
@@ -38,8 +26,8 @@
         /// <param name="filePath"></param>
         public void loadGame(string filePath)
         {
-            loadManager.loadGame(filePath);
-            game = loadManager.game;
+            if(loadManager.loadGame(filePath))
+                game = loadManager.game;
         }
 
         /// <summary>
@@ -58,16 +46,16 @@
         /// <param name="settings"></param>
         public void newGame(GameSettings settings)
         {
-            game = new Game(settings);
+            GameBuilder builder = new GameBuilder(settings);
+            game = builder.build();
         }
 
         /// <summary>
-        /// For testing only. Should be handled by the UI.
+        /// Default constructor for the GameMaster class.
         /// </summary>
-        public void main()
-        {
-            GameSettings GS = new GameSettings(); // provided by UI
-            newGame(GS);
+        public GameMaster() {
+            saveManager = new SaveManager();
+            loadManager = new LoadManager();
         }
     }
 }

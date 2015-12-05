@@ -40,10 +40,8 @@ namespace SmallWorld.Core
         /// <param name="type"></param>
         public Map(MapType type)
         {
-            /*
-            This method should create a new IMapSetup and set it as the coresponding attribute according to the MapType.
-            */
-            switch(type)
+            tiles = new List<ATile>();
+            switch (type)
             {
                 case MapType.Demo:
                     mapSetup = new MapDemoSetup(this);
@@ -75,8 +73,8 @@ namespace SmallWorld.Core
             TileFactory factory = TileFactory.INSTANCE;
 
             for(int i = 0; i < mapData.tiles.Count(); i++)
-                t[i] = factory.createTile(mapData.tiles[i]);
-
+                t.Add(factory.createTile(mapData.tiles[i]));
+            tiles = t;
             // The mapSetup field will never be used, because the map has been set up already. //
             // *Eventually*, this field could be removed, but keeping the stategy DP intact. //
             mapSetup = null;
@@ -104,7 +102,7 @@ namespace SmallWorld.Core
 
             List<TileType> copiedTiles = new List<TileType>(tiles.Count());
             for(int i = 0; i < tiles.Count(); i++)
-                copiedTiles[i] = tiles[i].getType();
+                copiedTiles.Add(tiles[i].getType());
 
             data.tiles = copiedTiles;
 
