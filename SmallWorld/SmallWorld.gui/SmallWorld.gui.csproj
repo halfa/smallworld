@@ -100,10 +100,12 @@
       <Project>{1d7139fe-33a6-4dc5-98cf-25e4bea540da}</Project>
       <Name>SmallWorld.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SmallWorld.lib\SmallWorld.lib.vcxproj">
-      <Project>{81e670fe-8518-4c71-b28d-d3d6ac90c790}</Project>
-      <Name>SmallWorld.lib</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Debug\SmallWorld.lib.dll">
+      <Link>SmallWorld.lib.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

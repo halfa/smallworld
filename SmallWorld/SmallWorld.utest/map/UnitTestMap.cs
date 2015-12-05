@@ -44,10 +44,10 @@ namespace SmallWorld.utest
         }
 
         /// <summary>
-        /// [R23_1_MAP_SIZE] Check standart map size
+        /// [R23_1_MAP_SIZE] Check standard map size
         /// </summary>
         [TestMethod]
-        public void TestMapStandart()
+        public void TestMapStandard()
         {
             // create setup according to type
             Map standartMap = new Map(MapType.Standard);
