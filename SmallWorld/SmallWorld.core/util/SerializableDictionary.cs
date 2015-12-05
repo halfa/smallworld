@@ -1,10 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 
+
+/*  DISCLAIMER
+    This code is from Paul Weltr's Web blog.
+    At the 5th of december 2015, the said code could be found at url:
+    http://weblogs.asp.net/pwelter34/444961
+*/
 namespace SmallWorld.Core
 {
     [XmlRoot("dictionary")]
