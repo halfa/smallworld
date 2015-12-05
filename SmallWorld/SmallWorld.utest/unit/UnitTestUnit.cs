@@ -1,14 +1,33 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SmallWorld.Core;
-/// <summary>
-/// Testing class for game units.
-/// </summary>
+
 namespace SmallWorld.utest
 {
     [TestClass]
     public class UnitTestUnit
     {
+        // TESTING AUNITS //
+        [TestMethod]
+        public void TestAUnitEquals()
+        {
+            UnitFactory factory = new UnitFactory();
+            ElfUnit eUnit = factory.createElfUnit();
+            Assert.IsTrue(eUnit.equals(eUnit));
+            AUnit copiedEUnit = factory.copyUnit(eUnit);
+            Assert.IsTrue(eUnit.equals(copiedEUnit));
+            HumanUnit hUnit = factory.createHumanUnit();
+            Assert.IsFalse(eUnit.equals(hUnit));
+            OrcUnit oUnit = factory.createOrcUnit();
+            Assert.IsFalse(eUnit.equals(oUnit));
+            Assert.IsFalse(hUnit.equals(oUnit));
+
+            copiedEUnit.healthPt--;
+            Assert.IsFalse(eUnit.equals(copiedEUnit));
+
+
+        }
+
         // TESTING ELVEN UNITS //
         [TestMethod]
         public void TestElfCrossingNotWater()

@@ -17,7 +17,7 @@ namespace SmallWorld.Core
             attackPt = 5;
             defencePt = 2;
             healthPt = 17;
-            position = null;
+            position = new Position(0, 0);
             range = 1;
         }
 

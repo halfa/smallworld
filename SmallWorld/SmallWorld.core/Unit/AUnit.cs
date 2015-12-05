@@ -135,5 +135,26 @@ namespace SmallWorld.Core
         /// </summary>
         /// <returns></returns>
         public abstract Races getRace();
+
+        /// <summary>
+        /// Determines if the specified unit has the same fields' values than the current unit.
+        /// </summary>
+        /// <param name="unit"></param>
+        /// <returns></returns>
+        public bool equals(AUnit unit)
+        {
+            if (unit.getRace() != this.getRace())
+                return false;
+            bool res = true;
+            res = res && (actionPool == unit.actionPool);
+            res = res && (attackPt == unit.attackPt);
+            res = res && (defencePt == unit.defencePt);
+            res = res && (healthPt == unit.healthPt);
+            if (position == null)
+                res = res && (unit.position == null);
+            else
+                res = res && (position.equals(unit.position));
+            return res;
+        }
     }
 }

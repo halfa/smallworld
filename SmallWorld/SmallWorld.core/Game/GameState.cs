@@ -35,13 +35,13 @@ namespace SmallWorld.Core
                 players.Add(new Player(p));
 
             positionsUnits = GameState.concatPositionsUnits(players);
-
+            /*
             if (s.selectedUnit != null)
             {
                 UnitFactory factory = new UnitFactory();
                 selectedUnit = factory.copyUnit(s.selectedUnit);
             }
-            else
+            else*/
                 selectedUnit = null;
         }
 

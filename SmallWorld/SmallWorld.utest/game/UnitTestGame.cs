@@ -224,7 +224,9 @@ namespace SmallWorld.utest
             // And an orc unit has 17 life points. //
             // On the other hand, the elven unit can deal a minimum of 2 points of damage, wich will be entierly absorbed by the orc defence Points. //
             // So we can't really test the damage dealt all the time. //
-            // DISCLAIMER : this has been tested in the debug mode and in working as intended. //
+
+            // DISCLAIMER : this has been tested in the debug mode and is working as intended. //
+
             // The defender has to be the first orc unit on the said tile, given the context. //
             Position expected = new Position(4, 2);
             Assert.AreEqual(game.currentState.selectedUnit.position, expected);
@@ -268,20 +270,102 @@ namespace SmallWorld.utest
             // Now test that these scenarios are triggered both by the ending conditions, and the ending of players' turns. //
             Assert.IsTrue(game.previousGameStates.Count == 0);
             game.currentState.players[0].units.Clear();
-            Assert.AreEqual(game.winner(), game.currentState.players[1]);
             game.endPlayerTurn();
             Assert.IsFalse(game.running);
+            Assert.AreEqual(game.winner(), game.currentState.players[1]);
+
             game.running = true;
             game.currentState.players[0].units.Add(factory.createUnit(game.currentState.players[0].race));
             game.currentState.players[1].units.Clear();
-            Assert.AreEqual(game.winner(), game.currentState.players[0]);
             game.endPlayerTurn();
             Assert.IsFalse(game.running);
+            Assert.AreEqual(game.winner(), game.currentState.players[0]);
+
             game.running = true;
             game.currentState.players[0].units.Clear();
-            Assert.IsTrue(game.winner() == null);
             game.endPlayerTurn();
             Assert.IsFalse(game.running);
+            Assert.IsTrue(game.winner() == null);
+        }
+
+        [TestMethod]
+        public void TestUndo()
+        {
+            GameSettings GS = new GameSettings();
+            GS.mapType = MapType.Demo;
+            GS.setFieldsAccordingToMapType();
+            GS.playersNames.Add("Player1");
+            GS.playersRaces.Add(Races.Human);
+            GS.playersNames.Add("Player2");
+            GS.playersRaces.Add(Races.Human);
+
+            GameBuilder gameBuilder = new GameBuilder(GS);
+            Game game = gameBuilder.build();
+
+            // Placing the players' units on a specific tile. //
+            game.currentState.positionsUnits.Clear();
+            Position p1 = new Position(0, 0);
+            Position p2 = new Position(3, 3);
+            game.currentState.positionsUnits.Add(p1, new List<AUnit>());
+            game.currentState.positionsUnits.Add(p2, new List<AUnit>());
+            foreach (AUnit unit in game.currentState.players[0].units)
+            {
+                unit.position = p1;
+                game.currentState.positionsUnits[p1].Add(unit);
+            }
+            foreach (AUnit unit in game.currentState.players[1].units)
+            {
+                unit.position = p2;
+                game.currentState.positionsUnits[p2].Add(unit);
+            }
+
+            // Now player0 units are at position (0,0) .//
+            // Now player1 units are at position (3,3) .//
+            Assert.AreEqual(game.previousGameStates.Count, 0);
+
+            // Saving the current game state for later comparison. //
+            GameState state0 = new GameState(game.currentState);
+            Assert.IsTrue(state0.selectedUnit == null);
+
+            // Moving a human unit around. //
+            game.selectUnitAt(p1);
+            Position to = new Position(2, 0);
+            game.moveSelectedUnitTo(to);
+            Assert.AreEqual(game.previousGameStates.Count, 1);
+            Assert.IsTrue(game.currentState.positionsUnits.ContainsKey(to));
+            Assert.AreEqual(game.currentState.positionsUnits[to].Count, 1);
+            Assert.AreEqual(game.currentState.selectedUnit.actionPool, 0);
+
+            game.undo();
+            // Now the units should be back at previous position. //
+            Assert.AreEqual(game.previousGameStates.Count, 0);
+            Assert.IsTrue(game.currentState.selectedUnit == null);
+            Assert.IsFalse(game.currentState.positionsUnits.ContainsKey(to));
+            Assert.AreEqual(game.currentState.positionsUnits[p1].Count, state0.positionsUnits[p1].Count);
+
+            // The units should be at maximum action pool now. //
+            foreach (AUnit unit in game.currentState.positionsUnits[p1])
+                Assert.AreEqual(unit.actionPool, 2);
+
+            // Testing the revival of units. //
+            GameState state1 = new GameState(game.currentState);
+            Assert.AreEqual(state1.positionsUnits[p1].Count, GS.unitLimit);
+            game.stack();
+            Assert.AreEqual(game.previousGameStates.Count, 1);
+            game.currentState.players[0].units.Clear();
+            game.undo();
+            // All the units should be back alive. //
+            Assert.AreEqual(game.previousGameStates.Count, 0);
+            Assert.IsFalse(game.currentState.players[0].units.Count == 0);
+            Assert.AreEqual(game.currentState.players[0].units.Count, GS.unitLimit);
+
+            // They should also be the exact same units as before (not considering their adresses as Objects). //
+            for (int i = 0; i < state1.positionsUnits[p1].Count; i++)
+                state1.positionsUnits[p1][i].equals(game.currentState.positionsUnits[p1][i]);
+
+            // Testing the reset of the stack when a player ends his turn. //
+            game.endPlayerTurn();
+            Assert.AreEqual(game.previousGameStates.Count, 0);
         }
     }
 }
