@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SmallWorld.Core;
 using System.Collections.Generic;
 
@@ -26,7 +25,8 @@ namespace SmallWorld.utest
             Assert.IsTrue(state.positionsUnits.Count == 1);
             Assert.IsTrue(state.positionsUnits.ContainsKey(unit2.position));
 
-            // Therefore, if we add a key to the dictionary, modifying the unit's position will not modify the key object.
+            // Therefore, if we add a key to the dictionary, modifying the unit's position will not modify //
+            // the key object, since it's a hash of the said object. //
         }
     }
 }

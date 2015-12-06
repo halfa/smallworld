@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SmallWorld.Core;
 
 namespace SmallWorld.utest
@@ -8,7 +7,7 @@ namespace SmallWorld.utest
     public class UnitTestMap
     {
         /// <summary>
-        /// [R23_1_MAP_SIZE] Check demo map size
+        /// [R23_1_MAP_SIZE] Check demo map size.
         /// </summary>
         [TestMethod]
         public void TestMapDemo()
@@ -26,7 +25,7 @@ namespace SmallWorld.utest
         }
 
         /// <summary>
-        /// [R23_1_MAP_SIZE] Check small map size
+        /// [R23_1_MAP_SIZE] Check small map size.
         /// </summary>
         [TestMethod]
         public void TestMapSmall()
@@ -44,7 +43,7 @@ namespace SmallWorld.utest
         }
 
         /// <summary>
-        /// [R23_1_MAP_SIZE] Check standard map size
+        /// [R23_1_MAP_SIZE] Check standard map size.
         /// </summary>
         [TestMethod]
         public void TestMapStandard()
@@ -60,6 +59,5 @@ namespace SmallWorld.utest
             Assert.IsTrue(standartMap.inBound(bottomRightCorner));
             Assert.IsFalse(standartMap.inBound(new Position(100, 100)));
         }
-
     }
 }

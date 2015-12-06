@@ -21,6 +21,7 @@ namespace SmallWorld.utest
             eUnit.loseHP(2);
             Assert.AreEqual(eUnit.healthPt, 0);
         }
+
         [TestMethod]
         public void TestAUnitEquals()
         {

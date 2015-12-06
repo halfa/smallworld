@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SmallWorld.Core;
 
 namespace SmallWorld.utest
@@ -43,6 +42,5 @@ namespace SmallWorld.utest
 
             Assert.IsTrue(position2.equals(position4));
         }
-
     }
 }
