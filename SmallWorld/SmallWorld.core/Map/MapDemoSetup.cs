@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace SmallWorld.Core
@@ -32,7 +31,7 @@ namespace SmallWorld.Core
             map.type = MapType.Demo;
             map.width = 6;
 
-            // Setup tiles with the c++ "wrapper" //
+            // Setup tiles with the c++ "wrapper". //
             Algo algo = new Algo();
             int nbTiles = map.height * map.width; ;
             TileType[] rdmTiles = new TileType[nbTiles];
@@ -41,7 +40,6 @@ namespace SmallWorld.Core
             List<ATile> tiles = new List<ATile>(nbTiles+1);
             TileFactory factory = TileFactory.INSTANCE;
 
-            // C# is nice ! <3
             map.tiles = rdmTiles.Select(t => factory.createTile(t)).ToList();
         }
     }

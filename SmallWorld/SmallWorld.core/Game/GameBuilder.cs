@@ -25,6 +25,7 @@ namespace SmallWorld.Core
         /// <summary>
         /// Creates a game according to the settings, and returns it.
         /// If no settings are available, throws a new Exception.
+        /// This method won't work in a game involving any other number of players than two.
         /// </summary>
         /// <returns></returns>
         public Game build()
