@@ -16,7 +16,7 @@ namespace SmallWorld.Core
         }
 
         /// <summary>
-        /// Provide the TileType related to Plain tiles.
+        /// Provides the TileType related to Plain tiles.
         /// </summary>
         /// <returns></returns>
         public override TileType getType()

@@ -7,16 +7,6 @@
     public class TileFactory
     {
         /// <summary>
-        /// The unique private plain tile.
-        /// </summary>
-        private Plain _plainTile;
-
-        /// <summary>
-        /// The unique private water tile.
-        /// </summary>
-        private Water _waterTile;
-
-        /// <summary>
         /// The unique private forest tile.
         /// </summary>
         private Forest _forestTile;
@@ -25,6 +15,16 @@
         /// The unique private mountain tile.
         /// </summary>
         private Mountain _mountainTIle;
+
+        /// <summary>
+        /// The unique private plain tile.
+        /// </summary>
+        private Plain _plainTile;
+
+        /// <summary>
+        /// The unique private water tile.
+        /// </summary>
+        private Water _waterTile;
 
         /// <summary>
         /// The singleton for the TileFactory class.
