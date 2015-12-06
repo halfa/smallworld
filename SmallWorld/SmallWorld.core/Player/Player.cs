@@ -23,6 +23,9 @@ namespace SmallWorld.Core
             points = 0;
         }
 
+        /// <summary>
+        /// Default constructor for the Player class.
+        /// </summary>
         public Player() { }
 
         /// <summary>
@@ -54,6 +57,11 @@ namespace SmallWorld.Core
         }
 
         /// <summary>
+        /// Read and write access to the current player's name field.
+        /// </summary>
+        public string name { get; set; }
+
+        /// <summary>
         /// Read and write access to the current player's victory points.
         /// </summary>
         public int points { get; set; }
@@ -69,11 +77,6 @@ namespace SmallWorld.Core
         public List<AUnit> units { get; set; }
 
         /// <summary>
-        /// Read and write access to the current player's name field.
-        /// </summary>
-        public string name { get; set; }
-
-        /// <summary>
         /// Adds a new unit to the current player, according to his race.
         /// </summary>
         public void addNewUnit()
@@ -83,50 +86,21 @@ namespace SmallWorld.Core
         }
 
         /// <summary>
-        /// Removes a unit from the current player's units.
-        /// If no match is found for the specified unit, does nothing.
-        /// </summary>
-        /// <param name="unit"></param>
-        public void removeUnit(AUnit unit)
-        {
-            if (units.Contains(unit))
-                units.Remove(unit);
-        }
-
-        /// <summary>
-        /// Counts the number of points the player would get if he chose to end his turn.
+        /// Counts the number of points the player would get if the turn ended now.
         /// </summary>
         /// <returns></returns>
         public int countPoints(Map map)
         {
             SerializableDictionary<Position, List<AUnit>> dic = getPositionsUnits();
             int res = 0;
-            foreach(Position p in dic.Keys)
+            foreach (Position p in dic.Keys)
                 res += dic[p][0].countPoints(map.getTileAtPos(p));
 
             return res;
         }
 
         /// <summary>
-        /// Creates the serializable data object representing the current player.
-        /// </summary>
-        /// <returns></returns>
-        public PlayerData toData()
-        {
-            PlayerData data = new PlayerData();
-            data.race = race;
-            data.name = name;
-            data.points = points;
-            data.units = new List<AUnit>();
-            UnitFactory factory = new UnitFactory();
-            foreach (AUnit unit in units)
-                data.units.Add(factory.copyUnit(unit));
-
-            return data;
-        }
-
-        /// <summary>
-        /// Returns the hashtable associating the player's units' position to their respective units.
+        /// Returns the serializable dictionary associating the player's units' position to their respective units.
         /// The returned dictionary is not a memberwise copy of the players' attributes, but real references to its fields.
         /// </summary>
         /// <returns></returns>
@@ -134,9 +108,9 @@ namespace SmallWorld.Core
         {
             SerializableDictionary<Position, List<AUnit>> res = new SerializableDictionary<Position, List<AUnit>>();
 
-            foreach(AUnit unit in units)
+            foreach (AUnit unit in units)
             {
-                if(!res.ContainsKey(unit.position))
+                if (!res.ContainsKey(unit.position))
                 {
                     List<AUnit> list = new List<AUnit>();
                     res.Add(unit.position, list);
@@ -160,6 +134,16 @@ namespace SmallWorld.Core
         }
 
         /// <summary>
+        /// Determines if the specified player can still play the game, ie is not dead.
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
+        public static bool isAlive(Player p)
+        {
+            return !Player.isDead(p);
+        }
+
+        /// <summary>
         /// Determines if the specified player can't play anymore, due to lack of alive units.
         /// </summary>
         /// <returns></returns>
@@ -169,13 +153,32 @@ namespace SmallWorld.Core
         }
 
         /// <summary>
-        /// Determines if the specified player can still play the game, ie is not dead.
+        /// Removes a unit from the current player's units.
+        /// If no match is found for the specified unit, does nothing.
         /// </summary>
-        /// <param name="p"></param>
-        /// <returns></returns>
-        public static bool isAlive(Player p)
+        /// <param name="unit"></param>
+        public void removeUnit(AUnit unit)
         {
-            return !Player.isDead(p);
+            if (units.Contains(unit))
+                units.Remove(unit);
+        }
+
+        /// <summary>
+        /// Creates the serializable data object representing the current player.
+        /// </summary>
+        /// <returns></returns>
+        public PlayerData toData()
+        {
+            PlayerData data = new PlayerData();
+            data.race = race;
+            data.name = name;
+            data.points = points;
+            data.units = new List<AUnit>();
+            UnitFactory factory = new UnitFactory();
+            foreach (AUnit unit in units)
+                data.units.Add(factory.copyUnit(unit));
+
+            return data;
         }
     }
 }

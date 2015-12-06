@@ -10,6 +10,11 @@ namespace SmallWorld.Core
     public class PlayerData
     {
         /// <summary>
+        /// Read and write access to the current playerData's name field.
+        /// </summary>
+        public string name { get; set; }
+
+        /// <summary>
         /// Read and write access to the current playerData's points field.
         /// </summary>
         public int points { get; set; }
@@ -18,11 +23,6 @@ namespace SmallWorld.Core
         /// Read and write access to the current playerData's race field.
         /// </summary>
         public Races race { get; set; }
-
-        /// <summary>
-        /// Read and write access to the current playerData's name field.
-        /// </summary>
-        public string name { get; set; }
 
         /// <summary>
         /// Read and write access to the current playerData's units field.

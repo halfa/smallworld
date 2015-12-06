@@ -229,7 +229,7 @@ namespace SmallWorld.Core
         {
             if (map.inBound(p))
                 if (currentState.positionsUnits.ContainsKey(p))
-                    return !currentState.players[currentState.activePlayerIndex].units.Contains(currentState.positionsUnits[p][0]);
+                    return !currentState.players[currentState.activePlayerIndex].hasUnit(currentState.positionsUnits[p][0]);
 
             return false;
         }
@@ -511,7 +511,7 @@ namespace SmallWorld.Core
         {
             if (!map.inBound(position) || currentState.selectedUnit == null)
                 return null;
-            if (currentState.players[currentState.activePlayerIndex].units.Contains(currentState.selectedUnit))
+            if (currentState.players[currentState.activePlayerIndex].hasUnit(currentState.selectedUnit))
                 return findPath(currentState.selectedUnit.position, position, 0, new List<Position>(), attack);
             return null;
         }
@@ -648,7 +648,7 @@ namespace SmallWorld.Core
         {
             List<Position> res = new List<Position>();
             // If there is no selected unit, or the selected unit doesn't belong to the active player, does nothing.
-            if (currentState.selectedUnit == null || !currentState.players[currentState.activePlayerIndex].units.Contains(currentState.selectedUnit))
+            if (currentState.selectedUnit == null || !currentState.players[currentState.activePlayerIndex].hasUnit(currentState.selectedUnit))
                 return res;
 
             int x = currentState.selectedUnit.position.x;
