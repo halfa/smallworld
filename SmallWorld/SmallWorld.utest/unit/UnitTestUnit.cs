@@ -9,6 +9,19 @@ namespace SmallWorld.utest
     {
         // TESTING AUNITS //
         [TestMethod]
+        public void TestAUnitLoseHP()
+        {
+            UnitFactory factory = new UnitFactory();
+            ElfUnit eUnit = factory.createElfUnit();
+            int initialHP = eUnit.healthPt;
+            eUnit.loseHP(-1);
+            Assert.AreEqual(initialHP, eUnit.healthPt);
+
+            eUnit.healthPt = 1;
+            eUnit.loseHP(2);
+            Assert.AreEqual(eUnit.healthPt, 0);
+        }
+        [TestMethod]
         public void TestAUnitEquals()
         {
             UnitFactory factory = new UnitFactory();
@@ -22,9 +35,23 @@ namespace SmallWorld.utest
             Assert.IsFalse(eUnit.equals(oUnit));
             Assert.IsFalse(hUnit.equals(oUnit));
 
-            copiedEUnit.healthPt--;
+
+            copiedEUnit.position = null;
+            Assert.IsFalse(eUnit.equals(copiedEUnit));
+            eUnit.position = null;
+            Assert.IsTrue(eUnit.equals(copiedEUnit));
+            copiedEUnit.position = new Position(0, 0);
             Assert.IsFalse(eUnit.equals(copiedEUnit));
 
+            eUnit.position = new Position(0, 0);
+            copiedEUnit.healthPt--;
+            Assert.IsFalse(eUnit.equals(copiedEUnit));
+            copiedEUnit.defencePt--;
+            Assert.IsFalse(eUnit.equals(copiedEUnit));
+            copiedEUnit.attackPt--;
+            Assert.IsFalse(eUnit.equals(copiedEUnit));
+            copiedEUnit.actionPool--;
+            Assert.IsFalse(eUnit.equals(copiedEUnit));
 
         }
 
@@ -36,11 +63,9 @@ namespace SmallWorld.utest
             Plain plain = new Plain();
             Mountain mountain = new Mountain();
             Forest forest = new Forest();
-            bool res = unit.canCrossTile(plain);
-
-            res = res && unit.canCrossTile(mountain);
-            res = res && unit.canCrossTile(forest);
-            Assert.IsTrue(res);
+            Assert.IsTrue(unit.canCrossTile(plain));
+            Assert.IsTrue(unit.canCrossTile(mountain));
+            Assert.IsTrue(unit.canCrossTile(forest));
         }
 
         [TestMethod]

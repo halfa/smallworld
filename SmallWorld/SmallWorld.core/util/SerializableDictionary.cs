@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Xml.Serialization;
 
 
@@ -9,7 +10,7 @@ using System.Xml.Serialization;
 */
 namespace SmallWorld.Core
 {
-    [XmlRoot("dictionary")]
+    [XmlRoot("dictionary")] [Serializable]
     public class SerializableDictionary<TKey, TValue>
     : Dictionary<TKey, TValue>, IXmlSerializable
     {

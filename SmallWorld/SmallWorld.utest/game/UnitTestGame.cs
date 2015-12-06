@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SmallWorld.Core;
+using System;
 using System.Collections.Generic;
 
 namespace SmallWorld.utest
@@ -252,7 +253,127 @@ namespace SmallWorld.utest
         }
 
         [TestMethod]
-        public void TestVictories()
+        public void TestMovingHeuristicCoverage()
+        {
+            GameSettings GS = new GameSettings();
+            GS.mapType = MapType.Demo;
+            GS.setFieldsAccordingToMapType();
+            GS.playersNames.Add("Player1");
+            GS.playersRaces.Add(Races.Elf);
+            GS.playersNames.Add("Player2");
+            GS.playersRaces.Add(Races.Orc);
+
+            Assert.IsTrue(GS.areValid());
+
+            GameBuilder gameBuilder = new GameBuilder(GS);
+            Game game = gameBuilder.build();
+
+            Assert.IsTrue(game.running);
+
+            // Setup a custom map for testing purposes. //
+            Map customMap = new Map(MapType.Demo);
+            customMap.setupMap();
+
+            TileFactory factory = TileFactory.INSTANCE;
+            List<ATile> customTiles = new List<ATile>()
+            {   factory.createTile(TileType.Plain), factory.createTile(TileType.Plain), factory.createTile(TileType.Plain), factory.createTile(TileType.Plain), factory.createTile(TileType.Plain), factory.createTile(TileType.Plain),
+                factory.createTile(TileType.Plain), factory.createTile(TileType.Plain), factory.createTile(TileType.Plain), factory.createTile(TileType.Plain), factory.createTile(TileType.Plain), factory.createTile(TileType.Plain),
+                factory.createTile(TileType.Plain), factory.createTile(TileType.Plain), factory.createTile(TileType.Plain), factory.createTile(TileType.Plain), factory.createTile(TileType.Plain), factory.createTile(TileType.Plain),
+                factory.createTile(TileType.Plain), factory.createTile(TileType.Plain), factory.createTile(TileType.Plain), factory.createTile(TileType.Plain), factory.createTile(TileType.Plain), factory.createTile(TileType.Plain),
+                factory.createTile(TileType.Plain), factory.createTile(TileType.Plain), factory.createTile(TileType.Plain), factory.createTile(TileType.Plain), factory.createTile(TileType.Plain), factory.createTile(TileType.Plain),
+                factory.createTile(TileType.Plain), factory.createTile(TileType.Plain), factory.createTile(TileType.Plain), factory.createTile(TileType.Plain), factory.createTile(TileType.Plain), factory.createTile(TileType.Plain),
+            };
+            ////  0   1   2   3   4   5
+            //0   P   P   P   P   P   P
+            //1   P   P   P   P   P   P
+            //2   P   P   P   P   P   P
+            //3   P   P   P   P   P   P
+            //4   P   P   P   P   P   P
+            //5   P   P   P   P   P   P
+
+
+            customMap.tiles = customTiles;
+            game.map = customMap;
+
+            // Testing the created players. //
+            Assert.AreEqual(GS.nbPlayers, game.currentState.players.Count);
+            foreach (Player pp in game.currentState.players)
+            {
+                Assert.AreEqual(GS.unitLimit, pp.units.Count);
+                foreach (AUnit unit in pp.units)
+                    Assert.IsTrue(game.currentState.positionsUnits.ContainsKey(unit.position));
+            }
+
+            // We put the Elf player at index 0 and the Orc player at index 1 for convenience in testing. //
+            if (game.currentState.players[0].race == Races.Orc)
+            {
+                Player orc = game.currentState.players[0];
+                game.currentState.players[0] = game.currentState.players[1];
+                game.currentState.players[1] = orc;
+            }
+
+            Position p1 = new Position(5, 5);
+            Position p2 = new Position(2, 2);
+
+            game.currentState.positionsUnits.Clear();
+            game.currentState.positionsUnits.Add(p1, new List<AUnit>());
+            game.currentState.positionsUnits.Add(p2, new List<AUnit>());
+
+            foreach (AUnit unit in game.currentState.players[0].units)
+            {
+                unit.position = p1;
+                game.currentState.positionsUnits[p1].Add(unit);
+            }
+
+            // Giving the orc player enough units to test out the heuristic. //
+            for (int nb = 0; nb < 16; nb++)
+                game.currentState.players[1].addNewUnit();
+            foreach (AUnit unit in game.currentState.players[1].units)
+            {
+                unit.position = p2;
+                game.currentState.positionsUnits[p2].Add(unit);
+            }
+
+            // Now orc units are at position (2,2). //
+            // Now elven units are at position (5,5). //
+            // Calling all the heuristic cases to test code coverage. //
+            game.endPlayerTurn();
+
+            ////  0   1   2   3   4   5
+            //0   .   A   B   C   .   .
+            //1   D   E   .   F   G   .
+            //2   H   .   X   .   I   .
+            //3   J   K   .   L   M   .
+            //4   .   N   O   P   .   .
+            //5   .   .   .   .   .   .
+            Position a = new Position(1,0);
+            Position b = new Position(2,0);
+            Position c = new Position(3,0);
+            Position d = new Position(0,1);
+            Position e = new Position(1,1);
+            Position f = new Position(3,1);
+            Position g = new Position(4,1);
+            Position h = new Position(0,2);
+            Position i = new Position(4,2);
+            Position j = new Position(0,3);
+            Position k = new Position(1,3);
+            Position l = new Position(3,3);
+            Position m = new Position(4,3);
+            Position n = new Position(1,4);
+            Position o = new Position(2,4);
+            Position p = new Position(3,4);
+            List<Position> pos = new List<Position>() { a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p };
+            foreach(Position to in pos)
+            {
+                game.selectUnitAt(p2);
+                game.moveSelectedUnitTo(to);
+                Assert.AreEqual(game.currentState.selectedUnit.position, to);
+                Assert.AreEqual(game.currentState.positionsUnits[to].Count, 1);
+            }
+        }
+
+        [TestMethod]
+        public void TestVictoriesSupremacy()
         {
             GameSettings GS = new GameSettings();
             GS.mapType = MapType.Demo;
@@ -286,6 +407,66 @@ namespace SmallWorld.utest
             game.endPlayerTurn();
             Assert.IsFalse(game.running);
             Assert.IsTrue(game.winner() == null);
+
+            // Testing the impossible case of 2 players dead at the same time on the last turn. //
+            game.running = false;
+            game.currentState.turnCounter = game.gameSettings.turnLimit;
+            Assert.IsTrue(game.winner() == null);
+
+
+        }
+
+        [TestMethod]
+        public void TestVictoriesPoints()
+        {
+            GameSettings GS = new GameSettings();
+            GS.mapType = MapType.Demo;
+            GS.setFieldsAccordingToMapType();
+            GS.playersNames.Add("Player1");
+            GS.playersRaces.Add(Races.Elf);
+            GS.playersNames.Add("Player2");
+            GS.playersRaces.Add(Races.Orc);
+
+            GameBuilder gameBuilder = new GameBuilder(GS);
+            Game game = gameBuilder.build();
+
+            Assert.IsTrue(game.running);
+            game.currentState.players[0].points = 10;
+            game.currentState.players[1].points = 0;
+
+            game.currentState.turnCounter = game.gameSettings.turnLimit - 1;
+            game.endPlayerTurn();
+            game.endPlayerTurn();
+
+            Assert.IsFalse(game.running);
+            Assert.AreEqual(game.winner(), game.currentState.players[0]);
+
+            game.currentState.players[0].points = 0;
+            game.currentState.players[1].points = 10;
+            Assert.AreEqual(game.winner(), game.currentState.players[1]);
+
+            game.currentState.players[0].points = 0;
+            game.currentState.players[1].points = 0;
+            Assert.IsTrue(game.winner() == null);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception), "Invalid call to the winner method: game still running.")]
+        public void TestVictoryException()
+        {
+            GameSettings GS = new GameSettings();
+            GS.mapType = MapType.Demo;
+            GS.setFieldsAccordingToMapType();
+            GS.playersNames.Add("Player1");
+            GS.playersRaces.Add(Races.Elf);
+            GS.playersNames.Add("Player2");
+            GS.playersRaces.Add(Races.Orc);
+
+            GameBuilder gameBuilder = new GameBuilder(GS);
+            Game game = gameBuilder.build();
+
+            game.running = true;
+            game.winner();
         }
 
         [TestMethod]
@@ -366,6 +547,48 @@ namespace SmallWorld.utest
             // Testing the reset of the stack when a player ends his turn. //
             game.endPlayerTurn();
             Assert.AreEqual(game.previousGameStates.Count, 0);
+        }
+
+        [TestMethod]
+        public void TestGameData()
+        {
+            GameSettings GS = new GameSettings();
+            GS.mapType = MapType.Demo;
+            GS.setFieldsAccordingToMapType();
+            GS.playersNames.Add("Player1");
+            GS.playersRaces.Add(Races.Human);
+            GS.playersNames.Add("Player2");
+            GS.playersRaces.Add(Races.Human);
+
+            GameBuilder gameBuilder = new GameBuilder(GS);
+            Game game = gameBuilder.build();
+            game.stack();
+
+            GameData data = game.toData();
+
+            Game game2 = new Game(data);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception), "No player at specified index.")]
+        public void TestGamePlayerIndex()
+        {
+            GameSettings GS = new GameSettings();
+            GS.mapType = MapType.Demo;
+            GS.setFieldsAccordingToMapType();
+            GS.playersNames.Add("Player1");
+            GS.playersRaces.Add(Races.Human);
+            GS.playersNames.Add("Player2");
+            GS.playersRaces.Add(Races.Human);
+
+            GameBuilder gameBuilder = new GameBuilder(GS);
+            Game game = gameBuilder.build();
+
+            Player p = game.getActivePlayer();
+            Assert.AreEqual(p, game.currentState.players[game.currentState.activePlayerIndex]);
+
+            game.currentState.players[0] = null;
+            Player p2 = game.getActivePlayer();
         }
     }
 }

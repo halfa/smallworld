@@ -52,11 +52,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="tile\UnitTestTileFactory.cs" />
     <Compile Include="map\UnitTestMap.cs" />
     <Compile Include="game\UnitTestGameState.cs" />
@@ -71,12 +66,6 @@
       <Project>{1d7139fe-33a6-4dc5-98cf-25e4bea540da}</Project>
       <Name>SmallWorld.Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

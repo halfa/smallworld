@@ -154,8 +154,8 @@ namespace SmallWorld.Core
             res = res && (attackPt == unit.attackPt);
             res = res && (defencePt == unit.defencePt);
             res = res && (healthPt == unit.healthPt);
-            if (position == null)
-                res = res && (unit.position == null);
+            if (position == null || unit.position == null)
+                res = res && (position == null && unit.position == null);
             else
                 res = res && (position.equals(unit.position));
             return res;

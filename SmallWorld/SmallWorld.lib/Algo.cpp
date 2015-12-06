@@ -26,14 +26,14 @@ int Algo::suggestMove(int points[], int nbChoice, int suggestions[])
 	int j = 0;
 	for (int i = 0; i < nbChoice; i++) {
 		if (points[i] > default) {
-			suggestions[j] = points[i];
+			suggestions[j] = i;
 			j++;
 			if (j == 3)
 				break;
 		}
 	}
 	if (j == 0) {
-		suggestions[0] = default;
+		suggestions[0] = 0;
 		return ++j;
 	}
 	return j;

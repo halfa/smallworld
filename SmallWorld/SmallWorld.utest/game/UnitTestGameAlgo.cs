@@ -9,7 +9,7 @@ namespace SmallWorld.utest
     public class UnitTestGameAlgo
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestSuggestedMoves()
         {
             GameSettings GS = new GameSettings();
             GS.mapType = MapType.Demo;
@@ -89,6 +89,17 @@ namespace SmallWorld.utest
             // We expect three suggested positions, all on forest tiles .//
             suggestions = game.suggestMove();
             Assert.AreEqual(suggestions.Count, 3);
+            Assert.AreEqual(suggestions[0], new Position(5,4));
+            Assert.AreEqual(suggestions[1], new Position(4,4));
+            Assert.AreEqual(suggestions[2], new Position(3,4));
+
+            // Testing the suggested moves for the orc unit at position (0,0). //
+            game.endPlayerTurn();
+            game.selectUnitAt(p2);
+            suggestions = game.suggestMove();
+            // We expect no good suggestions, so only the position the unit is already at. //
+            Assert.AreEqual(suggestions.Count, 1);
+            Assert.AreEqual(suggestions[0], p2);
         }
     }
 }

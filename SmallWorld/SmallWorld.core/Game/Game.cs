@@ -141,7 +141,7 @@ namespace SmallWorld.Core
         /// <returns></returns>
         public bool isGameOverTurnLimit()
         {
-            return currentState.turnCounter == gameSettings.turnLimit;
+            return currentState.turnCounter >= gameSettings.turnLimit;
         }
 
         /// <summary>
@@ -304,7 +304,7 @@ namespace SmallWorld.Core
         {
             Player p = currentState.players[currentState.activePlayerIndex];
             if (p == null)
-                throw new Exception("Invalid player index.");
+                throw new Exception("No player at specified index.");
             else
                 return p;
         }
