@@ -1,17 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SmallWorld.Core
 {
+    /// <summary>
+    /// This class is used as a mean to access the C++ dll from the C# project.
+    /// It make the use of the C++ methods available from the C#.
+    /// </summary>
     public class Algo : IDisposable
     {
         bool disposed = false;
         IntPtr nativeAlgo;
 
+        /// <summary>
+        /// Returns a randomly generated array of tiles, which con be converted into a map.
+        /// </summary>
+        /// <param name="nbTiles"></param>
+        /// <returns></returns>
         public TileType[] createMap(int nbTiles)
         {
             TileType[] res = new TileType[nbTiles];
@@ -20,6 +26,12 @@ namespace SmallWorld.Core
             return res;
         }
 
+        /// <summary>
+        /// Returns an array of intersting destinations regarding the specified points array.
+        /// </summary>
+        /// <param name="points"></param>
+        /// <param name="size"></param>
+        /// <returns></returns>
         public List<int> suggestMove(int[] points, int size)
         {
             List<int> res = new List<int>();
@@ -43,7 +55,6 @@ namespace SmallWorld.Core
             Algo_delete(nativeAlgo);
         }
 
-
         public void Dispose()
         {
             Dispose(true);
@@ -61,7 +72,6 @@ namespace SmallWorld.Core
             disposed = true;
         }
 
-
         [DllImport("SmallWorld.lib.dll", CallingConvention = CallingConvention.Cdecl)]
         extern static void Algo_fillMap(IntPtr algo, TileType[] tiles, int nbTiles);
 
@@ -73,6 +83,5 @@ namespace SmallWorld.Core
 
         [DllImport("SmallWorld.lib.dll", CallingConvention = CallingConvention.Cdecl)]
         extern static int Algo_suggestMove(IntPtr algo, int[] points, int nbChoice, int[] suggestions);
-
     }
 }

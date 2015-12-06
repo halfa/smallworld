@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
-
 /*  DISCLAIMER
-    This code is from Paul Weltr's Web blog.
+    This code is from Paul Welter's Web blog.
     At the 5th of december 2015, the said code could be found at url:
     http://weblogs.asp.net/pwelter34/444961
 */
 namespace SmallWorld.Core
 {
-    [XmlRoot("dictionary")] [Serializable]
+    [XmlRoot("dictionary")]
+    //Added "[Serializable]" for our needs. //
+    [Serializable]
     public class SerializableDictionary<TKey, TValue>
     : Dictionary<TKey, TValue>, IXmlSerializable
     {
