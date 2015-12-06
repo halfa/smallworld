@@ -43,7 +43,7 @@ namespace SmallWorld.Core
                     file.Close();
                 }
                 if (data == null)
-                    throw new Exception("Error occured while loading.");
+                    throw new Exception("Error occured while loading the game data.");
                 game = new Game(data);
                 return true;
             } else

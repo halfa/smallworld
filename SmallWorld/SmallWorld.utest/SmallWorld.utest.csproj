@@ -57,6 +57,7 @@
     <Compile Include="game\UnitTestGameState.cs" />
     <Compile Include="game\UnitTestGame.cs" />
     <Compile Include="game\UnitTestGameAlgo.cs" />
+    <Compile Include="saveLoad\UnitTestSaveLoad.cs" />
     <Compile Include="unit\UnitTestPosition.cs" />
     <Compile Include="unit\UnitTestUnit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
