@@ -28,6 +28,7 @@ namespace SmallWorld.Core
         /// Loads game data from the specified file, which has previously been serialized and saved by a saveManager.
         /// Updates the game field to be the loaded game.
         /// If the file has been loaded, returns true. Returns false otherwise.
+        /// If the file exists but the data it contains couldn't be deserialized, throws a new Exception.
         /// </summary>
         /// <param name="filePath"></param>
         public bool loadGame(string filePath)

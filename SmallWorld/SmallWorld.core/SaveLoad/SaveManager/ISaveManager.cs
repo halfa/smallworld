@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace SmallWorld.Core
+﻿namespace SmallWorld.Core
 {
     /// <summary>
     /// This interface is a template for all SmallWorld save managers.
@@ -12,6 +7,7 @@ namespace SmallWorld.Core
     {
         /// <summary>
         /// Read and write access to the game to save.
+        /// Used to store the game to be saved when calling the save method.
         /// </summary>
         Game savable { get; set; }
 

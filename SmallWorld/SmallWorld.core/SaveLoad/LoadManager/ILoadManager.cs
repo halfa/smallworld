@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace SmallWorld.Core
+﻿namespace SmallWorld.Core
 {
     /// <summary>
     /// This interface is a template for all SmallWorld load managers.

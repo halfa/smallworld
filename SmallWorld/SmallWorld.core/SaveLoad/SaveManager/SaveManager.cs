@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
+﻿using System.IO;
 using System.Xml.Serialization;
 
 namespace SmallWorld.Core
@@ -29,10 +25,13 @@ namespace SmallWorld.Core
         /// <summary>
         /// Saves the current saveManager's savable field to the specified filePath.
         /// Serializes the savable in xml format, and then saves it.
+        /// If the savable field is null, does nothing.
         /// </summary>
         /// <param name="filePath"></param>
         public void save(string filePath)
         {
+            if (savable == null)
+                return;
             string dir = "Saves";
             System.IO.Directory.CreateDirectory(dir);
             XmlSerializer ser = new XmlSerializer(typeof(GameData));
