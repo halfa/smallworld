@@ -11,7 +11,7 @@
         Map map { get; set; }
 
         /// <summary>
-        /// This method should be implemented by all sub-classes, and set up the map.
+        /// Sets the map according to the game rules (generate the list of tiles, and the map attributes in general).
         /// </summary>
         void setupMap();
     }

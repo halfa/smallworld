@@ -68,22 +68,33 @@ namespace SmallWorld.Core
                 // Find the random default position for each player according to its race. //
                 List<Position> rdmPos = new List<Position>(gameSettings.nbPlayers);
 
-                for(int i = 0; i < gameSettings.nbPlayers; i++)
+                Position posP1 = map.getRandomStartPos(players[0].race);
+                rdmPos.Add(posP1);
+
+                Position firstRandom = map.getRandomStartPos(players[1].race);
+                while (firstRandom.equals(posP1))
+                    firstRandom = map.getRandomStartPos(players[1].race);
+
+                rdmPos.Add(firstRandom);
+
+                // Tries to find another random position for the second player, that would be further from the one of the furst player. //
+                Position posP2;
+                for (int i = 0; i < 10; i++)
                 {
-                    Position p = map.getRandomStartPos(players[i].race);
-                    bool ok = false;
-                    while (!ok)
-                    {
-                        ok = true;
-                        foreach (Position pp in rdmPos)
-                            if (pp.equals(p))
-                            {
-                                ok = false;
-                                p = map.getRandomStartPos(players[i].race);
-                                break;
-                            }
-                    }
-                    rdmPos.Add(p);
+                    posP2 = map.getRandomStartPos(players[1].race);
+                    while(posP2.equals(posP1))
+                        posP2 = map.getRandomStartPos(players[1].race);
+
+                    int dxOld = Math.Abs(posP1.x - rdmPos[1].x);
+                    int dyOld = Math.Abs(posP1.y - rdmPos[1].y);
+                    int sumOld = dxOld + dyOld;
+
+                    int dxNew = Math.Abs(posP1.x - posP2.x);
+                    int dyNew = Math.Abs(posP1.y - posP2.y);
+                    int sumNew = dxNew + dyNew;
+
+                    if (sumNew > sumOld)
+                        rdmPos[1] = new Position(posP2);
                 }
 
                 // Set the players' units' default position to the randomly generated one. //
