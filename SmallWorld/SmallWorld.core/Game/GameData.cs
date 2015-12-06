@@ -10,14 +10,9 @@ namespace SmallWorld.Core
     public class GameData
     {
         /// <summary>
-        /// Read and write access to the current gameData's mapData field.
+        /// Read and write access to the current gameData's currentState field.
         /// </summary>
-        public MapData mapData { get; set; }
-        
-        /// <summary>
-        /// Read and write access. If true, means that the game is not over. If false, the game is over and nothing else can be done.
-        /// </summary>
-        public bool running { get; set; }
+        public GameState currentState { get; set; }
 
         /// <summary>
         /// Read and write access to the current gameData's gameSettings field.
@@ -25,9 +20,9 @@ namespace SmallWorld.Core
         public GameSettings gameSettings { get; set; }
 
         /// <summary>
-        /// Read and write access to the current gameData's currentState field.
+        /// Read and write access to the current gameData's mapData field.
         /// </summary>
-        public GameState currentState { get; set; }
+        public MapData mapData { get; set; }
 
         /// <summary>
         /// Read and write access to the current gameData's previousGameStates field.
@@ -35,13 +30,18 @@ namespace SmallWorld.Core
         public List<GameState> previousGameStates { get; set; }
 
         /// <summary>
+        /// Read and write access. If true, means that the game is not over. If false, the game is over and nothing else can be done.
+        /// </summary>
+        public bool running { get; set; }
+
+        /// <summary>
         /// Constructor for the GameData class.
         /// </summary>
         public GameData()
         {
-            mapData = new MapData();
-            gameSettings = new GameSettings();
             currentState = new GameState();
+            gameSettings = new GameSettings();
+            mapData = new MapData();
             previousGameStates = new List<GameState>();
         }
         

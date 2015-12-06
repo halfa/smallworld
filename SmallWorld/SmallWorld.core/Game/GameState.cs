@@ -46,6 +46,11 @@ namespace SmallWorld.Core
         }
 
         /// <summary>
+        /// Read and write access to the current gameState's activePlayerIndex field.
+        /// </summary>
+        public int activePlayerIndex { get; set; }
+
+        /// <summary>
         /// Concats the respective positionsUnits dictionaries of the specified players into one.
         /// </summary>
         /// <param name="l"></param>
@@ -78,9 +83,9 @@ namespace SmallWorld.Core
         }
 
         /// <summary>
-        /// Read and write access to the current gameState's turnCounter field.
+        /// Read and write access to the current gameState's players field.
         /// </summary>
-        public int turnCounter { get; set; }
+        public List<Player> players { get; set; }
 
         /// <summary>
         /// Read and write access to the current gameState's positionsUnits field.
@@ -88,18 +93,13 @@ namespace SmallWorld.Core
         public SerializableDictionary<Position, List<AUnit>> positionsUnits { get; set; }
 
         /// <summary>
-        /// Read and write access to the current gameState's activePlayerIndex field.
-        /// </summary>
-        public int activePlayerIndex { get; set; }
-
-        /// <summary>
-        /// Read and write access to the current gameState's players field.
-        /// </summary>
-        public List<Player> players { get; set; }
-
-        /// <summary>
         /// Read and write access to the current gameState's selectedUnit field.
         /// </summary>
         public AUnit selectedUnit { get; set; }
+
+        /// <summary>
+        /// Read and write access to the current gameState's turnCounter field.
+        /// </summary>
+        public int turnCounter { get; set; }
     }
 }

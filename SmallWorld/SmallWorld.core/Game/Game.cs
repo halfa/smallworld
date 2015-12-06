@@ -103,7 +103,7 @@ namespace SmallWorld.Core
 
         /// <summary>
         /// Terminates the current player's turn.
-        /// If it was the last player to play during this game turn, call upon the endGameTurn method.
+        /// If it was the last player to play during this game turn, calls upon the endGameTurn method.
         /// </summary>
         /// <param name="player"></param>
         public void endPlayerTurn()
@@ -183,7 +183,7 @@ namespace SmallWorld.Core
         /// Stacks the current game state onto the previous game states stack.
         /// The stored data is a memberwise copy of the current state data.
         /// We do not stack a copy of the selected unit, but null instead, for data consistency between players, positionsUnits, and selectedUnit.
-        /// The unit will have to be re-selected.
+        /// Thus, the unit will have to be re-selected if a previous state is reloaded.
         /// </summary>
         public void stack()
         {
@@ -208,7 +208,7 @@ namespace SmallWorld.Core
 
         /// <summary>
         /// Determines the cost of the specified path for the currently selected unit.
-        /// The path is known to be valid, ie the positions are valid and the total cost if inferior or equal to the currently selected action pool.
+        /// The path is known to be valid, ie the positions are valid and the total cost is inferior or equal to the currently selected unit's action pool.
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
@@ -243,14 +243,10 @@ namespace SmallWorld.Core
         /// <returns></returns>
         private AUnit findBestDefenderAt(Position position)
         {
-            // All the OOB tests have already been mayde when this method is called upon. //
-            // Also, we know there is at least one unit at the specified position. //
             AUnit res = currentState.positionsUnits[position][0];
             for (int i = 1; i < currentState.positionsUnits[position].Count; i++)
-            {
                 if (res.defencePt < currentState.positionsUnits[position][i].defencePt)
                     res = currentState.positionsUnits[position][i];
-            }
             return res;
         }
 
@@ -313,6 +309,8 @@ namespace SmallWorld.Core
         /// Determines in which order the findPath algorithm should explore adjacent tiles,
         /// in order to optimise the computed path if it exists.
         /// The path won't cross any tile on wich an enemy unit is located.
+        /// This heuristic is suited for the game rules, ie regarding the number of possible moves, there are very few
+        /// to no case in which the computed path would not be one of the shortest paths possible.
         /// </summary>
         /// <param name="current"></param>
         /// <param name="to"></param>
@@ -330,6 +328,14 @@ namespace SmallWorld.Core
             Position right = new Position(current.x + 1, current.y);
             Position down = new Position(current.x, current.y + 1);
             Position left = new Position(current.x - 1, current.y);
+
+            // Here is a drawing of the possible GENERAL directions to evaluate. //
+            // x is the current position. //
+            /*
+                1   2   3
+                8   x   4
+                7   6   5   
+            */
 
             if (dx > 0)
             {
@@ -494,11 +500,10 @@ namespace SmallWorld.Core
         }
 
         /// <summary>
-        /// Determines a possible path for the currently selected unit to the specified position.
+        /// If the selected unit is a valid target for a move / attack command (ie it belongs to the active player, and the target position is valid),
+        /// determines a possible path for the currently selected unit to the specified position.
         /// If a path exists, returns it as a list of positions.
         /// If no path was found, returns null.
-        /// This method shall not be used to attack a unit at the specified position,
-        /// for a position on which there is an enemy unit is considered invalid for the path.
         /// </summary>
         /// <param name="position"></param>
         /// <returns></returns>
@@ -513,6 +518,7 @@ namespace SmallWorld.Core
 
         /// <summary>
         /// Moves the currently selected unit to the specified position if possible.
+        /// Handles the update of all the data regarding units positioning.
         /// </summary>
         /// <param name="position"></param>
         public void moveSelectedUnitTo(Position position)

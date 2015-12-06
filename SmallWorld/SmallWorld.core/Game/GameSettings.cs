@@ -10,15 +10,6 @@ namespace SmallWorld.Core
     public class GameSettings
     {
         /// <summary>
-        /// Constructor for the GameSettings class.
-        /// </summary>
-        public GameSettings()
-        {
-            playersNames = new List<string>();
-            playersRaces = new List<Races>();
-        }
-
-        /// <summary>
         /// Read and write access to the current gameSettings' mapType field.
         /// </summary>
         public MapType mapType { get; set; }
@@ -47,6 +38,15 @@ namespace SmallWorld.Core
         /// Read and write access to the current gameSettings' unitLimit field.
         /// </summary>
         public int unitLimit { get; set; }
+
+        /// <summary>
+        /// Constructor for the GameSettings class.
+        /// </summary>
+        public GameSettings()
+        {
+            playersNames = new List<string>();
+            playersRaces = new List<Races>();
+        }
 
         /// <summary>
         /// Sets the current gameSettings' fields according to its map type.

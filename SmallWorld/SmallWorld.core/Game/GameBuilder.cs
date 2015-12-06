@@ -15,7 +15,7 @@ namespace SmallWorld.Core
         public GameSettings gameSettings { get; set; }
 
         /// <summary>
-        /// Constructor for the GameBuilder class. Dones not instanciate the settings field.
+        /// Constructor for the GameBuilder class.
         /// </summary>
         public GameBuilder(GameSettings settings)
         {
@@ -24,6 +24,7 @@ namespace SmallWorld.Core
 
         /// <summary>
         /// Creates a game according to the settings, and returns it.
+        /// If no settings are available, throws a new Exception.
         /// </summary>
         /// <returns></returns>
         public Game build()
