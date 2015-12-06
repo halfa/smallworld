@@ -14,25 +14,6 @@
         }
 
         /// <summary>
-        /// Creates a new HumanUnit.
-        /// </summary>
-        /// <returns></returns>
-        public HumanUnit createHumanUnit()
-        {
-            return new HumanUnit();
-        }
-
-        /// <summary>
-        /// Creates a memberwise copy of the specified HumanUnit.
-        /// </summary>
-        /// <param name="humanUnit"></param>
-        /// <returns></returns>
-        public HumanUnit createHumanUnit(HumanUnit humanUnit)
-        {
-            return new HumanUnit(humanUnit);
-        }
-
-        /// <summary>
         /// Creates a new ElfUnit.
         /// </summary>
         /// <returns></returns>
@@ -49,6 +30,25 @@
         public ElfUnit createElfUnit(ElfUnit elfUnit)
         {
             return new ElfUnit(elfUnit);
+        }
+
+        /// <summary>
+        /// Creates a new HumanUnit.
+        /// </summary>
+        /// <returns></returns>
+        public HumanUnit createHumanUnit()
+        {
+            return new HumanUnit();
+        }
+
+        /// <summary>
+        /// Creates a memberwise copy of the specified HumanUnit.
+        /// </summary>
+        /// <param name="humanUnit"></param>
+        /// <returns></returns>
+        public HumanUnit createHumanUnit(HumanUnit humanUnit)
+        {
+            return new HumanUnit(humanUnit);
         }
 
         /// <summary>

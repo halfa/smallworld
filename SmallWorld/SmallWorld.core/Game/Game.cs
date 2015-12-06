@@ -321,8 +321,8 @@ namespace SmallWorld.Core
         {
             List<Position> res = new List<Position>();
 
-            double dx = to.x - current.x;
-            double dy = to.y - current.y;
+            int dx = to.x - current.x;
+            int dy = to.y - current.y;
 
             Position up = new Position(current.x, current.y - 1);
             Position right = new Position(current.x + 1, current.y);

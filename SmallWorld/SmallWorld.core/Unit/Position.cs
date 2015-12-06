@@ -20,6 +20,9 @@ namespace SmallWorld.Core
             y = py;
         }
 
+        /// <summary>
+        /// Default constructor for the Position class.
+        /// </summary>
         public Position() { }
 
         /// <summary>
@@ -66,8 +69,8 @@ namespace SmallWorld.Core
 
         /// <summary>
         /// Overriding the GetHashCode method.
-        /// This method has a very bad generic behaviour, but suits our needs.
-        /// IT WILL BE IMPROVED IF WE HAVE THE TIME.
+        /// This method has a very bad generic behaviour, but it suits our needs.
+        /// *It may be updated in later versions. *
         /// </summary>
         /// <returns></returns>
         public override int GetHashCode()
