@@ -11,14 +11,14 @@
         public Game game { get; set; }
 
         /// <summary>
-        /// Read only access to the current smallWorld's saveManager field.
-        /// </summary>
-        public ISaveManager saveManager { get; set; }
-
-        /// <summary>
-        /// Read only access to the current smallWorld's loadManager field.
+        /// Read and write access to the current smallWorld's loadManager field.
         /// </summary>
         public ILoadManager loadManager { get; set; }
+
+        /// <summary>
+        /// Read and write access to the current smallWorld's saveManager field.
+        /// </summary>
+        public ISaveManager saveManager { get; set; }
 
         /// <summary>
         /// Sets the current smallWorld's game field to the loaded game specified by the filePath.
@@ -31,16 +31,6 @@
         }
 
         /// <summary>
-        /// Saves the current smallWorld's game to the specified filePath.
-        /// </summary>
-        /// <param name="filePath"></param>
-        public void saveGame(string filePath)
-        {
-            saveManager.savable = game;
-            saveManager.save(filePath);
-        }
-
-        /// <summary>
         /// Sets the current smallWorld's game field to be a new game according to the specified gameSettings.
         /// </summary>
         /// <param name="settings"></param>
@@ -48,6 +38,16 @@
         {
             GameBuilder builder = new GameBuilder(settings);
             game = builder.build();
+        }
+
+        /// <summary>
+        /// Saves the current smallWorld's game to the specified filePath.
+        /// </summary>
+        /// <param name="filePath"></param>
+        public void saveGame(string filePath)
+        {
+            saveManager.savable = game;
+            saveManager.save(filePath);
         }
 
         /// <summary>

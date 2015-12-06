@@ -15,19 +15,13 @@
   <Comment CommentText="Command">
     <Position X="6.307" Y="0.769" Height="0.291" Width="0.884" />
   </Comment>
-  <Comment CommentText="Singleton">
-    <Position X="6.424" Y="3.001" Height="0.291" Width="0.812" />
-  </Comment>
-  <Comment CommentText="Singleton">
-    <Position X="9.658" Y="3.017" Height="0.291" Width="0.812" />
-  </Comment>
   <Class Name="SmallWorld.Core.GameMaster">
     <Position X="0.5" Y="0.5" Width="3" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAQAAAAAAAAAAEAAAAAAEAAQAAAAIAAAAAAAABAQ=</HashCode>
+      <HashCode>AAAAAQAAAAAAAAAAEAAAAAAEAAQAAAAIAAAAAAAABAA=</HashCode>
       <FileName>GameMaster.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -80,19 +74,13 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAACAAAKAABAgAAAAAQSIAAAQBAAAACACAAAAIAgAAA=</HashCode>
+      <HashCode>AAACAAAKAADAgAAAAAQSIAAAQBAAAACAAAAABIAgAAA=</HashCode>
       <FileName>unit\AUnit.cs</FileName>
       <NewMemberFileName>Unit\AUnit.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.Core.HumanUnit">
     <Position X="8.75" Y="23.5" Width="2.75" />
-    <InheritanceLine Type="SmallWorld.Core.AUnit" FixedToPoint="true">
-      <Path>
-        <Point X="10" Y="23.055" />
-        <Point X="10" Y="23.5" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAACAAAAAABAAAAAAAAQAAAAQAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>unit\HumanUnit.cs</FileName>
@@ -109,14 +97,6 @@
   </Class>
   <Class Name="SmallWorld.Core.ElfUnit">
     <Position X="12" Y="23.5" Width="2.5" />
-    <InheritanceLine Type="SmallWorld.Core.AUnit" FixedToPoint="true">
-      <Path>
-        <Point X="10" Y="23.055" />
-        <Point X="10" Y="23.26" />
-        <Point X="13.25" Y="23.26" />
-        <Point X="13.25" Y="23.5" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAACAAAAAABAAAAAAAAQAAAAQAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>unit\ElfUnit.cs</FileName>
@@ -145,7 +125,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQEQAAAAAAAAgABAAAEAAAgAAwAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAQEQAAAAAAAAgABAAAEAAAgAAwAACA=</HashCode>
       <FileName>map\Map.cs</FileName>
       <NewMemberFileName>Map\Map.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -228,7 +208,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAQAAAAAAAAAAAAAQAAAEAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
       <FileName>saveLoad\saveManager\SaveManager.cs</FileName>
       <NewMemberFileName>SaveLoad\SaveManager\SaveManager.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -240,7 +220,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAQAAAAAAQAAAAAAAAAAAAAQAAAAIAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
       <FileName>saveLoad\loadManager\LoadManager.cs</FileName>
       <NewMemberFileName>SaveLoad\LoadManager\LoadManager.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -263,7 +243,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>QAACAAAAAQgAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>QAACAAAAAAgAAAAAIAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>game\GameData.cs</FileName>
       <NewMemberFileName>Game\GameData.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -293,7 +273,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>QAACEAkEAAgAAIAAIAAAAACAAAAAQIIEAAAIAIEAAAA=</HashCode>
+      <HashCode>QAACkAkEAIgAAKAAIAQAAAAAgAiAQIIEEBAQAIEIAAA=</HashCode>
       <FileName>game\Game.cs</FileName>
       <NewMemberFileName>Game\Game.cs</NewMemberFileName>
     </TypeIdentifier>
