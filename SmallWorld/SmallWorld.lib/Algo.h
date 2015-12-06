@@ -1,5 +1,6 @@
 #pragma once
 
+// Used to facilitate the creation of the random map tiles. //
 enum TileType
 {
 	Forest = 0,
@@ -14,10 +15,9 @@ public:
 	Algo() {}
 	~Algo() {}
 
-	// You can change the return type and the parameters according to your needs.
 	void fillMap(TileType map[], int size);
 
-	// Returns the number of choices contained in the suggestions array.
+	// Returns the number of choices contained in the suggestions array. //
 	int suggestMove(int points[], int nbChoice, int suggestions[]);
 };
 
