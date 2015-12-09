@@ -18,21 +18,19 @@
         <GroupBox x:Name="player1input" Header="Player 1" HorizontalAlignment="Left" Margin="365,35,0,0" VerticalAlignment="Top" Height="140" Width="195" Padding="5">
             <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="160">
                 <Label x:Name="player1_name_label" Content="Player name"/>
-                <TextBox x:Name="player1_name_input" Height="20" TextWrapping="Wrap" Text="Player1" ToolTip="Name for player 1"/>
+                <TextBox x:Name="player1_name_input" Height="20" TextWrapping="Wrap" Text="{Binding firstPlayerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="Name for player 1"/>
                 <Label x:Name="player1_race_label" Content="Select a race"/>
                 <ComboBox x:Name="player1_race" ToolTip="Chose a race" HorizontalAlignment="Left" Width="160">
                     <ComboBoxItem x:Name="player1_Elf" Content="Elf"/>
                     <ComboBoxItem x:Name="player1_Human" Content="Human"/>
                     <ComboBoxItem x:Name="player1_Orc" Content="Orc"/>
                 </ComboBox>
-
-
             </StackPanel>
         </GroupBox>
         <GroupBox x:Name="player2input" Header="Player 2" HorizontalAlignment="Left" Margin="365,180,0,0" VerticalAlignment="Top" Height="140" Width="195" Padding="5">
             <StackPanel HorizontalAlignment="Left" Height="105" VerticalAlignment="Top" Width="160" Margin="0,0,0,-12">
                 <Label x:Name="player2_name_label" Content="Player name"/>
-                <TextBox x:Name="player2_name_input" Height="20" TextWrapping="Wrap" Text="Player2" ToolTip="Name for player 2"/>
+                <TextBox x:Name="player2_name_input" Height="20" TextWrapping="Wrap" Text="{Binding firstPlayerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="Name for player 2"/>
                 <Label x:Name="player2_race_label" Content="Select a race"/>
                 <ComboBox x:Name="player2_race" IsReadOnly="True" ToolTip="Chose a race">
                     <ComboBoxItem x:Name="player2_Elf" Content="Elf"/>

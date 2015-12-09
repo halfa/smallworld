@@ -30,16 +30,18 @@ namespace SmallWorld.gui
             GS.playersRaces.Add(Races.Human);
         }
 
-        event PropertyChangedEventHandler INotifyPropertyChanged.PropertyChanged
-        {
-            add
-            {
-                throw new NotImplementedException();
-            }
+        public string firstPlayerName {
+            get { return GS.playersNames[0]; }
+            set { GS.playersNames[0] = value; OnPropertyChanged("firstPlayerName"); } }
 
-            remove
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
             {
-                throw new NotImplementedException();
+                handler(this, new PropertyChangedEventArgs(name));
             }
         }
     }

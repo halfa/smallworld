@@ -21,11 +21,10 @@ namespace SmallWorld.gui
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindowViewModel MainWindowVM { get; set;}
         public MainWindow()
         {
             InitializeComponent();
-            MainWindowVM = new MainWindowViewModel();
+            this.DataContext = new MainWindowViewModel();
         }
     }
 }
