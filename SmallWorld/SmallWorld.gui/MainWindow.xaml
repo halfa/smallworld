@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Small World Game" Height="500" Width="600">
     <Grid>
-        <Button x:Name="start" Content="Start Game" HorizontalAlignment="Left" Margin="470,423,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.533,3" Click="start_Click"/>
+        <Button x:Name="start" Content="Start Game" HorizontalAlignment="Left" Margin="470,423,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.533,3" Command="{Binding start_Click}"/>
         <GroupBox x:Name="mapChoice" Header="Map" HorizontalAlignment="Left" Margin="380,330,0,0" VerticalAlignment="Top" Height="80" Width="165">
             <StackPanel Margin="5,0,0,-12" HorizontalAlignment="Left" Width="145" Height="70" VerticalAlignment="Top">
                 <RadioButton x:Name="mapChoice_Demo" Content="Demo - 6x6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" GroupName="Carte" IsChecked="True"/>
