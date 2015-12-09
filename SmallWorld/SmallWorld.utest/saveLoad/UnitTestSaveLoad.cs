@@ -10,7 +10,8 @@ namespace SmallWorld.utest
         public void TestSaveLoad()
         {
             // Removing the saves directory and its content at the begining of the test. //
-            System.IO.Directory.Delete(".\\Saves", true);
+            if (System.IO.Directory.Exists(".\\Saves"))
+                System.IO.Directory.Delete(".\\Saves", true);
 
             GameSettings GS = new GameSettings();
             GS.mapType = MapType.Demo;
@@ -41,6 +42,10 @@ namespace SmallWorld.utest
 
             GM.loadGame("save02");
             Assert.AreEqual(GM.game.previousGameStates.Count, 1);
+
+            // Removing the saves directory and its content at the end of the test. //
+            if (System.IO.Directory.Exists(".\\Saves"))
+                System.IO.Directory.Delete(".\\Saves", true);
         }
     }
 }
