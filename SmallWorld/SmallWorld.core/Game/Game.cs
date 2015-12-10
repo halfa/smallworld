@@ -316,8 +316,8 @@ namespace SmallWorld.Core
         /// This heuristic is suited for the game rules, ie regarding the number of possible moves, there are very few
         /// to no case in which the computed path would not be one of the shortest paths possible.
         /// </summary>
-        /// <param name="current"></param>
-        /// <param name="to"></param>
+        /// <param name="current">Current player's unit position</param>
+        /// <param name="to">Unit destination position</param>
         /// <param name="currentCost"></param>
         /// <param name="currentPath"></param>
         /// <returns></returns>

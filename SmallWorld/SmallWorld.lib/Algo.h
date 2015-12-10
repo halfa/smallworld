@@ -15,7 +15,10 @@ public:
 	Algo() {}
 	~Algo() {}
 
+	// Fill a map with random tiles. //
 	void fillMap(TileType map[], int size);
+	void fillMapByPermutations(TileType map[], int size);
+	void fillMapWithNoise(TileType map[], int size, int seed);
 
 	// Returns the number of choices contained in the suggestions array. //
 	int suggestMove(int points[], int nbChoice, int suggestions[]);
