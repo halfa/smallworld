@@ -59,21 +59,13 @@ namespace SmallWorld.utest
                 game.currentState.players[1] = orc;
             }
 
-            //game.currentState.positionsUnits.Clear();
             Position p1 = new Position(4, 3);
             Position p2 = new Position(0, 0);
-            //game.currentState.positionsUnits.Add(p1, new List<AUnit>());
-            //game.currentState.positionsUnits.Add(p2, new List<AUnit>());
             foreach(AUnit unit in game.currentState.players[0].units)
-            {
                 unit.position = p1;
-                //game.currentState.positionsUnits[p1].Add(unit);
-            }
+
             foreach (AUnit unit in game.currentState.players[1].units)
-            {
                 unit.position = p2;
-                //game.currentState.positionsUnits[p2].Add(unit);
-            }
 
             // Now the elven units are at position (4,3). //
             // Now the orc units are at position (0,0). //

@@ -54,7 +54,6 @@
   <ItemGroup>
     <Compile Include="tile\UnitTestTileFactory.cs" />
     <Compile Include="map\UnitTestMap.cs" />
-    <Compile Include="game\UnitTestGameState.cs" />
     <Compile Include="game\UnitTestGame.cs" />
     <Compile Include="game\UnitTestGameAlgo.cs" />
     <Compile Include="saveLoad\UnitTestSaveLoad.cs" />

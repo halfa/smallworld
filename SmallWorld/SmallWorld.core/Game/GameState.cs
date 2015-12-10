@@ -15,7 +15,6 @@ namespace SmallWorld.Core
         public GameState()
         {
             turnCounter = 0;
-            //positionsUnits = new SerializableDictionary<Position, List<AUnit>>();
             activePlayerIndex = 0;
             players = new List<Player>();
             selectedUnit = null;
@@ -34,63 +33,18 @@ namespace SmallWorld.Core
             foreach (Player p in s.players)
                 players.Add(new Player(p));
 
-            //positionsUnits = GameState.concatPositionsUnits(players);
-            /*
-            if (s.selectedUnit != null)
-            {
-                UnitFactory factory = new UnitFactory();
-                selectedUnit = factory.copyUnit(s.selectedUnit);
-            }
-            else*/
-                selectedUnit = null;
+            selectedUnit = null;
         }
 
         /// <summary>
         /// Read and write access to the current gameState's activePlayerIndex field.
         /// </summary>
         public int activePlayerIndex { get; set; }
-/*
-        /// <summary>
-        /// Concats the respective positionsUnits dictionaries of the specified players into one.
-        /// </summary>
-        /// <param name="l"></param>
-        /// <returns></returns>
-        public static SerializableDictionary<Position, List<AUnit>> concatPositionsUnits(List<Player> l)
-        {
-            SerializableDictionary<Position, List<AUnit>> dic = new SerializableDictionary<Position, List<AUnit>>();
 
-            foreach (Player p in l)
-            {
-                SerializableDictionary<Position, List<AUnit>> playerDic = p.getPositionsUnits();
-                foreach (Position pos in playerDic.Keys)
-                {
-                    if (dic.ContainsKey(pos))
-                    {
-                        foreach (AUnit unit in playerDic[pos])
-                            dic[pos].Add(unit);
-                    }
-                    else
-                    {
-                        List<AUnit> list = new List<AUnit>();
-                        foreach (AUnit unit in playerDic[pos])
-                            list.Add(unit);
-                        dic.Add(pos, list);
-                    }
-                }
-            }
-
-            return dic;
-        }
-*/
         /// <summary>
         /// Read and write access to the current gameState's players field.
         /// </summary>
         public List<Player> players { get; set; }
-
-        /// <summary>
-        /// Read and write access to the current gameState's positionsUnits field.
-        /// </summary>
-        //public SerializableDictionary<Position, List<AUnit>> positionsUnits { get; set; }
 
         /// <summary>
         /// Read and write access to the current gameState's selectedUnit field.

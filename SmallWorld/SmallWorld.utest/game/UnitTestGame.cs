@@ -60,7 +60,7 @@ namespace SmallWorld.utest
 
                 foreach (AUnit unit in p.units) {
                     atPos = game.getUnitsAt(unit.position);
-                    Assert.IsTrue(atPos.Contains(unit)/*game.currentState.positionsUnits.ContainsKey(unit.position)*/);
+                    Assert.IsTrue(atPos.Contains(unit));
                 }
             }
 
@@ -75,21 +75,11 @@ namespace SmallWorld.utest
             Position p1 = new Position(1, 2);
             Position p2 = new Position(5, 3);
 
-            //game.currentState.positionsUnits.Clear();
-            //game.currentState.positionsUnits.Add(p1, new List<AUnit>());
-            //game.currentState.positionsUnits.Add(p2, new List<AUnit>());
-
             foreach (AUnit unit in game.currentState.players[0].units)
-            {
                 unit.position = p1;
-                //game.currentState.positionsUnits[p1].Add(unit);
-            }
 
             foreach (AUnit unit in game.currentState.players[1].units)
-            {
                 unit.position = p2;
-                //game.currentState.positionsUnits[p2].Add(unit);
-            }
 
             // Player1 units are at pos (1,2). //
             // Player2 units are at pos (5,3). //
@@ -115,8 +105,7 @@ namespace SmallWorld.utest
             game.moveSelectedUnitTo(to);
             Assert.IsTrue(game.currentState.selectedUnit.position.Equals(to));
             atPos = game.getUnitsAt(to);
-            Assert.IsTrue(atPos.Count == 1/*game.currentState.positionsUnits.ContainsKey(to)*/);
-            //Assert.AreEqual(game.currentState.positionsUnits[to].Count, 1);
+            Assert.IsTrue(atPos.Count == 1);
             Assert.IsTrue(game.currentState.players[0].units[0].position.Equals(to));
             Assert.AreEqual(game.currentState.selectedUnit.actionPool, (2 - game.currentState.selectedUnit.getMoveCost(game.map.getTileAtPos(to))));
 
@@ -131,7 +120,6 @@ namespace SmallWorld.utest
             Assert.IsFalse(game.currentState.selectedUnit.position.Equals(to2));
             atPos = game.getUnitsAt(to2);
             Assert.IsTrue(atPos.Count == 0);
-            //Assert.IsFalse(game.currentState.positionsUnits.ContainsKey(to2));
             Assert.IsFalse(game.currentState.players[1].units[0].position.Equals(to2));
             Assert.AreEqual(game.currentState.selectedUnit.actionPool, 2);
 
@@ -139,7 +127,7 @@ namespace SmallWorld.utest
             game.selectUnitAt(p1);
             game.moveSelectedUnitTo(to);
             atPos = game.getUnitsAt(to);
-            Assert.AreEqual(atPos.Count, 2/*game.currentState.positionsUnits[to].Count, 2*/);
+            Assert.AreEqual(atPos.Count, 2);
 
             // Testing moving to a valid tile but too far away. //
             game.selectUnitAt(p1);
@@ -149,7 +137,6 @@ namespace SmallWorld.utest
             Assert.IsTrue(game.currentState.selectedUnit.position.Equals(p1));
             atPos = game.getUnitsAt(invalidPos0);
             Assert.IsTrue(atPos.Count == 0);
-            //Assert.IsFalse(game.currentState.positionsUnits.ContainsKey(invalidPos0));
             Assert.AreEqual(game.currentState.selectedUnit.actionPool, 2);
 
             // Testing moving to an invalid position : OOB. //
@@ -159,7 +146,6 @@ namespace SmallWorld.utest
             Assert.IsTrue(game.currentState.selectedUnit.position.Equals(p1));
             atPos = game.getUnitsAt(invalidPos1);
             Assert.IsTrue(atPos.Count == 0);
-            //Assert.IsFalse(game.currentState.positionsUnits.ContainsKey(invalidPos1));
             Assert.AreEqual(game.currentState.selectedUnit.actionPool, 2);
 
             // Testing moving to an invalid position : water tile for Elf. //
@@ -169,7 +155,6 @@ namespace SmallWorld.utest
             Assert.IsTrue(game.currentState.selectedUnit.position.Equals(p1));
             atPos = game.getUnitsAt(invalidPos2);
             Assert.IsTrue(atPos.Count == 0);
-            //Assert.IsFalse(game.currentState.positionsUnits.ContainsKey(invalidPos2));
             Assert.AreEqual(game.currentState.selectedUnit.actionPool, 2);
 
             // Give the hand to the second player. //
@@ -183,14 +168,11 @@ namespace SmallWorld.utest
             Position farAway = new Position(4, 0);
             atPos = game.getUnitsAt(farAway);
             Assert.IsTrue(atPos.Count == 0);
-            //Assert.IsFalse(game.currentState.positionsUnits.ContainsKey(farAway));
             game.moveSelectedUnitTo(farAway);
 
             Assert.IsTrue(game.currentState.selectedUnit.position.Equals(farAway));
             atPos = game.getUnitsAt(farAway);
             Assert.IsTrue(atPos.Count == 1);
-            //Assert.IsTrue(game.currentState.positionsUnits.ContainsKey(farAway));
-            //Assert.AreEqual(game.currentState.positionsUnits[farAway].Count, 1);
             Assert.IsTrue(game.currentState.players[1].units[0].position.Equals(farAway));
             Assert.AreEqual(game.currentState.selectedUnit.actionPool, 0);
 
@@ -203,7 +185,6 @@ namespace SmallWorld.utest
             }
             atPos = game.getUnitsAt(p2);
             Assert.IsTrue(atPos.Count == 0);
-            //Assert.IsFalse(game.currentState.positionsUnits.ContainsKey(p2));
 
             // Ending player2 turn and thus game turn number 1. //
             Assert.AreEqual(game.currentState.players[0].points, 0);
@@ -219,22 +200,14 @@ namespace SmallWorld.utest
             Assert.AreEqual(nextScoreP2, game.currentState.players[1].points);
 
             // Teleporting elven units around the map to test battles now. //
-            //game.currentState.positionsUnits.Clear();
             Position newElven = new Position(4, 3);
-            //game.currentState.positionsUnits.Add(newElven, new List<AUnit>());
-            //game.currentState.positionsUnits.Add(farAway, new List<AUnit>());
             foreach (AUnit unit in game.currentState.players[0].units)
-            {
                 unit.position = newElven;
-                //game.currentState.positionsUnits[unit.position].Add(unit);
-            }
-            //foreach (AUnit unit in game.currentState.players[1].units)
-            //game.currentState.positionsUnits[unit.position].Add(unit);
 
             // Now elvens are at position (4,3) and orcs at position (4,0). //
             atPos = game.getUnitsAt(farAway);
-            int initialOrcHP = /*.currentState.positionsUnits[farAway]*/atPos[0].healthPt;
-            int initialOrcDP = /*game.currentState.positionsUnits[farAway]*/atPos[0].defencePt;
+            int initialOrcHP = atPos[0].healthPt;
+            int initialOrcDP = atPos[0].defencePt;
             game.selectUnitAt(newElven);
             Assert.IsFalse(game.currentState.selectedUnit == null);
             game.moveSelectedUnitTo(farAway);
@@ -252,8 +225,8 @@ namespace SmallWorld.utest
             Assert.AreEqual(game.currentState.selectedUnit.position, expected);
             // The defender might have lost 1 defence point or not, if it had a lucky evade. //
             atPos = game.getUnitsAt(farAway);
-            Assert.IsTrue(initialOrcDP == /*game.currentState.positionsUnits[farAway]*/atPos[0].defencePt ||
-                initialOrcDP == /*game.currentState.positionsUnits[farAway]*/atPos[0].defencePt + 1);
+            Assert.IsTrue(initialOrcDP == atPos[0].defencePt ||
+                initialOrcDP == atPos[0].defencePt + 1);
 
             // Testing what happens if a melee unit kills the last unit on a tile and tries to move forward after its action. //
             AUnit doomed = game.currentState.selectedUnit;
@@ -269,8 +242,8 @@ namespace SmallWorld.utest
             }
             Assert.IsFalse(game.currentState.players[0].units.Contains(doomed));
             atPos = game.getUnitsAt(expected);
-            Assert.IsTrue(/*game.currentState.positionsUnits[expected]*/atPos.Count != 0);
-            Assert.AreEqual(/*game.currentState.positionsUnits[expected]*/atPos[0].actionPool, (2 - 0.5 * 2));
+            Assert.IsTrue(atPos.Count != 0);
+            Assert.AreEqual(atPos[0].actionPool, (2 - 0.5 * 2));
         }
 
         [TestMethod]
@@ -319,11 +292,7 @@ namespace SmallWorld.utest
             // Testing the created players. //
             Assert.AreEqual(GS.nbPlayers, game.currentState.players.Count);
             foreach (Player pp in game.currentState.players)
-            {
                 Assert.AreEqual(GS.unitLimit, pp.units.Count);
-                //foreach (AUnit unit in pp.units)
-                    //Assert.IsTrue(game.currentState.positionsUnits.ContainsKey(unit.position));
-            }
 
             // We put the Elf player at index 0 and the Orc player at index 1 for convenience in testing. //
             if (game.currentState.players[0].race == Races.Orc)
@@ -336,24 +305,14 @@ namespace SmallWorld.utest
             Position p1 = new Position(5, 5);
             Position p2 = new Position(2, 2);
 
-            //game.currentState.positionsUnits.Clear();
-            //game.currentState.positionsUnits.Add(p1, new List<AUnit>());
-            //game.currentState.positionsUnits.Add(p2, new List<AUnit>());
-
             foreach (AUnit unit in game.currentState.players[0].units)
-            {
                 unit.position = p1;
-                //game.currentState.positionsUnits[p1].Add(unit);
-            }
 
             // Giving the orc player enough units to test out the heuristic. //
             for (int nb = 0; nb < 16; nb++)
                 game.currentState.players[1].addNewUnit();
             foreach (AUnit unit in game.currentState.players[1].units)
-            {
                 unit.position = p2;
-                //game.currentState.positionsUnits[p2].Add(unit);
-            }
 
             // Now orc units are at position (2,2). //
             // Now elven units are at position (5,5). //
@@ -391,7 +350,7 @@ namespace SmallWorld.utest
                 game.moveSelectedUnitTo(to);
                 Assert.AreEqual(game.currentState.selectedUnit.position, to);
                 atPos = game.getUnitsAt(to);
-                Assert.AreEqual(/*game.currentState.positionsUnits[to]*/atPos.Count, 1);
+                Assert.AreEqual(atPos.Count, 1);
             }
         }
 
@@ -507,21 +466,14 @@ namespace SmallWorld.utest
             Game game = gameBuilder.build();
 
             // Placing the players' units on a specific tile. //
-            //game.currentState.positionsUnits.Clear();
             Position p1 = new Position(0, 0);
             Position p2 = new Position(3, 3);
-            //game.currentState.positionsUnits.Add(p1, new List<AUnit>());
-            //game.currentState.positionsUnits.Add(p2, new List<AUnit>());
+
             foreach (AUnit unit in game.currentState.players[0].units)
-            {
                 unit.position = p1;
-                //game.currentState.positionsUnits[p1].Add(unit);
-            }
+
             foreach (AUnit unit in game.currentState.players[1].units)
-            {
                 unit.position = p2;
-                //game.currentState.positionsUnits[p2].Add(unit);
-            }
 
             // Now player0 units are at position (0,0) .//
             // Now player1 units are at position (3,3) .//
@@ -538,8 +490,7 @@ namespace SmallWorld.utest
             game.moveSelectedUnitTo(to);
             Assert.AreEqual(game.previousGameStates.Count, 1);
             atPos = game.getUnitsAt(to);
-            //Assert.IsTrue(game.currentState.positionsUnits.ContainsKey(to));
-            Assert.AreEqual(/*game.currentState.positionsUnits[to]*/atPos.Count, 1);
+            Assert.AreEqual(atPos.Count, 1);
             Assert.AreEqual(game.currentState.selectedUnit.actionPool, 0);
 
             game.undo();
@@ -547,18 +498,15 @@ namespace SmallWorld.utest
             Assert.AreEqual(game.previousGameStates.Count, 0);
             Assert.IsTrue(game.currentState.selectedUnit == null);
             atPos = game.getUnitsAt(to);
-            //Assert.IsFalse(game.currentState.positionsUnits.ContainsKey(to));
             Assert.IsTrue(atPos.Count == 0);
-            //Assert.AreEqual(game.currentState.positionsUnits[p1].Count, state0.positionsUnits[p1].Count);
 
             // The units should be at maximum action pool now. //
             atPos = game.getUnitsAt(p1);
-            foreach (AUnit unit in /*game.currentState.positionsUnits[p1]*/atPos)
+            foreach (AUnit unit in atPos)
                 Assert.AreEqual(unit.actionPool, 2);
 
             // Testing the revival of units. //
             GameState state1 = new GameState(game.currentState);
-            //Assert.AreEqual(state1.positionsUnits[p1].Count, GS.unitLimit);
             game.stack();
             Assert.AreEqual(game.previousGameStates.Count, 1);
             game.currentState.players[0].units.Clear();
@@ -567,10 +515,6 @@ namespace SmallWorld.utest
             Assert.AreEqual(game.previousGameStates.Count, 0);
             Assert.IsFalse(game.currentState.players[0].units.Count == 0);
             Assert.AreEqual(game.currentState.players[0].units.Count, GS.unitLimit);
-
-            // They should also be the exact same units as before (not considering their adresses as Objects). //
-            //for (int i = 0; i < state1.positionsUnits[p1].Count; i++)
-            //    state1.positionsUnits[p1][i].equals(game.currentState.positionsUnits[p1][i]);
 
             // Testing the reset of the stack when a player ends his turn. //
             game.endPlayerTurn();

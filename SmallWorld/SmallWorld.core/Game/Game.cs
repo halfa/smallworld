@@ -183,7 +183,7 @@ namespace SmallWorld.Core
         /// <summary>
         /// Stacks the current game state onto the previous game states stack.
         /// The stored data is a memberwise copy of the current state data.
-        /// We do not stack a copy of the selected unit, but null instead, for data consistency between players, positionsUnits, and selectedUnit.
+        /// We do not stack a copy of the selected unit, but null instead, for data consistency between players' units, and selectedUnit.
         /// Thus, the unit will have to be re-selected if a previous state is reloaded.
         /// </summary>
         public void stack()
@@ -231,8 +231,8 @@ namespace SmallWorld.Core
             if (map.inBound(p))
             {
                 List<AUnit> units = getUnitsAt(p);
-                if (units.Count != 0 /*currentState.positionsUnits.ContainsKey(p)*/)
-                    return !currentState.players[currentState.activePlayerIndex].hasUnit(units[0] /*currentState.positionsUnits[p][0]*/);
+                if (units.Count != 0)
+                    return !currentState.players[currentState.activePlayerIndex].hasUnit(units[0]);
             }
             return false;
         }
@@ -540,8 +540,6 @@ namespace SmallWorld.Core
             Position to = path[path.Count - 1];
             AUnit selected = currentState.selectedUnit;
 
-            //SerializableDictionary<Position, List<AUnit>> dic = currentState.positionsUnits;
-
             double cost = computePathCost(path);
 
             // Now handles the attack if it was an attack comand.
@@ -558,13 +556,10 @@ namespace SmallWorld.Core
                     // Enemy unit died in battle, now we update the dictionary accordingly. //
                     int index = (currentState.activePlayerIndex + 1) % gameSettings.nbPlayers;
                     currentState.players[index].removeUnit(defender);
-                    //dic[position].Remove(defender);
-                    //if (dic[position].Count == 0)
-                    //    dic.Remove(position);
                 }
                 cost += selected.getMoveCost(map.getTileAtPos(position));
                 List<AUnit> defenders = getUnitsAt(position);
-                if (defender.isDead() && /*!dic.ContainsKey(position)*/ defenders.Count == 0)
+                if (defender.isDead() && defenders.Count == 0)
                 {
                     if (selected.getAttackRange(map.getTileAtPos(to)) != 2)
                     {
@@ -574,23 +569,9 @@ namespace SmallWorld.Core
                     }
                 }
             }
-            // Updates the currently selected unit's position.
-            // Updates the positionsUnits dictionary by removing the selected unit from the values associated with its position.
-            // If it's the last unit on the said position, removes the key from the dictionary.
-
-            //dic[selected.position].Remove(selected);
-            //if (dic[selected.position].Count == 0)
-            //    dic.Remove(selected.position);
-
             // Updates the currently selected unit's fields.
             selected.position = to;
             selected.actionPool -= cost;
-
-            // Updates the positionsUnits dictionary with the new values for the currently selected unit.
-            //if (!dic.ContainsKey(selected.position))
-            //    dic.Add(selected.position, new List<AUnit>() { selected });
-            //else
-            //    dic[selected.position].Add(selected);
         }
 
         /// <summary>
@@ -603,28 +584,6 @@ namespace SmallWorld.Core
         /// <param name="position"></param>
         public void selectUnitAt(Position position)
         {
-            /*
-            if (!currentState.positionsUnits.ContainsKey(position))
-                currentState.selectedUnit = null;
-            else
-            {
-                if(currentState.selectedUnit == null)
-                    currentState.selectedUnit = currentState.positionsUnits[position][0];
-                else
-                {
-                    if (currentState.selectedUnit.position.Equals(position))
-                    {
-                        int curIndex = currentState.positionsUnits[position].IndexOf(currentState.selectedUnit);
-                        if (curIndex == -1)
-                            throw new Exception("Invalid state of selected unit.");
-                        curIndex = (curIndex + 1) % currentState.positionsUnits[position].Count;
-                        currentState.selectedUnit = currentState.positionsUnits[position][curIndex];
-                    }
-                    else
-                        currentState.selectedUnit = currentState.positionsUnits[position][0];
-                }
-                
-            }*/
             List<AUnit> units = getUnitsAt(position);
             if (units.Count == 0)
                 currentState.selectedUnit = null;
@@ -646,6 +605,19 @@ namespace SmallWorld.Core
                         currentState.selectedUnit = units[0];
                 }
             }
+        }
+
+        /// <summary>
+        /// Determines the units at the specified position.
+        /// The returned list of units will only contain units of 1 player only, because of the game rules.
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
+        public List<AUnit> getUnitsAt(Position p)
+        {
+            List<AUnit> p1 = currentState.players[0].units.Where(r => (r.position.equals(p))).ToList();
+            List<AUnit> p2 = currentState.players[1].units.Where(r => (r.position.equals(p))).ToList();
+            return p1.Concat(p2).ToList();
         }
 
         /* Serialization. */
@@ -728,19 +700,6 @@ namespace SmallWorld.Core
                 res.Add(adjacentPositions[n]);
 
             return res;
-        }
-
-        /// <summary>
-        /// Determines the units at the specified position.
-        /// The returned list of units will only contain units of 1 player only, because of the game rules.
-        /// </summary>
-        /// <param name="p"></param>
-        /// <returns></returns>
-        public List<AUnit> getUnitsAt(Position p)
-        {
-            List<AUnit> p1 = currentState.players[0].units.Where(r => (r.position.equals(p))).ToList();
-            List<AUnit> p2 = currentState.players[1].units.Where(r => (r.position.equals(p))).ToList();
-            return p1.Concat(p2).ToList();
         }
     }
 }
