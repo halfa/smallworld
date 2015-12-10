@@ -43,7 +43,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="util\Algo.cs" />
-    <Compile Include="util\SerializableDictionary.cs" />
     <Compile Include="race\Races.cs" />
     <Compile Include="tile\TileType.cs" />
     <Compile Include="tile\ATile.cs" />

@@ -191,13 +191,16 @@ namespace SmallWorld.utest
             Assert.AreEqual(game.currentState.players[1].points, 0);
             int nextScoreP1 = game.currentState.players[0].countPoints(game.map);
             int nextScoreP2 = game.currentState.players[1].countPoints(game.map);
-
+            int expectedP1 = 6;
+            int expectedP2 = 1;
             game.endPlayerTurn();
 
             // Testing the points earning. //
             Assert.AreEqual(game.currentState.turnCounter, 1);
             Assert.AreEqual(nextScoreP1, game.currentState.players[0].points);
             Assert.AreEqual(nextScoreP2, game.currentState.players[1].points);
+            Assert.AreEqual(expectedP1, game.currentState.players[0].points);
+            Assert.AreEqual(expectedP2, game.currentState.players[1].points);
 
             // Teleporting elven units around the map to test battles now. //
             Position newElven = new Position(4, 3);

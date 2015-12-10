@@ -91,35 +91,16 @@ namespace SmallWorld.Core
         /// <returns></returns>
         public int countPoints(Map map)
         {
-            SerializableDictionary<Position, List<AUnit>> dic = getPositionsUnits();
+            List<Position> visited = new List<Position>();
             int res = 0;
-            foreach (Position p in dic.Keys)
-                res += dic[p][0].countPoints(map.getTileAtPos(p));
-
-            return res;
-        }
-
-        /// <summary>
-        /// Returns the serializable dictionary associating the player's units' position to their respective units.
-        /// The returned dictionary is not a memberwise copy of the players' attributes, but real references to its fields.
-        /// </summary>
-        /// <returns></returns>
-        public SerializableDictionary<Position, List<AUnit>> getPositionsUnits()
-        {
-            SerializableDictionary<Position, List<AUnit>> res = new SerializableDictionary<Position, List<AUnit>>();
-
-            foreach (AUnit unit in units)
+            foreach(AUnit unit in units)
             {
-                if (!res.ContainsKey(unit.position))
+                if(!visited.Contains(unit.position))
                 {
-                    List<AUnit> list = new List<AUnit>();
-                    res.Add(unit.position, list);
+                    res += unit.countPoints(map.getTileAtPos(unit.position));
+                    visited.Add(unit.position);
                 }
             }
-
-            foreach (AUnit unit in units)
-                res[unit.position].Add(unit);
-
             return res;
         }
 
