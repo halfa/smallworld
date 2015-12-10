@@ -7,6 +7,7 @@ namespace SmallWorld.utest
     [TestClass]
     public class UnitTestGameState
     {
+        /*
         [TestMethod]
         public void TestDictionaryKeyIndependence()
         {
@@ -28,5 +29,6 @@ namespace SmallWorld.utest
             // Therefore, if we add a key to the dictionary, modifying the unit's position will not modify //
             // the key object, since it's a hash of the said object. //
         }
+        */
     }
 }

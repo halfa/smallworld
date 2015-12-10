@@ -44,8 +44,8 @@ namespace SmallWorld.utest
             Assert.AreEqual(GM.game.previousGameStates.Count, 1);
 
             // Removing the saves directory and its content at the end of the test. //
-            if (System.IO.Directory.Exists(".\\Saves"))
-                System.IO.Directory.Delete(".\\Saves", true);
+            //if (System.IO.Directory.Exists(".\\Saves"))
+            //    System.IO.Directory.Delete(".\\Saves", true);
         }
     }
 }

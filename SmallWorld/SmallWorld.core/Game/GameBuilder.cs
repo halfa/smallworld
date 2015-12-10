@@ -115,7 +115,7 @@ namespace SmallWorld.Core
                 startState.activePlayerIndex = 0;
                 startState.players = players;
                 startState.selectedUnit = null;
-                startState.positionsUnits = GameState.concatPositionsUnits(players);
+                //startState.positionsUnits = GameState.concatPositionsUnits(players);
                 startState.turnCounter = 0;
 
                 game.currentState = startState;
