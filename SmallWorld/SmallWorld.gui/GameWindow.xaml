@@ -22,6 +22,7 @@
         <Menu x:Name="menu" Margin="0">
             <MenuItem Header="Save" />
             <MenuItem Header="Load" />
+            <MenuItem Header="Suggest Move" />
         </Menu>
         <Grid x:Name="Players_Data_Grid" Margin="0" ShowGridLines="True" Grid.Row="1">
             <Grid.RowDefinitions>
@@ -34,13 +35,15 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Label x:Name="Player1_Name_Label" Content="Player1" Margin="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-            <Label x:Name="Player1_Score_Label" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="16" Grid.Column="1"/>
+            <Label x:Name="Player1_Name_Label" Content="{Binding firstPlayerName, Mode=OneWay}" Margin="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label x:Name="Player1_Score_Label" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{Binding firstPlayerScore, Mode=OneWay}" Grid.Column="1"/>
             <Image x:Name="Versus_Image" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2"/>
-            <Label x:Name="Player2_Score_Label" Content="22" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="3"/>
-            <Label x:Name="Player2_Name_Label" Content="Player2" Grid.Column="4" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="Player2_Score_Label" Content="{Binding secondPlayerScore, Mode=OneWay}" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="3"/>
+            <Label x:Name="Player2_Name_Label" Content="{Binding secondPlayerName, Mode=OneWay}" Grid.Column="4" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         </Grid>
-        <Grid x:Name="Game_Display_Grid" Margin="0" Grid.Row="2" ShowGridLines="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+        <Grid x:Name="Game_Display_Grid" Margin="0" Grid.Row="2" ShowGridLines="True">
+            <Rectangle  Width="40" Height="40" Name="SelectionRectangle" Panel.ZIndex="333" Stroke="Blue" StrokeThickness="2" Visibility="{Binding SelectedVisible, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="{Binding SelectedRow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="{Binding SelectedColumn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
         <Grid x:Name="Units_Command_Grid" Margin="0" Grid.Row="3" ShowGridLines="True">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>

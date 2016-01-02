@@ -21,7 +21,6 @@ namespace SmallWorld.gui
     public partial class GameWindow : Window
     {
         private Map map;
-
         public GameWindow(GameSettings settings)
         {
             InitializeComponent();
