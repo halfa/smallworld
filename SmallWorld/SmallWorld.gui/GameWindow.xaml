@@ -1,12 +1,75 @@
-﻿<Window x:Class="SmallWorld.gui.GameWindow"
+﻿<Window x:Name="GameWindow1" x:Class="SmallWorld.gui.GameWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmallWorld.gui"
         mc:Ignorable="d"
-        Title="GameWindow" Height="300" Width="300">
-    <Grid>
-        
+        Title="SmallWorld" Height="300" Width="300"
+        ResizeMode="NoResize"
+        Background="White" SizeToContent="WidthAndHeight">
+    <Grid x:Name="Master_Grid" Margin="0,0,-0.4,0.4" ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="124.8"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Menu x:Name="menu" Margin="0">
+            <MenuItem Header="Save" />
+            <MenuItem Header="Load" />
+        </Menu>
+        <Grid x:Name="Players_Data_Grid" Margin="0" ShowGridLines="True" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="Player1_Name_Label" Content="Player1" Margin="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label x:Name="Player1_Score_Label" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="16" Grid.Column="1"/>
+            <Image x:Name="Versus_Image" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2"/>
+            <Label x:Name="Player2_Score_Label" Content="22" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="3"/>
+            <Label x:Name="Player2_Name_Label" Content="Player2" Grid.Column="4" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </Grid>
+        <Grid x:Name="Units_Command_Grid" Margin="0" Grid.Row="3" ShowGridLines="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="Unit_Data_Grid" Margin="0" ShowGridLines="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="Unit_HP_Label" Content="Health:" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label x:Name="Unit_HP_Value_Label" Content="12" Margin="0" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label x:Name="Unit_Attack_Label" Content="Attack:" Margin="0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label x:Name="Unit_Attack_Value_Label" Content="4" Grid.Column="1" Margin="0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label x:Name="Unit_Defence_Label" Content="Defence:" Margin="0" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label x:Name="Unit_Defence_Value_Label" Content="2" Grid.Column="1" Margin="0" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label x:Name="Unit_Pool_Label" Content="Action:" Margin="0" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label x:Name="Unit_Pool_Value_Label" Content="2" Grid.Column="1" Margin="0" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Grid>
+            <Button x:Name="Undo_Button" Content="Undo" Grid.Column="1" Margin="6,0" Height="25"/>
+            <Button x:Name="End_Turn_Button" Content="End Turn" Grid.Column="2" Margin="6,0" Height="25"/>
+        </Grid>
     </Grid>
 </Window>
