@@ -5,14 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmallWorld.gui"
         mc:Ignorable="d"
-        Title="SmallWorld" Height="300" Width="300"
+        Title="SmallWorld"
         ResizeMode="NoResize"
-        Background="White" SizeToContent="WidthAndHeight">
+        Background="White" SizeToContent="WidthAndHeight"
+        Loaded="GameWindow1_Loaded">
     <Grid x:Name="Master_Grid" Margin="0,0,-0.4,0.4" ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="124.8"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -39,6 +40,7 @@
             <Label x:Name="Player2_Score_Label" Content="22" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="3"/>
             <Label x:Name="Player2_Name_Label" Content="Player2" Grid.Column="4" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         </Grid>
+        <Grid x:Name="Game_Display_Grid" Margin="0" Grid.Row="2" ShowGridLines="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
         <Grid x:Name="Units_Command_Grid" Margin="0" Grid.Row="3" ShowGridLines="True">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>

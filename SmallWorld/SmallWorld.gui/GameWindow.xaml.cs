@@ -20,10 +20,26 @@ namespace SmallWorld.gui
     /// </summary>
     public partial class GameWindow : Window
     {
+        private Map map;
+
         public GameWindow(GameSettings settings)
         {
             InitializeComponent();
-            DataContext = new GameWindowViewModel(settings);
+            GameWindowViewModel dataContext = new GameWindowViewModel(settings);
+            map = dataContext.GM.game.map;
+            DataContext = dataContext;
+        }
+
+        private void GameWindow1_Loaded(object sender, RoutedEventArgs e)
+        {
+            for(int i = 0; i < map.width; i++)
+            {
+                Game_Display_Grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(40, GridUnitType.Pixel) });
+            }
+            for (int i = 0; i < map.height; i++)
+            {
+                Game_Display_Grid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(40, GridUnitType.Pixel) });
+            }
         }
     }
 }
