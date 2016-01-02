@@ -39,6 +39,55 @@ namespace SmallWorld.gui
             {
                 Game_Display_Grid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(40, GridUnitType.Pixel) });
             }
+
+            initializeTilesDisplay();
+        }
+
+        private void initializeTilesDisplay()
+        {
+            for(int i = 0; i < map.width; i++)
+            {
+                for(int j = 0; j < map.height; j++)
+                {
+                    Image img = getImageForTile(map.tiles[j * map.width + i].getType());
+                    Grid.SetRow(img, j);
+                    Grid.SetColumn(img, i);
+                    Game_Display_Grid.Children.Add(img);
+                }
+            }
+        }
+
+        private Image getImageForTile(TileType t)
+        {
+            string requested = "";
+            switch(t)
+            {
+                case TileType.Forest:
+                    requested = "forest";
+                    break;
+                case TileType.Mountain:
+                    requested = "mountain";
+                    break;
+                case TileType.Plain:
+                    requested = "plain";
+                    break;
+                case TileType.Water:
+                    requested = "water";
+                    break;
+                default:
+                    requested = "water";
+                    break;
+            }
+            Image img = new Image();
+            BitmapImage src = new BitmapImage();
+            src.BeginInit();
+            src.UriSource = new Uri("images\\"+requested+".jpg", UriKind.Relative);
+            src.CacheOption = BitmapCacheOption.OnLoad;
+            src.EndInit();
+            img.Source = src;
+            img.Stretch = Stretch.Uniform;
+
+            return img;
         }
     }
 }
