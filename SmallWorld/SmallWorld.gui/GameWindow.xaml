@@ -42,7 +42,7 @@
             <Label x:Name="Player2_Name_Label" Content="{Binding secondPlayerName, Mode=OneWay}" Grid.Column="4" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         </Grid>
         <Grid x:Name="Game_Display_Grid" Margin="0" Grid.Row="2">
-            <Rectangle  Width="48" Height="48" Name="SelectionRectangle" Panel.ZIndex="333" Stroke="Blue" StrokeThickness="2" Visibility="{Binding SelectedVisible, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="{Binding SelectedRow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="{Binding SelectedColumn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Rectangle Name="SelectionRectangle" Panel.ZIndex="333" Stroke="Blue" StrokeThickness="2" Visibility="{Binding SelectedVisible, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="{Binding SelectedRow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="{Binding SelectedColumn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
         <Grid x:Name="Units_Command_Grid" Margin="0" Grid.Row="3" ShowGridLines="True">
             <Grid.RowDefinitions>
