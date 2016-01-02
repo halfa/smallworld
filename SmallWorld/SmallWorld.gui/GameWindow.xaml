@@ -41,8 +41,8 @@
             <Label x:Name="Player2_Score_Label" Content="{Binding secondPlayerScore, Mode=OneWay}" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="3"/>
             <Label x:Name="Player2_Name_Label" Content="{Binding secondPlayerName, Mode=OneWay}" Grid.Column="4" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         </Grid>
-        <Grid x:Name="Game_Display_Grid" Margin="0" Grid.Row="2" ShowGridLines="True">
-            <Rectangle  Width="40" Height="40" Name="SelectionRectangle" Panel.ZIndex="333" Stroke="Blue" StrokeThickness="2" Visibility="{Binding SelectedVisible, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="{Binding SelectedRow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="{Binding SelectedColumn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <Grid x:Name="Game_Display_Grid" Margin="0" Grid.Row="2">
+            <Rectangle  Width="48" Height="48" Name="SelectionRectangle" Panel.ZIndex="333" Stroke="Blue" StrokeThickness="2" Visibility="{Binding SelectedVisible, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="{Binding SelectedRow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="{Binding SelectedColumn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
         <Grid x:Name="Units_Command_Grid" Margin="0" Grid.Row="3" ShowGridLines="True">
             <Grid.RowDefinitions>
@@ -57,24 +57,24 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <Label x:Name="Unit_HP_Label" Content="Health:" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <Label x:Name="Unit_HP_Value_Label" Content="12" Margin="0" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <Label x:Name="Unit_Attack_Label" Content="Attack:" Margin="0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <Label x:Name="Unit_Attack_Value_Label" Content="4" Grid.Column="1" Margin="0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <Label x:Name="Unit_Defence_Label" Content="Defence:" Margin="0" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <Label x:Name="Unit_Defence_Value_Label" Content="2" Grid.Column="1" Margin="0" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <Label x:Name="Unit_Pool_Label" Content="Action:" Margin="0" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <Label x:Name="Unit_Pool_Value_Label" Content="2" Grid.Column="1" Margin="0" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label x:Name="Unit_HP_Label" Content="Health:" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1" FontSize="13.333"/>
+                <Label x:Name="Unit_HP_Value_Label" Content="12" Margin="0" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1" FontSize="13.333"/>
+                <Label x:Name="Unit_Attack_Label" Content="Attack:" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="13.333"/>
+                <Label x:Name="Unit_Attack_Value_Label" Content="4" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" FontSize="13.333"/>
+                <Label x:Name="Unit_Defence_Label" Content="Defence:" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="2" FontSize="13.333"/>
+                <Label x:Name="Unit_Defence_Value_Label" Content="2" Grid.Column="3" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="13.333"/>
+                <Label x:Name="Unit_Pool_Label" Content="Action:" Margin="0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="2" FontSize="13.333"/>
+                <Label x:Name="Unit_Pool_Value_Label" Content="2" Grid.Column="3" Margin="0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="13.333"/>
             </Grid>
-            <Button x:Name="Undo_Button" Content="Undo" Grid.Column="1" Margin="6,0" Height="25"/>
-            <Button x:Name="End_Turn_Button" Content="End Turn" Grid.Column="2" Margin="6,0" Height="25"/>
+            <Button x:Name="Undo_Button" Content="Undo" Grid.Column="1" Margin="6,0" Height="25" FontSize="13.333"/>
+            <Button x:Name="End_Turn_Button" Content="End Turn" Grid.Column="2" Margin="6,0" Height="25" FontSize="13.333"/>
         </Grid>
     </Grid>
 </Window>

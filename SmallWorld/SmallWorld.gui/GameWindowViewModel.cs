@@ -31,7 +31,7 @@ namespace SmallWorld.gui
             GM.newGame(settings);
             SelectedRow = 0;
             SelectedColumn = 0;
-            SelectedVisible = Visibility.Hidden;
+            SelectedVisible = Visibility.Visible;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
