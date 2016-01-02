@@ -1,29 +1,68 @@
 ﻿using SmallWorld.Core;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace SmallWorld.gui
 {
     /// <summary>
-    /// Manage interfctions between the main window and the underline model
+    /// Manage interfations between the main window and the underlying model
     /// </summary>
     public class MainWindowViewModel : INotifyPropertyChanged
     {
-        public GameMaster GM { get; protected set; }
         public GameSettings GS { get; protected set; }
 
         public List<Races> firstPlayerRaces { get; set; }
         public List<Races> secondPlayerRaces { get; set; }
-
         public List<MapType> mapTypes { get; set; }
+
+        public Races firstPlayerRace
+        {
+            get { return GS.playersRaces[0]; }
+            set { GS.playersRaces[0] = value; OnPropertyChanged("firstPlayerRace"); }
+        }
+        public Races secondPlayerRace
+        {
+            get { return GS.playersRaces[1]; }
+            set { GS.playersRaces[1] = value; OnPropertyChanged("secondPlayerRace"); }
+        }
+
+        public string firstPlayerName
+        {
+            get { return GS.playersNames[0]; }
+            set { GS.playersNames[0] = value; OnPropertyChanged("firstPlayerName"); }
+        }
+        public string secondPlayerName
+        {
+            get { return GS.playersNames[1]; }
+            set { GS.playersNames[1] = value; OnPropertyChanged("secondPlayerName"); }
+        }
+
+        public MapType mapType
+        {
+            get { return GS.mapType; }
+            set { GS.mapType = value; OnPropertyChanged("mapType"); }
+        }
+
+        private ICommand startClick;
+        public ICommand StartClick
+        {
+            get
+            {
+                if (startClick == null)
+                    startClick = new RelayCommand(param => start_Click(), param => GS.areValid());
+                return startClick;
+            }
+        }
+        public void start_Click()
+        {
+            GS.setFieldsAccordingToMapType();
+            GameWindow gameWindow = new GameWindow(GS);
+            gameWindow.Show();
+        }
 
         public MainWindowViewModel()
         {
-            GM = new GameMaster();
             GS = new GameSettings();
 
             firstPlayerRaces = new List<Races>() { Races.Elf, Races.Human, Races.Orc };
@@ -37,51 +76,6 @@ namespace SmallWorld.gui
             GS.playersRaces.Add(Races.Elf);
             GS.playersNames.Add("Aragorn");
             GS.playersRaces.Add(Races.Human);
-        }
-
-        public string firstPlayerName {
-            get { return GS.playersNames[0]; }
-            set { GS.playersNames[0] = value; OnPropertyChanged("firstPlayerName"); } }
-
-        public Races firstPlayerRace {
-            get
-            {
-                return GS.playersRaces[0];
-            }
-            set
-            {
-                GS.playersRaces[0] = value;
-            }
-        }
-
-        public string secondPlayerName
-        {
-            get { return GS.playersNames[1]; }
-            set { GS.playersNames[1] = value; OnPropertyChanged("secondPlayerName"); }
-        }
-
-        public Races secondPlayerRace
-        {
-            get
-            {
-                return GS.playersRaces[1];
-            }
-            set
-            {
-                GS.playersRaces[1] = value;
-            }
-        }
-
-        public MapType mapType
-        {
-            get
-            {
-                return GS.mapType;
-            }
-            set
-            {
-                GS.mapType = value;
-            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

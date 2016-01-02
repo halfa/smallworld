@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmallWorld.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,21 +11,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using SmallWorld.Core;
 
 namespace SmallWorld.gui
 {
     /// <summary>
-    /// Interaction logic for the start window
+    /// Logique d'interaction pour GameWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class GameWindow : Window
     {
-        public MainWindow()
+        public GameWindow(GameSettings settings)
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel();
+            DataContext = new GameWindowViewModel(settings);
         }
     }
 }
