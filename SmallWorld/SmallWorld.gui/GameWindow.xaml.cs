@@ -114,21 +114,20 @@ namespace SmallWorld.gui
             if(sender.GetType().Equals(typeof(Image)))
             {
                 Image img = (Image)sender;
+
                 int co = Grid.GetColumn(img);
                 int ro = Grid.GetRow(img);
-                if (co == Grid.GetColumn(SelectionRectangle) && ro == Grid.GetRow(SelectionRectangle))
-                {
+
+                GWVM.selectUnitAt(co, ro);
+
+                Grid.SetColumn(SelectionRectangle, co);
+                Grid.SetRow(SelectionRectangle, ro);
+                if (GWVM.SelectedUnit == null)
                     GWVM.SelectedVisible = Visibility.Hidden;
-                }
                 else
-                {
-                    Grid.SetRow(SelectionRectangle, ro);
-                    Grid.SetColumn(SelectionRectangle, co);
                     GWVM.SelectedVisible = Visibility.Visible;
-                }
-                
-                GWVM.selectUnitAt(Grid.GetColumn(img), Grid.GetRow(img));
-                
+
+
                 e.Handled = true;
             }
         }

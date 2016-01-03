@@ -35,8 +35,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Label x:Name="Player1_Name_Label" Content="{Binding firstPlayerName, Mode=OneWay}" Margin="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-            <Label x:Name="Player1_Score_Label" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{Binding firstPlayerScore, Mode=OneWay}" Grid.Column="1"/>
+            <Label x:Name="Player1_Name_Label" Content="{Binding FirstPlayerName, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label x:Name="Player1_Score_Label" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{Binding FirstPlayerScore, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1"/>
             <Grid x:Name="Versus_Turns_Grid" Margin="0" Grid.Column="2">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -57,13 +57,13 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Label x:Name="Current_Turn_Label" Content="{Binding currentTurnCounter}" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5,0,5,5"/>
+                    <Label x:Name="Current_Turn_Label" Content="{Binding CurrentTurnCounter, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5,0,5,5"/>
                     <Label x:Name="Turn_Counter_Separator" Content="/" Margin="0" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5,0,5,5"/>
-                    <Label x:Name="Max_Turn_Counter" Content="{Binding maxTurnCounter}" Margin="0" Grid.Column="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5,0,5,5"/>
+                    <Label x:Name="Max_Turn_Counter" Content="{Binding MaxTurnCounter, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="0" Grid.Column="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5,0,5,5"/>
                 </Grid>
             </Grid>
-            <Label x:Name="Player2_Score_Label" Content="{Binding secondPlayerScore, Mode=OneWay}" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="3"/>
-            <Label x:Name="Player2_Name_Label" Content="{Binding secondPlayerName, Mode=OneWay}" Grid.Column="4" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="Player2_Score_Label" Content="{Binding SecondPlayerScore, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="3"/>
+            <Label x:Name="Player2_Name_Label" Content="{Binding SecondPlayerName, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="4" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         </Grid>
         <Grid x:Name="Game_Display_Grid" Margin="0" Grid.Row="2">
             <Rectangle Name="SelectionRectangle" Panel.ZIndex="333" Stroke="Blue" StrokeThickness="2" Visibility="{Binding SelectedVisible, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="{Binding SelectedRow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="{Binding SelectedColumn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
@@ -88,12 +88,12 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <Label x:Name="Unit_HP_Label" Content="Health:" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1" FontSize="13.333"/>
-                <Label x:Name="Unit_HP_Value_Label" Content="{Binding SelectedUnitHealth, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="0" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1" FontSize="13.333"/>
                 <Label x:Name="Unit_Attack_Label" Content="Attack:" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="13.333"/>
                 <Label x:Name="Unit_Attack_Value_Label" Content="{Binding SelectedUnitAttack, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" FontSize="13.333"/>
                 <Label x:Name="Unit_Defence_Label" Content="Defence:" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="2" FontSize="13.333"/>
                 <Label x:Name="Unit_Defence_Value_Label" Content="{Binding SelectedUnitDefence, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="13.333"/>
+                <Label x:Name="Unit_HP_Label" Content="Health:" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1" FontSize="13.333"/>
+                <Label x:Name="Unit_HP_Value_Label" Content="{Binding SelectedUnitHealth, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="0" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1" FontSize="13.333"/>
                 <Label x:Name="Unit_Pool_Label" Content="Action:" Margin="0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="2" FontSize="13.333"/>
                 <Label x:Name="Unit_Pool_Value_Label" Content="{Binding SelectedUnitPool, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Margin="0.4,27,0,0.4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="13.333" HorizontalAlignment="Left" Grid.RowSpan="2" Width="17"/>
             </Grid>
