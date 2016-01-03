@@ -120,15 +120,19 @@ namespace SmallWorld.gui
 
                 GWVM.selectUnitAt(co, ro);
 
-                Grid.SetColumn(SelectionRectangle, co);
-                Grid.SetRow(SelectionRectangle, ro);
-                if (GWVM.SelectedUnit == null)
-                    GWVM.SelectedVisible = Visibility.Hidden;
-                else
-                    GWVM.SelectedVisible = Visibility.Visible;
-
-
                 e.Handled = true;
+            }
+        }
+
+        private void Tile_Right_Clicked(object sender, RoutedEventArgs e)
+        {
+
+            if (sender.GetType().Equals(typeof(Image)))
+            {
+                Image img = (Image)sender;
+
+                int co = Grid.GetColumn(img);
+                int ro = Grid.GetRow(img);
             }
         }
 

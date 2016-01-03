@@ -43,6 +43,11 @@ namespace SmallWorld.gui
 
         private Visibility selectedVisible;
         public Visibility SelectedVisible { get { return selectedVisible; } set { selectedVisible = value; OnPropertyChanged("SelectedVisible"); } }
+        private int selectedRow;
+        public int SelectedRow { get { return selectedRow; } set { selectedRow = value; OnPropertyChanged("SelectedRow"); } }
+        private int selectedColumn;
+        public int SelectedColumn { get { return selectedColumn; } set { selectedColumn = value; OnPropertyChanged("SelectedColumn"); } }
+
 
         private ICommand endTurnClick;
         public ICommand EndTurnClick
@@ -79,17 +84,19 @@ namespace SmallWorld.gui
         private void updateSelectedUnitFields()
         {
             AUnit unit = SelectedUnit;
-            Visibility visible = Visibility.Visible;
+
+            SelectedVisible = Visibility.Visible;
             if (unit == null)
             {
                 unit = defaultUnit;
-                visible = Visibility.Hidden;
+                SelectedVisible = Visibility.Hidden;
             }
             SelectedUnitAttack = unit.attackPt.ToString();
             SelectedUnitDefence = unit.defencePt.ToString();
             SelectedUnitHealth = unit.healthPt.ToString();
             SelectedUnitPool = unit.actionPool.ToString();
-            SelectedVisible = visible;
+            SelectedColumn = unit.position.x;
+            SelectedRow = unit.position.y;
         }
 
         private void updateGameDataFields()
