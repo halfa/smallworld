@@ -66,6 +66,21 @@ namespace SmallWorld.gui
             updateSelectedUnitFields();
         }
 
+        private ICommand undoClick;
+        public ICommand UndoClick
+        {
+            get
+            {
+                if (undoClick == null)
+                    undoClick = new RelayCommand(param => undo_Click(), param => GM.game.previousGameStates.Count != 0);
+                return undoClick;
+            }
+        }
+        public void undo_Click()
+        {
+
+        }
+
         public GameWindowViewModel(GameSettings settings)
         {
             GM = new GameMaster();
@@ -116,11 +131,10 @@ namespace SmallWorld.gui
             updateSelectedUnitFields();
         }
 
-        public bool moveSelectedTo(int column, int row)
+        public void moveSelectedTo(int column, int row)
         {
-            bool res = GM.game.moveSelectedUnitTo(new Position(column, row));
+            GM.game.moveSelectedUnitTo(new Position(column, row));
             updateSelectedUnitFields();
-            return res;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

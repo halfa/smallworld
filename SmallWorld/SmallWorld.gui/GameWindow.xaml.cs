@@ -146,8 +146,8 @@ namespace SmallWorld.gui
                 int co = Grid.GetColumn(img);
                 int ro = Grid.GetRow(img);
 
-                if (GWVM.moveSelectedTo(co, ro))
-                    updateBoardDisplay();
+                GWVM.moveSelectedTo(co, ro);
+                updateBoardDisplay();
             }
         }
 
