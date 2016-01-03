@@ -140,7 +140,7 @@ namespace SmallWorld.gui
                 int ro = Grid.GetRow(img);
 
                 GWVM.selectUnitAt(co, ro);
-
+                updateBoardDisplay();
                 e.Handled = true;
             }
         }
@@ -156,6 +156,7 @@ namespace SmallWorld.gui
 
                 GWVM.moveSelectedTo(co, ro);
                 updateBoardDisplay();
+                e.Handled = true;
             }
         }
 
@@ -196,6 +197,35 @@ namespace SmallWorld.gui
             if (GWVM.UndoClick.CanExecute(null))
                 GWVM.UndoClick.Execute(null);
             updateBoardDisplay();
+        }
+
+        private void End_Turn_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (GWVM.EndTurnClick.CanExecute(null))
+                GWVM.EndTurnClick.Execute(null);
+            updateBoardDisplay();
+        }
+
+        private void Suggest_Move_Click(object sender, RoutedEventArgs e)
+        {
+            updateBoardDisplay();
+            List<Position> suggested = GWVM.GM.game.suggestMove();
+            foreach(Position p in suggested)
+            {
+                Image img = new Image();
+                BitmapImage src = new BitmapImage();
+                src.BeginInit();
+                src.UriSource = new Uri("images\\suggested.png", UriKind.Relative);
+                src.CacheOption = BitmapCacheOption.OnLoad;
+                src.EndInit();
+                img.Source = src;
+                Grid.SetColumn(img, p.x);
+                Grid.SetRow(img, p.y);
+                Grid.SetZIndex(img, 111);
+                img.MouseLeftButtonDown += Tile_Left_Clicked;
+                img.MouseRightButtonDown += Tile_Right_Clicked;
+                Game_Display_Grid.Children.Add(img);
+            }
         }
     }
 }

@@ -22,7 +22,7 @@
         <Menu x:Name="menu" Margin="0">
             <MenuItem Header="Save" Command="{Binding SaveClick}" />
             <MenuItem Header="Load" Command="{Binding LoadClick}" />
-            <MenuItem Header="Suggest Move" />
+            <MenuItem Header="Suggest Move" Click="Suggest_Move_Click"/>
         </Menu>
         <Grid x:Name="Players_Data_Grid" Margin="0" ShowGridLines="True" Grid.Row="1">
             <Grid.RowDefinitions>
@@ -98,7 +98,7 @@
                 <Label x:Name="Unit_Pool_Value_Label" Content="{Binding SelectedUnitPool, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Margin="0.4,27,0,0.4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="13.333" HorizontalAlignment="Left" Grid.RowSpan="2" Width="17"/>
             </Grid>
             <Button x:Name="Undo_Button" Content="Undo" Grid.Column="1" Margin="6,0" Height="25" FontSize="13.333" Click="Undo_Button_Click"/>
-            <Button x:Name="End_Turn_Button" Content="End Turn" Grid.Column="2" Margin="6,0" Height="25" FontSize="13.333" Command="{Binding EndTurnClick}"/>
+            <Button x:Name="End_Turn_Button" Content="End Turn" Grid.Column="2" Margin="6,0" Height="25" FontSize="13.333" Click="End_Turn_Button_Click"/>
         </Grid>
     </Grid>
 </Window>

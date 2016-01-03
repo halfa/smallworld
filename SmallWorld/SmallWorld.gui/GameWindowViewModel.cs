@@ -48,7 +48,6 @@ namespace SmallWorld.gui
         private int selectedColumn;
         public int SelectedColumn { get { return selectedColumn; } set { selectedColumn = value; OnPropertyChanged("SelectedColumn"); } }
 
-
         private ICommand endTurnClick;
         public ICommand EndTurnClick
         {

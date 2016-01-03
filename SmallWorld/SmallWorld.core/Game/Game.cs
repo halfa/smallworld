@@ -579,12 +579,8 @@ namespace SmallWorld.Core
                         // We weren't attacking from range, so we move if we can. //
                         if (selected.canCrossTile(map.getTileAtPos(position)))
                         {
-                            // If we are allowed to move, then we do if we have the action pool to. //
-                            if (cost + selected.getMoveCost(map.getTileAtPos(position)) <= selected.actionPool)
-                            {
-                                to = position;
-                                cost += selected.getMoveCost(map.getTileAtPos(position));
-                            }
+                            // If we are allowed to move, then we do it for free since we killed the unit. //
+                            to = position;
                         }
                     }
                 }
