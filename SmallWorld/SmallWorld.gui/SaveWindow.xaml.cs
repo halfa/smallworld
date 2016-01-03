@@ -27,5 +27,14 @@ namespace SmallWorld.gui
             SWVM = new SaveWindowViewModel(gm);
             DataContext = SWVM;
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            if (SWVM.SaveClick.CanExecute(null))
+            {
+                SWVM.SaveClick.Execute(null);
+                Close();
+            }
+        }
     }
 }
