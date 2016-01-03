@@ -31,13 +31,37 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label x:Name="Player1_Name_Label" Content="{Binding firstPlayerName, Mode=OneWay}" Margin="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
             <Label x:Name="Player1_Score_Label" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{Binding firstPlayerScore, Mode=OneWay}" Grid.Column="1"/>
-            <Image x:Name="Versus_Image" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2"/>
+            <Grid x:Name="Versus_Turns_Grid" Margin="0" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Versus_Image" Margin="0"/>
+                <Label x:Name="Turn_Label" Content="Turn" Margin="0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" Padding="0"/>
+                <Grid x:Name="Turn_Counter_Grid" Margin="0" Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="Current_Turn_Label" Content="{Binding currentTurnCounter}" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5,0,5,5"/>
+                    <Label x:Name="Turn_Counter_Separator" Content="/" Margin="0" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5,0,5,5"/>
+                    <Label x:Name="Max_Turn_Counter" Content="{Binding maxTurnCounter}" Margin="0" Grid.Column="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5,0,5,5"/>
+                </Grid>
+            </Grid>
             <Label x:Name="Player2_Score_Label" Content="{Binding secondPlayerScore, Mode=OneWay}" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="3"/>
             <Label x:Name="Player2_Name_Label" Content="{Binding secondPlayerName, Mode=OneWay}" Grid.Column="4" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         </Grid>

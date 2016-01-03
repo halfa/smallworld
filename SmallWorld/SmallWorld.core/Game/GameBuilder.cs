@@ -51,16 +51,6 @@ namespace SmallWorld.Core
                     players.Add(p);
                 }
 
-                // Randomize the players order. //
-                Random rd = new Random();
-                for(int i = 0; i < gameSettings.nbPlayers; i++)
-                {
-                    int r = rd.Next() % gameSettings.nbPlayers;
-                    Player tmp = players[i];
-                    players[i] = players[r];
-                    players[r] = tmp;
-                }
-
                 // Add units to the players. //
                 foreach (Player p in players)
                     for (int i = 0; i < gameSettings.unitLimit; i++)
@@ -102,6 +92,16 @@ namespace SmallWorld.Core
                 for (int i = 0; i < gameSettings.nbPlayers; i++)
                     foreach (AUnit unit in players[i].units)
                         unit.position = new Position(rdmPos[i]);
+
+                // Randomize the players order. //
+                Random rd = new Random();
+                for (int i = 0; i < gameSettings.nbPlayers; i++)
+                {
+                    int r = rd.Next() % gameSettings.nbPlayers;
+                    Player tmp = players[i];
+                    players[i] = players[r];
+                    players[r] = tmp;
+                }
 
                 // Now the players are ready. //
 

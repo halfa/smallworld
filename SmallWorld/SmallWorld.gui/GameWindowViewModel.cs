@@ -26,6 +26,9 @@ namespace SmallWorld.gui
         public string secondPlayerName { get { return GM.game.gameSettings.playersNames[1]; } }
         public string secondPlayerScore { get { return GM.game.currentState.players[1].points.ToString(); } }
 
+        public string currentTurnCounter {  get { return GM.game.currentState.turnCounter.ToString(); } }
+        public string maxTurnCounter { get { return GM.game.gameSettings.turnLimit.ToString(); } }
+
         public GameWindowViewModel(GameSettings settings)
         {
             GM = new GameMaster();
