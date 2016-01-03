@@ -83,10 +83,56 @@ namespace SmallWorld.gui
             updateSelectedUnitFields();
         }
 
+        private ICommand saveClick;
+        public ICommand SaveClick
+        {
+            get
+            {
+                if (saveClick == null)
+                    saveClick = new RelayCommand(param => save_Click(), param => true);
+                return saveClick;
+            }
+        }
+        public void save_Click()
+        {
+            SaveWindow win = new SaveWindow(GM);
+            win.Show();
+        }
+
+        private ICommand loadClick;
+        public ICommand LoadClick
+        {
+            get
+            {
+                if (loadClick == null)
+                    loadClick = new RelayCommand(param => load_Click(), param => true);
+                return loadClick;
+            }
+        }
+        public void load_Click()
+        {
+            LoadWindow win = new LoadWindow();
+            win.Show();
+        }
+
         public GameWindowViewModel(GameSettings settings)
         {
             GM = new GameMaster();
             GM.newGame(settings);
+
+            defaultUnit = new HumanUnit();
+            defaultUnit.attackPt = 0;
+            defaultUnit.defencePt = 0;
+            defaultUnit.actionPool = 0;
+            defaultUnit.healthPt = 0;
+
+            updateGameDataFields();
+            updateSelectedUnitFields();
+        }
+
+        public GameWindowViewModel(GameMaster gm)
+        {
+            GM = gm;
 
             defaultUnit = new HumanUnit();
             defaultUnit.attackPt = 0;

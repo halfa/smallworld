@@ -20,8 +20,8 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Menu x:Name="menu" Margin="0">
-            <MenuItem Header="Save" />
-            <MenuItem Header="Load" />
+            <MenuItem Header="Save" Command="{Binding SaveClick}" />
+            <MenuItem Header="Load" Command="{Binding LoadClick}" />
             <MenuItem Header="Suggest Move" />
         </Menu>
         <Grid x:Name="Players_Data_Grid" Margin="0" ShowGridLines="True" Grid.Row="1">

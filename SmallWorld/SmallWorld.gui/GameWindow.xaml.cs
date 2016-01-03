@@ -31,6 +31,14 @@ namespace SmallWorld.gui
             DataContext = GWVM;
         }
 
+        public GameWindow(GameMaster gm)
+        {
+            InitializeComponent();
+            GWVM = new GameWindowViewModel(gm);
+            DataContext = GWVM;
+            updateBoardDisplay();
+        }
+
         private void GameWindow1_Loaded(object sender, RoutedEventArgs e)
         {
             Map map = GWVM.GM.game.map;
