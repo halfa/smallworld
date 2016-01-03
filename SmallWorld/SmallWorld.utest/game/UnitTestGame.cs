@@ -246,7 +246,7 @@ namespace SmallWorld.utest
             Assert.IsFalse(game.currentState.players[0].units.Contains(doomed));
             atPos = game.getUnitsAt(expected);
             Assert.IsTrue(atPos.Count != 0);
-            Assert.AreEqual(atPos[0].actionPool, (2 - (1 + 0.5 * 2)));
+            Assert.AreEqual(atPos[0].actionPool, (2 - (1 + 0.5)));
         }
 
         [TestMethod]
