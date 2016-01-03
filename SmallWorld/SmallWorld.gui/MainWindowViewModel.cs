@@ -61,6 +61,22 @@ namespace SmallWorld.gui
             gameWindow.Show();
         }
 
+        private ICommand loadClick;
+        public ICommand LoadClick
+        {
+            get
+            {
+                if (loadClick == null)
+                    loadClick = new RelayCommand(param => load_Click(), param => true);
+                return loadClick;
+            }
+        }
+        public void load_Click()
+        {
+            LoadWindow win = new LoadWindow();
+            win.Show();
+        }
+
         public MainWindowViewModel()
         {
             GS = new GameSettings();

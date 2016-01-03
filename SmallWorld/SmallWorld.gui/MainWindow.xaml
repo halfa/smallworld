@@ -31,5 +31,6 @@
                 <ComboBox x:Name="map" ToolTip="Chose a race" ItemsSource="{Binding mapTypes}" SelectedItem="{Binding mapType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="0.702,0.684" HorizontalAlignment="Left" Width="160" />
             </StackPanel>
         </GroupBox>
+        <Button x:Name="button" Content="Load previous game" HorizontalAlignment="Left" Margin="31,35,0,0" VerticalAlignment="Top" Width="120" Command="{Binding LoadClick}"/>
     </Grid>
 </Window>
