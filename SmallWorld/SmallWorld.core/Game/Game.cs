@@ -649,6 +649,7 @@ namespace SmallWorld.Core
             data.currentState = currentState;
             data.gameSettings = gameSettings;
             data.mapData = map.toData();
+            data.running = running;
             // We pop all the states into the list. //
             while (previousGameStates.Count != 0)
                 data.previousGameStates.Add(previousGameStates.Pop());
