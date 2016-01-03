@@ -55,8 +55,20 @@ namespace SmallWorld.gui
                     Image img = getImageForTile(map.tiles[j * map.width + i].getType());
                     Grid.SetRow(img, j);
                     Grid.SetColumn(img, i);
+                    img.MouseLeftButtonDown += Tile_Left_Clicked;
                     Game_Display_Grid.Children.Add(img);
                 }
+            }
+        }
+
+        private void Tile_Left_Clicked(object sender, RoutedEventArgs e)
+        {
+            if(sender.GetType().Equals(typeof(Image)))
+            {
+                Image img = (Image)sender;
+                Grid.SetRow(SelectionRectangle, Grid.GetRow(img));
+                Grid.SetColumn(SelectionRectangle, Grid.GetColumn(img));
+                e.Handled = true;
             }
         }
 
@@ -91,5 +103,6 @@ namespace SmallWorld.gui
 
             return img;
         }
+
     }
 }
