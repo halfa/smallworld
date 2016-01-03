@@ -72,17 +72,16 @@ namespace SmallWorld.Core
                 Position posP1 = map.getRandomStartPos(players[0].race);
                 rdmPos.Add(posP1);
 
-                Position firstRandom = map.getRandomStartPos(players[1].race);
+                Position firstRandom = posP1;
                 while (firstRandom.equals(posP1))
                     firstRandom = map.getRandomStartPos(players[1].race);
 
                 rdmPos.Add(firstRandom);
 
                 // Tries to find another random position for the second player, that would be further from the one of the furst player. //
-                Position posP2;
+                Position posP2 = posP1;
                 for (int i = 0; i < 10; i++)
                 {
-                    posP2 = map.getRandomStartPos(players[1].race);
                     while(posP2.equals(posP1))
                         posP2 = map.getRandomStartPos(players[1].race);
 
@@ -96,12 +95,13 @@ namespace SmallWorld.Core
 
                     if (sumNew > sumOld)
                         rdmPos[1] = new Position(posP2);
+                    posP2 = posP1;
                 }
 
                 // Set the players' units' default position to the randomly generated one. //
                 for (int i = 0; i < gameSettings.nbPlayers; i++)
                     foreach (AUnit unit in players[i].units)
-                        unit.position = rdmPos[i];
+                        unit.position = new Position(rdmPos[i]);
 
                 // Now the players are ready. //
 
