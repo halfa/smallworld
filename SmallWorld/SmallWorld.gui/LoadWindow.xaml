@@ -17,7 +17,6 @@
         </Grid.ColumnDefinitions>
         <Label x:Name="label" Content="Load save:" Margin="10,19,184.4,228.4"/>
         <TextBox x:Name="textBox" Margin="81,20,0,228.8" TextWrapping="Wrap" Text="{Binding FilePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Button x:Name="button" Content="Load" Margin="12.4,19,-9,228.8" Width="75" Command="{Binding LoadClick}" Grid.Column="2"/>
-
+        <Button x:Name="button" Content="Load" Margin="12.4,19,-9,228.8" Width="75" Click="button_Click" Grid.Column="2"/>
     </Grid>
 </Window>

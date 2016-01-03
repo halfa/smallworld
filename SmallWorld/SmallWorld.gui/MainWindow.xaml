@@ -24,13 +24,13 @@
                 <ComboBox x:Name="player2_race" ToolTip="Chose a race" ItemsSource="{Binding secondPlayerRaces}" SelectedItem="{Binding secondPlayerRace, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
         </GroupBox>
-        <Button x:Name="start" Content="Start Game" HorizontalAlignment="Left" Margin="470,423,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.533,3" Command="{Binding StartClick}"/>
+        <Button x:Name="start" Content="Start Game" HorizontalAlignment="Left" Margin="470,423,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.533,3" Click="start_Click_1"/>
         <GroupBox x:Name="mapChoice" Header="Map" HorizontalAlignment="Left" Margin="365,330,0,0" VerticalAlignment="Top" Height="80" Width="195">
             <StackPanel Margin="5,0,17.4,-12.4" Height="70" VerticalAlignment="Top">
                 <Label x:Name="map_label" Content="Select a map"/>
                 <ComboBox x:Name="map" ToolTip="Chose a race" ItemsSource="{Binding mapTypes}" SelectedItem="{Binding mapType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="0.702,0.684" HorizontalAlignment="Left" Width="160" />
             </StackPanel>
         </GroupBox>
-        <Button x:Name="button" Content="Load previous game" HorizontalAlignment="Left" Margin="31,35,0,0" VerticalAlignment="Top" Width="120" Command="{Binding LoadClick}"/>
+        <Button x:Name="button" Content="Load previous game" HorizontalAlignment="Left" Margin="31,35,0,0" VerticalAlignment="Top" Width="120" Click="button_Click"/>
     </Grid>
 </Window>

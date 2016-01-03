@@ -15,5 +15,14 @@ namespace SmallWorld.gui
             LWVM = new LoadWindowViewModel();
             DataContext = LWVM;
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            if (LWVM.LoadClick.CanExecute(null))
+            {
+                LWVM.LoadClick.Execute(null);
+                Close();
+            }
+        }
     }
 }

@@ -18,7 +18,7 @@
         </Grid.ColumnDefinitions>
         <Label x:Name="label" Content="Name your save:" Margin="10,18,0.8,1.4" Height="23"/>
         <TextBox x:Name="textBox" Height="23" Margin="9.6,18,105.6,3" TextWrapping="Wrap" Text="{Binding FilePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="2"/>
-        <Button x:Name="button" Content="Save" Grid.Column="2" Margin="167.4,17,10.4,0.8" Width="75" Height="23" Command="{Binding SaveClick}"/>
+        <Button x:Name="button" Content="Save" Grid.Column="2" Margin="167.4,17,10.4,0.8" Width="75" Height="23" Click="button_Click"/>
 
     </Grid>
 </Window>
