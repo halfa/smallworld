@@ -525,16 +525,17 @@ namespace SmallWorld.Core
         /// Handles the update of all the data regarding units positioning.
         /// </summary>
         /// <param name="position"></param>
-        public void moveSelectedUnitTo(Position position)
+        /// <returns>True if the unit has moved, false otherwise.</returns>
+        public bool moveSelectedUnitTo(Position position)
         {
             // If the game is over, doesn't allow the move command. //
             if (!running)
-                return;
+                return false;
             bool attack = enemyUnitAtPos(position);
             List<Position> path = isSelectedUnitMovableTo(position, attack);
             // If no path has been found or the selected target tile was the original tile of the moving unit. //
             if (path == null || path.Count == 0)
-                return;
+                return false;
 
             stack();
             Position to = path[path.Count - 1];
@@ -572,6 +573,7 @@ namespace SmallWorld.Core
             // Updates the currently selected unit's fields.
             selected.position = to;
             selected.actionPool -= cost;
+            return true;
         }
 
         /// <summary>

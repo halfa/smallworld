@@ -43,11 +43,22 @@ namespace SmallWorld.gui
                 Game_Display_Grid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(IMGSIZE, GridUnitType.Pixel) });
             }
 
-            initializeTilesDisplay();
-            initializeUnitsDisplay();
+            updateBoardDisplay();
         }
 
-        private void initializeTilesDisplay()
+        private void updateBoardDisplay()
+        {
+            List<UIElement> removables = new List<UIElement>();
+            foreach(UIElement e in Game_Display_Grid.Children)
+                if(e.GetType().Equals(typeof(Image)))
+                    removables.Add(e);
+            foreach (UIElement e in removables)
+                Game_Display_Grid.Children.Remove(e);
+            updateTilesDisplay();
+            updateUnitsDisplay();
+        }
+
+        private void updateTilesDisplay()
         {
             Map map = GWVM.GM.game.map;
             for (int i = 0; i < map.width; i++)
@@ -55,15 +66,16 @@ namespace SmallWorld.gui
                 for(int j = 0; j < map.height; j++)
                 {
                     Image img = getImageForTile(map.tiles[j * map.width + i].getType());
-                    Grid.SetRow(img, j);
                     Grid.SetColumn(img, i);
+                    Grid.SetRow(img, j);
                     img.MouseLeftButtonDown += Tile_Left_Clicked;
+                    img.MouseRightButtonDown += Tile_Right_Clicked;
                     Game_Display_Grid.Children.Add(img);
                 }
             }
         }
 
-        private void initializeUnitsDisplay()
+        private void updateUnitsDisplay()
         {
             GameState curState = GWVM.GM.game.currentState;
             foreach(Player p in curState.players)
@@ -72,9 +84,10 @@ namespace SmallWorld.gui
                 {
                     Image img = getImageForRace(p.race);
                     Grid.SetZIndex(img, 222);
-                    Grid.SetRow(img, unit.position.y);
                     Grid.SetColumn(img, unit.position.x);
+                    Grid.SetRow(img, unit.position.y);
                     img.MouseLeftButtonDown += Tile_Left_Clicked;
+                    img.MouseRightButtonDown += Tile_Right_Clicked;
                     Game_Display_Grid.Children.Add(img);
                 }
             }
@@ -133,6 +146,9 @@ namespace SmallWorld.gui
 
                 int co = Grid.GetColumn(img);
                 int ro = Grid.GetRow(img);
+
+                if (GWVM.moveSelectedTo(co, ro))
+                    updateBoardDisplay();
             }
         }
 

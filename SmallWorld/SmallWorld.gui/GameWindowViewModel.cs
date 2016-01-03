@@ -116,6 +116,13 @@ namespace SmallWorld.gui
             updateSelectedUnitFields();
         }
 
+        public bool moveSelectedTo(int column, int row)
+        {
+            bool res = GM.game.moveSelectedUnitTo(new Position(column, row));
+            updateSelectedUnitFields();
+            return res;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name)
         {
