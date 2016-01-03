@@ -100,8 +100,8 @@ namespace SmallWorld.Core
         {
             Random rd = new Random();
 
-            int x = rd.Next() % width;
-            int y = rd.Next() % height;
+            int x = rd.Next(width);
+            int y = rd.Next(height);
 
             if (race == Races.Human)
                 return new Position(x, y);
@@ -109,8 +109,8 @@ namespace SmallWorld.Core
             {
                 while (tiles[x + y * width].getType() == TileType.Water)
                 {
-                    x = rd.Next() % width;
-                    y = rd.Next() % height;
+                    x = rd.Next(width);
+                    y = rd.Next(height);
                 }
                 return new Position(x, y);
             }

@@ -139,7 +139,6 @@ namespace SmallWorld.gui
 
         private void Tile_Right_Clicked(object sender, RoutedEventArgs e)
         {
-
             if (sender.GetType().Equals(typeof(Image)))
             {
                 Image img = (Image)sender;

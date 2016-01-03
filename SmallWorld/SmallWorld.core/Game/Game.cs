@@ -271,7 +271,7 @@ namespace SmallWorld.Core
             if (attack)
             {
                 if (inAttackRange(current, to))
-                    if (currentCost + currentState.selectedUnit.getMoveCost(map.getTileAtPos(current)) <= currentState.selectedUnit.actionPool)
+                    if (currentCost + 1/*currentState.selectedUnit.getMoveCost(map.getTileAtPos(current))*/ <= currentState.selectedUnit.actionPool)
                         return currentPath;
             }
             else
@@ -534,11 +534,22 @@ namespace SmallWorld.Core
             bool attack = enemyUnitAtPos(position);
             List<Position> path = isSelectedUnitMovableTo(position, attack);
             // If no path has been found or the selected target tile was the original tile of the moving unit. //
+            /*
             if (path == null || path.Count == 0)
+                return false;
+                */
+            if (path == null || position.equals(currentState.selectedUnit.position))
                 return false;
 
             stack();
-            Position to = path[path.Count - 1];
+            Position to = position;
+            if (path.Count != 0)
+                to = path[path.Count - 1];
+            else
+                to = currentState.selectedUnit.position;
+            // If we were attacking, the to position is now the position where we're in range. //
+            // Otherwise, it's the target position anyway. //
+            // If we're already in range, the to target position is the current position. //
             AUnit selected = currentState.selectedUnit;
 
             double cost = computePathCost(path);
@@ -549,16 +560,18 @@ namespace SmallWorld.Core
             // we still lose the action points for attacking only.
             if (attack)
             {
+                // Attacking costs 1. //
+                cost += 1;
                 AUnit defender = findBestDefenderAt(position);
                 selected.attack(defender);
 
                 if (defender.isDead())
                 {
-                    // Enemy unit died in battle, now we update the dictionary accordingly. //
+                    // Enemy unit died in battle. //
                     int index = (currentState.activePlayerIndex + 1) % gameSettings.nbPlayers;
                     currentState.players[index].removeUnit(defender);
                 }
-                cost += selected.getMoveCost(map.getTileAtPos(position));
+
                 List<AUnit> defenders = getUnitsAt(position);
                 if (defender.isDead() && defenders.Count == 0)
                 {
@@ -566,7 +579,14 @@ namespace SmallWorld.Core
                     {
                         // We weren't attacking from range, so we move if we can. //
                         if (selected.canCrossTile(map.getTileAtPos(position)))
-                            to = position;
+                        {
+                            // If we are allowed to move, then we do if we have the action pool to. //
+                            if (cost + selected.getMoveCost(map.getTileAtPos(position)) <= selected.actionPool)
+                            {
+                                to = position;
+                                cost += selected.getMoveCost(map.getTileAtPos(position));
+                            }
+                        }
                     }
                 }
             }

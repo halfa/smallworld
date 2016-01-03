@@ -51,12 +51,12 @@ namespace SmallWorld.Core
         public void attack(AUnit defender)
         {
             Random rd = new Random();
-            double ratio = (rd.Next() % 30) / 100;
-            int attack = (int)(attackPt * (0.7 + ratio));
+            double ratio = (double)(rd.Next(60)) / 100;
+            int attack = (int)Math.Round(attackPt * (0.7 + ratio));
             // 4% chance of critical strike because lucky hit. //
-            int crit = rd.Next() % 25;
+            int crit = rd.Next(25);
             if (crit == 1)
-                attackPt = attackPt * 2;
+                attack = attack * 2;
             defender.loseHP(attack - defender.defencePt);
             int remainingDefence = defender.defencePt - 1;
             if (remainingDefence >= 0)
@@ -140,7 +140,7 @@ namespace SmallWorld.Core
         {
             // 1% chance of not losing health because lucky miss. //
             Random rd = new Random();
-            int crit = rd.Next() % 100;
+            int crit = rd.Next(100);
             if (crit == 1)
             {
                 defencePt++;
