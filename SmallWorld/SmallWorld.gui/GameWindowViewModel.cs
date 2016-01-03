@@ -44,18 +44,27 @@ namespace SmallWorld.gui
         private Visibility selectedVisible;
         public Visibility SelectedVisible { get { return selectedVisible; } set { selectedVisible = value; OnPropertyChanged("SelectedVisible"); } }
 
+        private ICommand endTurnClick;
+        public ICommand EndTurnClick
+        {
+            get
+            {
+                if (endTurnClick == null)
+                    endTurnClick = new RelayCommand(param => end_turn_Click(), param => GM.game.running);
+                return endTurnClick;
+            }
+        }
+        public void end_turn_Click()
+        {
+            GM.game.endPlayerTurn();
+            updateGameDataFields();
+            updateSelectedUnitFields();
+        }
+
         public GameWindowViewModel(GameSettings settings)
         {
             GM = new GameMaster();
             GM.newGame(settings);
-
-            FirstPlayerName = GM.game.currentState.players[0].name;
-            FirstPlayerScore = GM.game.currentState.players[0].points.ToString();
-            SecondPlayerName = GM.game.currentState.players[1].name;
-            SecondPlayerScore = GM.game.currentState.players[1].points.ToString();
-
-            CurrentTurnCounter = GM.game.currentState.turnCounter.ToString();
-            MaxTurnCounter = GM.game.gameSettings.turnLimit.ToString();
 
             defaultUnit = new HumanUnit();
             defaultUnit.attackPt = 0;
@@ -63,20 +72,35 @@ namespace SmallWorld.gui
             defaultUnit.actionPool = 0;
             defaultUnit.healthPt = 0;
 
+            updateGameDataFields();
             updateSelectedUnitFields();
-            SelectedVisible = Visibility.Hidden;
         }
 
         private void updateSelectedUnitFields()
         {
             AUnit unit = SelectedUnit;
-
-            if(unit == null)
+            Visibility visible = Visibility.Visible;
+            if (unit == null)
+            {
                 unit = defaultUnit;
+                visible = Visibility.Hidden;
+            }
             SelectedUnitAttack = unit.attackPt.ToString();
             SelectedUnitDefence = unit.defencePt.ToString();
             SelectedUnitHealth = unit.healthPt.ToString();
             SelectedUnitPool = unit.actionPool.ToString();
+            SelectedVisible = visible;
+        }
+
+        private void updateGameDataFields()
+        {
+            FirstPlayerName = GM.game.currentState.players[0].name;
+            FirstPlayerScore = GM.game.currentState.players[0].points.ToString();
+            SecondPlayerName = GM.game.currentState.players[1].name;
+            SecondPlayerScore = GM.game.currentState.players[1].points.ToString();
+
+            CurrentTurnCounter = GM.game.currentState.turnCounter.ToString();
+            MaxTurnCounter = GM.game.gameSettings.turnLimit.ToString();
         }
 
         public void selectUnitAt(int column, int row)

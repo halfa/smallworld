@@ -89,7 +89,7 @@ namespace SmallWorld.Core
         /// <summary>
         /// Terminates the current game turn.
         /// </summary>
-        public void endGameTurn()
+        private void endGameTurn()
         {
             foreach (Player p in currentState.players)
             {

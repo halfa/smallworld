@@ -163,6 +163,5 @@ namespace SmallWorld.gui
 
             return img;
         }
-
     }
 }
