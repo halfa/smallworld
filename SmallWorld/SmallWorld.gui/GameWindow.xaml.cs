@@ -13,7 +13,7 @@ namespace SmallWorld.gui
     public partial class GameWindow : Window
     {
         private GameWindowViewModel GWVM;
-
+        private BackgroundAudioPlayer BGAP;
         private static int IMGSIZE = 60;
 
         public GameWindow(GameSettings settings)
@@ -21,6 +21,8 @@ namespace SmallWorld.gui
             InitializeComponent();
             GWVM = new GameWindowViewModel(settings);
             DataContext = GWVM;
+            BGAP = new BackgroundAudioPlayer();
+            BGAP.play();
         }
 
         public GameWindow(GameMaster gm)
