@@ -65,6 +65,10 @@
       <DependentUpon>SaveWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SaveWindowViewModel.cs" />
+    <Compile Include="VictoryWindow.xaml.cs">
+      <DependentUpon>VictoryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VictoryWindowViewModel.cs" />
     <Page Include="GameWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -89,6 +93,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="SaveWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VictoryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

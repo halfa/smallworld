@@ -1,10 +1,5 @@
 ﻿using SmallWorld.Core;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -63,6 +58,12 @@ namespace SmallWorld.gui
             GM.game.endPlayerTurn();
             updateGameDataFields();
             updateSelectedUnitFields();
+
+            if(!GM.game.running)
+            {
+                VictoryWindow win = new VictoryWindow(GM.game.winner());
+                win.Show();
+            }
         }
 
         private ICommand undoClick;
