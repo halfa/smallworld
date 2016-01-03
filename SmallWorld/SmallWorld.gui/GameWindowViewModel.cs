@@ -78,7 +78,9 @@ namespace SmallWorld.gui
         }
         public void undo_Click()
         {
-
+            GM.game.undo();
+            updateGameDataFields();
+            updateSelectedUnitFields();
         }
 
         public GameWindowViewModel(GameSettings settings)

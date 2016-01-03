@@ -182,5 +182,12 @@ namespace SmallWorld.gui
 
             return img;
         }
+
+        private void Undo_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (GWVM.UndoClick.CanExecute(null))
+                GWVM.UndoClick.Execute(null);
+            updateBoardDisplay();
+        }
     }
 }
