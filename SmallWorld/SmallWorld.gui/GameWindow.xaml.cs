@@ -14,7 +14,7 @@ namespace SmallWorld.gui
     {
         private GameWindowViewModel GWVM;
         private BackgroundAudioPlayer BGAP;
-        private static int IMGSIZE = 60;
+        private static int IMGSIZE = 48;
 
         public GameWindow(GameSettings settings)
         {

@@ -9,12 +9,12 @@ namespace SmallWorld.gui
     {
         public GameMaster GM { get; protected set; }
 
-        public string firstPlayerName;
+        private string firstPlayerName;
         public string FirstPlayerName { get { return firstPlayerName; } set { firstPlayerName = value; OnPropertyChanged("FirstPlayerName"); } }
         private string firstPlayerScore;
         public string FirstPlayerScore { get { return firstPlayerScore; } set { firstPlayerScore = value; OnPropertyChanged("FirstPlayerScore"); } }
 
-        public string secondPlayerName;
+        private string secondPlayerName;
         public string SecondPlayerName { get { return secondPlayerName; } set { secondPlayerName = value; OnPropertyChanged("SecondPlayerName"); } }
         private string secondPlayerScore;
         public string SecondPlayerScore { get { return secondPlayerScore; } set { secondPlayerScore = value; OnPropertyChanged("SecondPlayerScore"); } }
