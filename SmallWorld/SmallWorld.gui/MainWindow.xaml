@@ -5,32 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmallWorld.gui"
         mc:Ignorable="d"
-        Title="Small World Game" Height="500" Width="600"
+        Title="Small World Game" Height="434" Width="721.2"
         ResizeMode="NoResize">
-    <Grid>
-        <GroupBox x:Name="player1input" Header="Player 1" HorizontalAlignment="Left" Margin="365,35,0,0" VerticalAlignment="Top" Height="140" Width="195" Padding="5">
-            <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="160">
-                <Label x:Name="player1_name_label" Content="Player name"/>
-                <TextBox x:Name="player1_name_input" Height="20" TextWrapping="Wrap" Text="{Binding firstPlayerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="Name for player 1"/>
-                <Label x:Name="player1_race_label" Content="Select a race"/>
-                <ComboBox x:Name="player1_race" ToolTip="Chose a race" ItemsSource="{Binding firstPlayerRaces}" SelectedItem="{Binding firstPlayerRace, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+    <Grid Background="#FF2F2C2C">
+        <GroupBox x:Name="player1input" Header="Player 1" HorizontalAlignment="Left" Margin="30,130,0,0" VerticalAlignment="Top" Height="175" Width="195" Padding="5" Foreground="#FFBFBC5C" FontFamily="Andalus" FontSize="16" BorderThickness="1" BorderBrush="#FF514F4F">
+            <StackPanel HorizontalAlignment="Left" Height="137" VerticalAlignment="Top" Width="160" Margin="0,0,0,-5.6">
+                <Label x:Name="player1_name_label" Content="Player name" Foreground="#FFBFBC5C"/>
+                <TextBox x:Name="player1_name_input" Height="25" TextWrapping="Wrap" Text="{Binding firstPlayerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="Name for player 1" Background="#FF514F4F" Foreground="White"/>
+                <Label x:Name="player1_race_label" Content="Select a race" Foreground="#FFBFBC5C"/>
+                <ComboBox x:Name="player1_race" ToolTip="Chose a race" ItemsSource="{Binding firstPlayerRaces}" SelectedItem="{Binding firstPlayerRace, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="Black"/>
             </StackPanel>
         </GroupBox>
-        <GroupBox x:Name="player2input" Header="Player 2" HorizontalAlignment="Left" Margin="365,180,0,0" VerticalAlignment="Top" Height="140" Width="195" Padding="5">
-            <StackPanel HorizontalAlignment="Left" Height="105" VerticalAlignment="Top" Width="160" Margin="0,0,0,-12">
-                <Label x:Name="player2_name_label" Content="Player name"/>
-                <TextBox x:Name="player2_name_input" Height="20" TextWrapping="Wrap" Text="{Binding secondPlayerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="Name for player 2"/>
-                <Label x:Name="player2_race_label" Content="Select a race"/>
+        <GroupBox x:Name="player2input" Header="Player 2" HorizontalAlignment="Right" Margin="0,130,30.2,0" VerticalAlignment="Top" Height="175" Width="195" Padding="5" Foreground="#FFBFBC5C" FontFamily="Andalus" FontSize="16" BorderBrush="#FF514F4F">
+            <StackPanel HorizontalAlignment="Left" Height="137" VerticalAlignment="Top" Width="160" Margin="0,0,0,-3.6">
+                <Label x:Name="player2_name_label" Content="Player name" Foreground="#FFBFBC5C"/>
+                <TextBox x:Name="player2_name_input" Height="25" TextWrapping="Wrap" Text="{Binding secondPlayerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="Name for player 2" Background="#FF514F4F" Foreground="White"/>
+                <Label x:Name="player2_race_label" Content="Select a race" Foreground="#FFBFBC5C"/>
                 <ComboBox x:Name="player2_race" ToolTip="Chose a race" ItemsSource="{Binding secondPlayerRaces}" SelectedItem="{Binding secondPlayerRace, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
         </GroupBox>
-        <Button x:Name="start" Content="Start Game" HorizontalAlignment="Left" Margin="470,423,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.533,3" Click="start_Click_1"/>
-        <GroupBox x:Name="mapChoice" Header="Map" HorizontalAlignment="Left" Margin="365,330,0,0" VerticalAlignment="Top" Height="80" Width="195">
+        <Button x:Name="start" Content="Start Game" HorizontalAlignment="Right" Margin="0,0,30.2,30" VerticalAlignment="Bottom" Width="144" RenderTransformOrigin="0.533,3" Click="start_Click_1" FontFamily="Andalus" FontSize="16" Height="42" Background="White" BorderThickness="2"/>
+        <GroupBox x:Name="mapChoice" Header="Map" HorizontalAlignment="Center" Margin="0,164,0,0" VerticalAlignment="Top" Height="105" Width="195" Foreground="#FFBFBC5C" FontFamily="Andalus" FontSize="16" BorderBrush="#FF514F4F">
             <StackPanel Margin="5,0,17.4,-12.4" Height="70" VerticalAlignment="Top">
-                <Label x:Name="map_label" Content="Select a map"/>
+                <Label x:Name="map_label" Content="Select a map" Foreground="#FFBFBC5C"/>
                 <ComboBox x:Name="map" ToolTip="Chose a race" ItemsSource="{Binding mapTypes}" SelectedItem="{Binding mapType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" RenderTransformOrigin="0.702,0.684" HorizontalAlignment="Left" Width="160" />
             </StackPanel>
         </GroupBox>
-        <Button x:Name="button" Content="Load previous game" HorizontalAlignment="Left" Margin="31,35,0,0" VerticalAlignment="Top" Width="120" Click="button_Click"/>
+        <Button x:Name="button" Content="Load previous game" HorizontalAlignment="Left" Margin="30,0,0,30" VerticalAlignment="Bottom" Width="144" Click="button_Click" FontFamily="Andalus" FontSize="16" Height="42" Background="White" BorderThickness="2"/>
     </Grid>
 </Window>

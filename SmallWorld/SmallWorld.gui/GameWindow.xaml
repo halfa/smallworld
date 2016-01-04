@@ -17,7 +17,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Menu x:Name="menu" Margin="0">
+        <Menu x:Name="menu" Margin="0" FontFamily="Andalus" FontSize="16">
             <MenuItem Header="Save" Command="{Binding SaveClick}" />
             <MenuItem Header="Load" Command="{Binding LoadClick}" />
             <MenuItem Header="Suggest Move" Click="Suggest_Move_Click"/>
@@ -44,8 +44,8 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label x:Name="Player1_Name_Label" Content="{Binding FirstPlayerName, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FF31BDCB" FontSize="17.333" FontFamily="Andalus"/>
-                <Label x:Name="Player1_Score_Label" Margin="0" VerticalContentAlignment="Center" Content="{Binding FirstPlayerScore, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Foreground="#FF31BDCB" FontSize="17.333" FontFamily="Andalus"/>
+                <Label x:Name="Player1_Name_Label" Content="{Binding FirstPlayerName, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FF31BDCB" FontSize="20" FontFamily="Andalus"/>
+                <Label x:Name="Player1_Score_Label" Margin="0" VerticalContentAlignment="Center" Content="{Binding FirstPlayerScore, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Foreground="#FF31BDCB" FontSize="20" FontFamily="Andalus"/>
                 <Grid x:Name="Versus_Turns_Grid" Margin="0" Grid.Column="2">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -71,8 +71,8 @@
                         <Label x:Name="Max_Turn_Counter" Content="{Binding MaxTurnCounter, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="0" Grid.Column="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5,0,5,5" Foreground="#FFEE493C" FontSize="16" FontFamily="Andalus"/>
                     </Grid>
                 </Grid>
-                <Label x:Name="Player2_Score_Label" Content="{Binding SecondPlayerScore, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Grid.Column="3" Foreground="#FFEE493C" FontSize="17.333" FontFamily="Andalus"/>
-                <Label x:Name="Player2_Name_Label" Content="{Binding SecondPlayerName, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="4" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FFEE493C" FontSize="17.333" FontFamily="Andalus"/>
+                <Label x:Name="Player2_Score_Label" Content="{Binding SecondPlayerScore, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Grid.Column="3" Foreground="#FFEE493C" FontSize="20" FontFamily="Andalus"/>
+                <Label x:Name="Player2_Name_Label" Content="{Binding SecondPlayerName, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="4" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FFEE493C" FontSize="20" FontFamily="Andalus"/>
             </Grid>
             <Grid x:Name="Game_Display_Grid" Margin="0" Grid.Row="1" Grid.Column="1">
                 <Rectangle x:Name="SelectionRectangle" Panel.ZIndex="333" Stroke="Blue" StrokeThickness="2" Visibility="{Binding SelectedVisible, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="{Binding SelectedRow, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="{Binding SelectedColumn, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
@@ -97,17 +97,17 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <Label x:Name="Unit_Attack_Label" Content="Attack:" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Foreground="#FFEE493C" FontFamily="Andalus" Padding="0,5,5,5"/>
-                    <Label x:Name="Unit_Attack_Value_Label" Content="{Binding SelectedUnitAttack, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,71.6,35" VerticalContentAlignment="Center" Grid.Column="1" FontSize="16" Foreground="#FFEE493C" FontFamily="Andalus" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" Grid.RowSpan="2" Padding="0,5"/>
-                    <Label x:Name="Unit_Defence_Label" Content="Defence:" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="2" FontSize="17.333" Foreground="#FF31BDCB" FontFamily="Andalus"/>
-                    <Label x:Name="Unit_Defence_Value_Label" Content="{Binding SelectedUnitDefence, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Margin="0" VerticalContentAlignment="Center" FontSize="16" Foreground="#FF31BDCB" FontFamily="Andalus" HorizontalContentAlignment="Center" Padding="0,5"/>
-                    <Label x:Name="Unit_HP_Label" Content="Health:" Margin="0,0.2,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1" FontSize="16" Foreground="#FF429A53" FontFamily="Andalus" Padding="0,5,5,5"/>
-                    <Label x:Name="Unit_HP_Value_Label" Content="{Binding SelectedUnitHealth, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="0" Grid.Column="1" VerticalContentAlignment="Center" Grid.Row="1" FontSize="16" Foreground="#FF429A53" FontFamily="Andalus" HorizontalContentAlignment="Center" Padding="0,5" MinWidth="18"/>
-                    <Label x:Name="Unit_Pool_Label" Content="Action:" Margin="0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="2" FontSize="16" Foreground="#FFBFBC5C" FontFamily="Andalus"/>
-                    <Label x:Name="Unit_Pool_Value_Label" Content="{Binding SelectedUnitPool, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Margin="0" VerticalContentAlignment="Center" FontSize="16" Width="17" Foreground="#FFBFBC5C" Grid.Row="1" FontFamily="Andalus" HorizontalContentAlignment="Center" Padding="0,5"/>
+                    <Label x:Name="Unit_Attack_Label" Content="Attack:" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Foreground="#FFEE493C" FontFamily="Andalus" Padding="0,5,5,5" BorderThickness="0,5,0,0"/>
+                    <Label x:Name="Unit_Attack_Value_Label" Content="{Binding SelectedUnitAttack, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="0" VerticalContentAlignment="Center" Grid.Column="1" FontSize="16" Foreground="#FFEE493C" FontFamily="Andalus" HorizontalContentAlignment="Center" Padding="0,5" BorderThickness="0,5,0,0"/>
+                    <Label x:Name="Unit_Defence_Label" Content="Defence:" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="2" FontSize="16" Foreground="#FF31BDCB" FontFamily="Andalus" BorderThickness="0,5,0,0"/>
+                    <Label x:Name="Unit_Defence_Value_Label" Content="{Binding SelectedUnitDefence, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Margin="0" VerticalContentAlignment="Center" FontSize="16" Foreground="#FF31BDCB" FontFamily="Andalus" HorizontalContentAlignment="Center" Padding="0,5" BorderThickness="0,5,0,0"/>
+                    <Label x:Name="Unit_HP_Label" Content="Health:" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1" FontSize="16" Foreground="#FF429A53" FontFamily="Andalus" Padding="0,5,5,5" BorderThickness="0,0,0,5"/>
+                    <Label x:Name="Unit_HP_Value_Label" Content="{Binding SelectedUnitHealth, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="0" Grid.Column="1" VerticalContentAlignment="Center" Grid.Row="1" FontSize="16" Foreground="#FF429A53" FontFamily="Andalus" HorizontalContentAlignment="Center" Padding="0,5" MinWidth="18" BorderThickness="0,0,0,5"/>
+                    <Label x:Name="Unit_Pool_Label" Content="Action:" Margin="0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="2" FontSize="16" Foreground="#FFBFBC5C" FontFamily="Andalus" BorderThickness="0,0,0,5"/>
+                    <Label x:Name="Unit_Pool_Value_Label" Content="{Binding SelectedUnitPool, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Margin="0" VerticalContentAlignment="Center" FontSize="16" Width="17" Foreground="#FFBFBC5C" Grid.Row="1" FontFamily="Andalus" HorizontalContentAlignment="Center" Padding="0,5" BorderThickness="0,0,0,5"/>
                 </Grid>
-                <Button x:Name="Undo_Button" Content="Undo" Grid.Column="1" Margin="6,0" Height="25" FontSize="17.333" Click="Undo_Button_Click" FontFamily="Andalus" Padding="1,-1,1,1" VerticalContentAlignment="Center"/>
-                <Button x:Name="End_Turn_Button" Content="End Turn" Grid.Column="2" Margin="6,0,0,0" Height="25" FontSize="17.333" Click="End_Turn_Button_Click" FontFamily="Andalus" Padding="1,-1,1,1"/>
+                <Button x:Name="Undo_Button" Content="Undo" Grid.Column="1" Margin="4,0" FontSize="17.333" Click="Undo_Button_Click" FontFamily="Andalus" Padding="2,1" VerticalContentAlignment="Center" Height="28"/>
+                <Button x:Name="End_Turn_Button" Content="End Turn" Grid.Column="2" Margin="4,0,0,0" Height="28" FontSize="17.333" Click="End_Turn_Button_Click" FontFamily="Andalus" Padding="2,1"/>
             </Grid>
         </Grid>
     </Grid>
