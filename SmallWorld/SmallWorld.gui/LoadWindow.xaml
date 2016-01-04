@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmallWorld.gui"
         mc:Ignorable="d"
-        Title="LoadWindow" Height="93.204" Width="374.272">
-    <Grid>
+        Title="LoadWindow" Height="93" Width="481.892">
+    <Grid Background="#FF2F2C2C">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="label" Content="Load save:" Margin="10,19,184.4,228.4"/>
-        <TextBox x:Name="textBox" Margin="81,20,0,228.8" TextWrapping="Wrap" Text="{Binding FilePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Button x:Name="button" Content="Load" Margin="12.4,19,-9,228.8" Width="75" Click="button_Click" Grid.Column="2"/>
+        <Label x:Name="label" Content="Load save:" Margin="5,5,5,0" Foreground="#FFBFBC5C" FontFamily="Andalus" FontSize="17.333" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox x:Name="textBox" Margin="5" TextWrapping="Wrap" Text="{Binding FilePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF514F4F" Foreground="White" FontFamily="Andalus" FontSize="17.333" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="277"/>
+        <Button x:Name="button" Content="Load" Margin="5" Width="75" Click="button_Click" Grid.Column="2" FontFamily="Andalus" FontSize="17.333" HorizontalAlignment="Center" VerticalAlignment="Center" />
     </Grid>
 </Window>
