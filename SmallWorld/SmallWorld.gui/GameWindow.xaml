@@ -46,7 +46,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label x:Name="Player1_Name_Label" Content="{Binding FirstPlayerName, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FF31BDCB" FontSize="20" FontFamily="Andalus"/>
+                <Label x:Name="Player1_Name_Label" Content="{Binding FirstPlayerName, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FF31BDCB" FontSize="20" FontFamily="Andalus" BorderThickness="{Binding FirstPlayerBorder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderBrush="#FF31BDCB"/>
                 <Label x:Name="Player1_Score_Label" Margin="0" VerticalContentAlignment="Center" Content="{Binding FirstPlayerScore, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Foreground="#FF31BDCB" FontSize="20" FontFamily="Andalus"/>
                 <Grid x:Name="Versus_Turns_Grid" Margin="0" Grid.Column="2">
                     <Grid.RowDefinitions>
@@ -74,7 +74,7 @@
                     </Grid>
                 </Grid>
                 <Label x:Name="Player2_Score_Label" Content="{Binding SecondPlayerScore, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Grid.Column="3" Foreground="#FFEE493C" FontSize="20" FontFamily="Andalus"/>
-                <Label x:Name="Player2_Name_Label" Content="{Binding SecondPlayerName, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="4" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FFEE493C" FontSize="20" FontFamily="Andalus"/>
+                <Label x:Name="Player2_Name_Label" Content="{Binding SecondPlayerName, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="4" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FFEE493C" FontSize="20" FontFamily="Andalus" BorderThickness="{Binding SecondPlayerBorder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderBrush="#FFEE493C" />
             </Grid>
             <Grid x:Name="Game_Display_Grid" Margin="0" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Rectangle x:Name="SelectionRectangle" Panel.ZIndex="333" Stroke="Blue" StrokeThickness="2" Visibility="{Binding SelectedVisible, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="{Binding SelectedRow, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="{Binding SelectedColumn, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>

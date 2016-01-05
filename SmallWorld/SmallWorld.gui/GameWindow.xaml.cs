@@ -197,6 +197,7 @@ namespace SmallWorld.gui
         {
             if (GWVM.EndTurnClick.CanExecute(null))
                 GWVM.EndTurnClick.Execute(null);
+            GWVM.updateCurrentPlayerDisplay();
             updateBoardDisplay();
         }
 

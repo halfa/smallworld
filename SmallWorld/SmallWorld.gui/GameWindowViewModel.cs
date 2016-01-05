@@ -43,6 +43,12 @@ namespace SmallWorld.gui
         private int selectedColumn;
         public int SelectedColumn { get { return selectedColumn; } set { selectedColumn = value; OnPropertyChanged("SelectedColumn"); } }
 
+        private Thickness firstPlayerBorder;
+        public Thickness FirstPlayerBorder { get { return firstPlayerBorder; } set { firstPlayerBorder = value; OnPropertyChanged("FirstPlayerBorder"); } }
+
+        private Thickness secondPlayerBorder;
+        public Thickness SecondPlayerBorder { get { return secondPlayerBorder; } set { secondPlayerBorder = value; OnPropertyChanged("SecondPlayerBorder"); } }
+
         private ICommand endTurnClick;
         public ICommand EndTurnClick
         {
@@ -128,6 +134,7 @@ namespace SmallWorld.gui
 
             updateGameDataFields();
             updateSelectedUnitFields();
+            updateCurrentPlayerDisplay();
         }
 
         public GameWindowViewModel(GameMaster gm)
@@ -142,6 +149,7 @@ namespace SmallWorld.gui
 
             updateGameDataFields();
             updateSelectedUnitFields();
+            updateCurrentPlayerDisplay();
         }
 
         private void updateSelectedUnitFields()
@@ -169,8 +177,22 @@ namespace SmallWorld.gui
             SecondPlayerName = GM.game.currentState.players[1].name;
             SecondPlayerScore = GM.game.currentState.players[1].points.ToString();
 
-            CurrentTurnCounter = GM.game.currentState.turnCounter.ToString();
+            CurrentTurnCounter = (GM.game.currentState.turnCounter + 1).ToString();
             MaxTurnCounter = GM.game.gameSettings.turnLimit.ToString();
+        }
+
+        public void updateCurrentPlayerDisplay()
+        {
+            if(GM.game.currentState.activePlayerIndex == 0)
+            {
+                FirstPlayerBorder = new Thickness(0,3,0,3);
+                SecondPlayerBorder = new Thickness(0,0,0,0);
+            }
+            else
+            {
+                FirstPlayerBorder = new Thickness(0,0,0,0);
+                SecondPlayerBorder = new Thickness(0,3,0,3);
+            }
         }
 
         public void selectUnitAt(int column, int row)
