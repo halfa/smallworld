@@ -6,7 +6,7 @@ using System.Windows.Input;
 namespace SmallWorld.gui
 {
     /// <summary>
-    /// Manage interfations between the main window and the underlying model
+    /// Manage interactions between the main window and the underlying model
     /// </summary>
     public class MainWindowViewModel : INotifyPropertyChanged
     {

@@ -221,5 +221,12 @@ namespace SmallWorld.gui
                 Game_Display_Grid.Children.Add(img);
             }
         }
+
+        private void Quit_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow win = new MainWindow();
+            win.Show();
+            Close();
+        }
     }
 }
