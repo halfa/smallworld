@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmallWorld.gui"
         mc:Ignorable="d"
-        Title="Small World Game" Height="434" Width="721.2"
-        ResizeMode="NoResize">
+        Title="Small World Game" Height="434" Width="721"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
     <Grid Background="#FF2F2C2C">
         <GroupBox x:Name="player1input" Header="Player 1" HorizontalAlignment="Left" Margin="30,130,0,0" VerticalAlignment="Top" Height="175" Width="195" Padding="5" Foreground="#FFBFBC5C" FontFamily="Andalus" FontSize="16" BorderThickness="1" BorderBrush="#FF514F4F">
             <StackPanel HorizontalAlignment="Left" Height="137" VerticalAlignment="Top" Width="160" Margin="0,0,0,-5.6">

@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:SmallWorld.gui"
         mc:Ignorable="d"
         Title="VictoryWindow" Width="270" Height="140"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
     <Grid Background="#FF2F2C2C">
         <Grid.RowDefinitions>
             <RowDefinition/>

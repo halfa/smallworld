@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:SmallWorld.gui"
         mc:Ignorable="d"
         Title="SaveWindow" Height="93" Width="522"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
     <Grid Background="#FF2F2C2C">
         <Grid.RowDefinitions>
             <RowDefinition/>

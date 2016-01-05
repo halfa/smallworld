@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmallWorld.gui"
         mc:Ignorable="d"
-        Title="LoadWindow" Height="93" Width="481.892">
+        Title="LoadWindow" Height="93" Width="482"
+        WindowStartupLocation="CenterScreen">
     <Grid Background="#FF2F2C2C">
         <Grid.RowDefinitions>
             <RowDefinition/>
