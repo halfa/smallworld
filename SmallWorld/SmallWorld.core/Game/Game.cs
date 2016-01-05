@@ -84,6 +84,7 @@ namespace SmallWorld.Core
         public void endGame()
         {
             running = false;
+            currentState.turnCounter--;
         }
 
         /// <summary>

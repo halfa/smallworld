@@ -121,6 +121,22 @@ namespace SmallWorld.gui
             win.Show();
         }
 
+        private ICommand rulesClick;
+        public ICommand RulesClick
+        {
+            get
+            {
+                if (rulesClick == null)
+                    rulesClick = new RelayCommand(param => rules_Click(), param => true);
+                return rulesClick;
+            }
+        }
+        public void rules_Click()
+        {
+            HelpWindow win = new HelpWindow();
+            win.Show();
+        }
+
         public GameWindowViewModel(GameSettings settings)
         {
             GM = new GameMaster();

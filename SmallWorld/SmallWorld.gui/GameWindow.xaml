@@ -18,10 +18,11 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Menu x:Name="menu" Margin="0" FontFamily="Andalus" FontSize="16">
+        <Menu x:Name="menu" Margin="0,0,-0.2,0.2" FontFamily="Andalus" FontSize="16">
             <MenuItem Header="Save" Command="{Binding SaveClick}" />
             <MenuItem Header="Load" Command="{Binding LoadClick}" />
             <MenuItem Header="Suggest Move" Click="Suggest_Move_Click"/>
+            <MenuItem Header="Rules" Command="{Binding RulesClick}"/>
             <MenuItem Header="Quit" Click="Quit_Click"/>
         </Menu>
         <Grid Margin="0" Grid.Row="1">

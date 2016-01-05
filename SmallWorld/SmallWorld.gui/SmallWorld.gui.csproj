@@ -57,6 +57,10 @@
     </ApplicationDefinition>
     <Compile Include="BackgroundAudioPlayer.cs" />
     <Compile Include="GameWindowViewModel.cs" />
+    <Compile Include="HelpWindow.xaml.cs">
+      <DependentUpon>HelpWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HelpWindowViewModel.cs" />
     <Compile Include="LoadWindow.xaml.cs">
       <DependentUpon>LoadWindow.xaml</DependentUpon>
     </Compile>
@@ -71,6 +75,10 @@
     </Compile>
     <Compile Include="VictoryWindowViewModel.cs" />
     <Page Include="GameWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HelpWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

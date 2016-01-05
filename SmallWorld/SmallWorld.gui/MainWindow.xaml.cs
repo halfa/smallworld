@@ -38,7 +38,7 @@ namespace SmallWorld.gui
             }
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void load_Click(object sender, RoutedEventArgs e)
         {
             if(MWVM.LoadClick.CanExecute(null))
             {
