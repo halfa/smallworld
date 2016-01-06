@@ -9,20 +9,20 @@
         WindowStartupLocation="CenterScreen">
     <Grid Background="#FF2F2C2C" >
         <TabControl x:Name="tabControl" Margin="0" Background="#FF2F2C2C" FontFamily="Andalus" FontSize="16">
-            <TabItem Header="General Rules" Margin="-2,-2,-2,0" Foreground="#FFBFBC5C" Background="Black">
+            <TabItem Header="General Rules" Margin="-2,-2,-2,0" Foreground="#FFBFBC5C" Background="#FF2F2C2C">
                 <TextBox  x:Name="textBox_Copy2" Text="{Binding GeneralRules, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" IsReadOnly="True" Margin="10" FontFamily="Andalus" FontSize="16" BorderThickness="0" Background="#FF2F2C2C" Foreground="#FFBFBC5C" VerticalScrollBarVisibility="Auto"/>
             </TabItem>
             <TabItem Header="Armies" Background="#FF2F2C2C" Margin="-2,-2,-2,0" Foreground="#FFBFBC5C">
-                <TextBox x:Name="textBox_Copy4" Text="{Binding ArmiesRules, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" IsReadOnly="True" Margin="10" FontFamily="Andalus" FontSize="16" BorderThickness="0" Background="#FF2F2C2C" Foreground="#FFBFBC5C"/>
+                <TextBox x:Name="textBox_Copy4" Text="{Binding ArmiesRules, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" IsReadOnly="True" Margin="10" FontFamily="Andalus" FontSize="16" BorderThickness="0" Background="#FF2F2C2C" Foreground="#FFBFBC5C" VerticalScrollBarVisibility="Auto"/>
             </TabItem>
             <TabItem Header="Victory" Background="#FF2F2C2C" Margin="-2,-2,-2,0" Foreground="#FF31BDCB">
                 <TextBox x:Name="textBox_Copy" Text="{Binding VictoryRules, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" IsReadOnly="True" Margin="10" FontFamily="Andalus" FontSize="16" BorderThickness="0" Background="#FF2F2C2C" Foreground="#FF31BDCB" VerticalScrollBarVisibility="Auto"/>
             </TabItem>
             <TabItem Header="Points" Background="#FF2F2C2C" Margin="-2,-2,-2,0" Foreground="#FF429A53">
-                <TextBox x:Name="textBox_Copy3" Text="{Binding PointsRules, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" IsReadOnly="True" Margin="10" FontFamily="Andalus" FontSize="16" BorderThickness="0" Background="#FF2F2C2C" Foreground="#FF429A53"/>
+                <TextBox x:Name="textBox_Copy3" Text="{Binding PointsRules, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" IsReadOnly="True" Margin="10" FontFamily="Andalus" FontSize="16" BorderThickness="0" Background="#FF2F2C2C" Foreground="#FF429A53" VerticalScrollBarVisibility="Auto"/>
             </TabItem>
-            <TabItem Header="Battle" Background="#FF2F2C2C" Margin="-2,-2,-2,0" Foreground="#FFEE493C">
-                <TextBox x:Name="textBox_Copy1" Text="{Binding BattleRules, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" IsReadOnly="True" Margin="10" FontFamily="Andalus" FontSize="16" BorderThickness="0" Background="#FF2F2C2C" Foreground="#FFEE493C"/>
+            <TabItem Header="Battle" Background="#FF2F2C2C" Margin="-2,-2,-2,0" Foreground="#FFFF5042">
+                <TextBox x:Name="textBox_Copy1" Text="{Binding BattleRules, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" IsReadOnly="True" Margin="10" FontFamily="Andalus" FontSize="16" BorderThickness="0" Background="#FF2F2C2C" Foreground="#FFFF5042" VerticalScrollBarVisibility="Auto"/>
             </TabItem>
         </TabControl>
 

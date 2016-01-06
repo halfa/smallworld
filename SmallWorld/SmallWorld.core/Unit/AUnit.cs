@@ -138,9 +138,9 @@ namespace SmallWorld.Core
         /// <param name="amount"></param>
         public void loseHP(int amount)
         {
-            // 1% chance of not losing health because lucky miss. //
+            // 4% chance of not losing health because lucky miss. //
             Random rd = new Random();
-            int crit = rd.Next(100);
+            int crit = rd.Next(25);
             if (crit == 1)
             {
                 defencePt++;

@@ -102,7 +102,7 @@ namespace SmallWorld.gui
             mapTypes = new List<MapType>() { MapType.Demo, MapType.Small, MapType.Standard };
 
             // default builder - this match the interface parameters
-            GS.mapType = MapType.Demo;
+            GS.mapType = MapType.Small;
             GS.nbPlayers = 2;
             GS.playersNames.Add("Elrond");
             GS.playersRaces.Add(Races.Elf);
