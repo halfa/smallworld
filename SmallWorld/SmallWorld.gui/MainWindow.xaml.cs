@@ -43,7 +43,8 @@ namespace SmallWorld.gui
             if(MWVM.LoadClick.CanExecute(null))
             {
                 MWVM.LoadClick.Execute(null);
-                Close();
+                if(MWVM.HasToClose)
+                    Close();
             }
         }
     }

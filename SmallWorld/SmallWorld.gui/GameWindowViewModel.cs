@@ -1,4 +1,5 @@
-﻿using SmallWorld.Core;
+﻿using Microsoft.Win32;
+using SmallWorld.Core;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
@@ -105,8 +106,19 @@ namespace SmallWorld.gui
         }
         public void save_Click()
         {
-            SaveWindow win = new SaveWindow(GM);
-            win.Show();
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Fichiers SmallWorld (*.xml)|*.xml";
+            sfd.FileOk += new CancelEventHandler(saveFileHandler);
+            sfd.ShowDialog();
+        }
+
+        private void saveFileHandler(object sender, CancelEventArgs e)
+        {
+            if (sender.GetType().Equals(typeof(SaveFileDialog)))
+            {
+                SaveFileDialog sfd = sender as SaveFileDialog;
+                GM.saveGame(sfd.FileName);
+            }
         }
 
         private ICommand loadClick;
@@ -121,9 +133,27 @@ namespace SmallWorld.gui
         }
         public void load_Click()
         {
-            LoadWindow win = new LoadWindow();
-            win.Show();
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Fichiers SmallWorld (*.xml)|*.xml";
+            ofd.FileOk += new CancelEventHandler(loadFileHandler);
+            ofd.ShowDialog();
         }
+
+        private void loadFileHandler(object sender, CancelEventArgs e)
+        {
+            if (sender.GetType().Equals(typeof(OpenFileDialog)))
+            {
+                HasToClose = true;
+                OpenFileDialog ofd = sender as OpenFileDialog;
+
+                GameMaster gm = new GameMaster();
+                gm.loadGame(ofd.FileName);
+                GameWindow win = new GameWindow(gm);
+                win.Show();
+            }
+        }
+
+        public bool HasToClose { get; set; }
 
         private ICommand rulesClick;
         public ICommand RulesClick
@@ -156,6 +186,8 @@ namespace SmallWorld.gui
             updateSelectedUnitFields();
             updateCurrentPlayerDisplay();
 
+            HasToClose = false;
+
             LW = new LogWindow(new LogWindowViewModel());
             LW.Show();
         }
@@ -173,6 +205,8 @@ namespace SmallWorld.gui
             updateGameDataFields();
             updateSelectedUnitFields();
             updateCurrentPlayerDisplay();
+
+            HasToClose = false;
 
             LW = new LogWindow(new LogWindowViewModel());
             LW.Show();

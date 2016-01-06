@@ -10,8 +10,8 @@ namespace SmallWorld.utest
         public void TestSaveLoad()
         {
             // Removing the saves directory and its content at the begining of the test. //
-            if (System.IO.Directory.Exists(".\\Saves"))
-                System.IO.Directory.Delete(".\\Saves", true);
+            if (!System.IO.Directory.Exists(".\\Saves"))
+                System.IO.Directory.CreateDirectory(".\\Saves");
 
             GameSettings GS = new GameSettings();
             GS.mapType = MapType.Demo;
@@ -24,23 +24,21 @@ namespace SmallWorld.utest
             GameMaster GM = new GameMaster();
             GM.newGame(GS);
 
-            Assert.IsFalse(System.IO.Directory.Exists(".\\Saves"));
-            GM.loadGame("save01");
+            GM.loadGame(".\\Saves\\save01.xml");
             Assert.IsTrue(GM.loadManager.game == null);
 
-            GM.saveGame("save01");
-            Assert.IsTrue(System.IO.Directory.Exists(".\\Saves"));
+            GM.saveGame(".\\Saves\\save01.xml");
             Assert.IsTrue(System.IO.File.Exists(".\\Saves\\save01.xml"));
 
             Assert.AreEqual(GM.game.previousGameStates.Count, 0);
             GM.game.stack();
             Assert.AreEqual(GM.game.previousGameStates.Count, 1);
-            GM.saveGame("save02");
+            GM.saveGame(".\\Saves\\save02.xml");
 
-            GM.loadGame("save01");
+            GM.loadGame(".\\Saves\\save01.xml");
             Assert.AreEqual(GM.game.previousGameStates.Count, 0);
 
-            GM.loadGame("save02");
+            GM.loadGame(".\\Saves\\save02.xml");
             Assert.AreEqual(GM.game.previousGameStates.Count, 1);
 
             // Removing the saves directory and its content at the end of the test. //

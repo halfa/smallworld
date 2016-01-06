@@ -33,12 +33,11 @@ namespace SmallWorld.Core
         /// <param name="filePath"></param>
         public bool loadGame(string filePath)
         {
-            if (System.IO.Directory.Exists("Saves") && System.IO.File.Exists("Saves\\" + filePath + ".xml"))
+            if (System.IO.File.Exists(filePath))
             {
-                System.Console.WriteLine("directory and file found.");
                 XmlSerializer ser = new XmlSerializer(typeof(GameData));
                 GameData data = null;
-                using (var file = File.OpenRead("Saves\\" + filePath + ".xml"))
+                using (var file = File.OpenRead(filePath))
                 {
                     data = (GameData)ser.Deserialize(file);
                     file.Close();
@@ -49,7 +48,6 @@ namespace SmallWorld.Core
                 return true;
             } else
             {
-                System.Console.WriteLine("directory and file NOT found.");
                 return false;
             }
         }

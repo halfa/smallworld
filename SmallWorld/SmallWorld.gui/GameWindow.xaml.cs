@@ -231,5 +231,23 @@ namespace SmallWorld.gui
             GWVM.LW.Close();
             Close();
         }
+
+        private void Load_Click(object sender, RoutedEventArgs e)
+        {
+            if (GWVM.LoadClick.CanExecute(null))
+                GWVM.LoadClick.Execute(null);
+            if (GWVM.HasToClose)
+            {
+                Logger.empty();
+                GWVM.LW.Close();
+                Close();
+            }
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            if (GWVM.SaveClick.CanExecute(null))
+                GWVM.SaveClick.Execute(null);
+        }
     }
 }

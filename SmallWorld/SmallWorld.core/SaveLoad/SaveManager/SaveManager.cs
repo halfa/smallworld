@@ -32,10 +32,8 @@ namespace SmallWorld.Core
         {
             if (savable == null)
                 return;
-            string dir = "Saves";
-            System.IO.Directory.CreateDirectory(dir);
             XmlSerializer ser = new XmlSerializer(typeof(GameData));
-            using (var file = File.OpenWrite(dir + "\\" + filePath + ".xml"))
+            using (var file = File.OpenWrite(filePath))
             {
                 ser.Serialize(file, savable.toData());
                 file.Close();

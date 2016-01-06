@@ -1,4 +1,5 @@
-﻿using SmallWorld.Core;
+﻿using Microsoft.Win32;
+using SmallWorld.Core;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Input;
@@ -73,9 +74,27 @@ namespace SmallWorld.gui
         }
         public void load_Click()
         {
-            LoadWindow win = new LoadWindow();
-            win.Show();
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Fichiers SmallWorld (*.xml)|*.xml";
+            ofd.FileOk += new CancelEventHandler(loadFileHandler);
+            ofd.ShowDialog();
         }
+
+        private void loadFileHandler(object sender, CancelEventArgs e)
+        {
+            if (sender.GetType().Equals(typeof(OpenFileDialog)))
+            {
+                HasToClose = true;
+                OpenFileDialog ofd = sender as OpenFileDialog;
+
+                GameMaster gm = new GameMaster();
+                gm.loadGame(ofd.FileName);
+                GameWindow win = new GameWindow(gm);
+                win.Show();
+            }
+        }
+
+        public bool HasToClose { get; set; }
 
         private ICommand rulesClick;
         public ICommand RulesClick
@@ -96,6 +115,8 @@ namespace SmallWorld.gui
         public MainWindowViewModel()
         {
             GS = new GameSettings();
+
+            HasToClose = false;
 
             firstPlayerRaces = new List<Races>() { Races.Elf, Races.Human, Races.Orc };
             secondPlayerRaces = new List<Races>() { Races.Elf, Races.Human, Races.Orc };
