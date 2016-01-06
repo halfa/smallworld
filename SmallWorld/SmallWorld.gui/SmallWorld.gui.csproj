@@ -65,6 +65,10 @@
       <DependentUpon>LoadWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoadWindowViewModel.cs" />
+    <Compile Include="LogWindow.xaml.cs">
+      <DependentUpon>LogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LogWindowViewModel.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="SaveWindow.xaml.cs">
       <DependentUpon>SaveWindow.xaml</DependentUpon>
@@ -83,6 +87,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LoadWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

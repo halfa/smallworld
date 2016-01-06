@@ -426,12 +426,25 @@ namespace SmallWorld.utest
             Assert.IsFalse(game.running);
             Assert.AreEqual(game.winner(), game.currentState.players[0]);
 
+            game.running = true;
+
+            game.currentState.turnCounter = game.gameSettings.turnLimit - 1;
+            game.endPlayerTurn();
+            game.endPlayerTurn();
+
             game.currentState.players[0].points = 0;
             game.currentState.players[1].points = 10;
             Assert.AreEqual(game.winner(), game.currentState.players[1]);
 
+            game.running = true;
+
+            game.currentState.turnCounter = game.gameSettings.turnLimit - 1;
+            game.endPlayerTurn();
+            game.endPlayerTurn();
+
             game.currentState.players[0].points = 0;
             game.currentState.players[1].points = 0;
+
             Assert.IsTrue(game.winner() == null);
         }
 

@@ -9,6 +9,8 @@ namespace SmallWorld.gui
     {
         public GameMaster GM { get; protected set; }
 
+        public LogWindow LW { get; set; }
+
         private string firstPlayerName;
         public string FirstPlayerName { get { return firstPlayerName; } set { firstPlayerName = value; OnPropertyChanged("FirstPlayerName"); } }
         private string firstPlayerScore;
@@ -62,14 +64,16 @@ namespace SmallWorld.gui
         public void end_turn_Click()
         {
             GM.game.endPlayerTurn();
-            updateGameDataFields();
-            updateSelectedUnitFields();
 
-            if(!GM.game.running)
+            LW.LWVM.Log = Logger.Log;
+
+            if (!GM.game.running)
             {
                 VictoryWindow win = new VictoryWindow(GM.game.winner());
                 win.Show();
             }
+            updateGameDataFields();
+            updateSelectedUnitFields();
         }
 
         private ICommand undoClick;
@@ -151,6 +155,9 @@ namespace SmallWorld.gui
             updateGameDataFields();
             updateSelectedUnitFields();
             updateCurrentPlayerDisplay();
+
+            LW = new LogWindow(new LogWindowViewModel());
+            LW.Show();
         }
 
         public GameWindowViewModel(GameMaster gm)
@@ -166,6 +173,9 @@ namespace SmallWorld.gui
             updateGameDataFields();
             updateSelectedUnitFields();
             updateCurrentPlayerDisplay();
+
+            LW = new LogWindow(new LogWindowViewModel());
+            LW.Show();
         }
 
         private void updateSelectedUnitFields()
@@ -221,6 +231,7 @@ namespace SmallWorld.gui
         {
             GM.game.moveSelectedUnitTo(new Position(column, row));
             updateSelectedUnitFields();
+            LW.LWVM.Log = Logger.Log;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

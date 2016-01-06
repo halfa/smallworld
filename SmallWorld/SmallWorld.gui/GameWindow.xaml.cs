@@ -227,6 +227,8 @@ namespace SmallWorld.gui
         {
             MainWindow win = new MainWindow();
             win.Show();
+            Logger.empty();
+            GWVM.LW.Close();
             Close();
         }
     }

@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Logger.cs" />
     <Compile Include="util\Algo.cs" />
     <Compile Include="race\Races.cs" />
     <Compile Include="tile\TileType.cs" />

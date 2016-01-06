@@ -56,12 +56,15 @@ namespace SmallWorld.Core
             // 4% chance of critical strike because lucky hit. //
             int crit = rd.Next(25);
             if (crit == 1)
+            {
                 attack = attack * 2;
+                Logger.addMessage("CRITICAL strike!");
+            }
+            Logger.addMessage("Your warrior attacks for " + attack + " points of damage.");
             defender.loseHP(attack - defender.defencePt);
             int remainingDefence = defender.defencePt - 1;
             if (remainingDefence >= 0)
                 defender.defencePt = remainingDefence;
-
         }
 
         /// <summary>
@@ -139,16 +142,19 @@ namespace SmallWorld.Core
         public void loseHP(int amount)
         {
             // 4% chance of not losing health because lucky miss. //
+            Logger.addMessage("The defender tries to avoid the attack!");
             Random rd = new Random();
             int crit = rd.Next(25);
             if (crit == 1)
             {
                 defencePt++;
+                Logger.addMessage("HEROIC EVADE!");
                 return;
             }
             if (amount < 0)
                 amount = 0;
             healthPt -= amount;
+            Logger.addMessage("The defender is hit, and loses " + amount + "health points, and 1 defence point.");
             if (healthPt < 0)
                 healthPt = 0;
         }

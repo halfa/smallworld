@@ -84,7 +84,7 @@ namespace SmallWorld.Core
         public void endGame()
         {
             running = false;
-            currentState.turnCounter--;
+            Logger.addMessage("--- Game ended ---");
         }
 
         /// <summary>
@@ -98,7 +98,8 @@ namespace SmallWorld.Core
                 foreach(AUnit unit in p.units)
                     unit.restoreActionPool();
             }
-            currentState.turnCounter++;
+            Logger.addMessage("--- Turn " + (currentState.turnCounter +1) + " ended ---");
+            currentState.turnCounter++; 
             if (isGameOverTurnLimit())
                 endGame();
         }
@@ -115,6 +116,7 @@ namespace SmallWorld.Core
                 return;
             previousGameStates.Clear();
             currentState.selectedUnit = null;
+            Logger.addMessage(currentState.players[currentState.activePlayerIndex].name + " ended his turn.\n");
             if (isGameOverSupremacy())
             {
                 endGame();
@@ -157,8 +159,10 @@ namespace SmallWorld.Core
         {
             if (running)
                 throw new Exception("Invalid call to the winner method: game still running.");
-            if (currentState.turnCounter == gameSettings.turnLimit)
+            if (isGameOverTurnLimit())
             {
+                currentState.turnCounter--;
+                // We decrease it so that the property now contains the number of the last game turn. //
                 // Victory or draw by points. //
                 // If the game ended with a player dead at the same time. //
                 if (currentState.players.Exists(new Predicate<Player>(Player.isDead)))
@@ -533,14 +537,12 @@ namespace SmallWorld.Core
                 return;
             bool attack = enemyUnitAtPos(position);
             List<Position> path = isSelectedUnitMovableTo(position, attack);
-            // If no path has been found or the selected target tile was the original tile of the moving unit. //
-            /*
-            if (path == null || path.Count == 0)
-                return false;
-                */
-            if (path == null || position.equals(currentState.selectedUnit.position))
-                return;
 
+            if (path == null || position.equals(currentState.selectedUnit.position))
+            {
+                Logger.addMessage("Strangely enough, your warrior decides not to move...");
+                return;
+            }
             stack();
             Position to = position;
             if (path.Count != 0)
@@ -554,15 +556,19 @@ namespace SmallWorld.Core
 
             double cost = computePathCost(path);
 
+            Logger.addMessage("Your warrior moves to (" + to.x + " ; " + to.y + ") for " + cost + " action points.");
+
             // Now handles the attack if it was an attack comand.
             // If we are attacking, and we got a path, then it means we have enough action points to perform the attack, ie
             // if we kill the last unit, we move to the position if we are not range, if we don't kill the unit,
             // we still lose the action points for attacking only.
             if (attack)
             {
+                Logger.addMessage("\n--- Encounter begins! ---");
                 // Attacking costs 1. //
                 cost += 1;
                 AUnit defender = findBestDefenderAt(position);
+                Logger.addMessage("Your warrior performs an attack for 1 action point.");
                 selected.attack(defender);
 
                 if (defender.isDead())
@@ -570,6 +576,7 @@ namespace SmallWorld.Core
                     // Enemy unit died in battle. //
                     int index = (currentState.activePlayerIndex + 1) % gameSettings.nbPlayers;
                     currentState.players[index].removeUnit(defender);
+                    Logger.addMessage("The foe is slained!");
                 }
 
                 List<AUnit> defenders = getUnitsAt(position);
@@ -582,9 +589,11 @@ namespace SmallWorld.Core
                         {
                             // If we are allowed to move, then we do it for free since we killed the unit. //
                             to = position;
+                            Logger.addMessage("After defeating his opponent, your warrior moves to (" + to.x + " ; " + to.y + ") for free.");
                         }
                     }
                 }
+                Logger.addMessage("--- Encounter ends. ---\n");
             }
             // Updates the currently selected unit's fields.
             selected.position = to;
