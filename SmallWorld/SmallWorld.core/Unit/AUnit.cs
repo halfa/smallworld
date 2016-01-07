@@ -154,7 +154,7 @@ namespace SmallWorld.Core
             if (amount < 0)
                 amount = 0;
             healthPt -= amount;
-            Logger.addMessage("The defender is hit, and loses " + amount + "health points, and 1 defence point.");
+            Logger.addMessage("The defender is hit, and loses " + amount + " health points, and 1 defence point.");
             if (healthPt < 0)
                 healthPt = 0;
         }
