@@ -556,7 +556,8 @@ namespace SmallWorld.Core
 
             double cost = computePathCost(path);
 
-            Logger.addMessage("Your warrior moves to (" + to.x + " ; " + to.y + ") for " + cost + " action points.");
+            if(!selected.position.equals(to))
+                Logger.addMessage("Your warrior moves to (" + to.x + " ; " + to.y + ") for " + cost + " action points.");
 
             // Now handles the attack if it was an attack comand.
             // If we are attacking, and we got a path, then it means we have enough action points to perform the attack, ie

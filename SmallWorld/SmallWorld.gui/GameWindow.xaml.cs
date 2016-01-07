@@ -30,6 +30,8 @@ namespace SmallWorld.gui
             InitializeComponent();
             GWVM = new GameWindowViewModel(gm);
             DataContext = GWVM;
+            BGAP = new BackgroundAudioPlayer();
+            BGAP.play();
             updateBoardDisplay();
         }
 
@@ -225,6 +227,7 @@ namespace SmallWorld.gui
 
         private void Quit_Click(object sender, RoutedEventArgs e)
         {
+            BGAP.stop();
             MainWindow win = new MainWindow();
             win.Show();
             Logger.empty();
@@ -238,6 +241,7 @@ namespace SmallWorld.gui
                 GWVM.LoadClick.Execute(null);
             if (GWVM.HasToClose)
             {
+                BGAP.stop();
                 Logger.empty();
                 GWVM.LW.Close();
                 Close();
