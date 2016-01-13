@@ -14,9 +14,6 @@
 \begin{document}
 \maketitle
 
-\paragraph{}
-Guide pour joueur
-\\
 \tableofcontents
 
 \newpage
@@ -24,7 +21,7 @@ Guide pour joueur
 \section*{Introduction}
 \paragraph{}
 Ce jeu vidéo est basé sur le jeu de plateau \textit{SmallWorld}. Il s'agit donc d'un jeu en tour par tour.
-Au cours d'une partie, les joueurs s'affrontent pendant un certain nombre de tours afin prendre le contrôle d'un territoire.
+Au cours d'une partie, les joueurs s'affrontent pendant un certain nombre de tours afin de prendre le contrôle d'un territoire.
 
 \section{Présentation des règles du jeu}
 
@@ -38,7 +35,6 @@ Le but de SmallWorld est d'accumuler des points de victoire.
 \begin{itemize}
     \item Choix de la configuration du plateau de jeu
     \item Choix des races
-    \item Choix du joueur qui commence la partie
     \item Création du plateau de jeu
     \item Début du premier tour de jeu\\(\dots)
     \item Fin du dernier tour de jeu
@@ -47,9 +43,9 @@ Le but de SmallWorld est d'accumuler des points de victoire.
 
 \subsubsection{Plateau de jeu}
 \paragraph{}
-Le jeu se déroule sur un plateau quadrillé de cases carrées dont la dimension dépend du nombre de joueurs et de la durée de la partie.\label{map_gen} Il est composé de cases de différents types : plaine, mer, montagne et forêt. La carte est générée de manière aléatoire, mais doit contenir le même nombre de cases de chaque type.
+Le jeu se déroule sur un plateau quadrillé de cases carrées dont la dimension dépend principalement de la durée de la partie (nombre de tours).\label{map_gen} Il est composé de cases de différents types : plaine, mer, montagne et forêt. La carte est générée de manière aléatoire, mais doit contenir le même nombre de cases de chaque type.
 
-\subsubsection{Unité}
+\subsubsection{Unités}
 \paragraph{}
 Des unités sont placées sur le plateau, sur lequel elles peuvent être déplacées. Elles possèdent des points d'action, rechargés en début de tour, mais aussi une jauge de vie et des statistiques d'attaque et de défense.
 
@@ -86,15 +82,14 @@ Il est possible d'attaquer une unité plusieurs fois de suite, à condition de d
 
 \subsubsection{Combat au corps à corps}
 Le combat au corps à corps est provoqué par un déplacement. Dans le cas de la mort de l'unité adverse, l'attaquant est déplacé sur sa case si aucune autre unité adverse ne s'y trouve encore. Dans le cas contraire, il conserve sa position.
-Lors de son attaque, il engendre une riposte de l'adversaire. Cette riposte n'influe pas sur les points d'actions dont disposera l'unité du défenseur au tour suivant.
 \subsubsection{Combat à distance}
-Un combat à distance n'implique pas de déplacement. L'attaquant doit se trouver sur la même ligne ou la même colonne que sa cible, à deux cases de distance. Sur la case vide situé entre l'attaquant et sa cible peut se trouver une unité allié ou adverse sans que cela n'ai d'incidence sur le déroulement de l'attaque.
-Ce combat se déroule sans contre-attaque de l'adversaire si celui-ci est de type corps à corps. S'il s'agit d'une unité de type distance, elle ripostera. Cependant, aucun déplacement n'est engendré en cas de victoire.
+Un combat à distance n'implique pas de déplacement. L'attaquant doit se trouver sur la même ligne ou la même colonne que sa cible, à deux cases de distance (boir \ref{range}. Sur la case vide situé entre l'attaquant et sa cible peut se trouver une unité allié ou adverse sans que cela n'ai d'incidence sur le déroulement de l'attaque.
+Contrairement à l'attaque au corps à corps, aucun déplacement n'est généré en cas de décès du défenseur.
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[scale=0.7]{./img/range_arrow.png}
-\caption{Porté d'un combattant à distance}
+\caption{\label{range}Portée d'un combattant à distance}
 \end{center}
 \end{figure}
 
@@ -148,24 +143,28 @@ Après avoir lancé l'exécutable, vous arrivez devant l'écran de lancement du 
 \newpage
 \section{Trucs et astuces}
 
+\subsection{Fenêtre de log}
+\paragraph{}
+À chaque action effectuée, une description des évènements est affichée dans la fenêtre de log. Ceci prend en compte les déplacements, les affrontements, et les débuts et fins de tours.
+
 \subsection{Suggestion de mouvements}
 \paragraph{}
 Si vous ne savez pas quoi jouer ce tour-ci, le jeu peut vous suggérer des mouvements possibles. Sélectionnez une unité puis appuyer sur \textit{Suggest Move}. Les cases suggérées deviendrons rouges.
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[scale=0.3]{./img/suggest_move.png}
+\includegraphics[scale=0.4]{./img/suggest_move.png}
 \caption{Suggestion de mouvement}
 \end{center}
 \end{figure}
 
-\subsection{Suggestion de mouvements}
+\subsection{Règles détaillées}
 \paragraph{}
-Vous pouvez accéder à une aide en jeux à tout moment via le bouton \textit{Game Rules}.
+Vous pouvez accéder à une aide en jeu à tout moment via le bouton \textit{Game Rules}.
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[scale=0.3]{./img/help.png}
+\includegraphics[scale=0.52]{./img/help.png}
 \caption{Aide en jeu}
 \end{center}
 \end{figure}
