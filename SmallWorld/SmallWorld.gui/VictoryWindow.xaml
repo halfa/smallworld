@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmallWorld.gui"
         mc:Ignorable="d"
-        Title="VictoryWindow" Width="270" Height="140"
+        Title="Victory" Width="270" Height="140"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
     <Grid Background="#FF2F2C2C">

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmallWorld.gui"
         mc:Ignorable="d"
-        Title="HelpWindow" Height="450" Width="570"
+        Title="Game Rules" Height="450" Width="570"
         WindowStartupLocation="CenterScreen">
     <Grid Background="#FF2F2C2C" >
         <TabControl x:Name="tabControl" Margin="0" Background="#FF2F2C2C" FontFamily="Andalus" FontSize="16">

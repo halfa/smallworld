@@ -540,7 +540,7 @@ namespace SmallWorld.Core
 
             if (path == null || position.equals(currentState.selectedUnit.position))
             {
-                Logger.addMessage("Strangely enough, your warrior decides not to move...");
+                Logger.addMessage("Strangely enough, this warrior decides not to move...");
                 return;
             }
             stack();

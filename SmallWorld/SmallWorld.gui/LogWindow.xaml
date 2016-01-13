@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmallWorld.gui"
         mc:Ignorable="d"
-        Title="LogWindow" Height="350" Width="390" Background="#FF2F2C2C">
+        Title="Battle Log" Height="350" Width="390" Background="#FF2F2C2C">
     <Grid>
         <ScrollViewer Name="Scroll" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="10">
             <TextBox SizeChanged="textBox_SizeChanged" x:Name="textBox" Margin="0" TextWrapping="Wrap" IsReadOnly="True" Text="{Binding Log, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Background="#FF2F2C2C" Foreground="#FFBFBC5C" BorderThickness="0" />

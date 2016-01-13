@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmallWorld.gui"
         mc:Ignorable="d"
-        Title="SmallWorld"
+        Title="Small World"
         ResizeMode="NoResize"
         Background="White" SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen"

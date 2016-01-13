@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
 namespace SmallWorld.gui
 {
@@ -14,7 +9,7 @@ namespace SmallWorld.gui
 
         public LogWindowViewModel()
         {
-            Log = "No log.";
+            Log = "";
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
