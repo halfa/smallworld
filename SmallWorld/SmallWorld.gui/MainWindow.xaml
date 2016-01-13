@@ -34,5 +34,6 @@
         </GroupBox>
         <Button x:Name="load" Content="Load previous game" HorizontalAlignment="Left" Margin="30,0,0,30" VerticalAlignment="Bottom" Width="144" Click="load_Click" FontFamily="Andalus" FontSize="16" Height="42" Background="White" BorderThickness="2"/>
         <Button x:Name="rules" Content="Game Rules" HorizontalAlignment="Center" Margin="0,0,0,30" VerticalAlignment="Bottom" Width="144" Command="{Binding RulesClick, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" FontFamily="Andalus" FontSize="16" Height="42" Background="White" BorderThickness="2"/>
+        <Image x:Name="Title_png" Source="Title.png" Stretch="Fill" Margin="20,20,20.4,279"/>
     </Grid>
 </Window>
