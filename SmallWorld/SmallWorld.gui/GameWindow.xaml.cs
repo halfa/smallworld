@@ -86,7 +86,7 @@ namespace SmallWorld.gui
             {
                 foreach(AUnit unit in p.units)
                 {
-                    Image img = getImageForRace(p.race);
+                    Image img = getImageForRace(unit.getRace());
                     Grid.SetZIndex(img, 222);
                     Grid.SetColumn(img, unit.position.x);
                     Grid.SetRow(img, unit.position.y);
